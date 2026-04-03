@@ -285,6 +285,12 @@ document.querySelector('#app').innerHTML = `
       <div class="group fade-in"><div class="img-zoom rounded-sm overflow-hidden mb-4"><img src="${images.greenField}" alt="5 acres of grounds" class="w-full h-[280px] object-cover" /></div><h3 class="font-[family-name:var(--font-display)] text-xl text-desert-night mb-2 italic">5 Acres of Grounds</h3><p class="text-desert-night/60 text-sm leading-relaxed">Over 3 acres of lush, golf-course quality grass. Room for events, games, or simply soaking in the mountain views.</p></div>
       <div class="group fade-in"><div class="img-zoom rounded-sm overflow-hidden mb-4"><img src="${images.lounge}" alt="Luxury lounge areas" class="w-full h-[280px] object-cover" /></div><h3 class="font-[family-name:var(--font-display)] text-xl text-desert-night mb-2 italic">Luxury Lounging</h3><p class="text-desert-night/60 text-sm leading-relaxed">Multiple outdoor seating areas, pergolas, and shaded retreats. Every corner is designed for comfort and conversation.</p></div>
     </div>
+    <div class="text-center mt-16 fade-in">
+      <div class="inline-block border border-[#c9943e]/30 px-8 py-4 rounded-sm">
+        <p class="font-[family-name:var(--font-accent)] text-[#c9943e]/80 text-sm tracking-[0.2em] uppercase font-light">Pickleball · Tennis · Resort Cabanas · More</p>
+        <p class="font-[family-name:var(--font-display)] text-desert-night/60 text-sm italic mt-1">New amenities arriving Spring & Summer 2026</p>
+      </div>
+    </div>
   </div>
 </section>
 
