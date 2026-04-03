@@ -1,0 +1,68 @@
+[2026-04-03T05:36:20.542Z] Dev server process group stopped
+[2026-04-03T05:36:20.571Z] ELIFECYCLE  Command failed.
+[2026-04-03T05:36:20.761Z] Dev server exited with code -15
+[2026-04-03T05:36:33.486Z] Starting dev server with command: pnpm run dev
+[2026-04-03T05:36:34.375Z] ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND  No package.json (or package.yaml, or package.json5) was found in "/home/ubuntu/sunset-club-ranch".
+[2026-04-03T05:36:34.398Z] Dev server exited with code 1
+[2026-04-03T05:44:12.623Z] Starting dev server with command: pnpm run dev
+[2026-04-03T05:44:13.033Z] 
+[2026-04-03T05:44:13.034Z] > sunset-club-ranch@1.0.0 dev /home/ubuntu/sunset-club-ranch
+[2026-04-03T05:44:13.034Z] > vite
+[2026-04-03T05:44:13.035Z] 
+[2026-04-03T05:44:14.630Z] 
+[2026-04-03T05:44:14.631Z] VITE v6.4.1  ready in 1557 ms
+[2026-04-03T05:44:14.632Z] 
+[2026-04-03T05:44:14.632Z] ➜  Local:   http://localhost:5173/
+[2026-04-03T05:44:14.633Z] ➜  Network: use --host to expose
+[2026-04-03T05:47:45.094Z] 1:47:45 AM [vite] vite.config.js changed, restarting server...
+[2026-04-03T05:47:45.128Z] 1:47:45 AM [vite] server restarted.
+[2026-04-03T05:48:07.118Z] ELIFECYCLE  Command failed.
+[2026-04-03T05:48:07.125Z] Terminated
+[2026-04-03T05:48:07.126Z] Dev server exited with code 143
+[2026-04-03T05:49:05.735Z] Starting dev server with command: pnpm run dev
+[2026-04-03T05:49:06.144Z] 
+[2026-04-03T05:49:06.145Z] > sunset-club-ranch@1.0.0 dev /home/ubuntu/sunset-club-ranch
+[2026-04-03T05:49:06.145Z] > vite
+[2026-04-03T05:49:06.145Z] 
+[2026-04-03T05:49:06.478Z] 
+[2026-04-03T05:49:06.479Z] VITE v6.4.1  ready in 295 ms
+[2026-04-03T05:49:06.480Z] 
+[2026-04-03T05:49:06.480Z] ➜  Local:   http://localhost:5173/
+[2026-04-03T05:49:06.481Z] ➜  Network: use --host to expose
+[2026-04-03T05:49:19.265Z] 1:49:19 AM [vite] vite.config.js changed, restarting server...
+[2026-04-03T05:49:19.286Z] 1:49:19 AM [vite] server restarted.
+[2026-04-03T05:49:19.287Z] 
+[2026-04-03T05:49:19.287Z] ➜  Local:   http://localhost:5173/
+[2026-04-03T05:49:19.288Z] ➜  Network: http://169.254.0.21:5173/
+[2026-04-03T05:49:22.903Z] Dev server process group stopped
+[2026-04-03T05:49:22.921Z] ELIFECYCLE  Command failed.
+[2026-04-03T05:49:22.928Z] Dev server exited with code -15
+[2026-04-03T05:49:25.916Z] Starting dev server with command: pnpm run dev
+[2026-04-03T05:49:26.295Z] 
+[2026-04-03T05:49:26.296Z] > sunset-club-ranch@1.0.0 dev /home/ubuntu/sunset-club-ranch
+[2026-04-03T05:49:26.296Z] > vite
+[2026-04-03T05:49:26.297Z] 
+[2026-04-03T05:49:26.593Z] 
+[2026-04-03T05:49:26.593Z] VITE v6.4.1  ready in 262 ms
+[2026-04-03T05:49:26.594Z] 
+[2026-04-03T05:49:26.594Z] ➜  Local:   http://localhost:5173/
+[2026-04-03T05:49:26.595Z] ➜  Network: http://169.254.0.21:5173/
+[2026-04-03T05:49:54.003Z] 1:49:54 AM [vite] (client) page reload src/main.js
+[2026-04-03T05:50:09.569Z] 1:50:09 AM [vite] (client) page reload src/main.js
+[2026-04-03T05:50:21.625Z] 1:50:21 AM [vite] (client) page reload src/main.js
+[2026-04-03T05:51:35.480Z] 1:51:35 AM [vite] (client) hmr update /src/style.css
+[2026-04-03T05:51:43.645Z] 1:51:43 AM [vite] (client) hmr update /src/style.css
+[2026-04-03T05:52:43.593Z] 1:52:43 AM [vite] changed tsconfig file detected: /home/ubuntu/sunset-club-ranch/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+[2026-04-03T05:52:43.594Z] 1:52:43 AM [vite] vite.config.js changed, restarting server...
+[2026-04-03T05:52:43.598Z] 1:52:43 AM [vite] (client) page reload .vite/deps/_metadata.json
+[2026-04-03T05:52:43.599Z] 1:52:43 AM [vite] (client) page reload .vite/deps/package.json
+[2026-04-03T05:52:43.599Z] 1:52:43 AM [vite] (client) page reload ideas.md
+[2026-04-03T05:52:43.600Z] 1:52:43 AM [vite] (client) page reload index.html
+[2026-04-03T05:52:43.601Z] 1:52:43 AM [vite] (client) page reload pnpm-workspace.yaml
+[2026-04-03T05:52:43.601Z] 1:52:43 AM [vite] (client) page reload src/main.js
+[2026-04-03T05:52:43.601Z] 1:52:43 AM [vite] (client) hmr update /src/style.css
+[2026-04-03T05:52:43.602Z] 1:52:43 AM [vite] (client) page reload client/index.html
+[2026-04-03T05:52:43.631Z] 1:52:43 AM [vite] server restarted.
+[2026-04-03T05:52:43.632Z] 
+[2026-04-03T05:52:43.632Z] ➜  Local:   http://localhost:5173/
+[2026-04-03T05:52:43.632Z] ➜  Network: use --host to expose
