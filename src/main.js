@@ -196,10 +196,10 @@ document.querySelector('#app').innerHTML = `
       </div>
       <div class="order-1 md:order-2 scale-up">
         <div class="video-container">
-          <video id="drone-video" playsinline preload="metadata" poster="${images.sunset}">
+          <video id="drone-video" playsinline preload="auto" autoplay muted loop>
             <source src="${VIDEO_URL}" type="video/mp4" />
           </video>
-          <div id="video-play-btn" class="video-play-btn">
+          <div id="video-play-btn" class="video-play-btn" style="display:none">
             <svg viewBox="0 0 80 80" fill="none">
               <circle cx="40" cy="40" r="38" stroke="white" stroke-width="2" opacity="0.8"/>
               <polygon points="32,24 58,40 32,56" fill="white" opacity="0.9"/>
@@ -511,26 +511,9 @@ document.querySelectorAll('.mobile-link').forEach(link => {
 const video = document.getElementById('drone-video')
 const playBtn = document.getElementById('video-play-btn')
 
-playBtn.addEventListener('click', () => {
-  video.play()
-  playBtn.classList.add('hidden')
-})
-
-video.addEventListener('pause', () => {
-  playBtn.classList.remove('hidden')
-})
-
-video.addEventListener('ended', () => {
-  playBtn.classList.remove('hidden')
-})
-
+// Video autoplays muted, click to unmute/mute
 video.addEventListener('click', () => {
-  if (video.paused) {
-    video.play()
-    playBtn.classList.add('hidden')
-  } else {
-    video.pause()
-  }
+  video.muted = !video.muted
 })
 
 // ============================================
