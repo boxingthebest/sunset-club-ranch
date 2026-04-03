@@ -5,7 +5,7 @@ const VIDEO_URL = 'https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhp
 
 // Real property photos
 const heroImages = {
-  poolNight: 'https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhpJed4ijK2D/pool-aerial-hero_b6d823c8.png',
+  poolNight: 'https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhpJed4ijK2D/pool-aerial-clean_f4f923b2.png',
   desertSunset: `${IMG}17e7afd7-b9b7-44c5-bc61-389cb62c940b.jpeg?im_w=1200`,
   interiorLiving: `${IMG}1d1674f5-0083-4a79-956f-e929bc9c2033.jpeg?im_w=1200`,
   outdoorDining: `${IMG}07695109-c773-4743-b458-b6397b49920f.jpeg?im_w=1200`,
