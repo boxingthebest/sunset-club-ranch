@@ -78,10 +78,10 @@ body {
 .logo-tagline {
   font-family: var(--font-accent);
   font-weight: 300;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 6px;
   text-transform: uppercase;
-  color: #a89880;
+  color: #dccdb4;
   margin-top: 16px;
 }
 
@@ -94,10 +94,10 @@ body {
 
 /* Hero logo - large */
 .hero-logo .logo-main { font-size: 72px; letter-spacing: 4px; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
-.hero-logo .logo-ranch { font-size: 18px; letter-spacing: 22px; color: #d4a44a; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
-.hero-logo .logo-line { width: 50px; height: 1.5px; }
+.hero-logo .logo-ranch { font-size: 20px; letter-spacing: 26px; color: #d4af55; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
+.hero-logo .logo-line { width: 65px; height: 2px; }
 .hero-logo .logo-ranch-row { gap: 18px; margin-top: 8px; }
-.hero-logo .logo-tagline { font-size: 10px; letter-spacing: 8px; margin-top: 24px; color: #b8a890; text-shadow: 0 1px 6px rgba(0,0,0,0.3); }
+.hero-logo .logo-tagline { font-size: 14px; letter-spacing: 8px; margin-top: 28px; color: #dccdb4; text-shadow: 0 1px 6px rgba(0,0,0,0.3); }
 
 @media (max-width: 768px) {
   .hero-logo .logo-main { font-size: 40px; }
