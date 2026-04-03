@@ -66,3 +66,20 @@
 [2026-04-03T05:52:43.632Z] 
 [2026-04-03T05:52:43.632Z] ➜  Local:   http://localhost:5173/
 [2026-04-03T05:52:43.632Z] ➜  Network: use --host to expose
+[2026-04-03T05:52:44.486Z] 1:52:44 AM [vite] changed tsconfig file detected: /home/ubuntu/sunset-club-ranch/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+[2026-04-03T05:52:44.488Z] 1:52:44 AM [vite] (client) page reload index.html
+[2026-04-03T05:52:44.489Z] 1:52:44 AM [vite] (client) page reload client/index.html
+[2026-04-03T05:52:44.491Z] 1:52:44 AM [vite] (client) page reload index.html
+[2026-04-03T05:59:28.994Z] Dev server process group stopped
+[2026-04-03T05:59:29.013Z] ELIFECYCLE  Command failed.
+[2026-04-03T05:59:29.021Z] Dev server exited with code -15
+[2026-04-03T05:59:32.008Z] Starting dev server with command: pnpm run dev
+[2026-04-03T05:59:32.426Z] 
+[2026-04-03T05:59:32.427Z] > sunset-club-ranch@1.0.0 dev /home/ubuntu/sunset-club-ranch
+[2026-04-03T05:59:32.427Z] > vite
+[2026-04-03T05:59:32.427Z] 
+[2026-04-03T05:59:32.809Z] 
+[2026-04-03T05:59:32.810Z] VITE v6.4.1  ready in 334 ms
+[2026-04-03T05:59:32.810Z] 
+[2026-04-03T05:59:32.810Z] ➜  Local:   http://localhost:5173/
+[2026-04-03T05:59:32.811Z] ➜  Network: http://169.254.0.21:5173/

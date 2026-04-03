@@ -3,13 +3,13 @@ import './style.css'
 const IMG = 'https://a0.muscache.com/im/pictures/miso/Hosting-699544865688282514/original/'
 const VIDEO_URL = 'https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhpJed4ijK2D/sunset-ranch-drone_5a2dd348.mp4'
 
-// Generated hero images
+// Real property photos
 const heroImages = {
-  poolNight: 'https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhpJed4ijK2D/hero-pool-night-kbX2JybPppqbmGeDVbgdQj.webp',
-  desertSunset: 'https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhpJed4ijK2D/hero-desert-sunset-XyWkPVMc7EG2HmxRThXBZb.webp',
-  interiorLiving: 'https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhpJed4ijK2D/hero-interior-living-LmHHmACjevK8VxcC289F6Y.webp',
-  outdoorDining: 'https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhpJed4ijK2D/hero-outdoor-dining-oKBCBLSiMAzeG67Zv67R3b.webp',
-  aerialEstate: 'https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhpJed4ijK2D/hero-aerial-estate-cz5LtWTuPb4tycrd7BYQBR.webp',
+  poolNight: 'https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhpJed4ijK2D/pool-aerial-hero_b6d823c8.png',
+  desertSunset: `${IMG}17e7afd7-b9b7-44c5-bc61-389cb62c940b.jpeg?im_w=1200`,
+  interiorLiving: `${IMG}1d1674f5-0083-4a79-956f-e929bc9c2033.jpeg?im_w=1200`,
+  outdoorDining: `${IMG}07695109-c773-4743-b458-b6397b49920f.jpeg?im_w=1200`,
+  aerialEstate: `${IMG}04b2e43b-d83e-4716-815c-31428524c6a3.jpeg?im_w=1200`,
 }
 
 const images = {
@@ -113,7 +113,7 @@ document.querySelector('#app').innerHTML = `
 <!-- ========== HERO ========== -->
 <section class="relative h-screen min-h-[700px] flex items-center justify-center">
   <div class="absolute inset-0">
-    <img src="${heroImages.poolNight}" alt="Sunset Club Ranch pool at night" class="w-full h-full object-cover" />
+    <img src="${heroImages.poolNight}" alt="Sunset Club Ranch pool aerial view with cabanas and palm trees" class="w-full h-full object-cover" />
     <div class="hero-overlay absolute inset-0"></div>
   </div>
   <div class="relative z-10 text-center px-6 fade-in">
