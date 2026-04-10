@@ -49,21 +49,33 @@ const galleryImages = [
 
 const reviews = [
   {
-    text: "This place is absolutely unreal. We had 18 people for Coachella and everyone had their own space. The pool, the outdoor kitchen, the games — we never wanted to leave.",
-    name: "Marcus T.",
-    event: "Coachella Weekend",
+    text: "This house was amazing! Matthew is the man! Super amazing host and the property is something out of the movies. Recommend to everyone!",
+    name: "Grant",
+    event: "Group Trip",
     stars: 5
   },
   {
-    text: "We hosted our wedding here and it was beyond anything we imagined. The grounds at sunset are breathtaking. Our guests are still talking about it.",
-    name: "Sarah & James",
-    event: "Desert Wedding",
+    text: "Loved our stay at Sunset Club Ranch! Tons of outdoor space with three separate spaces for our families and a fantastic pool, all tucked behind private gates. The pool area was a highlight. If you're looking for a group-friendly spot, this is it.",
+    name: "Benjamin",
+    event: "Stayed with Kids · Minnesota",
     stars: 5
   },
   {
-    text: "Best family reunion we've ever had. Three houses meant grandparents had peace and quiet while the kids had the bunk house. The property is immaculate.",
-    name: "Linda R.",
-    event: "Family Reunion",
+    text: "The property was stunning and comfortable for a larger group. Matthew was incredibly responsive and helpful during our stay!",
+    name: "Madeline",
+    event: "Group Trip · Los Angeles",
+    stars: 5
+  },
+  {
+    text: "Great stay. Highly recommend for a large group. In our case, a golf trip. Property in great shape and as described. Matthew was very responsive and helpful. Would stay at this property again.",
+    name: "Sam",
+    event: "Group Trip · Los Angeles",
+    stars: 5
+  },
+  {
+    text: "Fantastic place! Highly recommend for a large group.",
+    name: "Chris",
+    event: "Group Trip · Utah",
     stars: 5
   }
 ]
@@ -91,6 +103,7 @@ document.querySelector('#app').innerHTML = `
       <a href="#amenities" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Amenities</a>
       <a href="#gallery" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Gallery</a>
       <a href="#events" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Events</a>
+      <a href="#reviews" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Reviews</a>
       <a href="#contact" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Contact</a>
       <a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow rounded-sm font-[family-name:var(--font-accent)]">Book Now</a>
     </div>
@@ -106,6 +119,7 @@ document.querySelector('#app').innerHTML = `
   <a href="#amenities" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Amenities</a>
   <a href="#gallery" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Gallery</a>
   <a href="#events" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Events</a>
+  <a href="#reviews" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Reviews</a>
   <a href="#contact" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Contact</a>
   <a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-8 py-3 text-lg font-semibold tracking-wider uppercase mt-4 font-[family-name:var(--font-accent)]">Book Now</a>
 </div>
@@ -305,15 +319,22 @@ document.querySelector('#app').innerHTML = `
 </section>
 
 <!-- ========== GUEST REVIEWS ========== -->
-<section class="py-24 md:py-32 bg-sand-50">
+<section id="reviews" class="py-24 md:py-32 bg-sand-50">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16 fade-in">
       <p class="font-[family-name:var(--font-accent)] text-[#c9943e] text-sm tracking-[0.3em] uppercase mb-4 font-light">Guest Experiences</p>
       <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-desert-night leading-tight italic">What People Are Saying</h2>
       <div class="gold-divider mt-6"></div>
     </div>
+    <!-- IG Reel Embed -->
+    <div class="flex justify-center mb-16 fade-in">
+      <div class="relative w-full max-w-[360px] rounded-lg overflow-hidden shadow-2xl" style="aspect-ratio: 9/16;">
+        <iframe src="https://www.instagram.com/reel/DW7nIkWEdRc/embed" class="absolute inset-0 w-full h-full border-0" allowfullscreen scrolling="no" allow="encrypted-media"></iframe>
+      </div>
+    </div>
+
     <div class="grid md:grid-cols-3 gap-8 stagger-children">
-      ${reviews.map(r => `
+      ${reviews.slice(0, 3).map(r => `
         <div class="review-card fade-in">
           <div class="review-stars mb-4">${'&#9733;'.repeat(r.stars)}</div>
           <p class="text-desert-night/80 leading-relaxed mb-6 text-[15px] relative z-10">${r.text}</p>
@@ -323,6 +344,21 @@ document.querySelector('#app').innerHTML = `
           </div>
         </div>
       `).join('')}
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 mt-8 max-w-4xl mx-auto stagger-children">
+      ${reviews.slice(3).map(r => `
+        <div class="review-card fade-in">
+          <div class="review-stars mb-4">${'&#9733;'.repeat(r.stars)}</div>
+          <p class="text-desert-night/80 leading-relaxed mb-6 text-[15px] relative z-10">${r.text}</p>
+          <div class="border-t border-sand-200 pt-4">
+            <p class="font-[family-name:var(--font-display)] text-desert-night font-semibold italic">${r.name}</p>
+            <p class="text-desert-night/50 text-sm font-[family-name:var(--font-accent)] font-light">${r.event}</p>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="text-center mt-12 fade-in">
+      <a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="inline-block border border-[#c9943e]/40 text-[#c9943e] px-8 py-3.5 text-sm font-light tracking-wider uppercase hover:bg-[#c9943e] hover:text-[#110e0a] transition-all font-[family-name:var(--font-accent)]">Read All Reviews on Airbnb</a>
     </div>
   </div>
 </section>
@@ -452,7 +488,7 @@ document.querySelector('#app').innerHTML = `
     </div>
     <div class="grid md:grid-cols-3 gap-12 mb-12">
       <div><p class="text-[#f0e6d3]/50 text-sm leading-relaxed">A private 5-acre luxury desert estate in Indio, California. Steps from Coachella & Stagecoach.</p></div>
-      <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Quick Links</h4><div class="space-y-2"><a href="#estate" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">The Estate</a><a href="#homes" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Homes</a><a href="#amenities" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Amenities</a><a href="#gallery" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Gallery</a><a href="#events" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Events</a><a href="#contact" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Contact</a></div></div>
+      <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Quick Links</h4><div class="space-y-2"><a href="#estate" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">The Estate</a><a href="#homes" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Homes</a><a href="#amenities" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Amenities</a><a href="#gallery" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Gallery</a><a href="#events" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Events</a><a href="#reviews" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Reviews</a><a href="#contact" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Contact</a></div></div>
       <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Connect</h4><div class="space-y-2"><a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Airbnb</a><a href="https://instagram.com/sunsetclubranch" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Instagram</a><a href="mailto:info@sunsetclubranch.com" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">info@sunsetclubranch.com</a></div></div>
     </div>
     <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
