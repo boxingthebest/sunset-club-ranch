@@ -105,7 +105,7 @@ document.querySelector('#app').innerHTML = `
       <a href="#events" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Events</a>
       <a href="#reviews" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Reviews</a>
       <a href="#contact" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Contact</a>
-      <a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow rounded-sm font-[family-name:var(--font-accent)]">Book Now</a>
+      <a href="#book" class="bg-[#c9943e] text-[#110e0a] px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow rounded-sm font-[family-name:var(--font-accent)]">Book Now</a>
     </div>
     <button id="mobile-toggle" class="md:hidden text-white"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
   </div>
@@ -121,7 +121,7 @@ document.querySelector('#app').innerHTML = `
   <a href="#events" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Events</a>
   <a href="#reviews" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Reviews</a>
   <a href="#contact" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Contact</a>
-  <a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-8 py-3 text-lg font-semibold tracking-wider uppercase mt-4 font-[family-name:var(--font-accent)]">Book Now</a>
+  <a href="#book" class="bg-[#c9943e] text-[#110e0a] px-8 py-3 text-lg font-semibold tracking-wider uppercase mt-4 font-[family-name:var(--font-accent)]">Book Now</a>
 </div>
 
 <!-- ========== HERO ========== -->
@@ -134,7 +134,7 @@ document.querySelector('#app').innerHTML = `
     ${logoHTML('hero')}
     <p class="text-[#f0e6d3]/70 text-lg md:text-xl max-w-xl mx-auto leading-relaxed mt-10 mb-8 font-[family-name:var(--font-body)] font-light">A private 5-acre desert estate with 3 homes, heated pool & spa, and room for 20+ guests. Steps from Coachella & Stagecoach.</p>
     <div class="flex flex-wrap gap-4 justify-center">
-      <a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-8 py-3.5 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Book Your Stay</a>
+      <a href="#book" class="bg-[#c9943e] text-[#110e0a] px-8 py-3.5 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Book Your Stay</a>
       <a href="#estate" class="border border-white/30 text-white px-8 py-3.5 text-sm font-light tracking-wider uppercase hover:bg-white/10 transition-all font-[family-name:var(--font-accent)]">Explore</a>
     </div>
   </div>
@@ -436,6 +436,21 @@ document.querySelector('#app').innerHTML = `
     </div>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 stagger-children">
       ${[['Private Chef','&#127860;'],['Catering','&#127867;'],['Grocery Pickup','&#128722;'],['Shuttle Service','&#128663;'],['Mobile Massage','&#128134;'],['Pool Heating','&#127754;']].map(([name, icon]) => `<div class="text-center p-6 bg-white rounded-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 fade-in"><p class="text-3xl mb-3">${icon}</p><p class="text-desert-night text-sm font-medium font-[family-name:var(--font-accent)]">${name}</p></div>`).join('')}
+    </div>
+  </div>
+</section>
+
+<!-- ========== BOOK NOW (Guesty Direct Booking) ========== -->
+<section id="book" class="py-24 md:py-32 bg-[#110e0a]">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="fade-in">
+      <p class="font-[family-name:var(--font-accent)] text-[#c9943e] text-sm tracking-[0.3em] uppercase mb-4 font-light">Direct Booking</p>
+      <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-[#f0e6d3] leading-tight mb-6 italic">Book Your Stay</h2>
+      <div class="gold-divider mt-4 mb-8"></div>
+      <p class="text-[#f0e6d3]/70 text-lg leading-relaxed mb-10">Check availability and book directly — best rates guaranteed, no platform fees.</p>
+      <div id="guesty-widget-wrapper" class="bg-white/5 backdrop-blur-sm rounded-sm p-6 md:p-10">
+        <div id="search-widget_IO312PWQ"></div>
+      </div>
     </div>
   </div>
 </section>
