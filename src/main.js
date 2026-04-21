@@ -105,7 +105,7 @@ document.querySelector('#app').innerHTML = `
       <a href="#events" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Events</a>
       <a href="#reviews" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Reviews</a>
       <a href="#contact" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Contact</a>
-      <a href="#book" class="bg-[#c9943e] text-[#110e0a] px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow rounded-sm font-[family-name:var(--font-accent)]">Book Now</a>
+      <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow rounded-sm font-[family-name:var(--font-accent)]">Book Now</a>
     </div>
     <button id="mobile-toggle" class="md:hidden text-white"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
   </div>
@@ -121,7 +121,7 @@ document.querySelector('#app').innerHTML = `
   <a href="#events" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Events</a>
   <a href="#reviews" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Reviews</a>
   <a href="#contact" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Contact</a>
-  <a href="#book" class="bg-[#c9943e] text-[#110e0a] px-8 py-3 text-lg font-semibold tracking-wider uppercase mt-4 font-[family-name:var(--font-accent)]">Book Now</a>
+  <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-8 py-3 text-lg font-semibold tracking-wider uppercase mt-4 font-[family-name:var(--font-accent)]">Book Now</a>
 </div>
 
 <!-- ========== HERO ========== -->
@@ -134,7 +134,7 @@ document.querySelector('#app').innerHTML = `
     ${logoHTML('hero')}
     <p class="text-[#f0e6d3]/70 text-lg md:text-xl max-w-xl mx-auto leading-relaxed mt-10 mb-8 font-[family-name:var(--font-body)] font-light">A private 5-acre desert estate with 3 homes, heated pool & spa, and room for 20+ guests. Steps from Coachella & Stagecoach.</p>
     <div class="flex flex-wrap gap-4 justify-center">
-      <a href="#book" class="bg-[#c9943e] text-[#110e0a] px-8 py-3.5 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Book Your Stay</a>
+      <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-8 py-3.5 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Book Your Stay</a>
       <a href="#estate" class="border border-white/30 text-white px-8 py-3.5 text-sm font-light tracking-wider uppercase hover:bg-white/10 transition-all font-[family-name:var(--font-accent)]">Explore</a>
     </div>
   </div>
@@ -206,7 +206,7 @@ document.querySelector('#app').innerHTML = `
         <h2 class="font-[family-name:var(--font-display)] text-white text-4xl md:text-5xl font-medium leading-tight mb-6 italic">See It From Above</h2>
         <div class="gold-divider !justify-start mt-4"></div>
         <p class="text-[#f0e6d3]/60 text-lg leading-relaxed mt-8 mb-8">Five acres of manicured grounds, three private homes, a resort-style pool, and mountain views in every direction. This is what your desert getaway looks like.</p>
-        <a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="inline-block bg-[#c9943e] text-[#110e0a] px-10 py-4 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Check Availability</a>
+        <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="inline-block bg-[#c9943e] text-[#110e0a] px-10 py-4 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Check Availability</a>
       </div>
       <div class="order-1 md:order-2 scale-up">
         <div class="video-container">
@@ -372,7 +372,7 @@ document.querySelector('#app').innerHTML = `
       <h2 class="font-[family-name:var(--font-display)] text-white text-4xl md:text-5xl font-medium leading-tight mb-6 italic">Your Coachella<br/>Basecamp</h2>
       <div class="gold-divider !justify-start mt-4"></div>
       <p class="text-[#f0e6d3]/80 text-lg leading-relaxed mb-8 mt-8">Just blocks from the Empire Polo Club — home to Coachella and Stagecoach. Skip the shuttle lines. Walk to the festival. Come home to your private resort.</p>
-      <a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="inline-block bg-[#c9943e] text-[#110e0a] px-10 py-4 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Check Availability</a>
+      <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="inline-block bg-[#c9943e] text-[#110e0a] px-10 py-4 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Check Availability</a>
     </div>
   </div>
 </section>
@@ -465,7 +465,7 @@ document.querySelector('#app').innerHTML = `
         <div class="gold-divider !justify-start mt-4"></div>
         <p class="text-desert-night/70 text-lg leading-relaxed mb-8 mt-8">Whether it's a festival weekend, a wedding, or a family reunion — we'd love to host you. Reach out for availability, pricing, or custom event planning.</p>
         <div class="space-y-4 mb-8">
-          <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">Book on Airbnb</a></div>
+          <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">Book Here</a></div>
           <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="https://instagram.com/sunsetclubranch" target="_blank" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">@sunsetclubranch</a></div>
           <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="mailto:info@sunsetclubranch.com" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">info@sunsetclubranch.com</a></div>
           <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><p class="text-desert-night/70">Indio, California 92201</p></div>
@@ -504,7 +504,7 @@ document.querySelector('#app').innerHTML = `
     <div class="grid md:grid-cols-3 gap-12 mb-12">
       <div><p class="text-[#f0e6d3]/50 text-sm leading-relaxed">A private 5-acre luxury desert estate in Indio, California. Steps from Coachella & Stagecoach.</p></div>
       <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Quick Links</h4><div class="space-y-2"><a href="#estate" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">The Estate</a><a href="#homes" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Homes</a><a href="#amenities" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Amenities</a><a href="#gallery" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Gallery</a><a href="#events" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Events</a><a href="#reviews" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Reviews</a><a href="#contact" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Contact</a></div></div>
-      <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Connect</h4><div class="space-y-2"><a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Airbnb</a><a href="https://instagram.com/sunsetclubranch" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Instagram</a><a href="mailto:info@sunsetclubranch.com" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">info@sunsetclubranch.com</a></div></div>
+      <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Connect</h4><div class="space-y-2"><a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Book Here</a><a href="https://instagram.com/sunsetclubranch" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Instagram</a><a href="mailto:info@sunsetclubranch.com" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">info@sunsetclubranch.com</a></div></div>
     </div>
     <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="text-[#f0e6d3]/30 text-xs">&copy; 2026 Sunset Club Ranch. All rights reserved.</p>
