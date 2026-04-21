@@ -105,7 +105,7 @@ document.querySelector('#app').innerHTML = `
       <a href="#events" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Events</a>
       <a href="#reviews" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Reviews</a>
       <a href="#contact" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Contact</a>
-      <a href="tel:+17604139426" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">760-413-9426</a>
+      <a href="tel:+17608000416" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">760-800-0416</a>
       <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow rounded-sm font-[family-name:var(--font-accent)]">Book Now</a>
     </div>
     <button id="mobile-toggle" class="md:hidden text-white"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
@@ -122,7 +122,7 @@ document.querySelector('#app').innerHTML = `
   <a href="#events" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Events</a>
   <a href="#reviews" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Reviews</a>
   <a href="#contact" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Contact</a>
-  <a href="tel:+17604139426" class="text-[#c9943e] text-lg font-[family-name:var(--font-accent)] font-light tracking-[0.15em] mt-2">760-413-9426</a>
+  <a href="tel:+17608000416" class="text-[#c9943e] text-lg font-[family-name:var(--font-accent)] font-light tracking-[0.15em] mt-2">760-800-0416</a>
   <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-8 py-3 text-lg font-semibold tracking-wider uppercase mt-4 font-[family-name:var(--font-accent)]">Book Now</a>
 </div>
 
@@ -501,7 +501,7 @@ document.querySelector('#app').innerHTML = `
           <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
         </button>
         <div class="faq-answer px-8 pb-6 hidden">
-          <p class="text-desert-night/70 text-sm leading-relaxed">When you book direct, we offer the most flexible cancellation terms available &mdash; something third-party platforms can&rsquo;t match. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Book direct</a> or call <a href="tel:+17604139426" class="text-[#c9943e] underline hover:brightness-110">760-413-9426</a> to lock in the best terms for your dates.</p>
+          <p class="text-desert-night/70 text-sm leading-relaxed">When you book direct, we offer the most flexible cancellation terms available &mdash; something third-party platforms can&rsquo;t match. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Book direct</a> or call <a href="tel:+17608000416" class="text-[#c9943e] underline hover:brightness-110">760-800-0416</a> to lock in the best terms for your dates.</p>
         </div>
       </div>
       <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
@@ -546,7 +546,7 @@ document.querySelector('#app').innerHTML = `
           <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
         </button>
         <div class="faq-answer px-8 pb-6 hidden">
-          <p class="text-desert-night/70 text-sm leading-relaxed">Absolutely &mdash; 5 acres of manicured grounds, mountain views, on-site lodging for your entire group, and a full outdoor kitchen. Weddings, corporate retreats, milestone celebrations. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Inquire direct</a> or call <a href="tel:+17604139426" class="text-[#c9943e] underline hover:brightness-110">760-413-9426</a> for a custom quote.</p>
+          <p class="text-desert-night/70 text-sm leading-relaxed">Absolutely &mdash; 5 acres of manicured grounds, mountain views, on-site lodging for your entire group, and a full outdoor kitchen. Weddings, corporate retreats, milestone celebrations. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Inquire direct</a> or call <a href="tel:+17608000416" class="text-[#c9943e] underline hover:brightness-110">760-800-0416</a> for a custom quote.</p>
         </div>
       </div>
       <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
@@ -592,7 +592,7 @@ document.querySelector('#app').innerHTML = `
       <p class="text-[#f0e6d3]/50 text-sm leading-relaxed mb-10">Save up to 15% compared to third-party platforms. Flexible cancellation on most dates.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-12 py-4 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Check Availability & Book</a>
-        <a href="tel:+17604139426" class="border border-[#f0e6d3]/30 text-[#f0e6d3] px-10 py-4 text-sm font-light tracking-wider uppercase hover:bg-white/10 transition-all font-[family-name:var(--font-accent)]">Call 760-413-9426</a>
+        <a href="tel:+17608000416" class="border border-[#f0e6d3]/30 text-[#f0e6d3] px-10 py-4 text-sm font-light tracking-wider uppercase hover:bg-white/10 transition-all font-[family-name:var(--font-accent)]">Call 760-800-0416</a>
       </div>
     </div>
   </div>
@@ -610,8 +610,8 @@ document.querySelector('#app').innerHTML = `
         <div class="space-y-4 mb-8">
           <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">Book Here</a></div>
           <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="https://instagram.com/sunsetclubranch" target="_blank" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">@sunsetclubranch</a></div>
-          <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="tel:+17604139426" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">760-413-9426</a></div>
-          <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="mailto:info@sunsetclubranch.com" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">info@sunsetclubranch.com</a></div>
+          <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="tel:+17608000416" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">760-800-0416</a></div>
+          <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="mailto:team@apekrentals.com" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">team@apekrentals.com</a></div>
           <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><p class="text-desert-night/70">Indio, California 92201</p></div>
         </div>
         <div class="img-zoom rounded-sm overflow-hidden"><img src="${images.twilight}" alt="Sunset Club Ranch at twilight" class="w-full h-[300px] object-cover" /></div>
@@ -648,7 +648,7 @@ document.querySelector('#app').innerHTML = `
     <div class="grid md:grid-cols-3 gap-12 mb-12">
       <div><p class="text-[#f0e6d3]/50 text-sm leading-relaxed">A private 5-acre luxury desert estate in Indio, California. Steps from Coachella & Stagecoach.</p></div>
       <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Quick Links</h4><div class="space-y-2"><a href="#estate" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">The Estate</a><a href="#homes" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Homes</a><a href="#amenities" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Amenities</a><a href="#gallery" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Gallery</a><a href="#events" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Events</a><a href="#reviews" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Reviews</a><a href="#contact" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Contact</a></div></div>
-      <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Connect</h4><div class="space-y-2"><a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Book Here</a><a href="tel:+17604139426" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">760-413-9426</a><a href="https://instagram.com/sunsetclubranch" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Instagram</a><a href="mailto:info@sunsetclubranch.com" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">info@sunsetclubranch.com</a></div></div>
+      <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Connect</h4><div class="space-y-2"><a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Book Here</a><a href="tel:+17608000416" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">760-800-0416</a><a href="https://instagram.com/sunsetclubranch" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Instagram</a><a href="mailto:team@apekrentals.com" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">team@apekrentals.com</a></div></div>
     </div>
     <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="text-[#f0e6d3]/30 text-xs">&copy; 2026 Sunset Club Ranch. All rights reserved.</p>
@@ -772,7 +772,7 @@ document.getElementById('inquiry-form').addEventListener('submit', (e) => {
   const data = Object.fromEntries(formData)
   const subject = encodeURIComponent(`Booking Inquiry - ${data.event_type || 'General'} - ${data.name}`)
   const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\nCheck-in: ${data.checkin || 'Flexible'}\nCheck-out: ${data.checkout || 'Flexible'}\nEvent Type: ${data.event_type || 'N/A'}\nGuests: ${data.guests || 'N/A'}\nMessage: ${data.message || 'N/A'}`)
-  window.location.href = `mailto:info@sunsetclubranch.com?subject=${subject}&body=${body}`
+  window.location.href = `mailto:team@apekrentals.com?subject=${subject}&body=${body}`
   const btn = e.target.querySelector('button[type="submit"]')
   btn.textContent = 'Inquiry Sent!'
   btn.style.backgroundColor = '#45735a'
