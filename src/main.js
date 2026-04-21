@@ -501,7 +501,7 @@ document.querySelector('#app').innerHTML = `
           <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
         </button>
         <div class="faq-answer px-8 pb-6 hidden">
-          <p class="text-desert-night/70 text-sm leading-relaxed">Our standard policy offers a full refund if cancelled 60+ days before check-in. Cancellations within 60 days receive a 50% refund. Festival weekends (Coachella, Stagecoach) are non-refundable within 90 days of the event. Custom terms are available for weddings and corporate events &mdash; just ask.</p>
+          <p class="text-desert-night/70 text-sm leading-relaxed">When you book direct, we offer the most flexible cancellation terms available &mdash; something third-party platforms can&rsquo;t match. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Book direct</a> or call <a href="tel:+17604139426" class="text-[#c9943e] underline hover:brightness-110">760-413-9426</a> to lock in the best terms for your dates.</p>
         </div>
       </div>
       <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
@@ -510,7 +510,7 @@ document.querySelector('#app').innerHTML = `
           <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
         </button>
         <div class="faq-answer px-8 pb-6 hidden">
-          <p class="text-desert-night/70 text-sm leading-relaxed">Unfortunately, pets are not permitted on the property. This policy ensures the estate remains pristine for all guests and protects the landscaped grounds.</p>
+          <p class="text-desert-night/70 text-sm leading-relaxed">Pets are considered on a case-by-case basis. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Book direct</a> and let us know your situation &mdash; we&rsquo;re happy to work with you.</p>
         </div>
       </div>
       <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
@@ -519,7 +519,7 @@ document.querySelector('#app').innerHTML = `
           <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
         </button>
         <div class="faq-answer px-8 pb-6 hidden">
-          <p class="text-desert-night/70 text-sm leading-relaxed">Check-in is at 4:00 PM and check-out is at 10:00 AM. Early check-in or late check-out may be available upon request, subject to availability and a potential fee.</p>
+          <p class="text-desert-night/70 text-sm leading-relaxed">Check-in is at 4:00 PM and check-out is at 10:00 AM. Need flexibility? Direct bookers get priority for early check-in and late check-out. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Book direct</a> to request.</p>
         </div>
       </div>
       <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
@@ -528,7 +528,7 @@ document.querySelector('#app').innerHTML = `
           <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
         </button>
         <div class="faq-answer px-8 pb-6 hidden">
-          <p class="text-desert-night/70 text-sm leading-relaxed">Sunset Club Ranch is just 0.8 miles from the Empire Polo Club &mdash; home to both Coachella and Stagecoach. That's approximately a 3-minute drive or a short bike ride. No shuttles needed.</p>
+          <p class="text-desert-night/70 text-sm leading-relaxed">Just 0.8 miles &mdash; a 3-minute drive from the Empire Polo Club. No shuttles, no surge pricing, no stress. Festival dates sell out fast. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Secure your dates now</a>.</p>
         </div>
       </div>
       <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
@@ -537,7 +537,7 @@ document.querySelector('#app').innerHTML = `
           <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
         </button>
         <div class="faq-answer px-8 pb-6 hidden">
-          <p class="text-desert-night/70 text-sm leading-relaxed">Yes. The property has ample parking for 10+ vehicles on the private driveway and surrounding areas. The estate is gated for security and privacy.</p>
+          <p class="text-desert-night/70 text-sm leading-relaxed">Yes &mdash; private gated parking for 10+ vehicles. No fighting for street spots. The whole estate is yours. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Check availability</a>.</p>
         </div>
       </div>
       <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
@@ -546,7 +546,7 @@ document.querySelector('#app').innerHTML = `
           <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
         </button>
         <div class="faq-answer px-8 pb-6 hidden">
-          <p class="text-desert-night/70 text-sm leading-relaxed">Absolutely. The 5-acre estate is ideal for weddings, corporate retreats, milestone celebrations, and private events. We offer custom event pricing and can coordinate with preferred vendors for catering, florals, entertainment, and more. Contact us for a tailored quote.</p>
+          <p class="text-desert-night/70 text-sm leading-relaxed">Absolutely &mdash; 5 acres of manicured grounds, mountain views, on-site lodging for your entire group, and a full outdoor kitchen. Weddings, corporate retreats, milestone celebrations. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Inquire direct</a> or call <a href="tel:+17604139426" class="text-[#c9943e] underline hover:brightness-110">760-413-9426</a> for a custom quote.</p>
         </div>
       </div>
       <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
@@ -555,7 +555,7 @@ document.querySelector('#app').innerHTML = `
           <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
         </button>
         <div class="faq-answer px-8 pb-6 hidden">
-          <p class="text-desert-night/70 text-sm leading-relaxed">Yes, the pool and spa are heated and available year-round. Pool heating is included in your stay during cooler months (October through April). The pool temperature is maintained at a comfortable 82&ndash;86&deg;F.</p>
+          <p class="text-desert-night/70 text-sm leading-relaxed">Year-round. Heated pool and spa maintained at 82&ndash;86&deg;F. It&rsquo;s your private resort. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110">Book your stay</a>.</p>
         </div>
       </div>
       <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
@@ -564,7 +564,7 @@ document.querySelector('#app').innerHTML = `
           <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
         </button>
         <div class="faq-answer px-8 pb-6 hidden">
-          <p class="text-desert-night/70 text-sm leading-relaxed">Booking direct saves you up to 15% by eliminating platform service fees. You also get direct communication with the property team, flexible payment options, and priority access to premium dates. Same property, better price, better experience.</p>
+          <p class="text-desert-night/70 text-sm leading-relaxed">Save up to 15% &mdash; no platform fees, no middleman. You get the best rate, the most flexible cancellation, direct communication with our team, and priority access to premium dates. Same estate, better price, better experience. <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-[#c9943e] underline hover:brightness-110 font-semibold">Book direct now</a>.</p>
         </div>
       </div>
     </div>
