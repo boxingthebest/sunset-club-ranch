@@ -16,17 +16,108 @@
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     "name": "Sunset Club Ranch",
-    "description": "Luxury 5-acre private desert estate in Indio, California near Coachella and Stagecoach festivals.",
+    "description": "Luxury 5-acre private desert estate in Indio, California near Coachella and Stagecoach festivals. 3 homes, heated pool & spa, sleeps 20+ guests.",
     "url": "https://sunsetclubranch.com",
+    "telephone": "+1-760-413-9426",
+    "email": "info@sunsetclubranch.com",
+    "priceRange": "$1,500 - $15,000+ per night",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "50800 Los Palos Road",
       "addressLocality": "Indio",
       "addressRegion": "CA",
       "postalCode": "92201",
       "addressCountry": "US"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 33.7175,
+      "longitude": -116.2150
+    },
     "numberOfRooms": 7,
-    "petsAllowed": false
+    "petsAllowed": false,
+    "checkinTime": "16:00",
+    "checkoutTime": "10:00",
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Heated Pool & Spa", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Outdoor Kitchen & BBQ", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Pizza Oven", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Fire Pit", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Private Gated Estate", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "WiFi", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Game Room", "value": true}
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "5",
+      "bestRating": "5"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the cancellation policy at Sunset Club Ranch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Full refund if cancelled 60+ days before check-in. 50% refund within 60 days. Festival weekends are non-refundable within 90 days. Custom terms available for weddings and corporate events."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are pets allowed at Sunset Club Ranch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, pets are not permitted on the property to ensure the estate remains pristine for all guests."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are check-in and check-out times?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Check-in is at 4:00 PM and check-out is at 10:00 AM. Early check-in or late check-out may be available upon request."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How far is Sunset Club Ranch from Coachella?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sunset Club Ranch is 0.8 miles from the Empire Polo Club, home to Coachella and Stagecoach — approximately a 3-minute drive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there parking at Sunset Club Ranch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the property has ample parking for 10+ vehicles on the private gated driveway."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I host a wedding or event at Sunset Club Ranch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. The 5-acre estate is ideal for weddings, corporate retreats, and private events. Contact us for custom event pricing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why should I book direct instead of Airbnb?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Booking direct saves up to 15% by eliminating platform fees. You also get direct communication with the property team and flexible payment options."
+        }
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,9 +127,6 @@
 <body>
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
-  <!-- Guesty Direct Booking Widget -->
-  <script>
-    !function(e,t,a,n,c,r){function s(t){e.console.log("[Guesty Embedded Widget]:",t)}var i,d,l,o,y,m,g,h,p,u;n&&(i=n,d=t.getElementsByTagName("head")[0],(l=t.createElement("link")).rel="stylesheet",l.type="text/css",l.href=i,l.media="all",d.appendChild(l)),o=function(){try{e[a].create(r).catch(function(e){s(e.message)})}catch(e){s(e.message)}},h=!1,y=c,m=function(){h||this.readyState&&"complete"!=this.readyState||(h=!0,o())},(g=t.createElement("script")).type="text/javascript",g.src=y,g.async="true",g.onload=g.onreadystatechange=m,p=g,(u=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,u)}(window,document,"GuestySearchBarWidget","https://s3.amazonaws.com/guesty-frontend-production/search-bar-production.css","https://s3.amazonaws.com/guesty-frontend-production/search-bar-production.js",{"siteUrl":"sunsetclubranch.guestybookings.com","color":"#206CFF"});
-  </script>
+
 </body>
 </html>

@@ -105,6 +105,7 @@ document.querySelector('#app').innerHTML = `
       <a href="#events" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Events</a>
       <a href="#reviews" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Reviews</a>
       <a href="#contact" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">Contact</a>
+      <a href="tel:+17604139426" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-[family-name:var(--font-accent)] font-light">760-413-9426</a>
       <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow rounded-sm font-[family-name:var(--font-accent)]">Book Now</a>
     </div>
     <button id="mobile-toggle" class="md:hidden text-white"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
@@ -121,6 +122,7 @@ document.querySelector('#app').innerHTML = `
   <a href="#events" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Events</a>
   <a href="#reviews" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Reviews</a>
   <a href="#contact" class="mobile-link text-white text-xl font-[family-name:var(--font-accent)] font-light tracking-[0.2em] uppercase">Contact</a>
+  <a href="tel:+17604139426" class="text-[#c9943e] text-lg font-[family-name:var(--font-accent)] font-light tracking-[0.15em] mt-2">760-413-9426</a>
   <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-8 py-3 text-lg font-semibold tracking-wider uppercase mt-4 font-[family-name:var(--font-accent)]">Book Now</a>
 </div>
 
@@ -133,6 +135,7 @@ document.querySelector('#app').innerHTML = `
   <div class="relative z-10 text-center px-6 fade-in">
     ${logoHTML('hero')}
     <p class="text-[#f0e6d3]/70 text-lg md:text-xl max-w-xl mx-auto leading-relaxed mt-10 mb-8 font-[family-name:var(--font-body)] font-light">A private 5-acre desert estate with 3 homes, heated pool & spa, and room for 20+ guests. Steps from Coachella & Stagecoach.</p>
+    <p class="text-[#c9943e] text-sm tracking-wider uppercase mb-6 font-[family-name:var(--font-accent)] font-light">Book Direct &mdash; Best Rates Guaranteed &middot; No Platform Fees</p>
     <div class="flex flex-wrap gap-4 justify-center">
       <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-8 py-3.5 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Book Your Stay</a>
       <a href="#estate" class="border border-white/30 text-white px-8 py-3.5 text-sm font-light tracking-wider uppercase hover:bg-white/10 transition-all font-[family-name:var(--font-accent)]">Explore</a>
@@ -205,7 +208,8 @@ document.querySelector('#app').innerHTML = `
         <p class="font-[family-name:var(--font-accent)] text-[#c9943e] text-sm tracking-[0.3em] uppercase mb-4 font-light">Aerial Tour</p>
         <h2 class="font-[family-name:var(--font-display)] text-white text-4xl md:text-5xl font-medium leading-tight mb-6 italic">See It From Above</h2>
         <div class="gold-divider !justify-start mt-4"></div>
-        <p class="text-[#f0e6d3]/60 text-lg leading-relaxed mt-8 mb-8">Five acres of manicured grounds, three private homes, a resort-style pool, and mountain views in every direction. This is what your desert getaway looks like.</p>
+        <p class="text-[#f0e6d3]/60 text-lg leading-relaxed mt-8 mb-4">Five acres of manicured grounds, three private homes, a resort-style pool, and mountain views in every direction. This is what your desert getaway looks like.</p>
+        <p class="text-[#c9943e]/80 text-sm tracking-wider mb-8 font-[family-name:var(--font-accent)] font-light">&#9670; 0.8 miles from Empire Polo Club &mdash; 3 minute drive to Coachella & Stagecoach</p>
         <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="inline-block bg-[#c9943e] text-[#110e0a] px-10 py-4 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Check Availability</a>
       </div>
       <div class="order-1 md:order-2 scale-up">
@@ -301,8 +305,7 @@ document.querySelector('#app').innerHTML = `
     </div>
     <div class="text-center mt-16 fade-in">
       <div class="inline-block border border-[#c9943e]/30 px-8 py-4 rounded-sm">
-        <p class="font-[family-name:var(--font-accent)] text-[#c9943e]/80 text-sm tracking-[0.2em] uppercase font-light">Pickleball · Tennis · Resort Cabanas · More</p>
-        <p class="font-[family-name:var(--font-display)] text-desert-night/60 text-sm italic mt-1">New amenities arriving Spring & Summer 2026</p>
+        <p class="font-[family-name:var(--font-accent)] text-[#c9943e]/80 text-sm tracking-[0.2em] uppercase font-light">Coming 2026: Pickleball Court · Sand Volleyball · 98&quot; Outdoor Cinema · Koolfog Misting · Resort Cabanas</p>
       </div>
     </div>
   </div>
@@ -325,12 +328,6 @@ document.querySelector('#app').innerHTML = `
       <p class="font-[family-name:var(--font-accent)] text-[#c9943e] text-sm tracking-[0.3em] uppercase mb-4 font-light">Guest Experiences</p>
       <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-desert-night leading-tight italic">What People Are Saying</h2>
       <div class="gold-divider mt-6"></div>
-    </div>
-    <!-- IG Reel Embed -->
-    <div class="flex justify-center mb-16 fade-in">
-      <div class="relative w-full max-w-[360px] rounded-lg overflow-hidden shadow-2xl" style="aspect-ratio: 9/16;">
-        <iframe src="https://www.instagram.com/reel/DW7nIkWEdRc/embed" class="absolute inset-0 w-full h-full border-0" allowfullscreen scrolling="no" allow="encrypted-media"></iframe>
-      </div>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8 stagger-children">
@@ -357,9 +354,7 @@ document.querySelector('#app').innerHTML = `
         </div>
       `).join('')}
     </div>
-    <div class="text-center mt-12 fade-in">
-      <a href="https://www.airbnb.com/rooms/699544865688282514" target="_blank" class="inline-block border border-[#c9943e]/40 text-[#c9943e] px-8 py-3.5 text-sm font-light tracking-wider uppercase hover:bg-[#c9943e] hover:text-[#110e0a] transition-all font-[family-name:var(--font-accent)]">Read All Reviews on Airbnb</a>
-    </div>
+
   </div>
 </section>
 
@@ -440,16 +435,164 @@ document.querySelector('#app').innerHTML = `
   </div>
 </section>
 
-<!-- ========== BOOK NOW (Guesty Direct Booking) ========== -->
+<!-- ========== PRICING ========== -->
+<section id="pricing" class="py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-[family-name:var(--font-accent)] text-[#c9943e] text-sm tracking-[0.3em] uppercase mb-4 font-light">Rates & Seasons</p>
+      <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-desert-night leading-tight italic">Investment in an<br/>Unforgettable Experience</h2>
+      <div class="gold-divider mt-6"></div>
+      <p class="text-desert-night/60 text-base max-w-2xl mx-auto mt-6">Pricing varies by season, group size, and event type. Below are starting nightly rates for the full estate &mdash; all 3 homes, pool, spa, and 5 acres included.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
+      <div class="fade-in bg-white border border-sand-200 p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 rounded-sm">
+        <p class="font-[family-name:var(--font-accent)] text-desert-night/50 text-xs tracking-[0.2em] uppercase mb-3 font-light">Off-Season</p>
+        <p class="font-[family-name:var(--font-display)] text-3xl text-desert-night italic">From $1,500</p>
+        <p class="text-desert-night/50 text-sm mt-1 mb-4">per night</p>
+        <div class="gold-divider-simple mb-4"></div>
+        <p class="text-desert-night/60 text-sm">June &ndash; September</p>
+        <p class="text-desert-night/40 text-xs mt-2">2-night minimum</p>
+      </div>
+      <div class="fade-in bg-white border border-sand-200 p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 rounded-sm">
+        <p class="font-[family-name:var(--font-accent)] text-desert-night/50 text-xs tracking-[0.2em] uppercase mb-3 font-light">Peak Season</p>
+        <p class="font-[family-name:var(--font-display)] text-3xl text-desert-night italic">From $2,500</p>
+        <p class="text-desert-night/50 text-sm mt-1 mb-4">per night</p>
+        <div class="gold-divider-simple mb-4"></div>
+        <p class="text-desert-night/60 text-sm">October &ndash; May</p>
+        <p class="text-desert-night/40 text-xs mt-2">2-night minimum</p>
+      </div>
+      <div class="fade-in bg-[#110e0a] border border-[#c9943e]/30 p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 rounded-sm relative overflow-hidden">
+        <div class="absolute top-0 right-0 bg-[#c9943e] text-[#110e0a] text-[10px] font-bold tracking-wider uppercase px-3 py-1 font-[family-name:var(--font-accent)]">Premium</div>
+        <p class="font-[family-name:var(--font-accent)] text-[#c9943e]/70 text-xs tracking-[0.2em] uppercase mb-3 font-light">Festival Weekends</p>
+        <p class="font-[family-name:var(--font-display)] text-3xl text-[#f0e6d3] italic">From $15,000</p>
+        <p class="text-[#f0e6d3]/50 text-sm mt-1 mb-4">per night</p>
+        <div class="w-[35px] h-[0.5px] bg-[#c9943e] mx-auto mb-4"></div>
+        <p class="text-[#f0e6d3]/60 text-sm">Coachella &middot; Stagecoach</p>
+        <p class="text-[#f0e6d3]/40 text-xs mt-2">3-night minimum</p>
+      </div>
+      <div class="fade-in bg-white border border-sand-200 p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 rounded-sm">
+        <p class="font-[family-name:var(--font-accent)] text-desert-night/50 text-xs tracking-[0.2em] uppercase mb-3 font-light">Events & Weddings</p>
+        <p class="font-[family-name:var(--font-display)] text-3xl text-desert-night italic">Custom</p>
+        <p class="text-desert-night/50 text-sm mt-1 mb-4">quote</p>
+        <div class="gold-divider-simple mb-4"></div>
+        <p class="text-desert-night/60 text-sm">Weddings &middot; Corporate</p>
+        <p class="text-desert-night/40 text-xs mt-2">Contact for details</p>
+      </div>
+    </div>
+    <div class="text-center mt-10 fade-in">
+      <p class="text-desert-night/50 text-sm mb-6">Book direct and save up to 15% vs. third-party platforms. All rates include full estate access for up to 20 guests.</p>
+      <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="inline-block bg-[#c9943e] text-[#110e0a] px-10 py-4 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Check Availability & Book</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq" class="py-24 md:py-32 bg-sand-50">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-[family-name:var(--font-accent)] text-[#c9943e] text-sm tracking-[0.3em] uppercase mb-4 font-light">Common Questions</p>
+      <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-desert-night leading-tight italic">Before You Book</h2>
+      <div class="gold-divider mt-6"></div>
+    </div>
+    <div class="space-y-4 stagger-children" id="faq-list">
+      <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
+        <button class="faq-toggle w-full text-left px-8 py-6 flex items-center justify-between gap-4">
+          <span class="font-[family-name:var(--font-display)] text-lg text-desert-night italic">What is the cancellation policy?</span>
+          <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-answer px-8 pb-6 hidden">
+          <p class="text-desert-night/70 text-sm leading-relaxed">Our standard policy offers a full refund if cancelled 60+ days before check-in. Cancellations within 60 days receive a 50% refund. Festival weekends (Coachella, Stagecoach) are non-refundable within 90 days of the event. Custom terms are available for weddings and corporate events &mdash; just ask.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
+        <button class="faq-toggle w-full text-left px-8 py-6 flex items-center justify-between gap-4">
+          <span class="font-[family-name:var(--font-display)] text-lg text-desert-night italic">Are pets allowed?</span>
+          <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-answer px-8 pb-6 hidden">
+          <p class="text-desert-night/70 text-sm leading-relaxed">Unfortunately, pets are not permitted on the property. This policy ensures the estate remains pristine for all guests and protects the landscaped grounds.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
+        <button class="faq-toggle w-full text-left px-8 py-6 flex items-center justify-between gap-4">
+          <span class="font-[family-name:var(--font-display)] text-lg text-desert-night italic">What are check-in and check-out times?</span>
+          <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-answer px-8 pb-6 hidden">
+          <p class="text-desert-night/70 text-sm leading-relaxed">Check-in is at 4:00 PM and check-out is at 10:00 AM. Early check-in or late check-out may be available upon request, subject to availability and a potential fee.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
+        <button class="faq-toggle w-full text-left px-8 py-6 flex items-center justify-between gap-4">
+          <span class="font-[family-name:var(--font-display)] text-lg text-desert-night italic">How far is the property from Coachella / Empire Polo Club?</span>
+          <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-answer px-8 pb-6 hidden">
+          <p class="text-desert-night/70 text-sm leading-relaxed">Sunset Club Ranch is just 0.8 miles from the Empire Polo Club &mdash; home to both Coachella and Stagecoach. That's approximately a 3-minute drive or a short bike ride. No shuttles needed.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
+        <button class="faq-toggle w-full text-left px-8 py-6 flex items-center justify-between gap-4">
+          <span class="font-[family-name:var(--font-display)] text-lg text-desert-night italic">Is there parking on-site?</span>
+          <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-answer px-8 pb-6 hidden">
+          <p class="text-desert-night/70 text-sm leading-relaxed">Yes. The property has ample parking for 10+ vehicles on the private driveway and surrounding areas. The estate is gated for security and privacy.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
+        <button class="faq-toggle w-full text-left px-8 py-6 flex items-center justify-between gap-4">
+          <span class="font-[family-name:var(--font-display)] text-lg text-desert-night italic">Can I host a wedding or private event?</span>
+          <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-answer px-8 pb-6 hidden">
+          <p class="text-desert-night/70 text-sm leading-relaxed">Absolutely. The 5-acre estate is ideal for weddings, corporate retreats, milestone celebrations, and private events. We offer custom event pricing and can coordinate with preferred vendors for catering, florals, entertainment, and more. Contact us for a tailored quote.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
+        <button class="faq-toggle w-full text-left px-8 py-6 flex items-center justify-between gap-4">
+          <span class="font-[family-name:var(--font-display)] text-lg text-desert-night italic">Is the pool heated year-round?</span>
+          <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-answer px-8 pb-6 hidden">
+          <p class="text-desert-night/70 text-sm leading-relaxed">Yes, the pool and spa are heated and available year-round. Pool heating is included in your stay during cooler months (October through April). The pool temperature is maintained at a comfortable 82&ndash;86&deg;F.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in bg-white border border-sand-200 rounded-sm overflow-hidden">
+        <button class="faq-toggle w-full text-left px-8 py-6 flex items-center justify-between gap-4">
+          <span class="font-[family-name:var(--font-display)] text-lg text-desert-night italic">Why should I book direct instead of Airbnb?</span>
+          <span class="faq-icon text-[#c9943e] text-2xl transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-answer px-8 pb-6 hidden">
+          <p class="text-desert-night/70 text-sm leading-relaxed">Booking direct saves you up to 15% by eliminating platform service fees. You also get direct communication with the property team, flexible payment options, and priority access to premium dates. Same property, better price, better experience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== URGENCY BANNER ========== -->
+<section class="py-12 bg-[#110e0a] grain-overlay relative overflow-hidden">
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center fade-in">
+    <p class="font-[family-name:var(--font-accent)] text-[#c9943e] text-xs tracking-[0.3em] uppercase mb-3 font-light">Limited Availability</p>
+    <h3 class="font-[family-name:var(--font-display)] text-[#f0e6d3] text-2xl md:text-3xl italic mb-4">Premium Dates Book 6&ndash;12 Months in Advance</h3>
+    <p class="text-[#f0e6d3]/60 text-sm mb-6 max-w-xl mx-auto">Coachella 2027 &middot; Stagecoach 2027 &middot; New Year's Eve &middot; Holiday Weekends &mdash; don't wait until it's too late.</p>
+    <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="inline-block bg-[#c9943e] text-[#110e0a] px-10 py-4 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Secure Your Dates Now</a>
+  </div>
+</section>
+
+<!-- ========== BOOK NOW (Direct Booking CTA) ========== -->
 <section id="book" class="py-24 md:py-32 bg-[#110e0a]">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <div class="fade-in">
       <p class="font-[family-name:var(--font-accent)] text-[#c9943e] text-sm tracking-[0.3em] uppercase mb-4 font-light">Direct Booking</p>
       <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-[#f0e6d3] leading-tight mb-6 italic">Book Your Stay</h2>
       <div class="gold-divider mt-4 mb-8"></div>
-      <p class="text-[#f0e6d3]/70 text-lg leading-relaxed mb-10">Check availability and book directly — best rates guaranteed, no platform fees.</p>
-      <div id="guesty-widget-wrapper" class="bg-white/5 backdrop-blur-sm rounded-sm p-6 md:p-10">
-        <div id="search-widget_IO312PWQ"></div>
+      <p class="text-[#f0e6d3]/70 text-lg leading-relaxed mb-4">Check availability and book directly — best rates guaranteed, no platform fees.</p>
+      <p class="text-[#f0e6d3]/50 text-sm leading-relaxed mb-10">Save up to 15% compared to third-party platforms. Flexible cancellation on most dates.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="bg-[#c9943e] text-[#110e0a] px-12 py-4 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-[family-name:var(--font-accent)]">Check Availability & Book</a>
+        <a href="tel:+17604139426" class="border border-[#f0e6d3]/30 text-[#f0e6d3] px-10 py-4 text-sm font-light tracking-wider uppercase hover:bg-white/10 transition-all font-[family-name:var(--font-accent)]">Call 760-413-9426</a>
       </div>
     </div>
   </div>
@@ -467,6 +610,7 @@ document.querySelector('#app').innerHTML = `
         <div class="space-y-4 mb-8">
           <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">Book Here</a></div>
           <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="https://instagram.com/sunsetclubranch" target="_blank" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">@sunsetclubranch</a></div>
+          <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="tel:+17604139426" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">760-413-9426</a></div>
           <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><a href="mailto:info@sunsetclubranch.com" class="text-desert-night hover:text-[#c9943e] transition-colors font-medium">info@sunsetclubranch.com</a></div>
           <div class="flex items-center gap-3"><span class="text-[#c9943e]">&#9670;</span><p class="text-desert-night/70">Indio, California 92201</p></div>
         </div>
@@ -504,7 +648,7 @@ document.querySelector('#app').innerHTML = `
     <div class="grid md:grid-cols-3 gap-12 mb-12">
       <div><p class="text-[#f0e6d3]/50 text-sm leading-relaxed">A private 5-acre luxury desert estate in Indio, California. Steps from Coachella & Stagecoach.</p></div>
       <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Quick Links</h4><div class="space-y-2"><a href="#estate" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">The Estate</a><a href="#homes" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Homes</a><a href="#amenities" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Amenities</a><a href="#gallery" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Gallery</a><a href="#events" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Events</a><a href="#reviews" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Reviews</a><a href="#contact" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Contact</a></div></div>
-      <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Connect</h4><div class="space-y-2"><a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Book Here</a><a href="https://instagram.com/sunsetclubranch" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Instagram</a><a href="mailto:info@sunsetclubranch.com" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">info@sunsetclubranch.com</a></div></div>
+      <div><h4 class="text-[#c9943e] text-xs tracking-[0.2em] uppercase mb-4 font-[family-name:var(--font-accent)] font-light">Connect</h4><div class="space-y-2"><a href="https://www.apekrentals.com/rentals/sunset-club-ranch-3-homes-pool-near-festivals/" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Book Here</a><a href="tel:+17604139426" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">760-413-9426</a><a href="https://instagram.com/sunsetclubranch" target="_blank" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">Instagram</a><a href="mailto:info@sunsetclubranch.com" class="block text-[#f0e6d3]/50 hover:text-white text-sm transition-colors">info@sunsetclubranch.com</a></div></div>
     </div>
     <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="text-[#f0e6d3]/30 text-xs">&copy; 2026 Sunset Club Ranch. All rights reserved.</p>
@@ -639,6 +783,29 @@ document.getElementById('inquiry-form').addEventListener('submit', (e) => {
     btn.style.color = '#110e0a'
     e.target.reset()
   }, 3000)
+})
+
+// ============================================
+// FAQ ACCORDION
+// ============================================
+document.querySelectorAll('.faq-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item')
+    const answer = item.querySelector('.faq-answer')
+    const icon = item.querySelector('.faq-icon')
+    const isOpen = !answer.classList.contains('hidden')
+    // Close all others
+    document.querySelectorAll('.faq-item').forEach(other => {
+      other.querySelector('.faq-answer').classList.add('hidden')
+      other.querySelector('.faq-icon').textContent = '+'
+      other.querySelector('.faq-icon').style.transform = 'rotate(0deg)'
+    })
+    if (!isOpen) {
+      answer.classList.remove('hidden')
+      icon.textContent = '\u2212'
+      icon.style.transform = 'rotate(180deg)'
+    }
+  })
 })
 
 // ============================================

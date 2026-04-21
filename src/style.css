@@ -319,6 +319,36 @@ input:focus, textarea:focus, select:focus {
   outline-offset: 2px;
 }
 
+/* ============================================
+   FAQ ACCORDION
+   ============================================ */
+.faq-toggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  transition: background-color 0.3s ease;
+}
+.faq-toggle:hover {
+  background-color: rgba(201, 148, 62, 0.04);
+}
+.faq-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+}
+.faq-answer {
+  animation: faqSlideDown 0.3s ease;
+}
+@keyframes faqSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Subtle grain texture overlay for premium feel */
 .grain-overlay::after {
   content: '';
