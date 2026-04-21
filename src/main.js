@@ -772,7 +772,7 @@ document.getElementById('inquiry-form').addEventListener('submit', (e) => {
   const data = Object.fromEntries(formData)
   const subject = encodeURIComponent(`Booking Inquiry - ${data.event_type || 'General'} - ${data.name}`)
   const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'N/A'}\nCheck-in: ${data.checkin || 'Flexible'}\nCheck-out: ${data.checkout || 'Flexible'}\nEvent Type: ${data.event_type || 'N/A'}\nGuests: ${data.guests || 'N/A'}\nMessage: ${data.message || 'N/A'}`)
-  window.location.href = `mailto:team@apekrentals.com?subject=${subject}&body=${body}`
+  window.location.href = `mailto:dapenza444@gmail.com?subject=${subject}&body=${body}`
   const btn = e.target.querySelector('button[type="submit"]')
   btn.textContent = 'Inquiry Sent!'
   btn.style.backgroundColor = '#45735a'
