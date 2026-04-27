@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desert Estate Weddings | Sunset Club Ranch · Indio, CA</title>
+  <meta name="description" content="Say I Do under desert skies. A private 5-acre estate in Indio, CA with 3 luxury homes, heated pool, mountain views, and on-site lodging for 25+ guests. Wedding packages from $12,000." />
+  <meta property="og:title" content="Desert Estate Weddings | Sunset Club Ranch" />
+  <meta property="og:description" content="A private 5-acre compound for your entire wedding weekend. 3 homes, pool & spa, mountain views. Packages from $12K." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+            accent: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            gold: '#c9943e',
+            cream: '#f0e6d3',
+            dark: '#110e0a',
+            sand: { 50: '#faf7f2', 100: '#f5ede0', 200: '#e8dcc8' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; margin: 0; overflow-x: hidden; }
+    .logo-container { display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .logo-main { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #f0e6d3; line-height: 1.05; letter-spacing: 3px; }
+    .logo-ranch-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 4px; }
+    .logo-line { width: 40px; height: 1px; }
+    .logo-line-left { background: linear-gradient(to right, transparent, #d4a44a); }
+    .logo-line-right { background: linear-gradient(to left, transparent, #d4a44a); }
+    .logo-ranch { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 14px; letter-spacing: 16px; text-transform: uppercase; color: #d4a44a; }
+    .nav-logo .logo-main { font-size: 24px; letter-spacing: 2px; }
+    .nav-logo .logo-ranch { font-size: 9px; letter-spacing: 10px; }
+    .nav-logo .logo-line { width: 20px; }
+    .nav-logo .logo-ranch-row { gap: 8px; margin-top: 2px; }
+    .hero-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.7) 100%); }
+    .gold-divider { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto; }
+    .gold-divider::before, .gold-divider::after { content: ''; width: 40px; height: 0.5px; }
+    .gold-divider::before { background: linear-gradient(to right, transparent, #c9943e); }
+    .gold-divider::after { background: linear-gradient(to left, transparent, #c9943e); }
+    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .pulse-glow { animation: pulseGlow 2.5s ease-in-out infinite; }
+    @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(201, 148, 62, 0.4); } 50% { box-shadow: 0 0 24px 8px rgba(201, 148, 62, 0.15); } }
+    .img-zoom { overflow: hidden; }
+    .img-zoom img { transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+    .img-zoom:hover img { transform: scale(1.06); }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+    .mobile-menu.open { transform: translateX(0); }
+    .grain-overlay::after { content: ''; position: absolute; inset: 0; opacity: 0.03; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+    input:focus, textarea:focus, select:focus { outline: 2px solid #c9943e; outline-offset: 2px; }
+    .pkg-card { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease; }
+    .pkg-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+    @media (max-width: 768px) { .hero-title { font-size: 3rem !important; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/">
+      <div class="logo-container nav-logo">
+        <div class="logo-main">Sunset Club</div>
+        <div class="logo-ranch-row">
+          <div class="logo-line logo-line-left"></div>
+          <div class="logo-ranch">Ranch</div>
+          <div class="logo-line logo-line-right"></div>
+        </div>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#packages" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-accent font-light">Packages</a>
+      <a href="#weekend" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-accent font-light">Your Weekend</a>
+      <a href="#estate" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-accent font-light">The Estate</a>
+      <a href="/corporate.html" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-accent font-light">Corporate</a>
+      <a href="/after-dark.html" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-accent font-light">After Dark</a>
+      <a href="#inquiry" class="bg-gold text-dark px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-accent">Inquire Now</a>
+    </div>
+    <button id="mobile-toggle" class="md:hidden text-white"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu" class="mobile-menu fixed inset-0 z-50 bg-dark/98 flex flex-col items-center justify-center gap-8">
+  <button id="mobile-close" class="absolute top-6 right-6 text-white"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <div class="logo-container nav-logo">
+    <div class="logo-main">Sunset Club</div>
+    <div class="logo-ranch-row">
+      <div class="logo-line logo-line-left"></div>
+      <div class="logo-ranch">Ranch</div>
+      <div class="logo-line logo-line-right"></div>
+    </div>
+  </div>
+  <a href="#packages" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">Packages</a>
+  <a href="#weekend" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">Your Weekend</a>
+  <a href="#estate" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">The Estate</a>
+  <a href="/corporate.html" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">Corporate</a>
+  <a href="/after-dark.html" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">After Dark</a>
+  <a href="#inquiry" class="bg-gold text-dark px-8 py-3 text-lg font-semibold tracking-wider uppercase mt-4 font-accent">Inquire Now</a>
+</div>
+
+<!-- HERO -->
+<section class="relative h-screen min-h-[700px] flex items-center justify-center">
+  <div class="absolute inset-0">
+    <img src="https://d2xsxph8kpxj0f.cloudfront.net/106775517/YGj9Eg9WVVEhpJed4ijK2D/pool-aerial-clean_f4f923b2.png" alt="Sunset Club Ranch aerial view of pool and estate grounds" class="w-full h-full object-cover" />
+    <div class="hero-overlay absolute inset-0"></div>
+  </div>
+  <div class="relative z-10 text-center px-6 fade-in">
+    <p class="font-accent text-gold text-sm tracking-[0.3em] uppercase mb-6 font-medium">Private Desert Estate Weddings</p>
+    <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] max-w-5xl hero-title">
+      Say I Do<br/><span class="italic font-normal text-gold">Under Desert Skies</span>
+    </h1>
+    <p class="text-cream/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-8 mb-4 font-body font-light">
+      A 5-acre private compound in Indio, California. Three luxury homes. Mountain views. Your entire wedding weekend — all in one place.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center mt-10">
+      <a href="#inquiry" class="bg-gold text-dark px-8 py-3.5 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-accent">Start Planning Your Day</a>
+      <a href="#packages" class="border border-white/30 text-white px-8 py-3.5 text-sm font-light tracking-wider uppercase hover:bg-white/10 transition-all font-accent">View Packages</a>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" opacity="0.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="bg-dark py-8">
+  <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="text-center fade-in"><p class="text-3xl md:text-4xl font-bold text-gold font-display">5</p><p class="text-sm text-cream/50 font-body mt-1">Acre Private Estate</p></div>
+    <div class="text-center fade-in"><p class="text-3xl md:text-4xl font-bold text-gold font-display">3</p><p class="text-sm text-cream/50 font-body mt-1">Luxury Homes</p></div>
+    <div class="text-center fade-in"><p class="text-3xl md:text-4xl font-bold text-gold font-display">25+</p><p class="text-sm text-cream/50 font-body mt-1">Overnight Guests</p></div>
+    <div class="text-center fade-in"><p class="text-3xl md:text-4xl font-bold text-gold font-display">4.96</p><p class="text-sm text-cream/50 font-body mt-1">Guest Rating</p></div>
+  </div>
+</section>
+
+<!-- WHY SCR -->
+<section class="py-24 px-6 bg-sand-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Why Sunset Club Ranch</p>
+      <h2 class="font-display text-4xl md:text-5xl text-dark leading-tight">Not a Venue.<br/><span class="italic font-normal">A Private Estate.</span></h2>
+      <div class="gold-divider mt-6"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-in">
+        <div class="img-zoom rounded-sm overflow-hidden">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/106775517/mvNOTFpZmhxGpnPk.jpeg" alt="Sunset Club Ranch pool and lawn area" class="w-full h-[400px] object-cover" />
+        </div>
+      </div>
+      <div class="fade-in space-y-6">
+        <p class="text-dark/70 text-lg leading-relaxed">Your wedding isn't a line item on a venue's calendar. It's the only event on a 5-acre private estate — three luxury homes, a heated pool & spa, outdoor kitchen, and mountain views in every direction.</p>
+        <p class="text-dark/70 text-lg leading-relaxed">Your guests don't commute to the venue. They live there. Rehearsal dinner Friday. Ceremony Saturday. Brunch Sunday. The whole weekend, all in one place.</p>
+        <div class="grid grid-cols-2 gap-4 pt-4">
+          <div class="flex items-center gap-3"><span class="text-gold text-lg">&#9670;</span><span class="text-dark/80 text-sm font-medium">Full estate exclusivity</span></div>
+          <div class="flex items-center gap-3"><span class="text-gold text-lg">&#9670;</span><span class="text-dark/80 text-sm font-medium">On-site lodging for 25+</span></div>
+          <div class="flex items-center gap-3"><span class="text-gold text-lg">&#9670;</span><span class="text-dark/80 text-sm font-medium">Mountain ceremony backdrop</span></div>
+          <div class="flex items-center gap-3"><span class="text-gold text-lg">&#9670;</span><span class="text-dark/80 text-sm font-medium">Outdoor kitchen & bar</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEDDING WEEKEND TIMELINE -->
+<section id="weekend" class="py-24 px-6 bg-dark grain-overlay relative overflow-hidden">
+  <div class="relative z-10 max-w-5xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Your Wedding Weekend</p>
+      <h2 class="font-display text-4xl md:text-5xl text-cream leading-tight italic">Three Days. One Estate.<br/>Every Moment Yours.</h2>
+      <div class="gold-divider mt-6"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="fade-in text-center">
+        <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-5 border border-gold/20">
+          <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <p class="font-accent text-gold text-xs tracking-[0.2em] uppercase mb-2">Friday</p>
+        <h3 class="font-display text-2xl text-cream italic mb-3">Welcome & Settle In</h3>
+        <p class="text-cream/50 text-sm leading-relaxed">Your wedding party arrives at the estate. Rehearsal dinner poolside under the stars. Movie night on the 98" outdoor cinema.</p>
+      </div>
+      <div class="fade-in text-center">
+        <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-5 border border-gold/20">
+          <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <p class="font-accent text-gold text-xs tracking-[0.2em] uppercase mb-2">Saturday</p>
+        <h3 class="font-display text-2xl text-cream italic mb-3">The Main Event</h3>
+        <p class="text-cream/50 text-sm leading-relaxed">Ceremony on the manicured lawn with mountain views. Reception under string lights. Dance floor by the pool. Your dream desert wedding.</p>
+      </div>
+      <div class="fade-in text-center">
+        <div class="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-5 border border-gold/20">
+          <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </div>
+        <p class="font-accent text-gold text-xs tracking-[0.2em] uppercase mb-2">Sunday</p>
+        <h3 class="font-display text-2xl text-cream italic mb-3">Morning After Brunch</h3>
+        <p class="text-cream/50 text-sm leading-relaxed">Leisurely brunch by the pool. Guests enjoy pickleball, volleyball, or simply soak in the spa. No rush — the estate is yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages" class="py-24 px-6 bg-sand-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Wedding Packages</p>
+      <h2 class="font-display text-4xl md:text-5xl text-dark leading-tight italic">Your Day, Your Way</h2>
+      <div class="gold-divider mt-6"></div>
+      <p class="mt-6 text-dark/60 font-body max-w-2xl mx-auto">Every package includes exclusive access to the full 5-acre estate. All three homes. All amenities. Completely private.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Intimate -->
+      <div class="pkg-card bg-white rounded-sm overflow-hidden border border-sand-200 fade-in">
+        <div class="p-8">
+          <h3 class="font-display text-2xl text-dark">Intimate Ceremony</h3>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-xs font-medium text-dark/50 font-body">Up to 30 guests</span>
+            <span class="text-dark/20">|</span>
+            <span class="text-xs font-medium text-dark/50 font-body">2-night minimum</span>
+          </div>
+          <p class="text-3xl font-bold text-gold font-body mt-6">From $12,000</p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Exclusive access to the full 5-acre estate</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>All 3 luxury homes for your wedding party</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Heated pool & spa</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Ceremony lawn with mountain backdrop</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Outdoor kitchen & bar for catering setup</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>On-site lodging for 20+ guests</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Dedicated event coordinator referral</li>
+          </ul>
+          <a href="#inquiry" class="mt-8 w-full flex items-center justify-center gap-2 py-3.5 bg-dark hover:bg-dark/90 text-white text-sm font-semibold tracking-wider uppercase font-accent transition-all">Inquire Now &rarr;</a>
+        </div>
+      </div>
+      <!-- Full Weekend (Popular) -->
+      <div class="pkg-card bg-dark rounded-sm overflow-hidden shadow-xl ring-2 ring-gold relative fade-in">
+        <div class="absolute top-0 left-0 right-0 bg-gold text-center py-2">
+          <span class="text-xs font-bold tracking-widest uppercase text-dark font-accent">Most Popular</span>
+        </div>
+        <div class="p-8 pt-14">
+          <h3 class="font-display text-2xl text-cream">Full Wedding Weekend</h3>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-xs font-medium text-cream/50 font-body">30–80 guests</span>
+            <span class="text-cream/20">|</span>
+            <span class="text-xs font-medium text-cream/50 font-body">3-night minimum</span>
+          </div>
+          <p class="text-3xl font-bold text-gold font-body mt-6">From $25,000</p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3 text-sm text-cream/70 font-body"><span class="text-gold mt-0.5">&#9733;</span>Everything in Intimate, plus:</li>
+            <li class="flex items-start gap-3 text-sm text-cream/70 font-body"><span class="text-gold mt-0.5">&#9733;</span>Rehearsal dinner setup (Friday evening)</li>
+            <li class="flex items-start gap-3 text-sm text-cream/70 font-body"><span class="text-gold mt-0.5">&#9733;</span>Full ceremony & reception (Saturday)</li>
+            <li class="flex items-start gap-3 text-sm text-cream/70 font-body"><span class="text-gold mt-0.5">&#9733;</span>Morning-after brunch setup (Sunday)</li>
+            <li class="flex items-start gap-3 text-sm text-cream/70 font-body"><span class="text-gold mt-0.5">&#9733;</span>String light canopy over ceremony lawn</li>
+            <li class="flex items-start gap-3 text-sm text-cream/70 font-body"><span class="text-gold mt-0.5">&#9733;</span>98" outdoor cinema for welcome night</li>
+            <li class="flex items-start gap-3 text-sm text-cream/70 font-body"><span class="text-gold mt-0.5">&#9733;</span>Koolfog misting for summer comfort</li>
+            <li class="flex items-start gap-3 text-sm text-cream/70 font-body"><span class="text-gold mt-0.5">&#9733;</span>Pickleball & sand volleyball for guests</li>
+            <li class="flex items-start gap-3 text-sm text-cream/70 font-body"><span class="text-gold mt-0.5">&#9733;</span>Private chef & mixologist add-on available</li>
+          </ul>
+          <a href="#inquiry" class="mt-8 w-full flex items-center justify-center gap-2 py-3.5 bg-gold hover:brightness-110 text-dark text-sm font-bold tracking-wider uppercase font-accent transition-all pulse-glow">Inquire Now &rarr;</a>
+        </div>
+      </div>
+      <!-- Grand Celebration -->
+      <div class="pkg-card bg-white rounded-sm overflow-hidden border border-sand-200 fade-in">
+        <div class="p-8">
+          <h3 class="font-display text-2xl text-dark">Grand Celebration</h3>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-xs font-medium text-dark/50 font-body">80–150 guests</span>
+            <span class="text-dark/20">|</span>
+            <span class="text-xs font-medium text-dark/50 font-body">3-night minimum</span>
+          </div>
+          <p class="text-3xl font-bold text-gold font-body mt-6">From $35,000</p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Everything in Full Weekend, plus:</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Extended outdoor event space</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Premium lighting & d&eacute;cor package</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Shuttle coordination to/from local hotels</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Valet parking coordination</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Day-of event manager referral</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Professional photography/videography referral</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><span class="text-gold/60 mt-0.5">&#9733;</span>Custom floral arrangement coordination</li>
+          </ul>
+          <a href="#inquiry" class="mt-8 w-full flex items-center justify-center gap-2 py-3.5 bg-dark hover:bg-dark/90 text-white text-sm font-semibold tracking-wider uppercase font-accent transition-all">Inquire Now &rarr;</a>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mt-8 text-sm text-dark/40 font-body">All packages are customizable. Add-ons include private chef ($1,500+), pool heating ($199/day), shuttle service, and more.</p>
+  </div>
+</section>
+
+<!-- ESTATE AMENITIES -->
+<section id="estate" class="py-24 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">The Estate</p>
+      <h2 class="font-display text-4xl md:text-5xl text-dark leading-tight italic">More Than a Venue</h2>
+      <div class="gold-divider mt-6"></div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="fade-in bg-sand-50 rounded-sm p-6 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-dark font-display">3 Luxury Homes</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Sleeps 25+</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-6 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-dark font-display">Heated Pool & Spa</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Year-round</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-6 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-dark font-display">Outdoor Kitchen</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Full bar & pizza oven</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-6 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-dark font-display">98" Outdoor Cinema</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Movie nights</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-6 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-dark font-display">Koolfog Misting</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Beat the heat</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-6 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-dark font-display">Pickleball Court</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Tournament-grade</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-6 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-dark font-display">Sand Volleyball</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Beach vibes</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-6 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-dark font-display">Resort Cabanas</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Poolside luxury</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BREAK -->
+<section class="relative h-[50vh] min-h-[400px] overflow-hidden">
+  <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699544865688282514/original/2dedd6f3-975e-49f6-a873-3ac6bb792767.jpeg?im_w=1200" alt="Sunset Club Ranch green field with mountain views" class="w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-dark/30"></div>
+  <div class="absolute bottom-0 left-0 right-0 p-8 md:p-16 z-10">
+    <div class="fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-3 font-medium">0.8 Miles from Empire Polo Club</p>
+      <h3 class="font-display text-3xl md:text-4xl text-white italic">Where the Desert Meets Your Dream Day</h3>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-24 px-6 bg-sand-50">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Guest Reviews</p>
+      <h2 class="font-display text-4xl text-dark italic">What People Are Saying</h2>
+      <div class="gold-divider mt-6"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="fade-in bg-white rounded-sm p-8 shadow-sm border border-sand-200 relative">
+        <div class="absolute top-3 left-6 font-display text-5xl text-gold/20 leading-none">&ldquo;</div>
+        <div class="flex gap-1 mb-4 text-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="text-sm text-dark/60 font-body leading-relaxed italic">"This house was amazing! Matthew is the man! Super amazing host and the property is something out of the movies."</p>
+        <div class="mt-6 pt-4 border-t border-sand-200">
+          <p class="text-sm font-semibold text-dark font-display">Grant</p>
+          <p class="text-xs text-dark/40 font-body mt-0.5">Group Trip</p>
+        </div>
+      </div>
+      <div class="fade-in bg-white rounded-sm p-8 shadow-sm border border-sand-200 relative">
+        <div class="absolute top-3 left-6 font-display text-5xl text-gold/20 leading-none">&ldquo;</div>
+        <div class="flex gap-1 mb-4 text-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="text-sm text-dark/60 font-body leading-relaxed italic">"Loved our stay! Tons of outdoor space with three separate spaces for our families and a fantastic pool, all tucked behind private gates."</p>
+        <div class="mt-6 pt-4 border-t border-sand-200">
+          <p class="text-sm font-semibold text-dark font-display">Benjamin</p>
+          <p class="text-xs text-dark/40 font-body mt-0.5">Stayed with Kids</p>
+        </div>
+      </div>
+      <div class="fade-in bg-white rounded-sm p-8 shadow-sm border border-sand-200 relative">
+        <div class="absolute top-3 left-6 font-display text-5xl text-gold/20 leading-none">&ldquo;</div>
+        <div class="flex gap-1 mb-4 text-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="text-sm text-dark/60 font-body leading-relaxed italic">"The property was stunning and comfortable for a larger group. Matthew was incredibly responsive and helpful during our stay!"</p>
+        <div class="mt-6 pt-4 border-t border-sand-200">
+          <p class="text-sm font-semibold text-dark font-display">Madeline</p>
+          <p class="text-xs text-dark/40 font-body mt-0.5">Group Trip · Los Angeles</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section id="inquiry" class="py-24 px-6 bg-dark">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Start Planning</p>
+      <h2 class="font-display text-4xl md:text-5xl text-cream italic">Let's Make It Happen</h2>
+      <div class="gold-divider mt-6"></div>
+      <p class="mt-6 text-cream/50 font-body max-w-xl mx-auto">Tell us about your dream wedding and we'll get back to you within 24 hours with availability and a custom proposal.</p>
+    </div>
+    <form id="wedding-form" class="fade-in bg-white/5 backdrop-blur rounded-sm p-8 md:p-10 border border-white/10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-xs font-medium text-cream/50 font-accent mb-2 tracking-wider uppercase">Your Name *</label>
+          <input type="text" name="name" required class="w-full bg-white/10 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/30 focus:border-gold transition-colors rounded-sm" placeholder="Full name" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-cream/50 font-accent mb-2 tracking-wider uppercase">Email *</label>
+          <input type="email" name="email" required class="w-full bg-white/10 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/30 focus:border-gold transition-colors rounded-sm" placeholder="your@email.com" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-cream/50 font-accent mb-2 tracking-wider uppercase">Phone</label>
+          <input type="tel" name="phone" class="w-full bg-white/10 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/30 focus:border-gold transition-colors rounded-sm" placeholder="(555) 555-5555" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-cream/50 font-accent mb-2 tracking-wider uppercase">Preferred Date</label>
+          <input type="text" name="date" class="w-full bg-white/10 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/30 focus:border-gold transition-colors rounded-sm" placeholder="Month / Year" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-cream/50 font-accent mb-2 tracking-wider uppercase">Estimated Guests</label>
+          <input type="text" name="guests" class="w-full bg-white/10 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/30 focus:border-gold transition-colors rounded-sm" placeholder="Number of guests" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-cream/50 font-accent mb-2 tracking-wider uppercase">Package Interest</label>
+          <select name="package" class="w-full bg-white/10 border border-white/10 px-4 py-3 text-white text-sm font-body focus:border-gold transition-colors rounded-sm">
+            <option value="" class="bg-dark">Select...</option>
+            <option value="intimate" class="bg-dark">Intimate Ceremony ($12K)</option>
+            <option value="full" class="bg-dark">Full Wedding Weekend ($25K)</option>
+            <option value="grand" class="bg-dark">Grand Celebration ($35K)</option>
+            <option value="custom" class="bg-dark">Custom / Not Sure</option>
+          </select>
+        </div>
+      </div>
+      <div class="mt-5">
+        <label class="block text-xs font-medium text-cream/50 font-accent mb-2 tracking-wider uppercase">Tell Us About Your Vision</label>
+        <textarea name="message" rows="4" class="w-full bg-white/10 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/30 focus:border-gold transition-colors rounded-sm resize-none" placeholder="What does your dream wedding look like?"></textarea>
+      </div>
+      <button type="submit" class="mt-6 w-full flex items-center justify-center gap-2 py-4 bg-gold hover:brightness-110 text-dark text-sm font-bold tracking-wider uppercase font-accent transition-all pulse-glow rounded-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        Send Wedding Inquiry
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- CROSS-LINKS -->
+<section class="py-16 px-6 bg-dark border-t border-white/5">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-3 font-medium">More at Sunset Club Ranch</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="/corporate.html" class="fade-in group block bg-white/5 border border-white/10 rounded-sm p-8 hover:border-gold/30 transition-all">
+        <p class="font-accent text-gold text-xs tracking-[0.2em] uppercase mb-2 font-medium">Corporate Events</p>
+        <h3 class="font-display text-2xl text-cream italic group-hover:text-gold transition-colors">Team Retreats & Offsites</h3>
+        <p class="text-cream/40 text-sm mt-2 font-body">Strategy sessions by the pool. Team dinners under desert stars. From $8,000.</p>
+      </a>
+      <a href="/after-dark.html" class="fade-in group block bg-white/5 border border-white/10 rounded-sm p-8 hover:border-gold/30 transition-all">
+        <p class="font-accent text-gold text-xs tracking-[0.2em] uppercase mb-2 font-medium">After Dark</p>
+        <h3 class="font-display text-2xl text-cream italic group-hover:text-gold transition-colors">Coachella 2027 Experience</h3>
+        <p class="text-cream/40 text-sm mt-2 font-body">Brand activations & VIP hospitality. By private inquiry only.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark py-16 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col items-center mb-12">
+      <div class="logo-container nav-logo">
+        <div class="logo-main">Sunset Club</div>
+        <div class="logo-ranch-row">
+          <div class="logo-line logo-line-left"></div>
+          <div class="logo-ranch">Ranch</div>
+          <div class="logo-line logo-line-right"></div>
+        </div>
+      </div>
+      <div class="gold-divider mt-6 mb-8"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-12 mb-12">
+      <div><p class="text-cream/50 text-sm leading-relaxed">A private 5-acre luxury desert estate in Indio, California. Steps from Coachella & Stagecoach.</p></div>
+      <div>
+        <h4 class="text-gold text-xs tracking-[0.2em] uppercase mb-4 font-accent font-light">Quick Links</h4>
+        <div class="space-y-2">
+          <a href="/" class="block text-cream/50 hover:text-white text-sm transition-colors">Home</a>
+          <a href="/weddings.html" class="block text-cream/50 hover:text-white text-sm transition-colors">Weddings</a>
+          <a href="/corporate.html" class="block text-cream/50 hover:text-white text-sm transition-colors">Corporate Events</a>
+          <a href="/after-dark.html" class="block text-cream/50 hover:text-white text-sm transition-colors">After Dark</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gold text-xs tracking-[0.2em] uppercase mb-4 font-accent font-light">Connect</h4>
+        <div class="space-y-2">
+          <a href="tel:+17608000416" class="block text-cream/50 hover:text-white text-sm transition-colors">760-800-0416</a>
+          <a href="https://instagram.com/sunsetclubranch" target="_blank" class="block text-cream/50 hover:text-white text-sm transition-colors">Instagram</a>
+          <a href="mailto:dapenza444@gmail.com" class="block text-cream/50 hover:text-white text-sm transition-colors">dapenza444@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-cream/30 text-xs">&copy; 2026 Sunset Club Ranch. All rights reserved.</p>
+      <p class="text-cream/30 text-xs">50800 Los Palos Road, Indio, CA 92201</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) { navbar.style.backgroundColor = 'rgba(17,14,10,0.9)'; navbar.classList.add('nav-blur', 'shadow-lg'); }
+  else { navbar.style.backgroundColor = 'transparent'; navbar.classList.remove('nav-blur', 'shadow-lg'); }
+});
+
+// Mobile menu
+const mobileToggle = document.getElementById('mobile-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileClose = document.getElementById('mobile-close');
+mobileToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+document.querySelectorAll('.mobile-link').forEach(link => { link.addEventListener('click', () => mobileMenu.classList.remove('open')); });
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Form submission via mailto
+document.getElementById('wedding-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const d = Object.fromEntries(fd);
+  const subject = encodeURIComponent(`Wedding Inquiry - ${d.name}`);
+  const body = encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\nPhone: ${d.phone || 'N/A'}\nPreferred Date: ${d.date || 'Flexible'}\nGuests: ${d.guests || 'N/A'}\nPackage: ${d.package || 'N/A'}\nMessage: ${d.message || 'N/A'}`);
+  window.location.href = `mailto:dapenza444@gmail.com?subject=${subject}&body=${body}`;
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.textContent = 'Inquiry Sent!';
+  btn.style.backgroundColor = '#45735a';
+  btn.style.color = '#fff';
+  setTimeout(() => { btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg> Send Wedding Inquiry'; btn.style.backgroundColor = '#c9943e'; btn.style.color = '#110e0a'; e.target.reset(); }, 3000);
+});
+</script>
+</body>
+</html>

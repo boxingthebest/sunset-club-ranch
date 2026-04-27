@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>After Dark | Coachella 2027 Experience · Sunset Club Ranch</title>
+  <meta name="description" content="After Dark at Sunset Club Ranch — the most exclusive address during Coachella. A private 5-acre compound for brand activations, VIP hospitality, and private performances. By inquiry only." />
+  <meta property="og:title" content="After Dark | Sunset Club Ranch · Coachella 2027" />
+  <meta property="og:description" content="Days at the compound. Nights under the Coachella stars. Brand activations, VIP hospitality, private performances. By private inquiry only." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+            accent: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            gold: '#c9943e',
+            cream: '#f0e6d3',
+            dark: '#0a0a0a',
+            darkbg: '#0d0d0d',
+            card: '#141414',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; margin: 0; overflow-x: hidden; background: #0a0a0a; color: #fff; }
+    .logo-container { display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .logo-main { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #f0e6d3; line-height: 1.05; letter-spacing: 3px; }
+    .logo-ranch-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 4px; }
+    .logo-line { width: 40px; height: 1px; }
+    .logo-line-left { background: linear-gradient(to right, transparent, #d4a44a); }
+    .logo-line-right { background: linear-gradient(to left, transparent, #d4a44a); }
+    .logo-ranch { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 14px; letter-spacing: 16px; text-transform: uppercase; color: #d4a44a; }
+    .nav-logo .logo-main { font-size: 24px; letter-spacing: 2px; }
+    .nav-logo .logo-ranch { font-size: 9px; letter-spacing: 10px; }
+    .nav-logo .logo-line { width: 20px; }
+    .nav-logo .logo-ranch-row { gap: 8px; margin-top: 2px; }
+    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .pulse-glow { animation: pulseGlow 2.5s ease-in-out infinite; }
+    @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(201, 148, 62, 0.4); } 50% { box-shadow: 0 0 24px 8px rgba(201, 148, 62, 0.2); } }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+    .mobile-menu.open { transform: translateX(0); }
+    input:focus, textarea:focus, select:focus { outline: 2px solid #c9943e; outline-offset: 2px; }
+    .gold-divider { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto; }
+    .gold-divider::before, .gold-divider::after { content: ''; width: 40px; height: 0.5px; }
+    .gold-divider::before { background: linear-gradient(to right, transparent, #c9943e); }
+    .gold-divider::after { background: linear-gradient(to left, transparent, #c9943e); }
+    /* Particle canvas */
+    #particle-canvas { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
+    /* Weekend selector */
+    .weekend-btn { transition: all 0.3s ease; }
+    .weekend-btn.active { background: rgba(201,148,62,0.2); border-color: rgba(201,148,62,0.4); color: #c9943e; }
+    @media (max-width: 768px) { .hero-title { font-size: 4rem !important; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <div class="bg-black/60 backdrop-blur-md border-b border-gold/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/">
+        <div class="logo-container nav-logo">
+          <div class="logo-main">Sunset Club</div>
+          <div class="logo-ranch-row">
+            <div class="logo-line logo-line-left"></div>
+            <div class="logo-ranch">Ranch</div>
+            <div class="logo-line logo-line-right"></div>
+          </div>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#experience" class="text-white/50 hover:text-gold text-sm tracking-widest uppercase transition-colors font-accent font-light">The Experience</a>
+        <a href="#pillars" class="text-white/50 hover:text-gold text-sm tracking-widest uppercase transition-colors font-accent font-light">The Estate</a>
+        <a href="/weddings.html" class="text-white/50 hover:text-gold text-sm tracking-widest uppercase transition-colors font-accent font-light">Weddings</a>
+        <a href="/corporate.html" class="text-white/50 hover:text-gold text-sm tracking-widest uppercase transition-colors font-accent font-light">Corporate</a>
+        <a href="#inquiry" class="bg-gold text-black px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:brightness-110 transition-all font-accent">Private Inquiry</a>
+      </div>
+      <button id="mobile-toggle" class="md:hidden text-white"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu" class="mobile-menu fixed inset-0 z-50 bg-black/98 flex flex-col items-center justify-center gap-8">
+  <button id="mobile-close" class="absolute top-6 right-6 text-white"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <div class="logo-container nav-logo">
+    <div class="logo-main">Sunset Club</div>
+    <div class="logo-ranch-row">
+      <div class="logo-line logo-line-left"></div>
+      <div class="logo-ranch">Ranch</div>
+      <div class="logo-line logo-line-right"></div>
+    </div>
+  </div>
+  <a href="#experience" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">The Experience</a>
+  <a href="#pillars" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">The Estate</a>
+  <a href="/weddings.html" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">Weddings</a>
+  <a href="/corporate.html" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">Corporate</a>
+  <a href="#inquiry" class="bg-gold text-black px-8 py-3 text-lg font-semibold tracking-wider uppercase mt-4 font-accent">Private Inquiry</a>
+</div>
+
+<!-- HERO -->
+<section class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/106775517/PeWdJljvIEPfOUKt.png" alt="After Dark desert estate at night with golden lighting" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
+  </div>
+  <canvas id="particle-canvas"></canvas>
+  <div class="relative z-20 text-center px-6">
+    <div class="fade-in mb-8">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5">
+        <svg class="w-3 h-3 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <span class="text-gold text-xs tracking-[0.3em] uppercase font-accent font-medium">By Private Inquiry Only</span>
+      </div>
+    </div>
+    <h1 class="fade-in font-display text-6xl md:text-8xl lg:text-9xl text-white leading-[0.9] max-w-5xl hero-title">
+      After<br/><span class="italic font-normal text-gold">Dark</span>
+    </h1>
+    <p class="fade-in mt-8 text-lg md:text-xl text-white/50 font-body font-light max-w-xl mx-auto leading-relaxed tracking-wide">
+      Days at the compound. Nights under the Coachella stars.
+    </p>
+    <div class="fade-in mt-6 flex items-center justify-center gap-6 text-sm text-white/30 font-accent tracking-widest uppercase">
+      <span>Weekend 1</span>
+      <span class="w-8 h-px bg-gold/40"></span>
+      <span>Weekend 2</span>
+      <span class="w-8 h-px bg-gold/40"></span>
+      <span>Coachella 2027</span>
+    </div>
+    <a href="#inquiry" class="fade-in inline-block mt-12 px-10 py-4 bg-gold hover:brightness-110 text-black text-sm font-bold tracking-[0.2em] uppercase font-accent transition-all pulse-glow">Request Access</a>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" opacity="0.3"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- TAGLINE -->
+<section class="py-24 px-6 bg-dark border-t border-gold/10">
+  <div class="max-w-4xl mx-auto text-center fade-in">
+    <p class="text-2xl md:text-4xl text-white/80 font-display italic leading-relaxed">
+      &ldquo;The most exclusive address during the world's most iconic festival. A private 5-acre compound where brands, tastemakers, and visionaries gather after the music stops.&rdquo;
+    </p>
+    <div class="mt-8 flex items-center justify-center gap-3">
+      <div class="w-12 h-px bg-gold/40"></div>
+      <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+      <div class="w-12 h-px bg-gold/40"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR PILLARS -->
+<section id="pillars" class="py-24 px-6 bg-darkbg">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">The Estate</p>
+      <h2 class="font-display text-4xl md:text-5xl text-white">Four Pillars of <span class="italic text-gold">After Dark</span></h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="fade-in group bg-card rounded-sm p-8 border border-gold/10 hover:border-gold/30 transition-colors">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-white mb-3">Private Compound</h3>
+        <p class="text-sm text-white/50 font-body leading-relaxed">5 acres of exclusive desert estate. Three luxury homes. Gated entry. Total privacy for your brand, your guests, your moment.</p>
+      </div>
+      <div class="fade-in group bg-card rounded-sm p-8 border border-gold/10 hover:border-gold/30 transition-colors">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-white mb-3">Curated Luxury</h3>
+        <p class="text-sm text-white/50 font-body leading-relaxed">46 pieces of original art. Heated pool & spa. Koolfog misting. Resort cabanas. Every detail designed for the discerning guest.</p>
+      </div>
+      <div class="fade-in group bg-card rounded-sm p-8 border border-gold/10 hover:border-gold/30 transition-colors">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-white mb-3">Festival Adjacent</h3>
+        <p class="text-sm text-white/50 font-body leading-relaxed">0.8 miles from Empire Polo Club — the home of Coachella. Close enough to feel the bass. Far enough for peace.</p>
+      </div>
+      <div class="fade-in group bg-card rounded-sm p-8 border border-gold/10 hover:border-gold/30 transition-colors">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-white mb-3">Turnkey Activation</h3>
+        <p class="text-sm text-white/50 font-body leading-relaxed">Full infrastructure for brand activations, influencer events, VIP hospitality, and private performances. Your vision, our canvas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE IMAGE BREAK -->
+<section id="experience" class="relative">
+  <div class="h-[70vh] overflow-hidden">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/106775517/GzSJsrufYdOXKzsd.png" alt="After Dark poolside experience with golden lighting" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/50"></div>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 p-8 md:p-16 z-10">
+    <div class="fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-3 font-medium">The Experience</p>
+      <h2 class="font-display text-3xl md:text-5xl text-white max-w-2xl leading-tight">Where the Festival Comes Home</h2>
+      <p class="mt-4 text-white/50 font-body max-w-xl leading-relaxed">Pool parties that rival the main stage. Dinners that become legendary. Conversations that shape culture. This is what happens after dark.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVATION FORMATS -->
+<section class="py-24 px-6 bg-dark">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Activation Formats</p>
+      <h2 class="font-display text-4xl md:text-5xl text-white">Your Vision. <span class="italic text-gold">Our Canvas.</span></h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="fade-in bg-card rounded-sm p-6 text-center border border-gold/5 hover:border-gold/20 transition-colors">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M8 21h8m-4-4v4m-4.5-9.5L12 8l4.5 3.5M3 3h18v12a2 2 0 01-2 2H5a2 2 0 01-2-2V3z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-white font-display">VIP Hospitality Lounge</p>
+      </div>
+      <div class="fade-in bg-card rounded-sm p-6 text-center border border-gold/5 hover:border-gold/20 transition-colors">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-white font-display">Influencer Activations</p>
+      </div>
+      <div class="fade-in bg-card rounded-sm p-6 text-center border border-gold/5 hover:border-gold/20 transition-colors">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-white font-display">Brand Experience Houses</p>
+      </div>
+      <div class="fade-in bg-card rounded-sm p-6 text-center border border-gold/5 hover:border-gold/20 transition-colors">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-white font-display">Private Performances</p>
+      </div>
+      <div class="fade-in bg-card rounded-sm p-6 text-center border border-gold/5 hover:border-gold/20 transition-colors">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-white font-display">Chef-Curated Dining</p>
+      </div>
+      <div class="fade-in bg-card rounded-sm p-6 text-center border border-gold/5 hover:border-gold/20 transition-colors">
+        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+        </div>
+        <p class="text-sm font-semibold text-white font-display">Content Creation Studios</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEKEND AVAILABILITY -->
+<section class="py-24 px-6 bg-darkbg border-t border-gold/10">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Coachella 2027</p>
+      <h2 class="font-display text-4xl md:text-5xl text-white">Two Weekends. <span class="italic text-gold">Limited Access.</span></h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Weekend 1 -->
+      <div class="fade-in bg-card rounded-sm p-8 border border-gold/20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase font-medium">Weekend 1</p>
+        <h3 class="font-display text-3xl text-white mt-3">The Opening</h3>
+        <p class="text-white/40 font-body text-sm mt-2">April 2027 &middot; Friday&ndash;Sunday</p>
+        <div class="mt-6 pt-6 border-t border-white/5">
+          <p class="text-white/50 font-body text-sm leading-relaxed">The first weekend commands the highest energy. Brands launch campaigns. Influencers set the tone. The compound becomes the epicenter.</p>
+        </div>
+        <div class="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20">
+          <svg class="w-3 h-3 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span class="text-gold text-xs font-semibold font-accent tracking-wider uppercase">Premium Availability</span>
+        </div>
+      </div>
+      <!-- Weekend 2 -->
+      <div class="fade-in bg-card rounded-sm p-8 border border-white/5 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-white/[0.02] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <p class="font-accent text-white/40 text-xs tracking-[0.3em] uppercase font-medium">Weekend 2</p>
+        <h3 class="font-display text-3xl text-white mt-3">The Encore</h3>
+        <p class="text-white/40 font-body text-sm mt-2">April 2027 &middot; Friday&ndash;Sunday</p>
+        <div class="mt-6 pt-6 border-t border-white/5">
+          <p class="text-white/50 font-body text-sm leading-relaxed">The second weekend is for those who know. Smaller crowds at the festival. More intimate at the compound. The real insiders weekend.</p>
+        </div>
+        <div class="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+          <svg class="w-3 h-3 text-white/40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="text-white/40 text-xs font-semibold font-accent tracking-wider uppercase">Now Accepting Inquiries</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section id="inquiry" class="py-24 px-6 bg-dark border-t border-gold/10">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12 fade-in">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/20 bg-gold/5 mb-6">
+        <svg class="w-3 h-3 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <span class="text-gold text-xs tracking-[0.2em] uppercase font-accent font-medium">Private Inquiry</span>
+      </div>
+      <h2 class="font-display text-4xl md:text-5xl text-white">Request Access</h2>
+      <p class="mt-4 text-white/40 font-body max-w-xl mx-auto">After Dark is available by private inquiry only. Tell us about your vision and we'll be in touch within 24 hours.</p>
+    </div>
+    <form id="afterdark-form" class="fade-in bg-card rounded-sm p-8 md:p-10 border border-gold/10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-xs font-medium text-white/40 font-accent mb-2 tracking-wider uppercase">Your Name *</label>
+          <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/20 focus:border-gold/50 transition-colors rounded-sm" placeholder="Full name" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-white/40 font-accent mb-2 tracking-wider uppercase">Company / Brand</label>
+          <input type="text" name="company" class="w-full bg-white/5 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/20 focus:border-gold/50 transition-colors rounded-sm" placeholder="Brand or company name" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-white/40 font-accent mb-2 tracking-wider uppercase">Email *</label>
+          <input type="email" name="email" required class="w-full bg-white/5 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/20 focus:border-gold/50 transition-colors rounded-sm" placeholder="your@email.com" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-white/40 font-accent mb-2 tracking-wider uppercase">Phone</label>
+          <input type="tel" name="phone" class="w-full bg-white/5 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/20 focus:border-gold/50 transition-colors rounded-sm" placeholder="(555) 555-5555" />
+        </div>
+      </div>
+      <div class="mt-5">
+        <label class="block text-xs font-medium text-white/40 font-accent mb-2 tracking-wider uppercase">Preferred Weekend</label>
+        <div class="grid grid-cols-2 gap-3">
+          <button type="button" onclick="selectWeekend(this, 'Weekend 1 (Opening)')" class="weekend-btn py-3 px-4 rounded-sm text-sm font-accent transition-all border bg-white/5 border-white/10 text-white/50 hover:border-white/20">Weekend 1 (Opening)</button>
+          <button type="button" onclick="selectWeekend(this, 'Weekend 2 (Encore)')" class="weekend-btn py-3 px-4 rounded-sm text-sm font-accent transition-all border bg-white/5 border-white/10 text-white/50 hover:border-white/20">Weekend 2 (Encore)</button>
+        </div>
+        <input type="hidden" name="weekend" id="weekend-input" value="" />
+      </div>
+      <div class="mt-5">
+        <label class="block text-xs font-medium text-white/40 font-accent mb-2 tracking-wider uppercase">Tell Us About Your Vision</label>
+        <textarea name="message" rows="4" class="w-full bg-white/5 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/20 focus:border-gold/50 transition-colors rounded-sm resize-none" placeholder="Brand activation concept, guest count, hospitality needs..."></textarea>
+      </div>
+      <button type="submit" class="mt-6 w-full flex items-center justify-center gap-2 py-4 bg-gold hover:brightness-110 text-black text-sm font-bold tracking-[0.15em] uppercase font-accent transition-all pulse-glow rounded-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        Submit Private Inquiry
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- CROSS-LINKS -->
+<section class="py-16 px-6 bg-dark border-t border-gold/10">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-3 font-medium">More at Sunset Club Ranch</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="/weddings.html" class="fade-in group block bg-card border border-white/5 rounded-sm p-8 hover:border-gold/20 transition-all">
+        <p class="font-accent text-gold text-xs tracking-[0.2em] uppercase mb-2 font-medium">Weddings</p>
+        <h3 class="font-display text-2xl text-white italic group-hover:text-gold transition-colors">Desert Estate Weddings</h3>
+        <p class="text-white/30 text-sm mt-2 font-body">Say I Do under desert skies. Packages from $12,000.</p>
+      </a>
+      <a href="/corporate.html" class="fade-in group block bg-card border border-white/5 rounded-sm p-8 hover:border-gold/20 transition-all">
+        <p class="font-accent text-gold text-xs tracking-[0.2em] uppercase mb-2 font-medium">Corporate Events</p>
+        <h3 class="font-display text-2xl text-white italic group-hover:text-gold transition-colors">Team Retreats & Offsites</h3>
+        <p class="text-white/30 text-sm mt-2 font-body">Strategy sessions by the pool. Team dinners under desert stars. From $8,000.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black py-16 border-t border-gold/10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col items-center mb-12">
+      <p class="text-gold text-sm font-medium tracking-widest uppercase font-accent">After Dark at Sunset Club Ranch</p>
+      <div class="gold-divider mt-4 mb-8"></div>
+    </div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <p class="text-white/20 text-xs font-body">50800 Los Palos Road, Indio, CA 92201</p>
+      <div class="flex items-center gap-6">
+        <a href="/weddings.html" class="text-white/30 hover:text-gold text-sm font-body transition-colors">Weddings</a>
+        <a href="/corporate.html" class="text-white/30 hover:text-gold text-sm font-body transition-colors">Corporate</a>
+        <a href="/" class="text-white/30 hover:text-gold text-sm font-body transition-colors">Main Site</a>
+      </div>
+      <p class="text-white/15 text-xs font-body">&copy; 2026 Sunset Club Ranch. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Navbar (already has bg from border)
+const navbar = document.getElementById('navbar');
+
+// Mobile menu
+const mobileToggle = document.getElementById('mobile-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileClose = document.getElementById('mobile-close');
+mobileToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+document.querySelectorAll('.mobile-link').forEach(link => { link.addEventListener('click', () => mobileMenu.classList.remove('open')); });
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Weekend selector
+function selectWeekend(btn, value) {
+  document.querySelectorAll('.weekend-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('weekend-input').value = value;
+}
+
+// Particle canvas
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  const particles = [];
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  for (let i = 0; i < 60; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: -Math.random() * 0.4 - 0.1,
+      r: Math.random() * 2 + 0.5,
+      a: Math.random() * 0.5 + 0.1,
+    });
+  }
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(196, 162, 101, ${p.a})`;
+      ctx.fill();
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
+      if (p.x < -10) p.x = canvas.width + 10;
+      if (p.x > canvas.width + 10) p.x = -10;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// Form submission via mailto
+document.getElementById('afterdark-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const d = Object.fromEntries(fd);
+  const subject = encodeURIComponent(`After Dark Private Inquiry - ${d.company || d.name}`);
+  const body = encodeURIComponent(`Name: ${d.name}\nCompany/Brand: ${d.company || 'N/A'}\nEmail: ${d.email}\nPhone: ${d.phone || 'N/A'}\nPreferred Weekend: ${d.weekend || 'N/A'}\nVision: ${d.message || 'N/A'}`);
+  window.location.href = `mailto:dapenza444@gmail.com?subject=${subject}&body=${body}`;
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.textContent = 'Inquiry Submitted!';
+  btn.style.backgroundColor = '#45735a';
+  btn.style.color = '#fff';
+  setTimeout(() => { btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg> Submit Private Inquiry'; btn.style.backgroundColor = '#c9943e'; btn.style.color = '#000'; e.target.reset(); document.querySelectorAll('.weekend-btn').forEach(b => b.classList.remove('active')); }, 3000);
+});
+</script>
+</body>
+</html>

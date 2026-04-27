@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporate Retreats & Team Events | Sunset Club Ranch · Indio, CA</title>
+  <meta name="description" content="Host your next corporate retreat at a private 5-acre desert estate. Strategy sessions by the pool. Team dinners under the stars. 3 luxury homes, full amenities. Packages from $8,000." />
+  <meta property="og:title" content="Corporate Retreats | Sunset Club Ranch" />
+  <meta property="og:description" content="A private 5-acre compound for team offsites. 3 homes, pool & spa, outdoor kitchen. Day retreats from $8K, overnight from $25K." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+            accent: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            gold: '#c9943e',
+            cream: '#f0e6d3',
+            dark: '#110e0a',
+            sand: { 50: '#faf7f2', 100: '#f5ede0', 200: '#e8dcc8' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; margin: 0; overflow-x: hidden; }
+    .logo-container { display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .logo-main { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #f0e6d3; line-height: 1.05; letter-spacing: 3px; }
+    .logo-ranch-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 4px; }
+    .logo-line { width: 40px; height: 1px; }
+    .logo-line-left { background: linear-gradient(to right, transparent, #d4a44a); }
+    .logo-line-right { background: linear-gradient(to left, transparent, #d4a44a); }
+    .logo-ranch { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 14px; letter-spacing: 16px; text-transform: uppercase; color: #d4a44a; }
+    .nav-logo .logo-main { font-size: 24px; letter-spacing: 2px; }
+    .nav-logo .logo-ranch { font-size: 9px; letter-spacing: 10px; }
+    .nav-logo .logo-line { width: 20px; }
+    .nav-logo .logo-ranch-row { gap: 8px; margin-top: 2px; }
+    .hero-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.7) 100%); }
+    .gold-divider { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto; }
+    .gold-divider::before, .gold-divider::after { content: ''; width: 40px; height: 0.5px; }
+    .gold-divider::before { background: linear-gradient(to right, transparent, #c9943e); }
+    .gold-divider::after { background: linear-gradient(to left, transparent, #c9943e); }
+    .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .pulse-glow { animation: pulseGlow 2.5s ease-in-out infinite; }
+    @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(201, 148, 62, 0.4); } 50% { box-shadow: 0 0 24px 8px rgba(201, 148, 62, 0.15); } }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+    .mobile-menu.open { transform: translateX(0); }
+    .grain-overlay::after { content: ''; position: absolute; inset: 0; opacity: 0.03; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+    input:focus, textarea:focus, select:focus { outline: 2px solid #c9943e; outline-offset: 2px; }
+    .pkg-card { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease; }
+    .pkg-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+    @media (max-width: 768px) { .hero-title { font-size: 3rem !important; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/">
+      <div class="logo-container nav-logo">
+        <div class="logo-main">Sunset Club</div>
+        <div class="logo-ranch-row">
+          <div class="logo-line logo-line-left"></div>
+          <div class="logo-ranch">Ranch</div>
+          <div class="logo-line logo-line-right"></div>
+        </div>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#why" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-accent font-light">Why SCR</a>
+      <a href="#packages" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-accent font-light">Packages</a>
+      <a href="#activities" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-accent font-light">Activities</a>
+      <a href="/weddings.html" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-accent font-light">Weddings</a>
+      <a href="/after-dark.html" class="text-white/80 hover:text-white text-sm tracking-widest uppercase transition-colors font-accent font-light">After Dark</a>
+      <a href="#inquiry" class="bg-gold text-dark px-6 py-2.5 text-sm font-semibold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-accent">Get a Proposal</a>
+    </div>
+    <button id="mobile-toggle" class="md:hidden text-white"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu" class="mobile-menu fixed inset-0 z-50 bg-dark/98 flex flex-col items-center justify-center gap-8">
+  <button id="mobile-close" class="absolute top-6 right-6 text-white"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <div class="logo-container nav-logo">
+    <div class="logo-main">Sunset Club</div>
+    <div class="logo-ranch-row">
+      <div class="logo-line logo-line-left"></div>
+      <div class="logo-ranch">Ranch</div>
+      <div class="logo-line logo-line-right"></div>
+    </div>
+  </div>
+  <a href="#why" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">Why SCR</a>
+  <a href="#packages" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">Packages</a>
+  <a href="#activities" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">Activities</a>
+  <a href="/weddings.html" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">Weddings</a>
+  <a href="/after-dark.html" class="mobile-link text-white text-xl font-accent font-light tracking-[0.2em] uppercase">After Dark</a>
+  <a href="#inquiry" class="bg-gold text-dark px-8 py-3 text-lg font-semibold tracking-wider uppercase mt-4 font-accent">Get a Proposal</a>
+</div>
+
+<!-- HERO -->
+<section class="relative h-screen min-h-[700px] flex items-center justify-center">
+  <div class="absolute inset-0">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/106775517/RaqCciIyrHceYMQc.jpeg" alt="Sunset Club Ranch outdoor activities area" class="w-full h-full object-cover" />
+    <div class="hero-overlay absolute inset-0"></div>
+  </div>
+  <div class="relative z-10 text-center px-6 fade-in">
+    <p class="font-accent text-gold text-sm tracking-[0.3em] uppercase mb-6 font-medium">Corporate Retreats & Team Events</p>
+    <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] max-w-5xl hero-title">
+      Where Teams<br/><span class="italic font-normal text-gold">Reconnect</span>
+    </h1>
+    <p class="text-cream/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-8 mb-4 font-body font-light">
+      A private 5-acre desert estate in Indio, California. Strategy sessions by the pool. Team dinners under the stars. No conference rooms. No distractions. Just your team at their best.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center mt-10">
+      <a href="#inquiry" class="bg-gold text-dark px-8 py-3.5 text-sm font-bold tracking-wider uppercase hover:brightness-110 transition-all pulse-glow font-accent">Get a Custom Proposal</a>
+      <a href="#packages" class="border border-white/30 text-white px-8 py-3.5 text-sm font-light tracking-wider uppercase hover:bg-white/10 transition-all font-accent">View Packages</a>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" opacity="0.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- WHY SCR -->
+<section id="why" class="py-24 px-6 bg-sand-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">A Different Kind of Offsite</p>
+      <h2 class="font-display text-4xl md:text-5xl text-dark leading-tight">Your Best Ideas Won't Come<br/><span class="italic font-normal">From a Conference Room.</span></h2>
+      <div class="gold-divider mt-6"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="fade-in bg-white rounded-sm p-8 shadow-sm border border-sand-200 hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-dark mb-3">Not a Hotel Ballroom</h3>
+        <p class="text-sm text-dark/60 font-body leading-relaxed">Five private acres. Three luxury homes. No shared lobbies, no conference center energy. Just your team, focused and inspired.</p>
+      </div>
+      <div class="fade-in bg-white rounded-sm p-8 shadow-sm border border-sand-200 hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-dark mb-3">Work Hard, Play Hard</h3>
+        <p class="text-sm text-dark/60 font-body leading-relaxed">Morning strategy sessions by the pool. Afternoon pickleball tournament. Evening dinner under desert stars. The agenda writes itself.</p>
+      </div>
+      <div class="fade-in bg-white rounded-sm p-8 shadow-sm border border-sand-200 hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3 class="font-display text-xl text-dark mb-3">Minutes from Everywhere</h3>
+        <p class="text-sm text-dark/60 font-body leading-relaxed">0.8 miles from Empire Polo Club. Palm Springs International Airport is 30 minutes away. Easy access for teams flying in from anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages" class="py-24 px-6 bg-dark grain-overlay relative overflow-hidden">
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Retreat Packages</p>
+      <h2 class="font-display text-4xl md:text-5xl text-cream leading-tight italic">Built for Your Team</h2>
+      <div class="gold-divider mt-6"></div>
+      <p class="mt-6 text-cream/50 font-body max-w-2xl mx-auto">Every package includes exclusive access to the full estate. Customize with add-ons to match your agenda.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Day Retreat -->
+      <div class="pkg-card bg-white/5 rounded-sm overflow-hidden border border-white/10 fade-in">
+        <div class="p-8">
+          <h3 class="font-display text-2xl text-cream">Day Retreat</h3>
+          <p class="text-xs font-medium text-cream/40 font-body mt-1">Full Day (8+ hours)</p>
+          <p class="text-3xl font-bold text-gold font-body mt-6">From $8,000</p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Full estate access for up to 40 guests</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Indoor & outdoor meeting spaces</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Heated pool & spa access</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Outdoor kitchen for catered lunch</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Team activities: pickleball, volleyball, cinema</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Koolfog misting for summer comfort</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Wi-Fi throughout the estate</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Dedicated on-site coordinator</li>
+          </ul>
+          <a href="#inquiry" class="mt-8 w-full flex items-center justify-center gap-2 py-3.5 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold tracking-wider uppercase font-accent transition-all border border-white/20 rounded-sm">Get Proposal &rarr;</a>
+        </div>
+      </div>
+      <!-- Overnight (Popular) -->
+      <div class="pkg-card bg-white rounded-sm overflow-hidden shadow-xl ring-2 ring-gold relative fade-in">
+        <div class="absolute top-0 left-0 right-0 bg-gold text-center py-2">
+          <span class="text-xs font-bold tracking-widest uppercase text-dark font-accent">Most Popular</span>
+        </div>
+        <div class="p-8 pt-14">
+          <h3 class="font-display text-2xl text-dark">Overnight Retreat</h3>
+          <p class="text-xs font-medium text-dark/50 font-body mt-1">2 Days / 1 Night</p>
+          <p class="text-3xl font-bold text-gold font-body mt-6">From $25,000</p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Everything in Day Retreat, plus:</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Overnight lodging in 3 luxury homes (25+ guests)</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Welcome dinner under the stars</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Breakfast setup for morning session</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Evening bonfire & team bonding</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>98" outdoor cinema for presentations or movies</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Extended pool & spa hours</li>
+            <li class="flex items-start gap-3 text-sm text-dark/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Private chef add-on available</li>
+          </ul>
+          <a href="#inquiry" class="mt-8 w-full flex items-center justify-center gap-2 py-3.5 bg-gold hover:brightness-110 text-dark text-sm font-bold tracking-wider uppercase font-accent transition-all pulse-glow rounded-sm">Get Proposal &rarr;</a>
+        </div>
+      </div>
+      <!-- Executive Summit -->
+      <div class="pkg-card bg-white/5 rounded-sm overflow-hidden border border-white/10 fade-in">
+        <div class="p-8">
+          <h3 class="font-display text-2xl text-cream">Executive Summit</h3>
+          <p class="text-xs font-medium text-cream/40 font-body mt-1">3 Days / 2 Nights</p>
+          <p class="text-3xl font-bold text-gold font-body mt-6">From $35,000</p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Everything in Overnight, plus:</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Full 3-day agenda support</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Multiple breakout spaces across homes</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Daily catering coordination</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Shuttle service to local restaurants</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Golf course access coordination</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Professional AV equipment referral</li>
+            <li class="flex items-start gap-3 text-sm text-cream/60 font-body"><svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gold/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Custom team-building programming</li>
+          </ul>
+          <a href="#inquiry" class="mt-8 w-full flex items-center justify-center gap-2 py-3.5 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold tracking-wider uppercase font-accent transition-all border border-white/20 rounded-sm">Get Proposal &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities" class="py-24 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Team Building</p>
+      <h2 class="font-display text-4xl md:text-5xl text-dark leading-tight italic">Beyond the Boardroom</h2>
+      <div class="gold-divider mt-6"></div>
+      <p class="mt-6 text-dark/60 font-body max-w-2xl mx-auto">The best team-building doesn't feel like team-building. It feels like a weekend you'd actually want to go on.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="fade-in bg-sand-50 rounded-sm p-8 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <p class="text-base font-semibold text-dark font-display">Pickleball Tournament</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Competition builds teams</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-8 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <p class="text-base font-semibold text-dark font-display">Pool & Spa Day</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Recharge between sessions</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-8 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+        </div>
+        <p class="text-base font-semibold text-dark font-display">Outdoor Kitchen</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Team cooking experiences</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-8 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <p class="text-base font-semibold text-dark font-display">Sand Volleyball</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Beach vibes, desert setting</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-8 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+        </div>
+        <p class="text-base font-semibold text-dark font-display">Outdoor Cinema</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Presentations or movie night</p>
+      </div>
+      <div class="fade-in bg-sand-50 rounded-sm p-8 text-center hover:shadow-md transition-shadow border border-sand-200/50">
+        <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <p class="text-base font-semibold text-dark font-display">Private Chef Dinner</p>
+        <p class="text-xs text-dark/50 font-body mt-1">Farm-to-table under stars</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="relative py-20 px-6 overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699544865688282514/original/2ee8d8c2-028b-4046-a2e1-f273fa80ddea.jpeg?im_w=1200" alt="Sunset Club Ranch at twilight" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-dark/80"></div>
+  </div>
+  <div class="relative z-10 max-w-3xl mx-auto text-center fade-in">
+    <h2 class="font-display text-3xl md:text-5xl text-white italic">Ready to Plan Your Retreat?</h2>
+    <p class="mt-4 text-cream/50 font-body max-w-xl mx-auto">We'll put together a custom proposal based on your team size, dates, and goals. Most teams book 4–6 weeks in advance.</p>
+    <a href="#inquiry" class="inline-flex items-center gap-2 mt-8 px-8 py-4 bg-gold hover:brightness-110 text-dark text-sm font-bold tracking-wider uppercase font-accent transition-all pulse-glow">Get Started &rarr;</a>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section id="inquiry" class="py-24 px-6 bg-sand-50">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Get in Touch</p>
+      <h2 class="font-display text-4xl md:text-5xl text-dark italic">Request a Proposal</h2>
+      <div class="gold-divider mt-6"></div>
+      <p class="mt-6 text-dark/60 font-body max-w-xl mx-auto">Tell us about your team and we'll send you a custom proposal within 48 hours.</p>
+    </div>
+    <form id="corporate-form" class="fade-in bg-white rounded-sm p-8 md:p-10 border border-sand-200 shadow-sm">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-xs font-medium text-dark/50 font-accent mb-2 tracking-wider uppercase">Your Name *</label>
+          <input type="text" name="name" required class="w-full bg-sand-50 border border-sand-200 px-4 py-3 text-dark text-sm font-body placeholder:text-dark/30 transition-colors rounded-sm" placeholder="Full name" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-dark/50 font-accent mb-2 tracking-wider uppercase">Company</label>
+          <input type="text" name="company" class="w-full bg-sand-50 border border-sand-200 px-4 py-3 text-dark text-sm font-body placeholder:text-dark/30 transition-colors rounded-sm" placeholder="Company name" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-dark/50 font-accent mb-2 tracking-wider uppercase">Email *</label>
+          <input type="email" name="email" required class="w-full bg-sand-50 border border-sand-200 px-4 py-3 text-dark text-sm font-body placeholder:text-dark/30 transition-colors rounded-sm" placeholder="work@company.com" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-dark/50 font-accent mb-2 tracking-wider uppercase">Phone</label>
+          <input type="tel" name="phone" class="w-full bg-sand-50 border border-sand-200 px-4 py-3 text-dark text-sm font-body placeholder:text-dark/30 transition-colors rounded-sm" placeholder="(555) 555-5555" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-dark/50 font-accent mb-2 tracking-wider uppercase">Team Size</label>
+          <input type="text" name="attendees" class="w-full bg-sand-50 border border-sand-200 px-4 py-3 text-dark text-sm font-body placeholder:text-dark/30 transition-colors rounded-sm" placeholder="Number of attendees" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-dark/50 font-accent mb-2 tracking-wider uppercase">Preferred Dates</label>
+          <input type="text" name="dates" class="w-full bg-sand-50 border border-sand-200 px-4 py-3 text-dark text-sm font-body placeholder:text-dark/30 transition-colors rounded-sm" placeholder="Month / dates" />
+        </div>
+      </div>
+      <div class="mt-5">
+        <label class="block text-xs font-medium text-dark/50 font-accent mb-2 tracking-wider uppercase">Tell Us About Your Event</label>
+        <textarea name="message" rows="4" class="w-full bg-sand-50 border border-sand-200 px-4 py-3 text-dark text-sm font-body placeholder:text-dark/30 transition-colors rounded-sm resize-none" placeholder="Goals, agenda ideas, special requirements..."></textarea>
+      </div>
+      <button type="submit" class="mt-6 w-full flex items-center justify-center gap-2 py-4 bg-gold hover:brightness-110 text-dark text-sm font-bold tracking-wider uppercase font-accent transition-all pulse-glow rounded-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        Request Proposal
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- CROSS-LINKS -->
+<section class="py-16 px-6 bg-dark border-t border-white/5">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10 fade-in">
+      <p class="font-accent text-gold text-xs tracking-[0.3em] uppercase mb-3 font-medium">More at Sunset Club Ranch</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="/weddings.html" class="fade-in group block bg-white/5 border border-white/10 rounded-sm p-8 hover:border-gold/30 transition-all">
+        <p class="font-accent text-gold text-xs tracking-[0.2em] uppercase mb-2 font-medium">Weddings</p>
+        <h3 class="font-display text-2xl text-cream italic group-hover:text-gold transition-colors">Desert Estate Weddings</h3>
+        <p class="text-cream/40 text-sm mt-2 font-body">Say I Do under desert skies. Packages from $12,000.</p>
+      </a>
+      <a href="/after-dark.html" class="fade-in group block bg-white/5 border border-white/10 rounded-sm p-8 hover:border-gold/30 transition-all">
+        <p class="font-accent text-gold text-xs tracking-[0.2em] uppercase mb-2 font-medium">After Dark</p>
+        <h3 class="font-display text-2xl text-cream italic group-hover:text-gold transition-colors">Coachella 2027 Experience</h3>
+        <p class="text-cream/40 text-sm mt-2 font-body">Brand activations & VIP hospitality. By private inquiry only.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark py-16 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col items-center mb-12">
+      <div class="logo-container nav-logo">
+        <div class="logo-main">Sunset Club</div>
+        <div class="logo-ranch-row">
+          <div class="logo-line logo-line-left"></div>
+          <div class="logo-ranch">Ranch</div>
+          <div class="logo-line logo-line-right"></div>
+        </div>
+      </div>
+      <div class="gold-divider mt-6 mb-8"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-12 mb-12">
+      <div><p class="text-cream/50 text-sm leading-relaxed">A private 5-acre luxury desert estate in Indio, California. Steps from Coachella & Stagecoach.</p></div>
+      <div>
+        <h4 class="text-gold text-xs tracking-[0.2em] uppercase mb-4 font-accent font-light">Quick Links</h4>
+        <div class="space-y-2">
+          <a href="/" class="block text-cream/50 hover:text-white text-sm transition-colors">Home</a>
+          <a href="/weddings.html" class="block text-cream/50 hover:text-white text-sm transition-colors">Weddings</a>
+          <a href="/corporate.html" class="block text-cream/50 hover:text-white text-sm transition-colors">Corporate Events</a>
+          <a href="/after-dark.html" class="block text-cream/50 hover:text-white text-sm transition-colors">After Dark</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-gold text-xs tracking-[0.2em] uppercase mb-4 font-accent font-light">Connect</h4>
+        <div class="space-y-2">
+          <a href="tel:+17608000416" class="block text-cream/50 hover:text-white text-sm transition-colors">760-800-0416</a>
+          <a href="https://instagram.com/sunsetclubranch" target="_blank" class="block text-cream/50 hover:text-white text-sm transition-colors">Instagram</a>
+          <a href="mailto:dapenza444@gmail.com" class="block text-cream/50 hover:text-white text-sm transition-colors">dapenza444@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-cream/30 text-xs">&copy; 2026 Sunset Club Ranch. All rights reserved.</p>
+      <p class="text-cream/30 text-xs">50800 Los Palos Road, Indio, CA 92201</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) { navbar.style.backgroundColor = 'rgba(17,14,10,0.9)'; navbar.classList.add('nav-blur', 'shadow-lg'); }
+  else { navbar.style.backgroundColor = 'transparent'; navbar.classList.remove('nav-blur', 'shadow-lg'); }
+});
+
+const mobileToggle = document.getElementById('mobile-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileClose = document.getElementById('mobile-close');
+mobileToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+document.querySelectorAll('.mobile-link').forEach(link => { link.addEventListener('click', () => mobileMenu.classList.remove('open')); });
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+document.getElementById('corporate-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const d = Object.fromEntries(fd);
+  const subject = encodeURIComponent(`Corporate Retreat Inquiry - ${d.company || d.name}`);
+  const body = encodeURIComponent(`Name: ${d.name}\nCompany: ${d.company || 'N/A'}\nEmail: ${d.email}\nPhone: ${d.phone || 'N/A'}\nTeam Size: ${d.attendees || 'N/A'}\nPreferred Dates: ${d.dates || 'Flexible'}\nMessage: ${d.message || 'N/A'}`);
+  window.location.href = `mailto:dapenza444@gmail.com?subject=${subject}&body=${body}`;
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.textContent = 'Proposal Request Sent!';
+  btn.style.backgroundColor = '#45735a';
+  btn.style.color = '#fff';
+  setTimeout(() => { btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg> Request Proposal'; btn.style.backgroundColor = '#c9943e'; btn.style.color = '#110e0a'; e.target.reset(); }, 3000);
+});
+</script>
+</body>
+</html>
