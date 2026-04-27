@@ -17,6 +17,7 @@ export default defineConfig({
         weddings: resolve(__dirname, 'weddings.html'),
         corporate: resolve(__dirname, 'corporate.html'),
         'after-dark': resolve(__dirname, 'after-dark.html'),
+        '404': resolve(__dirname, '404.html'),
       },
     },
   },
