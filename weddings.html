@@ -466,6 +466,11 @@
         <label class="block text-xs font-medium text-cream/50 font-accent mb-2 tracking-wider uppercase">Tell Us About Your Vision</label>
         <textarea name="message" rows="4" class="w-full bg-white/10 border border-white/10 px-4 py-3 text-white text-sm font-body placeholder:text-white/30 focus:border-gold transition-colors rounded-sm resize-none" placeholder="What does your dream wedding look like?"></textarea>
       </div>
+      <!-- Honeypot - hidden from real users, catches bots -->
+      <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+        <label for="website">Leave this empty</label>
+        <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+      </div>
       <button type="submit" class="mt-6 w-full flex items-center justify-center gap-2 py-4 bg-gold hover:brightness-110 text-dark text-sm font-bold tracking-wider uppercase font-accent transition-all pulse-glow rounded-sm">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
         Send Wedding Inquiry
@@ -571,6 +576,8 @@ document.getElementById('wedding-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const fd = new FormData(e.target);
   const d = Object.fromEntries(fd);
+  // Honeypot check - if filled, it's a bot
+  if (d.website) { const btn = e.target.querySelector('button[type="submit"]'); btn.textContent = 'Inquiry Sent!'; btn.style.backgroundColor = '#45735a'; btn.style.color = '#fff'; return; }
   const subject = encodeURIComponent(`Wedding Inquiry - ${d.name}`);
   const body = encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\nPhone: ${d.phone || 'N/A'}\nPreferred Date: ${d.date || 'Flexible'}\nGuests: ${d.guests || 'N/A'}\nPackage: ${d.package || 'N/A'}\nMessage: ${d.message || 'N/A'}`);
   window.location.href = `mailto:dapenza444@gmail.com?subject=${subject}&body=${body}`;
