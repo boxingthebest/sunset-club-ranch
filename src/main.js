@@ -93,9 +93,9 @@ function picture(src, alt, className = '', loading = 'lazy') {
   return `<img class="${className}" src="${src}" alt="${alt}" loading="${loading}" decoding="async" />`
 }
 
-function pageHero({ image, eyebrow, title, copy, cta = 'Start planning', secondary = 'Explore', secondaryHref = '#story', badge = '' }) {
+function pageHero({ image, eyebrow, title, copy, cta = 'Start planning', secondary = 'Explore', secondaryHref = '#story', badge = '', variant = 'classic' }) {
   return `
-    <section class="page-hero">
+    <section class="page-hero page-hero--${variant}">
       ${picture(image, '', 'page-hero__image', 'eager')}
       <div class="page-hero__veil"></div>
       <div class="page-hero__content reveal is-visible">
@@ -247,7 +247,7 @@ function homePage() {
 function stayPage() {
   return `
     <main id="main">
-      ${pageHero({image: currentPoolOverview, eyebrow:'The private estate', title:'Three homes.<br /><em>One shared escape.</em>', copy:'A five-acre setting that gives the group a place to gather—and everyone enough space to find their own pace.', cta:'Check dates', secondary:'See the homes'})}
+      ${pageHero({image: '/media/estate/hardwood-fireplace.webp', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'Three private homes, newly finished interiors, and five acres that give the whole group room to settle into its own rhythm.', cta:'Check dates', secondary:'See the homes', variant:'interior'})}
       <section class="section-pad" id="story">
         ${editorialHeader('The homes', 'Together, without being on top of one another.', 'Three distinct homes share one relaxed design language: warm wood, clean white walls, collected art, shaded thresholds, and an easy connection to the grounds.')}
         <div class="home-cards">
@@ -307,7 +307,7 @@ function stayPage() {
 function weddingsPage() {
   return `
     <main id="main">
-      ${pageHero({image: currentStucco, eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'An intimate desert setting for weddings, birthdays, and milestone weekends—with the estate reserved around your people.', cta:'Inquire about your date', secondary:'Imagine the weekend'})}
+      ${pageHero({image: currentStucco, eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'An intimate desert setting for weddings, birthdays, and milestone weekends—with the estate reserved around your people.', cta:'Inquire about your date', secondary:'Imagine the weekend', variant:'event'})}
       <section class="intro split" id="story"><div class="intro__copy reveal"><p class="eyebrow">The occasion</p><h2>Not a ballroom.<br />A place that feels like yours.</h2><p class="lead">Celebrate under open sky, gather around the table, and let the weekend unfold without separating everyone at the end of the night.</p><p class="fine-print">All event use is reviewed individually and remains subject to applicable permits, insurance, parking, noise, and property requirements.</p></div><figure class="editorial-image editorial-image--portrait reveal">${picture(currentLawn, 'Current lawn and mountain view at Sunset Club Ranch')}<figcaption>Five acres for a more personal kind of gathering</figcaption></figure></section>
       <section class="chapter-section section-pad"><div class="chapter-grid">
         ${[
@@ -332,7 +332,7 @@ function weddingsPage() {
 function corporatePage() {
   return `
     <main id="main">
-      ${pageHero({image: currentStucco, eyebrow:'Corporate retreats', title:'Better ideas need<br /><em>better room.</em>', copy:'Trade the ballroom for five private acres, three homes, open-air conversations, and a setting built for teams to reconnect.', cta:'Plan a retreat', secondary:'See the format'})}
+      ${pageHero({image: eveningPoolLawn, eyebrow:'Corporate retreats', title:'Better ideas need<br /><em>better room.</em>', copy:'Trade the ballroom for five private acres, three homes, open-air conversations, and a setting built for teams to reconnect.', cta:'Plan a retreat', secondary:'See the format', variant:'retreat'})}
       <section class="section-pad" id="story">${editorialHeader('A different off-site', 'Think clearly. Gather naturally.', 'Build a focused retreat around privacy, indoor-outdoor work sessions, shared meals, and time that does not feel scheduled down to the minute.')}
         <div class="feature-grid">
           ${[
@@ -350,7 +350,7 @@ function corporatePage() {
 function afterDarkPage() {
   return `
     <main id="main" class="night-page">
-      ${pageHero({image: eveningPoolSpa, eyebrow:'A private Coachella week concept', title:'After Dark<br /><em>Coachella 2027.</em>', copy:'Days at the compound. Nights under the Coachella stars. A limited, inquiry-only hospitality concept now in development.', cta:'Join the private inquiry list', secondary:'Discover the concept', badge:'2027 concept · details in development'})}
+      ${pageHero({image: eveningPoolSpa, eyebrow:'A private Coachella week concept', title:'After Dark<br /><em>Coachella 2027.</em>', copy:'Days at the compound. Nights under the Coachella stars. A limited, inquiry-only hospitality concept now in development.', cta:'Join the private inquiry list', secondary:'Discover the concept', badge:'2027 concept · details in development', variant:'night'})}
       <section class="section-pad night-intro" id="story">${editorialHeader('The idea', 'When the festival comes home.', 'After Dark is envisioned as a private, highly serviced way to experience Coachella week—anchored by the estate and shaped around the people in it.')}
         <div class="pillars">
           ${[
@@ -376,7 +376,7 @@ function visionPage() {
   ]
   return `
     <main id="main">
-      ${pageHero({image:'/media/vision-2027/wellness-courtyard.webp', eyebrow:'The next chapter', title:'The estate,<br /><em>still becoming.</em>', copy:'A transparent preview of the spaces now being planned for 2027—from a reimagined barn to a desert wellness courtyard.', cta:'Follow the vision', secondary:'See what is planned', badge:'Concept rendering · not currently available'})}
+      ${pageHero({image:'/media/vision-2027/wellness-courtyard.webp', eyebrow:'The next chapter', title:'The estate,<br /><em>still becoming.</em>', copy:'A transparent preview of the spaces now being planned for 2027—from a reimagined barn to a desert wellness courtyard.', cta:'Follow the vision', secondary:'See what is planned', badge:'Concept rendering · not currently available', variant:'future'})}
       <section class="vision-principles section-pad" id="story">
         ${editorialHeader('Vision 2027', 'Show the future. Label it honestly.', 'These early visualizations express design intent, not current amenities. Timelines, scope, finishes, and availability may change as planning and construction progress.')}
         <div class="vision-timeline"><article class="reveal"><span>Now</span><h3>The estate today</h3><p>Five private acres, three homes, a resort-style pool and spa, outdoor living, lawns, games, and a growing art collection.</p></article><article class="reveal"><span>Planned 2027</span><h3>The Barn</h3><p>A reimagining of the existing approximately 2,500-square-foot structure, with an early plan that may include added bedrooms, bathrooms, flexible gathering space, fitness, and play.</p></article><article class="reveal"><span>Target October 2027</span><h3>Wellness courtyard</h3><p>An outdoor sauna, soaking or cold-plunge element, shower, and quiet recovery space within a desert garden setting.</p></article></div>

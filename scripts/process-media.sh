@@ -10,30 +10,31 @@ if ! command -v ffmpeg >/dev/null 2>&1; then
   sudo DEBIAN_FRONTEND=noninteractive apt-get install -y ffmpeg >/tmp/sunset-ffmpeg-install.log
 fi
 
-# Current owner-supplied interiors showing the finished hardwood-floor renovation.
-convert incoming-media/current-interiors/hardwood-kitchen-original.png -strip -resize '1800x1800>' -quality 86 public/media/estate/hardwood-kitchen.webp
-convert incoming-media/current-interiors/hardwood-fireplace-current.png -strip -resize '1800x1800>' -quality 86 public/media/estate/hardwood-fireplace.webp
-convert incoming-media/property-refresh/instagram_lush_green_lawn.png -strip -resize '1800x1800>' -quality 86 public/media/estate/lawn-current.webp
-convert incoming-media/current-exteriors/poolside-white-stucco-current.png -strip -resize '1800x1800>' -quality 86 public/media/estate/poolside-white-stucco.webp
-convert incoming-media/current-exteriors/resort-pool-screenshot.png -fuzz 3% -trim +repage -strip -resize '1800x1800>' -quality 86 public/media/estate/resort-pool-overview.webp
-convert incoming-media/current-exteriors/evening-pool-spa-current.png -fuzz 3% -trim +repage -strip -resize '1800x1800>' -quality 86 public/media/estate/evening-pool-spa.webp
-convert incoming-media/current-exteriors/evening-pool-pair-current.png -crop 1320x770+0+0 +repage -fuzz 3% -trim +repage -strip -resize '1800x1800>' -quality 86 public/media/estate/evening-pool-close.webp
-convert incoming-media/current-exteriors/evening-pool-pair-current.png -crop 1320x950+0+794 +repage -fuzz 3% -trim +repage -strip -resize '1800x1800>' -quality 86 public/media/estate/evening-pool-lawn.webp
+# Restored current-property masters. These preserve the real property while
+# providing cleaner, higher-resolution files for large and high-density displays.
+convert incoming-media/4k-masters/hardwood-kitchen.png -strip -quality 88 public/media/estate/hardwood-kitchen.webp
+convert incoming-media/4k-masters/hardwood-fireplace-definitive.png -strip -quality 88 public/media/estate/hardwood-fireplace.webp
+convert incoming-media/4k-masters/lawn-current.png -strip -quality 88 public/media/estate/lawn-current.webp
+convert incoming-media/4k-masters/poolside-white-stucco.png -strip -quality 88 public/media/estate/poolside-white-stucco.webp
+convert incoming-media/4k-masters/resort-pool-overview-v2.png -strip -quality 88 public/media/estate/resort-pool-overview.webp
+convert incoming-media/4k-masters/evening-pool-spa.png -strip -quality 88 public/media/estate/evening-pool-spa.webp
+convert incoming-media/4k-masters/evening-pool-close.png -strip -quality 88 public/media/estate/evening-pool-close.webp
+convert incoming-media/4k-masters/evening-pool-lawn.png -strip -quality 88 public/media/estate/evening-pool-lawn.webp
 
 # Completed current-property upgrades, shown as owner-supplied visualizations until photographed.
-convert incoming-media/current-upgrades/tv-wall-aerial.png -strip -resize '1800x1800>' -quality 85 public/media/current-upgrades/outdoor-screen.webp
-convert incoming-media/current-upgrades/arrival-night.png -strip -resize '1800x1800>' -quality 85 public/media/current-upgrades/illuminated-arrival.webp
-convert incoming-media/current-upgrades/travertine-walkway.png -strip -resize '1600x1600>' -quality 85 public/media/current-upgrades/travertine-walkway.webp
+convert incoming-media/current-upgrades-refresh/scr-aerial-honey-gold-tv-wall.PNG -strip -resize '2200x2200>' -quality 87 public/media/current-upgrades/outdoor-screen.webp
+convert incoming-media/current-upgrades-refresh/ficus_driveway_nightlights.PNG -strip -resize '2200x2200>' -quality 87 public/media/current-upgrades/illuminated-arrival.webp
+convert incoming-media/current-upgrades-refresh/walkway-honey-gold-travertine.PNG -strip -resize '2200x2200>' -quality 87 public/media/current-upgrades/travertine-walkway.webp
 
 # Installed artwork: clean owner-supplied room compositions.
-convert incoming-media/art-collection/bunkhouse_hallway_glowing_beauty.png -strip -resize '1600x1600>' -quality 84 public/media/art/glowing-beauty.webp
-convert incoming-media/art-collection/stairwell_trio_mockup.png -strip -resize '1600x1600>' -quality 84 public/media/art/stairwell-trio.webp
+convert incoming-media/4k-masters/glowing-beauty-floor-safe.png -strip -quality 87 public/media/art/glowing-beauty.webp
+convert incoming-media/4k-masters/stairwell-trio-floor-safe.png -strip -quality 87 public/media/art/stairwell-trio.webp
 convert incoming-media/art-collection/bunkhouse_primrose_mirror.png -strip -resize '1600x1600>' -quality 84 public/media/art/primrose-mirror.webp
 convert incoming-media/art-collection/hallway_stingray_mockup.png -strip -resize '1600x1600>' -quality 84 public/media/art/stingray-hall.webp
-convert incoming-media/art-collection/bedroom6_jaws_mockup.png -strip -resize '1600x1600>' -quality 84 public/media/art/jaws-bedroom.webp
+convert incoming-media/4k-masters/jaws-bedroom-floor-corrected.png -strip -quality 87 public/media/art/jaws-bedroom.webp
 convert incoming-media/art-collection/bunkhouse_niche_mockup.png -strip -resize '1600x1600>' -quality 84 public/media/art/art-niche.webp
 convert incoming-media/art-collection/kitchen_column_mockup_reordered.png -strip -resize '1600x1600>' -quality 84 public/media/art/kitchen-column.webp
-convert incoming-media/art-collection/bh_sofa_mockup_final.png -strip -resize '1600x1600>' -quality 84 public/media/art/sofa-gallery.webp
+convert incoming-media/4k-masters/sofa-gallery-floor-safe.png -strip -quality 87 public/media/art/sofa-gallery.webp
 
 # AI-assisted event styling concepts grounded in authentic property photographs.
 convert incoming-media/event-concepts/lawn-wedding-concept.png -strip -resize '1800x1800>' -quality 85 public/media/event-concepts/lawn-wedding.webp
