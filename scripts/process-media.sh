@@ -3,7 +3,7 @@ set -euo pipefail
 
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$PROJECT_DIR"
-mkdir -p public/media/estate public/media/art public/media/current-upgrades public/media/vision-2027 public/media/video
+mkdir -p public/media/estate public/media/art public/media/current-upgrades public/media/event-concepts public/media/vision-2027 public/media/video
 
 SOURCE_COMMIT="de87c05a33200dcb53574bceaa197fd7a38d3fba"
 TMP_DIR="$(mktemp -d)"
@@ -28,6 +28,10 @@ convert incoming-media/current-interiors/hardwood-kitchen-original.png -strip -r
 convert incoming-media/current-interiors/hardwood-fireplace-current.png -strip -resize '1800x1800>' -quality 86 public/media/estate/hardwood-fireplace.webp
 convert incoming-media/property-refresh/instagram_lush_green_lawn.png -strip -resize '1800x1800>' -quality 86 public/media/estate/lawn-current.webp
 convert incoming-media/current-exteriors/poolside-white-stucco-current.png -strip -resize '1800x1800>' -quality 86 public/media/estate/poolside-white-stucco.webp
+convert incoming-media/current-exteriors/resort-pool-screenshot.png -fuzz 3% -trim +repage -strip -resize '1800x1800>' -quality 86 public/media/estate/resort-pool-overview.webp
+convert incoming-media/current-exteriors/evening-pool-spa-current.png -fuzz 3% -trim +repage -strip -resize '1800x1800>' -quality 86 public/media/estate/evening-pool-spa.webp
+convert incoming-media/current-exteriors/evening-pool-pair-current.png -crop 1320x770+0+0 +repage -fuzz 3% -trim +repage -strip -resize '1800x1800>' -quality 86 public/media/estate/evening-pool-close.webp
+convert incoming-media/current-exteriors/evening-pool-pair-current.png -crop 1320x950+0+794 +repage -fuzz 3% -trim +repage -strip -resize '1800x1800>' -quality 86 public/media/estate/evening-pool-lawn.webp
 
 # Completed current-property upgrades, shown as owner-supplied visualizations until photographed.
 convert incoming-media/current-upgrades/tv-wall-aerial.png -strip -resize '1800x1800>' -quality 85 public/media/current-upgrades/outdoor-screen.webp
@@ -43,6 +47,11 @@ convert incoming-media/art-collection/bedroom6_jaws_mockup.png -strip -resize '1
 convert incoming-media/art-collection/bunkhouse_niche_mockup.png -strip -resize '1600x1600>' -quality 84 public/media/art/art-niche.webp
 convert incoming-media/art-collection/kitchen_column_mockup_reordered.png -strip -resize '1600x1600>' -quality 84 public/media/art/kitchen-column.webp
 convert incoming-media/art-collection/bh_sofa_mockup_final.png -strip -resize '1600x1600>' -quality 84 public/media/art/sofa-gallery.webp
+
+# AI-assisted event styling concepts grounded in authentic property photographs.
+convert incoming-media/event-concepts/lawn-wedding-concept.png -strip -resize '1800x1800>' -quality 85 public/media/event-concepts/lawn-wedding.webp
+convert incoming-media/event-concepts/stucco-cocktails-concept.png -strip -resize '1800x1800>' -quality 85 public/media/event-concepts/stucco-cocktails.webp
+convert incoming-media/event-concepts/evening-pool-concept.png -strip -resize '1800x1800>' -quality 85 public/media/event-concepts/evening-pool.webp
 
 # Future vision: these assets are always paired with visible concept disclosures in the UI.
 convert incoming-media/vision-2027/sunset_club_reoriented_overall_v2.png -strip -resize '1800x1800>' -quality 84 public/media/vision-2027/wellness-courtyard.webp

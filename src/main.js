@@ -1,8 +1,8 @@
 import './style.css'
 
 const CONTACT_EMAIL = 'dapenza444@gmail.com'
-const PHONE_DISPLAY = '760-800-0416'
-const PHONE_HREF = '+17608000416'
+const PHONE_DISPLAY = '203-233-1300'
+const PHONE_HREF = '+12032331300'
 
 const navItems = [
   ['Stay', '/stay.html'],
@@ -15,6 +15,10 @@ const navItems = [
 const estateImages = Array.from({ length: 20 }, (_, index) => `/media/estate/estate-${String(index + 1).padStart(2, '0')}.webp`)
 const currentStucco = '/media/estate/poolside-white-stucco.webp'
 const currentLawn = '/media/estate/lawn-current.webp'
+const currentPoolOverview = '/media/estate/resort-pool-overview.webp'
+const eveningPoolSpa = '/media/estate/evening-pool-spa.webp'
+const eveningPoolClose = '/media/estate/evening-pool-close.webp'
+const eveningPoolLawn = '/media/estate/evening-pool-lawn.webp'
 
 function logo(mark = false) {
   return `<span class="brand ${mark ? 'brand--hero' : ''}"><span>Sunset Club</span><small>Ranch</small></span>`
@@ -160,11 +164,11 @@ function homePage() {
   return `
     <main id="main">
       <section class="home-hero">
-        ${picture('/media/estate/estate-20.webp', 'Sunset Club Ranch pool, lawns, palms, and private homes in Indio, California', 'home-hero__image', 'eager')}
+        ${picture(currentPoolOverview, 'Sunset Club Ranch resort-style pool, lawns, palms, and mountain views in Indio, California', 'home-hero__image', 'eager')}
         <div class="home-hero__veil"></div>
         <div class="home-hero__content reveal is-visible">
           ${logo(true)}
-          <p class="home-hero__kicker">A private five-acre estate in the Coachella Valley</p>
+          <p class="home-hero__kicker">A private five-acre estate with a Tulum-meets-ranch spirit</p>
           <h1>Come together.<br /><em>Keep the whole place.</em></h1>
           <p class="home-hero__copy">Three homes, seven bedrooms, a resort-style pool, and room for the group to settle into its own desert rhythm.</p>
           <div class="hero-actions"><a class="button" href="/stay.html#inquire">Book a stay</a><a class="button button--ghost" href="/weddings.html#inquire">Plan an event</a></div>
@@ -184,7 +188,7 @@ function homePage() {
         <div class="intro__copy reveal">
           <p class="eyebrow">The estate</p>
           <h2>Space to disappear.<br />Designed to reconnect.</h2>
-          <p class="lead">Behind the gates, the pace changes. Days move between the pool, the lawns, shaded patios, and three distinct homes. Nights gather around long tables and warm desert light.</p>
+          <p class="lead">Tulum ease meets ranch scale: white stucco, palms, water, warm wood, honeyed stone, and open desert sky. Days move between the pool, lawns, shaded patios, and three distinct homes; nights gather around long tables and low light.</p>
           <a class="text-link" href="/stay.html">Explore the stay <span aria-hidden="true">→</span></a>
         </div>
         <figure class="editorial-image editorial-image--portrait reveal">
@@ -201,9 +205,9 @@ function homePage() {
         ${editorialHeader('The rhythm of a stay', 'A place with more than one mood.', 'Swim. Cook. Play. Retreat. The estate lets everyone move together—or choose a corner of their own.')}
         <div class="mosaic mosaic--estate reveal">
           <figure class="mosaic__wide">${picture(currentStucco, 'Current white-stucco poolside patio at Sunset Club Ranch')}<figcaption>New white-stucco poolside patio</figcaption></figure>
-          <figure>${picture(estateImages[1], 'Resort-style pool at Sunset Club Ranch')}<figcaption>Poolside days</figcaption></figure>
-          <figure>${picture('/media/estate/hardwood-kitchen.webp', 'Renovated kitchen with new hardwood floors at Sunset Club Ranch')}<figcaption>Current hardwood interior · owner supplied</figcaption></figure>
-          <figure class="mosaic__tall">${picture(currentLawn, 'Current lawn, palms, and mountain view at Sunset Club Ranch')}<figcaption>Five open acres</figcaption></figure>
+          <figure>${picture(eveningPoolClose, 'Sunset Club Ranch pool glowing at blue hour')}<figcaption>Poolside afterglow</figcaption></figure>
+          <figure>${picture('/media/estate/hardwood-kitchen.webp', 'Renovated Sunset Club Ranch kitchen with new floors')}</figure>
+          <figure class="mosaic__tall">${picture(eveningPoolLawn, 'Sunset Club Ranch pool, lawns, palms, and lights at blue hour')}<figcaption>Desert afterglow</figcaption></figure>
         </div>
       </section>
 
@@ -246,14 +250,15 @@ function stayPage() {
     <main id="main">
       ${pageHero({image: estateImages[3], eyebrow:'The private estate', title:'Three homes.<br /><em>One shared escape.</em>', copy:'A five-acre setting that gives the group a place to gather—and everyone enough space to find their own pace.', cta:'Check dates', secondary:'See the homes'})}
       <section class="section-pad" id="story">
-        ${editorialHeader('The homes', 'Together, without being on top of one another.', 'The estate is organized across three distinct homes, each with its own character and easy access to the grounds.')}
+        ${editorialHeader('The homes', 'Together, without being on top of one another.', 'Three distinct homes share one relaxed design language: warm wood, clean white walls, collected art, shaded thresholds, and an easy connection to the grounds.')}
         <div class="home-cards">
           ${[
-            ['01', 'The social heart', 'Open living, a new fireplace, new hardwood floors, shared meals, and an easy connection to the outdoors.', '/media/estate/hardwood-fireplace.webp', 'Current fireplace and hardwood interior photograph'],
-            ['02', 'Character in every room', 'A growing art collection gives the interiors their own point of view without sacrificing comfort.', '/media/art/sofa-gallery.webp', 'Owner-supplied visualization of current interior'],
-            ['03', 'A place to retreat', 'Private rooms across three homes give the group space to settle in at the end of the day.', '/media/art/jaws-bedroom.webp', 'Owner-supplied visualization of current interior'],
-          ].map(([n, title, copy, image, caption]) => `<article class="home-card reveal"><figure>${picture(image, title)}<figcaption>${caption}</figcaption></figure><div><span>${n}</span><h3>${title}</h3><p>${copy}</p></div></article>`).join('')}
+            ['01', 'The social heart', 'Open living, a new fireplace, new floors, shared meals, and an easy connection to the outdoors.', '/media/estate/hardwood-fireplace.webp'],
+            ['02', 'Character in every room', 'A growing art collection gives the interiors their own point of view without sacrificing comfort.', '/media/art/sofa-gallery.webp'],
+            ['03', 'A place to retreat', 'Private rooms across three homes give the group space to settle in at the end of the day.', '/media/art/jaws-bedroom.webp'],
+          ].map(([n, title, copy, image]) => `<article class="home-card reveal"><figure>${picture(image, title)}</figure><div><span>${n}</span><h3>${title}</h3><p>${copy}</p></div></article>`).join('')}
         </div>
+        <p class="home-cards__note reveal">Selected artwork scenes are owner-supplied visualizations of current rooms.</p>
       </section>
       <section class="amenity-editorial">
         <figure class="amenity-editorial__image reveal">${picture(estateImages[1], 'Pool and outdoor gathering space at Sunset Club Ranch')}</figure>
@@ -275,7 +280,7 @@ function stayPage() {
           <div><span>04</span><strong>158-inch outdoor screen</strong></div>
           <div><span>05</span><strong>Koolfog misting</strong></div>
           <div><span>06</span><strong>New fireplace</strong></div>
-          <div><span>07</span><strong>Hardwood floors</strong></div>
+          <div><span>07</span><strong>New floors</strong></div>
           <div><span>08</span><strong>Property-wide Wi-Fi</strong></div>
           <div><span>09</span><strong>Updated HVAC & plumbing</strong></div>
         </div>
@@ -293,7 +298,7 @@ function stayPage() {
       <section class="section-pad">
         ${editorialHeader('A closer look', 'Details make the stay.')}
         <div class="gallery-grid">
-          ${[estateImages[9], currentStucco, estateImages[13], '/media/estate/hardwood-kitchen.webp', '/media/estate/hardwood-fireplace.webp', estateImages[19]].map((src, i) => `<button class="gallery-item reveal" type="button" data-lightbox="${src}" aria-label="Open estate photograph ${i + 1}">${picture(src, `Sunset Club Ranch detail ${i + 1}`)}</button>`).join('')}
+          ${[currentPoolOverview, currentStucco, eveningPoolLawn, '/media/estate/hardwood-kitchen.webp', '/media/estate/hardwood-fireplace.webp', eveningPoolSpa].map((src, i) => `<button class="gallery-item reveal" type="button" data-lightbox="${src}" aria-label="Open estate photograph ${i + 1}">${picture(src, `Sunset Club Ranch detail ${i + 1}`)}</button>`).join('')}
         </div>
       </section>
       ${inquirySection('Private stay')}
@@ -312,6 +317,14 @@ function weddingsPage() {
           ['03','Stay','Keep the people who matter close, with private rooms and shared spaces across the property.'],
         ].map(([n,t,c])=>`<article class="chapter reveal"><span>${n}</span><h3>${t}</h3><p>${c}</p></article>`).join('')}
       </div></section>
+      <section class="event-concepts" id="event-ideas">
+        <div class="event-concepts__intro reveal"><p class="concept-badge">Event styling concepts</p><p class="eyebrow">Picture your people here</p><h2>Designed around<br />the way you gather.</h2><p>Three AI-assisted styling studies place real human energy into authentic Sunset Club Ranch settings. They are inspiration—not documentation of a past event or a promise of included decor, furniture, staffing, or services.</p></div>
+        <div class="event-concepts__grid">
+          <figure class="reveal">${picture('/media/event-concepts/lawn-wedding.webp','Event styling concept showing an intimate dinner on the real Sunset Club Ranch lawn')}<figcaption>Wedding dinner · styling concept</figcaption></figure>
+          <figure class="reveal">${picture('/media/event-concepts/stucco-cocktails.webp','Event styling concept showing a cocktail gathering on the real white-stucco poolside patio')}<figcaption>Poolside cocktails · styling concept</figcaption></figure>
+          <figure class="reveal">${picture('/media/event-concepts/evening-pool.webp','Event styling concept showing friends gathering around the real Sunset Club Ranch pool at blue hour')}<figcaption>Birthday weekend · styling concept</figcaption></figure>
+        </div>
+      </section>
       <section class="full-bleed-statement">${picture(estateImages[17], 'Sunset Club Ranch landscape at golden hour')}<div><p class="eyebrow eyebrow--light">By private inquiry</p><h2>Your date.<br />Your people.<br />Your version.</h2></div></section>
       ${inquirySection('Wedding or celebration')}
     </main>`
@@ -338,7 +351,7 @@ function corporatePage() {
 function afterDarkPage() {
   return `
     <main id="main" class="night-page">
-      ${pageHero({image: currentStucco, eyebrow:'A private Coachella week concept', title:'After Dark<br /><em>Coachella 2027.</em>', copy:'Days at the compound. Nights under the Coachella stars. A limited, inquiry-only hospitality concept now in development.', cta:'Join the private inquiry list', secondary:'Discover the concept', badge:'2027 concept · details in development'})}
+      ${pageHero({image: eveningPoolSpa, eyebrow:'A private Coachella week concept', title:'After Dark<br /><em>Coachella 2027.</em>', copy:'Days at the compound. Nights under the Coachella stars. A limited, inquiry-only hospitality concept now in development.', cta:'Join the private inquiry list', secondary:'Discover the concept', badge:'2027 concept · details in development'})}
       <section class="section-pad night-intro" id="story">${editorialHeader('The idea', 'When the festival comes home.', 'After Dark is envisioned as a private, highly serviced way to experience Coachella week—anchored by the estate and shaped around the people in it.')}
         <div class="pillars">
           ${[
@@ -350,7 +363,7 @@ function afterDarkPage() {
         </div>
         <div class="disclosure disclosure--dark reveal"><strong>In development for 2027.</strong><p>Program details, access, partners, inclusions, pricing, and availability are not yet final. Joining the inquiry list does not guarantee a reservation or any specific service.</p></div>
       </section>
-      <section class="full-bleed-statement full-bleed-statement--night">${picture(currentStucco, 'Current white-stucco poolside patio at Sunset Club Ranch after sunset')}<div><p class="eyebrow eyebrow--light">Week one · 2027</p><h2>A very different<br />festival basecamp.</h2></div></section>
+      <section class="full-bleed-statement full-bleed-statement--night">${picture(eveningPoolLawn, 'Current Sunset Club Ranch pool and lawns at blue hour')}<div><p class="eyebrow eyebrow--light">Week one · 2027</p><h2>A very different<br />festival basecamp.</h2></div></section>
       ${inquirySection('After Dark 2027')}
     </main>`
 }
