@@ -32,6 +32,7 @@ pnpm build
 Published, optimized website media lives in `public/media/`:
 
 - `estate/` contains current Sunset Club Ranch photography.
+- `incoming-media/4k-masters/` contains preservation-focused restored masters used to export the active current-property photographs.
 - `art/` contains owner-supplied images of artwork in current interiors.
 - `current-upgrades/` contains owner-supplied visualizations of completed work awaiting fresh photography.
 - `event-concepts/` contains AI-assisted styling studies grounded in authentic property photographs and disclosed as concepts in the interface.
@@ -44,6 +45,8 @@ Original high-resolution supplied files are intentionally kept outside version c
 ## Content integrity
 
 Current-property photography, visualizations of completed work, event-styling concepts, and future concepts must remain visibly distinct. Completed-work visualizations must say that the feature exists today and that fresh photography is pending. Event concepts must state that they are inspirational and do not promise included decor, furniture, staffing, or services. Any planned feature, visualization, or timeline must be labeled as conceptual, under development, and not currently available until the property team confirms completion. Do not introduce stock photographs or images from another property.
+
+The definitive interior material reference is the current linear-fireplace photograph with soft light-wood flooring. Any published interior image with a visible floor must match that renovation; otherwise crop the floor out or retire the image. Each primary landing page uses a distinct hero image and layout rather than reusing one generic treatment.
 
 ## Inquiry handling
 

@@ -93,6 +93,32 @@ button { color: inherit; }
 .page-hero__content { justify-content: flex-end; padding-bottom: 150px; }
 .page-hero h1 { max-width: 900px; }
 .page-hero__copy { max-width: 650px; }
+.page-hero--interior { background: #151512; }
+.page-hero--interior .page-hero__image { left: auto; width: 62%; object-position: center; }
+.page-hero--interior .page-hero__veil { background: linear-gradient(90deg, #151512 0%, rgba(21,21,18,.98) 28%, rgba(21,21,18,.74) 52%, rgba(21,21,18,.08) 80%), linear-gradient(0deg, rgba(10,10,8,.7), transparent 38%); }
+.page-hero--interior .page-hero__content { justify-content: center; }
+.page-hero--interior h1 { max-width: 650px; font-size: clamp(58px, 7.2vw, 110px); }
+.page-hero--interior .page-hero__copy { max-width: 515px; }
+.page-hero--event .page-hero__veil { background: linear-gradient(0deg, rgba(8,8,6,.84) 0%, rgba(8,8,6,.3) 58%, rgba(8,8,6,.12) 100%), linear-gradient(90deg, rgba(8,8,6,.22), transparent 35%, rgba(8,8,6,.22)); }
+.page-hero--event .page-hero__content { align-items: center; text-align: center; }
+.page-hero--event h1 { max-width: 1080px; }
+.page-hero--event .page-hero__copy { max-width: 720px; }
+.page-hero--event .hero-actions { justify-content: center; }
+.page-hero--retreat .page-hero__veil { background: linear-gradient(270deg, rgba(6,9,12,.84) 0%, rgba(6,9,12,.54) 42%, rgba(6,9,12,.08) 78%), linear-gradient(0deg, rgba(6,9,12,.74), transparent 46%); }
+.page-hero--retreat .page-hero__content { align-items: flex-end; text-align: right; }
+.page-hero--retreat h1 { max-width: 850px; }
+.page-hero--retreat .page-hero__copy { max-width: 610px; }
+.page-hero--retreat .hero-facts { justify-content: flex-start; }
+.page-hero--night .page-hero__veil { background: radial-gradient(circle at 58% 45%, rgba(11,22,57,.08), rgba(5,7,18,.52) 58%, rgba(5,7,18,.9) 100%), linear-gradient(0deg, rgba(5,7,18,.78), transparent 55%); }
+.page-hero--night .page-hero__content { justify-content: center; padding-top: 175px; padding-bottom: 105px; }
+.page-hero--night h1 { max-width: 780px; font-size: clamp(62px, 9vw, 132px); }
+.page-hero--future { background: #151611; }
+.page-hero--future .page-hero__image { right: auto; width: 64%; object-position: center; }
+.page-hero--future .page-hero__veil { background: linear-gradient(270deg, #151611 0%, rgba(21,22,17,.98) 30%, rgba(21,22,17,.7) 54%, rgba(21,22,17,.06) 82%), linear-gradient(0deg, rgba(8,9,7,.7), transparent 42%); }
+.page-hero--future .page-hero__content { align-items: flex-end; text-align: right; }
+.page-hero--future h1 { max-width: 680px; font-size: clamp(58px, 7.3vw, 108px); }
+.page-hero--future .page-hero__copy { max-width: 540px; }
+.page-hero--future .hero-actions { justify-content: flex-end; }
 .concept-badge { display: inline-flex; width: fit-content; padding: 8px 12px; border: 1px solid rgba(178,77,49,.35); background: rgba(178,77,49,.08); color: var(--terracotta); font: 700 9px/1 var(--accent); letter-spacing: .16em; text-transform: uppercase; }
 .concept-badge--hero { margin-bottom: 22px; border-color: rgba(255,255,255,.28); background: rgba(17,17,15,.48); color: var(--white); backdrop-filter: blur(8px); }
 
@@ -337,6 +363,11 @@ button { color: inherit; }
   .brand > span { font-size: 20px; }
   .brand small { font-size: 7px; }
   .home-hero__content, .page-hero__content { padding: 120px 0 128px; justify-content: flex-end; }
+  .page-hero--interior .page-hero__image, .page-hero--future .page-hero__image { inset: 0; width: 100%; }
+  .page-hero--interior .page-hero__veil, .page-hero--event .page-hero__veil, .page-hero--retreat .page-hero__veil, .page-hero--night .page-hero__veil, .page-hero--future .page-hero__veil { background: linear-gradient(0deg, rgba(8,8,6,.9) 0%, rgba(8,8,6,.42) 64%, rgba(8,8,6,.08) 100%); }
+  .page-hero--interior .page-hero__content, .page-hero--event .page-hero__content, .page-hero--retreat .page-hero__content, .page-hero--night .page-hero__content, .page-hero--future .page-hero__content { justify-content: flex-end; align-items: flex-start; text-align: left; padding-top: 120px; padding-bottom: 128px; }
+  .page-hero--interior h1, .page-hero--night h1, .page-hero--future h1 { font-size: clamp(47px, 14.2vw, 70px); }
+  .page-hero--event .hero-actions, .page-hero--future .hero-actions { justify-content: flex-start; }
   .home-hero h1, .page-hero h1 { font-size: clamp(47px, 14.2vw, 70px); }
   .brand--hero { display: none; }
   .home-hero__kicker { margin-top: 0; }
