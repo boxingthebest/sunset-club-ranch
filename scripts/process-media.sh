@@ -5,23 +5,10 @@ PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$PROJECT_DIR"
 mkdir -p public/media/estate public/media/art public/media/current-upgrades public/media/event-concepts public/media/vision-2027 public/media/video
 
-SOURCE_COMMIT="de87c05a33200dcb53574bceaa197fd7a38d3fba"
-TMP_DIR="$(mktemp -d)"
-trap 'rm -rf "$TMP_DIR"' EXIT
-
 if ! command -v ffmpeg >/dev/null 2>&1; then
   sudo apt-get update -qq
   sudo DEBIAN_FRONTEND=noninteractive apt-get install -y ffmpeg >/tmp/sunset-ffmpeg-install.log
 fi
-
-# Authentic property photography recovered directly from repository history.
-# The old hero file is intentionally excluded because it was not verified as
-# current Sunset Club Ranch imagery during visual QA.
-for i in $(seq 1 20); do
-  printf -v n '%02d' "$i"
-  git show "$SOURCE_COMMIT:public/images/property-$i.jpg" > "$TMP_DIR/property-$i.jpg"
-  convert "$TMP_DIR/property-$i.jpg" -strip -resize '1400x1400>' -quality 82 "public/media/estate/estate-$n.webp"
-done
 
 # Current owner-supplied interiors showing the finished hardwood-floor renovation.
 convert incoming-media/current-interiors/hardwood-kitchen-original.png -strip -resize '1800x1800>' -quality 86 public/media/estate/hardwood-kitchen.webp
