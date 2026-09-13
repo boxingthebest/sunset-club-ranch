@@ -1,0 +1,6 @@
+dist/
+node_modules/
+.audit/
+incoming-media/
+.DS_Store
+*.log

@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /incoming-media/
+Disallow: /.audit/
 
 Sitemap: https://sunsetclubranch.com/sitemap.xml
