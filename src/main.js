@@ -12,7 +12,6 @@ const navItems = [
   ['Vision 2027', '/vision-2027.html'],
 ]
 
-const estateImages = Array.from({ length: 20 }, (_, index) => `/media/estate/estate-${String(index + 1).padStart(2, '0')}.webp`)
 const currentStucco = '/media/estate/poolside-white-stucco.webp'
 const currentLawn = '/media/estate/lawn-current.webp'
 const currentPoolOverview = '/media/estate/resort-pool-overview.webp'
@@ -192,7 +191,7 @@ function homePage() {
           <a class="text-link" href="/stay.html">Explore the stay <span aria-hidden="true">→</span></a>
         </div>
         <figure class="editorial-image editorial-image--portrait reveal">
-          ${picture(estateImages[1], 'A view across Sunset Club Ranch in Indio')}
+          ${picture(currentLawn, 'Current lawn, palms, and mountain view at Sunset Club Ranch in Indio')}
           <figcaption>Five private acres · Indio, California</figcaption>
         </figure>
       </section>
@@ -248,7 +247,7 @@ function homePage() {
 function stayPage() {
   return `
     <main id="main">
-      ${pageHero({image: estateImages[3], eyebrow:'The private estate', title:'Three homes.<br /><em>One shared escape.</em>', copy:'A five-acre setting that gives the group a place to gather—and everyone enough space to find their own pace.', cta:'Check dates', secondary:'See the homes'})}
+      ${pageHero({image: currentPoolOverview, eyebrow:'The private estate', title:'Three homes.<br /><em>One shared escape.</em>', copy:'A five-acre setting that gives the group a place to gather—and everyone enough space to find their own pace.', cta:'Check dates', secondary:'See the homes'})}
       <section class="section-pad" id="story">
         ${editorialHeader('The homes', 'Together, without being on top of one another.', 'Three distinct homes share one relaxed design language: warm wood, clean white walls, collected art, shaded thresholds, and an easy connection to the grounds.')}
         <div class="home-cards">
@@ -261,7 +260,7 @@ function stayPage() {
         <p class="home-cards__note reveal">Selected artwork scenes are owner-supplied visualizations of current rooms.</p>
       </section>
       <section class="amenity-editorial">
-        <figure class="amenity-editorial__image reveal">${picture(estateImages[1], 'Pool and outdoor gathering space at Sunset Club Ranch')}</figure>
+        <figure class="amenity-editorial__image reveal">${picture(currentStucco, 'Current white-stucco pool and outdoor gathering space at Sunset Club Ranch')}</figure>
         <div class="amenity-editorial__copy reveal"><p class="eyebrow eyebrow--light">Outside, all day</p><h2>Pool water.<br />Warm shade.<br />No agenda.</h2><p>Move from the heated pool and spa to the outdoor kitchen, long-table dining, games, lawns, and fire-lit evenings.</p><ul><li>Heated pool and spa</li><li>Outdoor kitchen and pizza oven</li><li>Games and generous lawns</li><li>Multiple shaded gathering areas</li></ul></div>
       </section>
       <section class="lawn-film" id="the-lawn">
@@ -325,7 +324,7 @@ function weddingsPage() {
           <figure class="reveal">${picture('/media/event-concepts/evening-pool.webp','Event styling concept showing friends gathering around the real Sunset Club Ranch pool at blue hour')}<figcaption>Birthday weekend · styling concept</figcaption></figure>
         </div>
       </section>
-      <section class="full-bleed-statement">${picture(estateImages[17], 'Sunset Club Ranch landscape at golden hour')}<div><p class="eyebrow eyebrow--light">By private inquiry</p><h2>Your date.<br />Your people.<br />Your version.</h2></div></section>
+      <section class="full-bleed-statement">${picture(eveningPoolLawn, 'Current Sunset Club Ranch pool and lawn at blue hour')}<div><p class="eyebrow eyebrow--light">By private inquiry</p><h2>Your date.<br />Your people.<br />Your version.</h2></div></section>
       ${inquirySection('Wedding or celebration')}
     </main>`
 }

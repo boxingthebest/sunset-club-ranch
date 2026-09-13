@@ -39,7 +39,7 @@ Published, optimized website media lives in `public/media/`:
 - `video/lawn-current.mp4` is authentic current-property footage; `video/wellness-concept-2027.mp4` is a separately labeled future concept.
 - `video/` contains web-optimized future concept video.
 
-Original high-resolution supplied files are intentionally kept outside version control in `incoming-media/`. Run `scripts/process-media.sh` on the persistent development computer to rebuild web derivatives from those sources. The script also recovers authenticated historical property photographs directly from the known repository commit.
+Original high-resolution supplied files are intentionally kept outside version control in `incoming-media/`. Run `scripts/process-media.sh` on the persistent development computer to rebuild web derivatives from those sources. Historical property photographs are intentionally excluded; active pages use only newly supplied current-property media or clearly labeled concepts.
 
 ## Content integrity
 
