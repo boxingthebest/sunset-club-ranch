@@ -141,7 +141,7 @@ function inquirySection(intent = 'Private stay') {
   const inquiryCopy = isFuture
     ? 'Tell us what interests you. We’ll respond with the most current plans; this is an inquiry, not a confirmed reservation or automatic mailing-list signup.'
     : isEvent
-    ? 'Share the date, group size, and occasion. We’ll review the fit and reply with the clearest next step.'
+    ? 'Share the date, guest count, occasion, and planner or vendor team if you have one. We’ll review the fit and reply with the clearest next step.'
     : 'Share your dates, group size, and priorities. We’ll help you plan the right kind of stay.'
   const startLabel = isFuture ? 'Preferred start date (optional)' : isEvent ? 'Event / arrival date' : 'Arrival'
   const endLabel = isFuture ? 'Preferred end date (optional)' : isEvent ? 'End / departure date' : 'Departure'
@@ -346,8 +346,8 @@ function stayPage() {
 function weddingsPage() {
   return `
     <main id="main">
-      ${pageHero({image: currentStucco, alt:'White-stucco poolside patio prepared for gatherings at Sunset Club Ranch', eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'An intimate desert setting for weddings, birthdays, and milestone weekends—with the estate reserved around your people.', cta:'Inquire about your date', secondary:'Imagine the weekend', variant:'event'})}
-      <section class="intro split" id="story"><div class="intro__copy reveal"><p class="eyebrow">The occasion</p><h2>Not a ballroom.<br />A place that feels like yours.</h2><p class="lead">Celebrate under open sky, gather around the table, and let the weekend unfold without separating everyone at the end of the night.</p><p class="fine-print">All event use is reviewed individually and remains subject to applicable permits, insurance, parking, noise, and property requirements.</p></div><figure class="editorial-image editorial-image--portrait reveal">${picture(currentLawn, 'Current lawn and mountain view at Sunset Club Ranch')}<figcaption>Five acres for a more personal kind of gathering</figcaption></figure></section>
+      ${pageHero({image: currentStucco, alt:'White-stucco poolside patio prepared for gatherings at Sunset Club Ranch', eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'A private desert estate for weddings, birthdays, and milestone weekends—designed for a gathering that feels entirely your own.', cta:'Inquire about your date', secondary:'Imagine the weekend', variant:'event'})}
+      <section class="intro split" id="story"><div class="intro__copy reveal"><p class="eyebrow">The occasion</p><h2>Not a ballroom.<br />A place that feels like yours.</h2><p class="lead">Celebrate under open sky, gather around the table, and let the weekend unfold without separating everyone at the end of the night.</p><p>For a thoughtful private celebration of up to 200 guests, begin with a date-specific conversation with our team and your planner.</p><p class="fine-print">All event use is reviewed individually and remains subject to applicable permits, insurance, parking, noise, and property requirements.</p></div><figure class="editorial-image editorial-image--portrait reveal">${picture(currentLawn, 'Current lawn and mountain view at Sunset Club Ranch')}<figcaption>Five acres for a more personal kind of gathering</figcaption></figure></section>
       <section class="chapter-section section-pad"><div class="chapter-grid">
         ${[
           ['01','Arrive','Settle into three private homes and give the gathering room to begin naturally.'],
@@ -366,7 +366,7 @@ function weddingsPage() {
       <section class="full-bleed-statement">${picture(newLounge, 'Outdoor fireplace lounge glowing at dusk')}<div><p class="eyebrow eyebrow--light">By private inquiry</p><h2>Your date.<br />Your people.<br />Your version.</h2></div></section>
       ${planningAnswers('Planning a gathering', 'Weddings and celebrations in the Coachella Valley.', [
         ['Can guests stay at the estate?', 'The three-home, seven-bedroom estate can be part of a gathering weekend. Share your proposed group size and dates so we can discuss the lodging arrangement.'],
-        ['Can we host a wedding or birthday?', 'Tell us the occasion, date, estimated attendance, and the kind of experience you envision. Event use is reviewed individually and is subject to applicable permits, insurance, parking, noise, and property requirements.'],
+        ['Can we plan for up to 200 guests?', 'For a thoughtful private celebration of up to 200 guests, share your date, expected attendance, and planner or vendor team. We will review the fit, availability, and required approvals for your specific event.'],
         ['Are packages and pricing listed?', 'We do not advertise a one-size-fits-all event package or promise a date online. Send an inquiry and we’ll discuss what is feasible, available, and appropriate for your plans.'],
       ])}
       ${inquirySection('Wedding or celebration')}
