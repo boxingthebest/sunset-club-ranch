@@ -31,10 +31,10 @@ function header() {
   const pageCta = {
     weddings: 'Plan your event',
     corporate: 'Plan your retreat',
-    'after-dark': 'Join the 2027 list',
-    vision: 'Follow the vision',
+    'after-dark': 'Ask about 2027',
+    vision: 'Ask about the vision',
   }
-  const ctaLabel = pageCta[document.body.dataset.page] || 'Check dates'
+  const ctaLabel = pageCta[document.body.dataset.page] || 'Request dates'
   return `
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" id="site-header">
@@ -65,10 +65,10 @@ function footer() {
   const pageCta = {
     weddings: 'Plan your event',
     corporate: 'Plan your retreat',
-    'after-dark': 'Join the 2027 list',
-    vision: 'Follow the vision',
+    'after-dark': 'Ask about 2027',
+    vision: 'Ask about the vision',
   }
-  const ctaLabel = pageCta[document.body.dataset.page] || 'Check dates'
+  const ctaLabel = pageCta[document.body.dataset.page] || 'Request dates'
   return `
     <footer class="site-footer">
       <div class="footer-brand">${logo()}</div>
@@ -122,6 +122,16 @@ function editorialHeader(kicker, title, copy = '') {
   return `<div class="editorial-header reveal"><p class="eyebrow">${kicker}</p><h2>${title}</h2>${copy ? `<p>${copy}</p>` : ''}</div>`
 }
 
+function planningAnswers(kicker, title, answers) {
+  return `<section class="planning-answers section-pad" aria-label="Planning information">
+    ${editorialHeader(kicker, title)}
+    <div class="planning-answers__grid">
+      ${answers.map(([question, answer]) => `<article class="planning-answer reveal"><h3>${question}</h3><p>${answer}</p></article>`).join('')}
+    </div>
+    <a class="text-link" href="#inquire">Tell us what you’re planning <span aria-hidden="true">→</span></a>
+  </section>`
+}
+
 function inquirySection(intent = 'Private stay') {
   const isEvent = ['Wedding or celebration', 'Birthday', 'Corporate retreat'].includes(intent)
   const isFuture = ['After Dark 2027', 'Vision 2027 updates'].includes(intent)
@@ -155,6 +165,8 @@ function inquirySection(intent = 'Private stay') {
       <form class="inquiry-form reveal" data-inquiry-form>
         <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="interest" value="${intent}" />
+        <input type="hidden" name="source" value="" />
+        <input type="hidden" name="page" value="" />
         <div class="field field--wide"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /></div>
         <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
         <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>
@@ -179,7 +191,7 @@ function homePage() {
           <p class="home-hero__kicker">A private five-acre estate with a Tulum-meets-ranch spirit</p>
           <h1>Come together.<br /><em>Keep the whole place.</em></h1>
           <p class="home-hero__copy">Three homes, seven bedrooms, a resort-style pool, and room for the group to settle into its own desert rhythm.</p>
-          <div class="hero-actions"><a class="button" href="/stay.html#inquire">Book a stay</a><a class="button button--ghost" href="/weddings.html#inquire">Plan an event</a></div>
+          <div class="hero-actions"><a class="button" href="/stay.html#inquire">Request stay dates</a><a class="button button--ghost" href="/weddings.html#inquire">Plan an event</a></div>
         </div>
         <div class="hero-facts" aria-label="Estate highlights"><span>5 private acres</span><span>3 homes</span><span>7 bedrooms</span><span>Near Empire Polo Club</span></div>
       </section>
@@ -187,7 +199,7 @@ function homePage() {
       <section class="booking-chooser" id="choose">
         <div class="booking-chooser__intro reveal"><p class="eyebrow">Start here</p><h2>What brings you<br />to the ranch?</h2><p>Choose one path. We’ll ask only for the information needed to help.</p></div>
         <div class="booking-chooser__paths">
-          <a class="booking-choice reveal" href="/stay.html#inquire"><span>01</span><div><p>Overnight stay</p><h3>Book the ranch</h3><small>Dates · Guests · Stay priorities</small></div><b aria-hidden="true">→</b></a>
+          <a class="booking-choice reveal" href="/stay.html#inquire"><span>01</span><div><p>Overnight stay</p><h3>Request dates</h3><small>Dates · Guests · Stay priorities</small></div><b aria-hidden="true">→</b></a>
           <a class="booking-choice reveal" href="/weddings.html#inquire"><span>02</span><div><p>Wedding, birthday, or gathering</p><h3>Plan an event</h3><small>Date · Occasion · Group size</small></div><b aria-hidden="true">→</b></a>
         </div>
       </section>
@@ -256,7 +268,7 @@ function homePage() {
 function stayPage() {
   return `
     <main id="main">
-      ${pageHero({image: '/media/estate/hardwood-fireplace.webp', alt:'Living room with linear fireplace and new soft-wood floors', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'Three private homes, newly finished interiors, and five acres that give the whole group room to settle into its own rhythm.', cta:'Check dates', secondary:'See the homes', variant:'interior'})}
+      ${pageHero({image: '/media/estate/hardwood-fireplace.webp', alt:'Living room with linear fireplace and new soft-wood floors', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'Three private homes, newly finished interiors, and five acres that give the whole group room to settle into its own rhythm.', cta:'Request dates', secondary:'See the homes', variant:'interior'})}
       <section class="section-pad" id="story">
         ${editorialHeader('The homes', 'Together, without being on top of one another.', 'Three distinct homes share one relaxed design language: warm wood, clean white walls, collected art, shaded thresholds, and an easy connection to the grounds.')}
         <div class="home-cards">
@@ -320,6 +332,11 @@ function stayPage() {
           ].map(([src, alt]) => `<button class="gallery-item reveal" type="button" data-lightbox="${src}" data-alt="${alt}" aria-label="Open ${alt.toLowerCase()}">${picture(src, alt)}</button>`).join('')}
         </div>
       </section>
+      ${planningAnswers('Plan your stay', 'A private estate stay in Indio, made simple.', [
+        ['Can our group stay together?', 'The estate brings together three homes and seven bedrooms on five private acres. Tell us your group size and dates so we can confirm the best fit.'],
+        ['What can we enjoy on property now?', 'The pool and spa, pickleball and volleyball courts, outdoor gathering spaces, new fireplace, and refreshed interiors are part of the current estate. The planned sauna and barn are not yet guest amenities.'],
+        ['How do we request dates?', 'Send your dates and group size through the inquiry below. We’ll review availability and the details with you directly; the website does not provide an instant booking or a confirmed reservation.'],
+      ])}
       ${inquirySection('Private stay')}
     </main>`
 }
@@ -345,6 +362,11 @@ function weddingsPage() {
         </div>
       </section>
       <section class="full-bleed-statement">${picture(newLounge, 'Outdoor fireplace lounge glowing at dusk')}<div><p class="eyebrow eyebrow--light">By private inquiry</p><h2>Your date.<br />Your people.<br />Your version.</h2></div></section>
+      ${planningAnswers('Planning a gathering', 'Weddings and celebrations in the Coachella Valley.', [
+        ['Can guests stay at the estate?', 'The three-home, seven-bedroom estate can be part of a gathering weekend. Share your proposed group size and dates so we can discuss the lodging arrangement.'],
+        ['Can we host a wedding or birthday?', 'Tell us the occasion, date, estimated attendance, and the kind of experience you envision. Event use is reviewed individually and is subject to applicable permits, insurance, parking, noise, and property requirements.'],
+        ['Are packages and pricing listed?', 'We do not advertise a one-size-fits-all event package or promise a date online. Send an inquiry and we’ll discuss what is feasible, available, and appropriate for your plans.'],
+      ])}
       ${inquirySection('Wedding or celebration')}
     </main>`
 }
@@ -363,6 +385,11 @@ function corporatePage() {
         </div>
       </section>
       <section class="work-play split split--dark"><figure class="editorial-image reveal">${picture(newDining, 'Dining and game room for group meals and conversation')}</figure><div class="intro__copy reveal"><p class="eyebrow eyebrow--light">Beyond the agenda</p><h2>Work that leaves room for the people doing it.</h2><p class="lead">Morning conversation. A long table. Time outside. A retreat should create momentum without recreating the office.</p></div></section>
+      ${planningAnswers('Corporate retreat planning', 'A private Indio estate for the team.', [
+        ['Is overnight lodging available?', 'The estate has three homes and seven bedrooms. Share your dates and team size so we can review accommodations and the right use of the property.'],
+        ['Can we plan outdoor sessions?', 'The property includes open lawns, shaded gathering areas, and indoor dining and living spaces. Tell us what your group needs and we’ll discuss the setup.'],
+        ['How do we get a proposal?', 'Use the retreat inquiry below with your preferred dates, approximate guest count, and goals. We’ll follow up with availability and next steps rather than promising an instant reservation.'],
+      ])}
       ${inquirySection('Corporate retreat')}
     </main>`
 }
@@ -466,10 +493,33 @@ if (reduceMotion) {
       }
     })
   }, { threshold: 0.12, rootMargin: '0px 0px -40px' })
-  document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => observer.observe(el))
+document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => observer.observe(el))
 }
 
+function firstTouchSource() {
+  try {
+    const previous = sessionStorage.getItem('scr_first_touch')
+    if (previous) return previous
+  } catch { /* Private browsing may disable session storage. */ }
+  const params = new URLSearchParams(window.location.search)
+  const campaign = ['utm_source', 'utm_medium', 'utm_campaign']
+    .map(key => params.get(key)?.trim().slice(0, 100))
+    .filter(Boolean).join(' / ')
+  let source = campaign ? `Campaign: ${campaign}` : 'Direct / untagged'
+  if (!campaign && document.referrer) {
+    try {
+      const referringHost = new URL(document.referrer).hostname
+      if (referringHost && referringHost !== window.location.hostname) source = `Referral: ${referringHost}`
+    } catch { /* Ignore malformed or unavailable referrers. */ }
+  }
+  try { sessionStorage.setItem('scr_first_touch', source) } catch { /* Optional attribution only. */ }
+  return source
+}
+
+const leadSource = firstTouchSource()
 document.querySelectorAll('[data-inquiry-form]').forEach(form => {
+  form.elements.source.value = leadSource
+  form.elements.page.value = window.location.pathname
   form.addEventListener('submit', event => {
     event.preventDefault()
     const data = Object.fromEntries(new FormData(form))
@@ -484,6 +534,8 @@ document.querySelectorAll('[data-inquiry-form]').forEach(form => {
       `Arrival: ${data.arrival || 'Flexible'}`,
       `Departure: ${data.departure || 'Flexible'}`,
       `Guests: ${data.guests || 'Not specified'}`,
+      `Source: ${data.source}`,
+      `Landing page: ${data.page}`,
       '',
       data.message || 'No additional message.',
     ].join('\n'))
