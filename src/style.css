@@ -262,6 +262,24 @@ button { color: inherit; }
 .event-concepts__grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
 .event-concepts__grid figure:hover img { transform: scale(1.025); }
 .event-concepts__grid figcaption { position: absolute; left: 14px; bottom: 14px; margin: 0; padding: 8px 11px; background: rgba(17,17,14,.76); color: rgba(255,255,255,.88); font: 600 8px/1.3 var(--accent); letter-spacing: .13em; text-transform: uppercase; backdrop-filter: blur(7px); }
+.celebration-stories { padding: clamp(85px, 10vw, 145px) max(4vw, calc((100vw - 1320px)/2)); background: #24231f; color: var(--white); }
+.celebration-stories__intro { max-width: 800px; }
+.celebration-stories__intro .concept-badge { margin-bottom: 28px; }
+.concept-badge--light { color: #e9c684; border-color: rgba(233,198,132,.34); background: rgba(233,198,132,.08); }
+.celebration-stories h2 { max-width: 860px; margin: 0; font: 400 clamp(46px, 6vw, 82px)/.96 var(--display); letter-spacing: -.04em; }
+.celebration-stories h2 em { color: #e0b66f; font-weight: 400; }
+.celebration-stories__intro > p:last-child { max-width: 640px; margin: 28px 0 0; color: rgba(255,255,255,.63); font-size: 17px; line-height: 1.75; }
+.celebration-stories__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 62px; }
+.celebration-story { min-width: 0; }
+.celebration-story figure { position: relative; margin: 0; overflow: hidden; background: var(--ink); }
+.celebration-story figure img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform .8s var(--ease); }
+.celebration-story:hover figure img { transform: scale(1.025); }
+.celebration-story figcaption { position: absolute; right: 12px; bottom: 12px; margin: 0; padding: 8px 10px; background: rgba(17,17,14,.76); color: rgba(255,255,255,.86); font: 600 8px/1.3 var(--accent); letter-spacing: .13em; text-transform: uppercase; backdrop-filter: blur(7px); }
+.celebration-story > div { padding: 27px 6px 0 0; }
+.celebration-story .eyebrow { margin-bottom: 15px; }
+.celebration-story h3 { margin: 0; color: var(--white); font: 400 clamp(27px, 2.7vw, 39px)/1.04 var(--display); }
+.celebration-story h3 + p { margin: 17px 0 0; color: rgba(255,255,255,.61); font-size: 14px; line-height: 1.7; }
+.celebration-stories__note { max-width: 780px; margin: 65px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.44); font-size: 12px; line-height: 1.7; }
 .full-bleed-statement { position: relative; min-height: 78vh; color: var(--white); display: grid; place-items: center; text-align: center; overflow: hidden; }
 .full-bleed-statement > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .full-bleed-statement::after { content: ''; position: absolute; inset: 0; background: rgba(13,13,10,.46); }
@@ -435,6 +453,10 @@ button { color: inherit; }
   .event-concepts { padding-left: 18px; padding-right: 18px; }
   .event-concepts__grid { grid-template-columns: 1fr; grid-template-rows: none; }
   .event-concepts__grid figure, .event-concepts__grid figure:first-child { grid-row: auto; height: 360px; }
+  .celebration-stories { padding-right: 18px; padding-left: 18px; }
+  .celebration-stories__grid { grid-template-columns: 1fr; gap: 45px; margin-top: 45px; }
+  .celebration-story > div { padding-right: 0; }
+  .celebration-stories__note { margin-top: 50px; }
   .pillars { grid-template-columns: 1fr; }
   .pillar, .pillar:not(:first-child) { padding: 30px 0; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.16); }
   .disclosure { grid-template-columns: 1fr; gap: 15px; }
