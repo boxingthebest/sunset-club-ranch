@@ -14,10 +14,14 @@ const navItems = [
 
 const currentStucco = '/media/estate/poolside-white-stucco.webp'
 const currentLawn = '/media/estate/lawn-current.webp'
-const currentPoolOverview = '/media/estate/resort-pool-overview.webp'
 const eveningPoolSpa = '/media/estate/evening-pool-spa.webp'
-const eveningPoolClose = '/media/estate/evening-pool-close.webp'
-const eveningPoolLawn = '/media/estate/evening-pool-lawn.webp'
+const octoberMedia = '/media/october-2026'
+const newAerial = `${octoberMedia}/cover-aerial.webp`
+const newDining = `${octoberMedia}/dining-game-room.webp`
+const newCourts = `${octoberMedia}/recreation-courts.webp`
+const newEntry = `${octoberMedia}/front-entry-dusk.webp`
+const newGarden = `${octoberMedia}/yard-bar-dusk.webp`
+const newLounge = `${octoberMedia}/fireplace-lounge-dusk.webp`
 
 function logo(mark = false) {
   return `<span class="brand ${mark ? 'brand--hero' : ''}"><span>Sunset Club</span><small>Ranch</small></span>`
@@ -90,13 +94,13 @@ function footer() {
 }
 
 function picture(src, alt, className = '', loading = 'lazy') {
-  return `<img class="${className}" src="${src}" alt="${alt}" loading="${loading}" decoding="async" />`
+  const responsive = src === newAerial ? ` srcset="${octoberMedia}/cover-aerial-mobile.webp 1200w, ${src} 3200w" sizes="100vw"` : ''
+  return `<img class="${className}" src="${src}"${responsive} alt="${alt}" loading="${loading}" decoding="async"${loading === 'eager' ? ' fetchpriority="high"' : ''} />`
 }
-
-function pageHero({ image, eyebrow, title, copy, cta = 'Start planning', secondary = 'Explore', secondaryHref = '#story', badge = '', variant = 'classic' }) {
+function pageHero({ image, alt = '', eyebrow, title, copy, cta = 'Start planning', secondary = 'Explore', secondaryHref = '#story', badge = '', variant = 'classic' }) {
   return `
     <section class="page-hero page-hero--${variant}">
-      ${picture(image, '', 'page-hero__image', 'eager')}
+      ${picture(image, alt, 'page-hero__image', 'eager')}
       <div class="page-hero__veil"></div>
       <div class="page-hero__content reveal is-visible">
         ${badge ? `<p class="concept-badge concept-badge--hero">${badge}</p>` : ''}
@@ -120,15 +124,20 @@ function editorialHeader(kicker, title, copy = '') {
 
 function inquirySection(intent = 'Private stay') {
   const isEvent = ['Wedding or celebration', 'Birthday', 'Corporate retreat'].includes(intent)
-  const inquiryLabel = isEvent ? 'Event inquiry' : 'Stay inquiry'
-  const inquiryTitle = isEvent ? 'Tell us about<br />your gathering.' : 'Tell us when<br />you want to stay.'
-  const inquiryCopy = isEvent
+  const isFuture = ['After Dark 2027', 'Vision 2027 updates'].includes(intent)
+  const inquiryLabel = isFuture ? 'Future interest' : isEvent ? 'Event inquiry' : 'Stay inquiry'
+  const inquiryTitle = isFuture ? 'Stay close to<br />what comes next.' : isEvent ? 'Tell us about<br />your gathering.' : 'Tell us when<br />you want to stay.'
+  const inquiryCopy = isFuture
+    ? 'Tell us what interests you. We’ll respond with the most current plans; this is an inquiry, not a confirmed reservation or automatic mailing-list signup.'
+    : isEvent
     ? 'Share the date, group size, and occasion. We’ll review the fit and reply with the clearest next step.'
     : 'Share your dates, group size, and priorities. We’ll help you plan the right kind of stay.'
-  const startLabel = isEvent ? 'Event / arrival date' : 'Arrival'
-  const endLabel = isEvent ? 'End / departure date' : 'Departure'
+  const startLabel = isFuture ? 'Preferred start date (optional)' : isEvent ? 'Event / arrival date' : 'Arrival'
+  const endLabel = isFuture ? 'Preferred end date (optional)' : isEvent ? 'End / departure date' : 'Departure'
   const guestsLabel = isEvent ? 'Expected guests' : 'Guests'
-  const messagePlaceholder = isEvent
+  const messagePlaceholder = isFuture
+    ? 'Which planned space or program would you like to hear about?'
+    : isEvent
     ? 'Occasion, setup ideas, overnight needs, and anything else we should know.'
     : 'Dates, priorities, questions, or anything that would make the stay exceptional.'
   const occasionOptions = [
@@ -163,7 +172,7 @@ function homePage() {
   return `
     <main id="main">
       <section class="home-hero">
-        ${picture(currentPoolOverview, 'Sunset Club Ranch resort-style pool, lawns, palms, and mountain views in Indio, California', 'home-hero__image', 'eager')}
+        ${picture(newAerial, 'Aerial view of Sunset Club Ranch with palms, pool, white stucco, and outdoor gathering spaces', 'home-hero__image', 'eager')}
         <div class="home-hero__veil"></div>
         <div class="home-hero__content reveal is-visible">
           ${logo(true)}
@@ -203,10 +212,10 @@ function homePage() {
       <section class="story-grid section-pad">
         ${editorialHeader('The rhythm of a stay', 'A place with more than one mood.', 'Swim. Cook. Play. Retreat. The estate lets everyone move together—or choose a corner of their own.')}
         <div class="mosaic mosaic--estate reveal">
-          <figure class="mosaic__wide">${picture(currentStucco, 'Current white-stucco poolside patio at Sunset Club Ranch')}<figcaption>New white-stucco poolside patio</figcaption></figure>
-          <figure>${picture(eveningPoolClose, 'Sunset Club Ranch pool glowing at blue hour')}<figcaption>Poolside afterglow</figcaption></figure>
-          <figure>${picture('/media/estate/hardwood-kitchen.webp', 'Renovated Sunset Club Ranch kitchen with new floors')}</figure>
-          <figure class="mosaic__tall">${picture(eveningPoolLawn, 'Sunset Club Ranch pool, lawns, palms, and lights at blue hour')}<figcaption>Desert afterglow</figcaption></figure>
+          <figure class="mosaic__wide">${picture(currentStucco, 'White-stucco poolside patio at Sunset Club Ranch')}<figcaption>White-stucco poolside</figcaption></figure>
+          <figure>${picture(newDining, 'Dining and game room with new light-wood floors and framed art')}<figcaption>A place at the table</figcaption></figure>
+          <figure>${picture(newCourts, 'Sand volleyball and pickleball courts beside the Sunset Club Ranch lawns')}<figcaption>Room to play</figcaption></figure>
+          <figure class="mosaic__tall">${picture(newGarden, 'Illuminated garden, ping-pong table, and outdoor bar at dusk')}<figcaption>After the sun goes down</figcaption></figure>
         </div>
       </section>
 
@@ -228,8 +237,8 @@ function homePage() {
         ${editorialHeader('Choose your reason to gather', 'One estate. Several ways in.')}
         <div class="pathway-grid">
           ${[
-            ['Stay together', 'A private compound for group escapes, family time, and long weekends.', '/stay.html', currentStucco],
-            ['Celebrate here', 'Weddings, birthdays, and milestone gatherings begin with a private conversation.', '/weddings.html', currentLawn],
+            ['Stay together', 'A private compound for group escapes, family time, and long weekends.', '/stay.html', newLounge],
+            ['Celebrate here', 'Weddings, birthdays, and milestone gatherings begin with a private conversation.', '/weddings.html', newAerial],
             ['Step into 2027', 'Preview the planned barn, wellness courtyard, and the next chapter of the estate.', '/vision-2027.html', '/media/vision-2027/wellness-courtyard.webp'],
           ].map(([title, copy, href, image], i) => `<a class="pathway-card reveal" href="${href}" style="--delay:${i * 80}ms">${picture(image, '')}<span class="pathway-card__veil"></span><span class="pathway-card__content"><small>${String(i + 1).padStart(2, '0')}</small><strong>${title}</strong><em>${copy}</em><b>Explore →</b></span></a>`).join('')}
         </div>
@@ -247,17 +256,17 @@ function homePage() {
 function stayPage() {
   return `
     <main id="main">
-      ${pageHero({image: '/media/estate/hardwood-fireplace.webp', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'Three private homes, newly finished interiors, and five acres that give the whole group room to settle into its own rhythm.', cta:'Check dates', secondary:'See the homes', variant:'interior'})}
+      ${pageHero({image: '/media/estate/hardwood-fireplace.webp', alt:'Living room with linear fireplace and new soft-wood floors', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'Three private homes, newly finished interiors, and five acres that give the whole group room to settle into its own rhythm.', cta:'Check dates', secondary:'See the homes', variant:'interior'})}
       <section class="section-pad" id="story">
         ${editorialHeader('The homes', 'Together, without being on top of one another.', 'Three distinct homes share one relaxed design language: warm wood, clean white walls, collected art, shaded thresholds, and an easy connection to the grounds.')}
         <div class="home-cards">
           ${[
             ['01', 'The social heart', 'Open living, a new fireplace, new floors, shared meals, and an easy connection to the outdoors.', '/media/estate/hardwood-fireplace.webp'],
-            ['02', 'Character in every room', 'A growing art collection gives the interiors their own point of view without sacrificing comfort.', '/media/art/sofa-gallery.webp'],
+            ['02', 'Around the table', 'A bright dining and game room with new floors makes it easy to bring everyone together.', newDining],
             ['03', 'A place to retreat', 'Private rooms across three homes give the group space to settle in at the end of the day.', '/media/art/jaws-bedroom.webp'],
           ].map(([n, title, copy, image]) => `<article class="home-card reveal"><figure>${picture(image, title)}</figure><div><span>${n}</span><h3>${title}</h3><p>${copy}</p></div></article>`).join('')}
         </div>
-        <p class="home-cards__note reveal">Selected artwork scenes are owner-supplied visualizations of current rooms.</p>
+        <p class="home-cards__note reveal">The bedroom artwork scene is an owner-supplied visualization; the other rooms shown are current property images.</p>
       </section>
       <section class="amenity-editorial">
         <figure class="amenity-editorial__image reveal">${picture(currentStucco, 'Current white-stucco pool and outdoor gathering space at Sunset Club Ranch')}</figure>
@@ -289,15 +298,26 @@ function stayPage() {
         <div class="current-upgrades-showcase__copy reveal"><p class="status-badge">Completed · available today</p><p class="eyebrow eyebrow--light">The estate, newly finished</p><h2>More glow.<br />More ways to gather.</h2><p>The 158-inch outdoor media wall, illuminated ficus arrival, white poolside stucco, and honey-gold travertine are already part of the property.</p><p class="fine-print fine-print--light">Current photography is shown where available. The remaining images are owner-supplied visualizations of completed work and will be replaced as the fresh photo library arrives.</p></div>
         <div class="current-upgrades-showcase__media reveal">
           <figure>${picture('/media/current-upgrades/outdoor-screen.webp','Owner-supplied visualization of the existing outdoor media wall at Sunset Club Ranch')}<figcaption>158-inch outdoor screen · current visualization</figcaption></figure>
-          <figure>${picture('/media/current-upgrades/illuminated-arrival.webp','Owner-supplied visualization of the existing illuminated ficus driveway at Sunset Club Ranch')}<figcaption>Illuminated ficus arrival · current visualization</figcaption></figure>
+          <figure>${picture(`${octoberMedia}/arrival-night-study.webp`,'Owner-supplied visualization of the illuminated ficus and palm-lined driveway')}<figcaption>Ficus arrival · owner-supplied visualization</figcaption></figure>
           <figure>${picture(currentStucco,'Current white-stucco poolside patio at Sunset Club Ranch')}<figcaption>White-stucco poolside patio · current photograph</figcaption></figure>
           <figure>${picture('/media/current-upgrades/travertine-walkway.webp','Owner-supplied visualization of the completed honey-gold travertine walkway at Sunset Club Ranch')}<figcaption>Honey-gold travertine · current visualization</figcaption></figure>
+          <figure>${picture(newCourts,'Sand volleyball and pickleball courts beside the property lawn')}<figcaption>Volleyball and pickleball · current image</figcaption></figure>
+          <figure>${picture(`${octoberMedia}/arrival-day-study.webp`,'Owner-supplied daytime visualization of the landscaped driveway')}<figcaption>Daytime arrival · owner-supplied visualization</figcaption></figure>
         </div>
       </section>
       <section class="section-pad">
         ${editorialHeader('A closer look', 'Details make the stay.')}
         <div class="gallery-grid">
-          ${[currentPoolOverview, currentStucco, eveningPoolLawn, '/media/estate/hardwood-kitchen.webp', '/media/estate/hardwood-fireplace.webp', eveningPoolSpa].map((src, i) => `<button class="gallery-item reveal" type="button" data-lightbox="${src}" aria-label="Open estate photograph ${i + 1}">${picture(src, `Sunset Club Ranch detail ${i + 1}`)}</button>`).join('')}
+          ${[
+            [newAerial, 'Aerial overview of the pool and grounds'],
+            [newCourts, 'Pickleball and sand volleyball courts'],
+            [newDining, 'Dining and game room with new floors'],
+            [newEntry, 'Front entry at dusk'],
+            [newLounge, 'Outdoor fireplace lounge at dusk'],
+            [currentStucco, 'Current white-stucco poolside patio'],
+            [eveningPoolSpa, 'Pool and spa at dusk'],
+            ['/media/estate/hardwood-fireplace.webp', 'Living room and linear fireplace'],
+          ].map(([src, alt]) => `<button class="gallery-item reveal" type="button" data-lightbox="${src}" data-alt="${alt}" aria-label="Open ${alt.toLowerCase()}">${picture(src, alt)}</button>`).join('')}
         </div>
       </section>
       ${inquirySection('Private stay')}
@@ -307,7 +327,7 @@ function stayPage() {
 function weddingsPage() {
   return `
     <main id="main">
-      ${pageHero({image: currentStucco, eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'An intimate desert setting for weddings, birthdays, and milestone weekends—with the estate reserved around your people.', cta:'Inquire about your date', secondary:'Imagine the weekend', variant:'event'})}
+      ${pageHero({image: currentStucco, alt:'White-stucco poolside patio prepared for gatherings at Sunset Club Ranch', eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'An intimate desert setting for weddings, birthdays, and milestone weekends—with the estate reserved around your people.', cta:'Inquire about your date', secondary:'Imagine the weekend', variant:'event'})}
       <section class="intro split" id="story"><div class="intro__copy reveal"><p class="eyebrow">The occasion</p><h2>Not a ballroom.<br />A place that feels like yours.</h2><p class="lead">Celebrate under open sky, gather around the table, and let the weekend unfold without separating everyone at the end of the night.</p><p class="fine-print">All event use is reviewed individually and remains subject to applicable permits, insurance, parking, noise, and property requirements.</p></div><figure class="editorial-image editorial-image--portrait reveal">${picture(currentLawn, 'Current lawn and mountain view at Sunset Club Ranch')}<figcaption>Five acres for a more personal kind of gathering</figcaption></figure></section>
       <section class="chapter-section section-pad"><div class="chapter-grid">
         ${[
@@ -324,7 +344,7 @@ function weddingsPage() {
           <figure class="reveal">${picture('/media/event-concepts/evening-pool.webp','Event styling concept showing friends gathering around the real Sunset Club Ranch pool at blue hour')}<figcaption>Birthday weekend · styling concept</figcaption></figure>
         </div>
       </section>
-      <section class="full-bleed-statement">${picture(eveningPoolLawn, 'Current Sunset Club Ranch pool and lawn at blue hour')}<div><p class="eyebrow eyebrow--light">By private inquiry</p><h2>Your date.<br />Your people.<br />Your version.</h2></div></section>
+      <section class="full-bleed-statement">${picture(newLounge, 'Outdoor fireplace lounge glowing at dusk')}<div><p class="eyebrow eyebrow--light">By private inquiry</p><h2>Your date.<br />Your people.<br />Your version.</h2></div></section>
       ${inquirySection('Wedding or celebration')}
     </main>`
 }
@@ -332,7 +352,7 @@ function weddingsPage() {
 function corporatePage() {
   return `
     <main id="main">
-      ${pageHero({image: eveningPoolLawn, eyebrow:'Corporate retreats', title:'Better ideas need<br /><em>better room.</em>', copy:'Trade the ballroom for five private acres, three homes, open-air conversations, and a setting built for teams to reconnect.', cta:'Plan a retreat', secondary:'See the format', variant:'retreat'})}
+      ${pageHero({image: newGarden, alt:'Dusk gathering area with outdoor bar, ping-pong, and illuminated palms', eyebrow:'Corporate retreats', title:'Better ideas need<br /><em>better room.</em>', copy:'Trade the ballroom for five private acres, three homes, open-air conversations, and a setting built for teams to reconnect.', cta:'Plan a retreat', secondary:'See the format', variant:'retreat'})}
       <section class="section-pad" id="story">${editorialHeader('A different off-site', 'Think clearly. Gather naturally.', 'Build a focused retreat around privacy, indoor-outdoor work sessions, shared meals, and time that does not feel scheduled down to the minute.')}
         <div class="feature-grid">
           ${[
@@ -342,7 +362,7 @@ function corporatePage() {
           ].map(([n,t,c])=>`<article class="feature-card reveal"><span>${n}</span><h3>${t}</h3><p>${c}</p></article>`).join('')}
         </div>
       </section>
-      <section class="work-play split split--dark"><figure class="editorial-image reveal">${picture(currentLawn, 'Expansive lawn and mountain view at Sunset Club Ranch')}</figure><div class="intro__copy reveal"><p class="eyebrow eyebrow--light">Beyond the agenda</p><h2>Work that leaves room for the people doing it.</h2><p class="lead">Morning conversation. A long table. Time outside. A retreat should create momentum without recreating the office.</p></div></section>
+      <section class="work-play split split--dark"><figure class="editorial-image reveal">${picture(newDining, 'Dining and game room for group meals and conversation')}</figure><div class="intro__copy reveal"><p class="eyebrow eyebrow--light">Beyond the agenda</p><h2>Work that leaves room for the people doing it.</h2><p class="lead">Morning conversation. A long table. Time outside. A retreat should create momentum without recreating the office.</p></div></section>
       ${inquirySection('Corporate retreat')}
     </main>`
 }
@@ -350,7 +370,7 @@ function corporatePage() {
 function afterDarkPage() {
   return `
     <main id="main" class="night-page">
-      ${pageHero({image: eveningPoolSpa, eyebrow:'A private Coachella week concept', title:'After Dark<br /><em>Coachella 2027.</em>', copy:'Days at the compound. Nights under the Coachella stars. A limited, inquiry-only hospitality concept now in development.', cta:'Join the private inquiry list', secondary:'Discover the concept', badge:'2027 concept · details in development', variant:'night'})}
+      ${pageHero({image: newEntry, alt:'Illuminated front entry at blue hour', eyebrow:'A private Coachella week concept', title:'After Dark<br /><em>Coachella 2027.</em>', copy:'Days at the compound. Nights under the Coachella stars. A limited, inquiry-only hospitality concept now in development.', cta:'Join the private inquiry list', secondary:'Discover the concept', badge:'2027 program concept · details in development', variant:'night'})}
       <section class="section-pad night-intro" id="story">${editorialHeader('The idea', 'When the festival comes home.', 'After Dark is envisioned as a private, highly serviced way to experience Coachella week—anchored by the estate and shaped around the people in it.')}
         <div class="pillars">
           ${[
@@ -362,7 +382,7 @@ function afterDarkPage() {
         </div>
         <div class="disclosure disclosure--dark reveal"><strong>In development for 2027.</strong><p>Program details, access, partners, inclusions, pricing, and availability are not yet final. Joining the inquiry list does not guarantee a reservation or any specific service.</p></div>
       </section>
-      <section class="full-bleed-statement full-bleed-statement--night">${picture(eveningPoolLawn, 'Current Sunset Club Ranch pool and lawns at blue hour')}<div><p class="eyebrow eyebrow--light">Week one · 2027</p><h2>A very different<br />festival basecamp.</h2></div></section>
+      <section class="full-bleed-statement full-bleed-statement--night">${picture(newGarden, 'Garden and outdoor bar at dusk')}<div><p class="eyebrow eyebrow--light">Week one · 2027</p><h2>A very different<br />festival basecamp.</h2></div></section>
       ${inquirySection('After Dark 2027')}
     </main>`
 }
@@ -376,10 +396,10 @@ function visionPage() {
   ]
   return `
     <main id="main">
-      ${pageHero({image:'/media/vision-2027/wellness-courtyard.webp', eyebrow:'The next chapter', title:'The estate,<br /><em>still becoming.</em>', copy:'A transparent preview of the spaces now being planned for 2027—from a reimagined barn to a desert wellness courtyard.', cta:'Follow the vision', secondary:'See what is planned', badge:'Concept rendering · not currently available', variant:'future'})}
+      ${pageHero({image:`${octoberMedia}/sauna-design-study.webp`, alt:'Illustrative design study for the planned glass-front outdoor sauna', eyebrow:'The next chapter', title:'The estate,<br /><em>still becoming.</em>', copy:'A transparent preview of the spaces now being planned for 2027—from a reimagined barn to a desert wellness courtyard.', cta:'Follow the vision', secondary:'See what is planned', badge:'Sauna design study · not a current amenity', variant:'future'})}
       <section class="vision-principles section-pad" id="story">
         ${editorialHeader('Vision 2027', 'Show the future. Label it honestly.', 'These early visualizations express design intent, not current amenities. Timelines, scope, finishes, and availability may change as planning and construction progress.')}
-        <div class="vision-timeline"><article class="reveal"><span>Now</span><h3>The estate today</h3><p>Five private acres, three homes, a resort-style pool and spa, outdoor living, lawns, games, and a growing art collection.</p></article><article class="reveal"><span>Planned 2027</span><h3>The Barn</h3><p>A reimagining of the existing approximately 2,500-square-foot structure, with an early plan that may include added bedrooms, bathrooms, flexible gathering space, fitness, and play.</p></article><article class="reveal"><span>Target October 2027</span><h3>Wellness courtyard</h3><p>An outdoor sauna, soaking or cold-plunge element, shower, and quiet recovery space within a desert garden setting.</p></article></div>
+        <div class="vision-timeline"><article class="reveal"><span>Now</span><h3>The estate today</h3><p>Five private acres, three homes, a resort-style pool and spa, outdoor living, lawns, games, and a growing art collection.</p></article><article class="reveal"><span>Planned 2027</span><h3>The Barn</h3><p>A reimagining of the existing approximately 2,500-square-foot structure, with an early plan that may include added bedrooms, bathrooms, flexible gathering space, fitness, and play.</p></article><article class="reveal"><span>Wellness plans</span><h3>Sauna and courtyard</h3><p>The glass-front sauna has been selected for the planned wellness area. Installation and guest availability have not been confirmed; the cold plunge, shower, and garden remain concepts.</p></article></div>
       </section>
       <section class="concept-film">
         <div class="concept-film__copy reveal"><p class="concept-badge">Concept rendering · target October 2027</p><p class="eyebrow eyebrow--light">The wellness courtyard</p><h2>Heat. Cold.<br />Stillness.</h2><p>A planted outdoor retreat is being explored as the estate’s new wellness counterpoint.</p></div>
@@ -389,7 +409,7 @@ function visionPage() {
         ${editorialHeader('The Barn', 'A flagship gathering space in the making.', 'The existing barn is the starting point. The design is under development, with a planned expansion focused on flexible gathering, overnight comfort, fitness, and play.')}
         <div class="concept-grid">${concepts.map(([src,alt],i)=>`<figure class="concept-card reveal"><div class="concept-badge">Concept rendering</div>${picture(src,alt)}<figcaption>${['Exterior arrival study','Flexible gathering room','Fitness and games study','Additional bedroom study'][i]}</figcaption></figure>`).join('')}</div>
       </section>
-      <section class="concept-disclosure"><div><p class="eyebrow">Planning note</p><h2>Nothing here is pretending to be finished.</h2></div><p>All images and video in the Vision 2027 sections are conceptual. They illustrate possibilities under active development. Final design, amenities, dimensions, dates, and availability may change and will be updated as work is approved and completed.</p></section>
+      <section class="concept-disclosure"><div><p class="eyebrow">Planning note</p><h2>Nothing here is pretending to be finished.</h2></div><p>The sauna hero and all other images and video on this page are visualizations, not photographs of an installed amenity. The sauna has been selected, but installation and guest availability are not confirmed. Final design, amenities, dimensions, dates, and availability may change.</p></section>
       ${inquirySection('Vision 2027 updates')}
     </main>`
 }
