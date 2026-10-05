@@ -17,12 +17,13 @@ export_concept() {
     -define webp:method=6 -quality "$quality" "$OUT/$name.webp"
 }
 
-export_concept wedding-event-hero-concept.png wedding-hero-blue-hour 2400 88
+export_concept wedding-hero-blue-hour-diverse.png wedding-hero-blue-hour 2400 88
 export_concept lawn-dinner-concept.png lawn-wedding-2026 1900 86
-export_concept poolside-cocktails-concept.png poolside-cocktails-2026 2200 86
-export_concept birthday-garden-concept.png birthday-garden-2026 2200 86
-export_concept anniversary-lounge-concept.png anniversary-lounge-2026 2200 86
-export_concept family-reunion-courts-concept.png family-reunion-courts-2026 2200 86
+export_concept poolside-cocktails-concept-diverse.png poolside-cocktails-2026 2200 86
+export_concept birthday-garden-concept-diverse.png birthday-garden-2026 2200 86
+export_concept anniversary-lounge-concept-diverse.png anniversary-lounge-2026 2200 86
+export_concept family-reunion-courts-concept-final-v2.png family-reunion-courts-2026 2200 86
+rm -f "$OUT/lawn-wedding-2026.webp"
 
 printf 'Published event styling concepts: '
 find "$OUT" -maxdepth 1 -type f -name '*.webp' | wc -l

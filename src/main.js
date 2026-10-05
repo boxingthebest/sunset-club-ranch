@@ -361,9 +361,9 @@ function weddingsPage() {
         ].map(([n,t,c])=>`<article class="chapter reveal"><span>${n}</span><h3>${t}</h3><p>${c}</p></article>`).join('')}
       </div></section>
       <section class="event-concepts" id="event-ideas">
-        <div class="event-concepts__intro reveal"><p class="concept-badge">Event styling concepts</p><p class="eyebrow">Picture your people here</p><h2>Designed around<br />the way you gather.</h2><p>Three AI-assisted styling studies place real human energy into authentic Sunset Club Ranch settings. They are inspiration—not documentation of a past event or a promise of included decor, furniture, staffing, or services.</p></div>
+        <div class="event-concepts__intro reveal"><p class="concept-badge">Estate views & event styling concepts</p><p class="eyebrow">Picture your people here</p><h2>Designed around<br />the way you gather.</h2><p>An authentic view of the estate alongside AI-assisted styling studies shows how real Sunset Club Ranch settings can hold different kinds of gatherings. Styling images are inspiration—not documentation of a past event or a promise of included decor, furniture, staffing, or services.</p></div>
         <div class="event-concepts__grid">
-          <figure class="reveal">${picture('/media/event-concepts/lawn-wedding-2026.webp','Event styling concept showing an intimate dinner on the Sunset Club Ranch lawn')}<figcaption>Wedding dinner · styling concept</figcaption></figure>
+          <figure class="reveal">${picture(currentLawn,'Current lawn and mountain view at Sunset Club Ranch')}<figcaption>Five-acre lawn · current photograph</figcaption></figure>
           <figure class="reveal">${picture('/media/event-concepts/poolside-cocktails-2026.webp','Event styling concept showing a cocktail gathering beside the Sunset Club Ranch pool')}<figcaption>Poolside cocktails · styling concept</figcaption></figure>
           <figure class="reveal">${picture('/media/event-concepts/evening-pool.webp','Event styling concept showing friends gathering around the real Sunset Club Ranch pool at blue hour')}<figcaption>Birthday weekend · styling concept</figcaption></figure>
         </div>
