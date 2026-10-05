@@ -114,7 +114,7 @@ function pageHero({ image, alt = '', eyebrow, title, copy, cta = 'Start planning
         </div>
       </div>
       <div class="hero-facts" aria-label="Estate highlights">
-        <span>5 private acres</span><span>3 homes</span><span>7 bedrooms</span><span>Indio, California</span>
+        <span>5 private acres</span><span>3 homes</span><span>9 bedrooms</span><span>Indio, California</span>
       </div>
     </section>`
 }
@@ -192,10 +192,10 @@ function homePage() {
           ${logo(true)}
           <p class="home-hero__kicker">A private five-acre estate with a Tulum-meets-ranch spirit</p>
           <h1>Come together.<br /><em>Keep the whole place.</em></h1>
-          <p class="home-hero__copy">Three homes, seven bedrooms, a resort-style pool, and room for the group to settle into its own desert rhythm.</p>
+          <p class="home-hero__copy">Three homes, nine bedrooms, a resort-style pool, and room for the group to settle into its own desert rhythm.</p>
           <div class="hero-actions"><a class="button" href="/stay.html#inquire">Request stay dates</a><a class="button button--ghost" href="/weddings.html#inquire">Plan an event</a></div>
         </div>
-        <div class="hero-facts" aria-label="Estate highlights"><span>5 private acres</span><span>3 homes</span><span>7 bedrooms</span><span>Near Empire Polo Club</span></div>
+        <div class="hero-facts" aria-label="Estate highlights"><span>5 private acres</span><span>3 homes</span><span>9 bedrooms</span><span>Near Empire Polo Club</span></div>
       </section>
 
       <section class="booking-chooser" id="choose">
@@ -220,7 +220,7 @@ function homePage() {
       </section>
 
       <section class="fact-band" aria-label="Property details">
-        <div><strong>05</strong><span>Private acres</span></div><div><strong>03</strong><span>Distinct homes</span></div><div><strong>07</strong><span>Bedrooms</span></div><div><strong>01</strong><span>Estate, entirely yours</span></div>
+        <div><strong>05</strong><span>Private acres</span></div><div><strong>03</strong><span>Distinct homes</span></div><div><strong>09</strong><span>Bedrooms</span></div><div><strong>01</strong><span>Estate, entirely yours</span></div>
       </section>
 
       <section class="story-grid section-pad">
@@ -284,7 +284,7 @@ function stayPage() {
       </section>
       <section class="amenity-editorial">
         <figure class="amenity-editorial__image reveal">${picture(currentStucco, 'Current white-stucco pool and outdoor gathering space at Sunset Club Ranch')}</figure>
-        <div class="amenity-editorial__copy reveal"><p class="eyebrow eyebrow--light">Outside, all day</p><h2>Pool water.<br />Warm shade.<br />No agenda.</h2><p>Move from the heated pool and spa to the outdoor kitchen, long-table dining, games, lawns, and fire-lit evenings.</p><ul><li>Heated pool and spa</li><li>Outdoor kitchen and pizza oven</li><li>Games and generous lawns</li><li>Multiple shaded gathering areas</li></ul></div>
+        <div class="amenity-editorial__copy reveal"><p class="eyebrow eyebrow--light">Outside, all day</p><h2>Pool water.<br />Warm shade.<br />No agenda.</h2><p>Move from the heated pool and spa with waterfall features to the outdoor kitchen, long-table dining, games, lawns, sauna time, and fire-lit evenings.</p><ul><li>Heated pool, spa, and waterfall features</li><li>Six-person sauna</li><li>One outdoor kitchen and pizza oven</li><li>Pickleball, volleyball, basketball, and fire pits</li></ul></div>
       </section>
       <section class="lawn-film" id="the-lawn">
         <video autoplay muted loop playsinline preload="metadata" poster="/media/estate/lawn-current.webp" aria-label="The expansive lawn and mountain view at Sunset Club Ranch">
@@ -298,18 +298,22 @@ function stayPage() {
         <div class="upgrade-list reveal">
           <div><span>01</span><strong>Pickleball court</strong></div>
           <div><span>02</span><strong>Sand volleyball</strong></div>
-          <div><span>03</span><strong>Basketball</strong></div>
-          <div><span>04</span><strong>158-inch outdoor screen</strong></div>
-          <div><span>05</span><strong>Koolfog misting</strong></div>
-          <div><span>06</span><strong>New fireplace</strong></div>
-          <div><span>07</span><strong>New floors</strong></div>
-          <div><span>08</span><strong>Property-wide Wi-Fi</strong></div>
-          <div><span>09</span><strong>Updated HVAC & plumbing</strong></div>
+          <div><span>03</span><strong>Basketball hoop</strong></div>
+          <div><span>04</span><strong>158-inch state-of-the-art TV</strong></div>
+          <div><span>05</span><strong>Pool waterfall features</strong></div>
+          <div><span>06</span><strong>Fire pits</strong></div>
+          <div><span>07</span><strong>One outdoor kitchen + pizza oven</strong></div>
+          <div><span>08</span><strong>Two indoor kitchens</strong></div>
+          <div><span>09</span><strong>Six-person sauna</strong></div>
+          <div><span>10</span><strong>Koolfog misting</strong></div>
+          <div><span>11</span><strong>New fireplace + floors</strong></div>
+          <div><span>12</span><strong>Property-wide Wi-Fi</strong></div>
+          <div><span>13</span><strong>Updated HVAC & plumbing</strong></div>
         </div>
         <p class="new-estate__note reveal">All listed additions are complete and available today. Current photography is shown where available; every illustrative view is transparently labeled.</p>
       </section>
       <section class="current-upgrades-showcase" id="current-upgrades">
-        <div class="current-upgrades-showcase__copy reveal"><p class="status-badge">Completed · available today</p><p class="eyebrow eyebrow--light">The estate, newly finished</p><h2>More glow.<br />More ways to gather.</h2><p>The 158-inch outdoor media wall, illuminated ficus arrival, white poolside stucco, and honey-gold travertine are already part of the property.</p><p class="fine-print fine-print--light">Current photography is shown where available. The remaining images are owner-supplied visualizations of completed work and will be replaced as the fresh photo library arrives.</p></div>
+        <div class="current-upgrades-showcase__copy reveal"><p class="status-badge">Completed · available today</p><p class="eyebrow eyebrow--light">The estate, newly finished</p><h2>More glow.<br />More ways to gather.</h2><p>The 158-inch outdoor media wall, pool waterfall features, fire pits, illuminated ficus arrival, white poolside stucco, and honey-gold travertine are already part of the property.</p><p class="fine-print fine-print--light">Current photography is shown where available. The remaining images are owner-supplied visualizations of completed work and will be replaced as the fresh photo library arrives.</p></div>
         <div class="current-upgrades-showcase__media reveal">
           <figure>${picture('/media/current-upgrades/outdoor-screen.webp','Owner-supplied visualization of the existing outdoor media wall at Sunset Club Ranch')}<figcaption>158-inch outdoor screen · current visualization</figcaption></figure>
           <figure>${picture(`${octoberMedia}/arrival-night-study.webp`,'Owner-supplied visualization of the illuminated ficus and palm-lined driveway')}<figcaption>Ficus arrival · owner-supplied visualization</figcaption></figure>
@@ -335,8 +339,8 @@ function stayPage() {
         </div>
       </section>
       ${planningAnswers('Plan your stay', 'A private estate stay in Indio, made simple.', [
-        ['Can our group stay together?', 'The estate brings together three homes and seven bedrooms on five private acres. Tell us your group size and dates so we can confirm the best fit.'],
-        ['What can we enjoy on property now?', 'The pool and spa, pickleball and volleyball courts, outdoor gathering spaces, new fireplace, and refreshed interiors are part of the current estate. The planned sauna and barn are not yet guest amenities.'],
+        ['Can our group stay together?', 'The estate brings together three homes and nine bedrooms on five private acres. Tell us your group size and dates so we can confirm the best fit.'],
+        ['What can we enjoy on property now?', 'The pool and spa with waterfall features, a six-person sauna, a 158-inch outdoor TV, pickleball and volleyball courts, a basketball hoop, fire pits, one outdoor kitchen, two indoor kitchens, and refreshed interiors are part of the current estate. The planned barn, cold plunge, outdoor shower, and wellness courtyard are not yet guest amenities.'],
         ['How do we request dates?', 'Send your dates and group size through the inquiry below. We’ll review availability and the details with you directly; the website does not provide an instant booking or a confirmed reservation.'],
       ])}
       ${inquirySection('Private stay')}
@@ -365,7 +369,7 @@ function weddingsPage() {
       </section>
       <section class="full-bleed-statement">${picture(newLounge, 'Outdoor fireplace lounge glowing at dusk')}<div><p class="eyebrow eyebrow--light">By private inquiry</p><h2>Your date.<br />Your people.<br />Your version.</h2></div></section>
       ${planningAnswers('Planning a gathering', 'Weddings and celebrations in the Coachella Valley.', [
-        ['Can guests stay at the estate?', 'The three-home, seven-bedroom estate can be part of a gathering weekend. Share your proposed group size and dates so we can discuss the lodging arrangement.'],
+        ['Can guests stay at the estate?', 'The three-home, nine-bedroom estate can be part of a gathering weekend. Share your proposed group size and dates so we can discuss the lodging arrangement.'],
         ['Can we plan for up to 200 guests?', 'For a thoughtful private celebration of up to 200 guests, share your date, expected attendance, and planner or vendor team. We will review the fit, availability, and required approvals for your specific event.'],
         ['Are packages and pricing listed?', 'We do not advertise a one-size-fits-all event package or promise a date online. Send an inquiry and we’ll discuss what is feasible, available, and appropriate for your plans.'],
       ])}
@@ -388,7 +392,7 @@ function corporatePage() {
       </section>
       <section class="work-play split split--dark"><figure class="editorial-image reveal">${picture(newDining, 'Dining and game room for group meals and conversation')}</figure><div class="intro__copy reveal"><p class="eyebrow eyebrow--light">Beyond the agenda</p><h2>Work that leaves room for the people doing it.</h2><p class="lead">Morning conversation. A long table. Time outside. A retreat should create momentum without recreating the office.</p></div></section>
       ${planningAnswers('Corporate retreat planning', 'A private Indio estate for the team.', [
-        ['Is overnight lodging available?', 'The estate has three homes and seven bedrooms. Share your dates and team size so we can review accommodations and the right use of the property.'],
+        ['Is overnight lodging available?', 'The estate has three homes and nine bedrooms. Share your dates and team size so we can review accommodations and the right use of the property.'],
         ['Can we plan outdoor sessions?', 'The property includes open lawns, shaded gathering areas, and indoor dining and living spaces. Tell us what your group needs and we’ll discuss the setup.'],
         ['How do we get a proposal?', 'Use the retreat inquiry below with your preferred dates, approximate guest count, and goals. We’ll follow up with availability and next steps rather than promising an instant reservation.'],
       ])}
@@ -425,10 +429,10 @@ function visionPage() {
   ]
   return `
     <main id="main">
-      ${pageHero({image:`${octoberMedia}/sauna-design-study.webp`, alt:'Illustrative design study for the planned glass-front outdoor sauna', eyebrow:'The next chapter', title:'The estate,<br /><em>still becoming.</em>', copy:'A transparent preview of the spaces now being planned for 2027—from a reimagined barn to a desert wellness courtyard.', cta:'Follow the vision', secondary:'See what is planned', badge:'Sauna design study · not a current amenity', variant:'future'})}
+      ${pageHero({image:`${octoberMedia}/sauna-design-study.webp`, alt:'Illustrative design study for a future wellness courtyard around the current six-person sauna', eyebrow:'The next chapter', title:'The estate,<br /><em>still becoming.</em>', copy:'A transparent preview of the spaces now being planned for 2027—from a reimagined barn to a desert wellness courtyard.', cta:'Follow the vision', secondary:'See what is planned', badge:'Wellness courtyard design study · current sauna shown illustratively', variant:'future'})}
       <section class="vision-principles section-pad" id="story">
         ${editorialHeader('Vision 2027', 'Show the future. Label it honestly.', 'These early visualizations express design intent, not current amenities. Timelines, scope, finishes, and availability may change as planning and construction progress.')}
-        <div class="vision-timeline"><article class="reveal"><span>Now</span><h3>The estate today</h3><p>Five private acres, three homes, a resort-style pool and spa, outdoor living, lawns, games, and a growing art collection.</p></article><article class="reveal"><span>Planned 2027</span><h3>The Barn</h3><p>A reimagining of the existing approximately 2,500-square-foot structure, with an early plan that may include added bedrooms, bathrooms, flexible gathering space, fitness, and play.</p></article><article class="reveal"><span>Wellness plans</span><h3>Sauna and courtyard</h3><p>The glass-front sauna has been selected for the planned wellness area. Installation and guest availability have not been confirmed; the cold plunge, shower, and garden remain concepts.</p></article></div>
+        <div class="vision-timeline"><article class="reveal"><span>Now</span><h3>The estate today</h3><p>Five private acres, three homes, nine bedrooms, a resort-style pool and spa, a six-person sauna, outdoor living, lawns, games, and a growing art collection.</p></article><article class="reveal"><span>Planned 2027</span><h3>The Barn</h3><p>A reimagining of the existing approximately 2,500-square-foot structure, with an early plan that may include added bedrooms, bathrooms, flexible gathering space, fitness, and play.</p></article><article class="reveal"><span>Wellness plans</span><h3>Courtyard expansion</h3><p>The sauna is currently on the estate. The cold plunge, outdoor shower, planted courtyard, and related wellness infrastructure remain concepts under development.</p></article></div>
       </section>
       <section class="concept-film">
         <div class="concept-film__copy reveal"><p class="concept-badge">Concept rendering · target October 2027</p><p class="eyebrow eyebrow--light">The wellness courtyard</p><h2>Heat. Cold.<br />Stillness.</h2><p>A planted outdoor retreat is being explored as the estate’s new wellness counterpoint.</p></div>
@@ -438,7 +442,7 @@ function visionPage() {
         ${editorialHeader('The Barn', 'A flagship gathering space in the making.', 'The existing barn is the starting point. The design is under development, with a planned expansion focused on flexible gathering, overnight comfort, fitness, and play.')}
         <div class="concept-grid">${concepts.map(([src,alt],i)=>`<figure class="concept-card reveal"><div class="concept-badge">Concept rendering</div>${picture(src,alt)}<figcaption>${['Exterior arrival study','Flexible gathering room','Fitness and games study','Additional bedroom study'][i]}</figcaption></figure>`).join('')}</div>
       </section>
-      <section class="concept-disclosure"><div><p class="eyebrow">Planning note</p><h2>Nothing here is pretending to be finished.</h2></div><p>The sauna hero and all other images and video on this page are visualizations, not photographs of an installed amenity. The sauna has been selected, but installation and guest availability are not confirmed. Final design, amenities, dimensions, dates, and availability may change.</p></section>
+      <section class="concept-disclosure"><div><p class="eyebrow">Planning note</p><h2>Nothing here is pretending to be finished.</h2></div><p>The sauna design study and all other images and video on this page are visualizations, not photographs of the current amenity. The six-person sauna is on the estate today; the future cold plunge, outdoor shower, courtyard, barn scope, timelines, and availability may change.</p></section>
       ${inquirySection('Vision 2027 updates')}
     </main>`
 }
