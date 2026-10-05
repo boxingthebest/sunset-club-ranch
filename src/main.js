@@ -23,6 +23,7 @@ const newEntry = `${octoberMedia}/front-entry-dusk.webp`
 const newGarden = `${octoberMedia}/yard-bar-dusk.webp`
 const newLounge = `${octoberMedia}/fireplace-lounge-dusk.webp`
 const sofaStylingStudy = `${octoberMedia}/living-room-sofa-study.webp`
+const weddingHeroConcept = '/media/event-concepts/wedding-hero-blue-hour.webp'
 
 function logo(mark = false) {
   return `<span class="brand ${mark ? 'brand--hero' : ''}"><span>Sunset Club</span><small>Ranch</small></span>`
@@ -350,7 +351,7 @@ function stayPage() {
 function weddingsPage() {
   return `
     <main id="main">
-      ${pageHero({image: currentStucco, alt:'White-stucco poolside patio prepared for gatherings at Sunset Club Ranch', eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'A private desert estate for weddings, birthdays, and milestone weekends—designed for a gathering that feels entirely your own.', cta:'Inquire about your date', secondary:'Imagine the weekend', variant:'event'})}
+      ${pageHero({image: weddingHeroConcept, alt:'Event styling concept of an intimate wedding dinner beside the pool at Sunset Club Ranch at blue hour', eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'A private desert estate for weddings, birthdays, and milestone weekends—designed for a gathering that feels entirely your own.', cta:'Inquire about your date', secondary:'Imagine the weekend', badge:'Event styling concept · shown for inspiration', variant:'event-concept'})}
       <section class="intro split" id="story"><div class="intro__copy reveal"><p class="eyebrow">The occasion</p><h2>Not a ballroom.<br />A place that feels like yours.</h2><p class="lead">Celebrate under open sky, gather around the table, and let the weekend unfold without separating everyone at the end of the night.</p><p>For a thoughtful private celebration of up to 200 guests, begin with a date-specific conversation with our team and your planner.</p><p class="fine-print">All event use is reviewed individually and remains subject to applicable permits, insurance, parking, noise, and property requirements.</p></div><figure class="editorial-image editorial-image--portrait reveal">${picture(currentLawn, 'Current lawn and mountain view at Sunset Club Ranch')}<figcaption>Five acres for a more personal kind of gathering</figcaption></figure></section>
       <section class="chapter-section section-pad"><div class="chapter-grid">
         ${[
@@ -362,8 +363,8 @@ function weddingsPage() {
       <section class="event-concepts" id="event-ideas">
         <div class="event-concepts__intro reveal"><p class="concept-badge">Event styling concepts</p><p class="eyebrow">Picture your people here</p><h2>Designed around<br />the way you gather.</h2><p>Three AI-assisted styling studies place real human energy into authentic Sunset Club Ranch settings. They are inspiration—not documentation of a past event or a promise of included decor, furniture, staffing, or services.</p></div>
         <div class="event-concepts__grid">
-          <figure class="reveal">${picture('/media/event-concepts/lawn-wedding.webp','Event styling concept showing an intimate dinner on the real Sunset Club Ranch lawn')}<figcaption>Wedding dinner · styling concept</figcaption></figure>
-          <figure class="reveal">${picture('/media/event-concepts/stucco-cocktails.webp','Event styling concept showing a cocktail gathering on the real white-stucco poolside patio')}<figcaption>Poolside cocktails · styling concept</figcaption></figure>
+          <figure class="reveal">${picture('/media/event-concepts/lawn-wedding-2026.webp','Event styling concept showing an intimate dinner on the Sunset Club Ranch lawn')}<figcaption>Wedding dinner · styling concept</figcaption></figure>
+          <figure class="reveal">${picture('/media/event-concepts/poolside-cocktails-2026.webp','Event styling concept showing a cocktail gathering beside the Sunset Club Ranch pool')}<figcaption>Poolside cocktails · styling concept</figcaption></figure>
           <figure class="reveal">${picture('/media/event-concepts/evening-pool.webp','Event styling concept showing friends gathering around the real Sunset Club Ranch pool at blue hour')}<figcaption>Birthday weekend · styling concept</figcaption></figure>
         </div>
       </section>
