@@ -175,7 +175,8 @@ function inquirySection(intent = 'Private stay') {
         <div class="field"><label for="guests">${guestsLabel}</label><input id="guests" name="guests" type="number" min="1" inputmode="numeric" /></div>
         <div class="field"><label for="occasion">Occasion</label><select id="occasion" name="occasion">${occasionOptions.map(option => `<option>${option}</option>`).join('')}</select></div>
         <div class="field field--wide"><label for="message">What should we know?</label><textarea id="message" name="message" rows="4" placeholder="${messagePlaceholder}"></textarea></div>
-        <div class="field field--wide form-submit"><button class="button" type="submit">Review & email</button><p>Opens a pre-addressed email with your details so you can review before sending.</p></div>
+        <div class="field field--wide form-submit"><button class="button" type="submit">Send inquiry</button><p>Your details are emailed to us through FormSubmit. If delivery cannot be confirmed, an email draft opens for you to send instead. <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">Privacy information</a>.</p></div>
+        <p class="form-status field--wide" role="status" aria-live="polite" data-inquiry-status></p>
       </form>
     </section>`
 }
@@ -520,10 +521,16 @@ const leadSource = firstTouchSource()
 document.querySelectorAll('[data-inquiry-form]').forEach(form => {
   form.elements.source.value = leadSource
   form.elements.page.value = window.location.pathname
-  form.addEventListener('submit', event => {
+  form.addEventListener('submit', async event => {
     event.preventDefault()
     const data = Object.fromEntries(new FormData(form))
     if (data.company_website) return
+    const button = form.querySelector('[type=submit]')
+    const status = form.querySelector('[data-inquiry-status]')
+    if (button.disabled) return
+    button.disabled = true
+    status.textContent = 'Sending your inquiry…'
+    const destination = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`
     const subject = encodeURIComponent(`Sunset Club Ranch inquiry — ${data.occasion || data.interest}`)
     const body = encodeURIComponent([
       `Name: ${data.name}`,
@@ -539,7 +546,39 @@ document.querySelectorAll('[data-inquiry-form]').forEach(form => {
       '',
       data.message || 'No additional message.',
     ].join('\n'))
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
+    try {
+      const controller = new AbortController()
+      const timeout = setTimeout(() => controller.abort(), 12000)
+      let response
+      try {
+        response = await fetch(destination, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            name: data.name, email: data.email, phone: data.phone,
+            interest: data.interest, occasion: data.occasion,
+            arrival: data.arrival, departure: data.departure,
+            guests: data.guests, message: data.message,
+            source: data.source, page: data.page,
+            _url: window.location.origin + window.location.pathname,
+            _subject: `Sunset Club Ranch inquiry — ${data.occasion || data.interest}`,
+            _honey: '',
+          }),
+          signal: controller.signal,
+        })
+      } finally { clearTimeout(timeout) }
+      const result = await response.json()
+      if (!response.ok || (result.success !== true && result.success !== 'true')) throw new Error('Delivery unconfirmed')
+      status.textContent = 'Thank you. Your inquiry was accepted; we will follow up by email.'
+      form.reset()
+      form.elements.source.value = leadSource
+      form.elements.page.value = window.location.pathname
+    } catch {
+      status.textContent = 'We could not confirm delivery. An email draft is opening; please press Send in your email app. You can also call or email us using the links beside this form.'
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
+    } finally {
+      button.disabled = false
+    }
   })
 })
 
