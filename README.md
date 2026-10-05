@@ -53,4 +53,8 @@ The definitive interior material reference is the current linear-fireplace photo
 
 ## Inquiry handling
 
-The current inquiry form prepares a pre-addressed email to `dapenza444@gmail.com` in the visitor's mail application. Before production launch, replace this fallback with the approved lead-capture integration while retaining a direct phone and email path.
+The live inquiry form still prepares a pre-addressed email to the owner-confirmed `dapenza444@gmail.com` in the **visitor's mail application**. Opening the form is not delivery: the visitor must send the message. Keep that wording visible until a tested form backend replaces it; retain direct phone and email alternatives.
+
+The form carries a first-touch source (UTM source / medium / campaign, referring domain, or direct) across same-tab page visits using session storage. Its message includes the source and landing-page path so campaigns can be compared without a tracking pixel. For example, share `/weddings.html?utm_source=instagram&utm_medium=social&utm_campaign=fall-weddings` or `/stay.html?utm_source=anetta&utm_medium=referral&utm_campaign=direct-stays`. Do not record guest details in campaign parameters.
+
+`public/sitemap.xml` lists the canonical pages and `public/robots.txt` advertises it. Submit the sitemap to Google Search Console once the property owner has verified ownership. A plain HTTP client may encounter a Vercel Security Checkpoint; check the verified Googlebot experience in Search Console before changing firewall rules or claiming Google cannot crawl the site.
