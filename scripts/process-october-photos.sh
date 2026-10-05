@@ -25,8 +25,9 @@ export_photo sunset_club_ranch_05_yard_bar_pingpong_dusk_4k_airbnb.jpg yard-bar-
 export_photo sunset_club_ranch_06_fireplace_lounge_dusk_4k_airbnb.jpg fireplace-lounge-dusk 2400
 
 # Keep the current living-room original private because its sofa has since
-# changed; publish only the explicitly labeled sofa-and-throws styling edit.
-export_photo living-room-sofa-throws-concept.png living-room-sofa-study 1722
+# changed; publish a labeled styling edit using the checked throws from the
+# owner's other fireplace-view reference, not an invented alternate textile set.
+export_photo living-room-checked-throws-concept.png living-room-sofa-study 1722
 
 # The four other supplied patio/pizza/fireplace shots show the older stone
 # treatment; preserve their originals, but do not publish them as current views.
