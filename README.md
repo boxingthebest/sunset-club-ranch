@@ -53,7 +53,7 @@ The definitive interior material reference is the current linear-fireplace photo
 
 ## Inquiry handling
 
-The live inquiry form still prepares a pre-addressed email to the owner-confirmed `dapenza444@gmail.com` in the **visitor's mail application**. Opening the form is not delivery: the visitor must send the message. Keep that wording visible until a tested form backend replaces it; retain direct phone and email alternatives.
+The owner-confirmed inquiry recipient is `dapenza444@gmail.com`. The direct-delivery implementation submits to FormSubmit's AJAX endpoint and shows a success message **only if that service confirms acceptance**. On a network error, rejection, or timeout, the form preserves the entered details and opens an email draft; the visitor must press Send in their email application. Direct phone and email links remain visible. Do **not** merge this delivery implementation until the owner activates the FormSubmit inbox and a real end-to-end test confirms receipt; a mocked success response only tests the interface. Guest details go through FormSubmit; its privacy policy is linked at the point of submission.
 
 The form carries a first-touch source (UTM source / medium / campaign, referring domain, or direct) across same-tab page visits using session storage. Its message includes the source and landing-page path so campaigns can be compared without a tracking pixel. For example, share `/weddings.html?utm_source=instagram&utm_medium=social&utm_campaign=fall-weddings` or `/stay.html?utm_source=anetta&utm_medium=referral&utm_campaign=direct-stays`. Do not record guest details in campaign parameters.
 
