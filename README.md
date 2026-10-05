@@ -32,6 +32,7 @@ pnpm build
 Published, optimized website media lives in `public/media/`:
 
 - `estate/` contains current Sunset Club Ranch photography.
+- `october-2026/` contains web-optimized owner-supplied aerial, renovated dining room, recreation courts, front entry, garden, and outdoor lounge images, plus **separately labeled** illustrative arrival and sauna studies. The aerial has a smaller responsive mobile export.
 - `incoming-media/4k-masters/` contains preservation-focused restored masters used to export the active current-property photographs.
 - `art/` contains owner-supplied images of artwork in current interiors.
 - `current-upgrades/` contains owner-supplied visualizations of completed work awaiting fresh photography.
@@ -41,6 +42,8 @@ Published, optimized website media lives in `public/media/`:
 - `video/` contains web-optimized future concept video.
 
 Original high-resolution supplied files are intentionally kept outside version control in `incoming-media/`. Run `scripts/process-media.sh` on the persistent development computer to rebuild web derivatives from those sources. Historical property photographs are intentionally excluded; active pages use only newly supplied current-property media or clearly labeled concepts.
+
+Run `scripts/process-october-photos.sh` after adding the fourteen original files to ignored `incoming-media/october-2026/`. Four patio, outdoor-kitchen, and pizza-oven views in the original delivery still show a superseded stone finish; the script deliberately **does not publish them**. New originals remain available privately for comparison. Do not describe the illustrative sauna rendering as an installed or bookable amenity. The owner confirmed the sauna purchase but not its installation or guest availability.
 
 ## Content integrity
 
