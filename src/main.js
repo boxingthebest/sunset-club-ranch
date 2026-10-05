@@ -22,6 +22,7 @@ const newCourts = `${octoberMedia}/recreation-courts.webp`
 const newEntry = `${octoberMedia}/front-entry-dusk.webp`
 const newGarden = `${octoberMedia}/yard-bar-dusk.webp`
 const newLounge = `${octoberMedia}/fireplace-lounge-dusk.webp`
+const sofaStylingStudy = `${octoberMedia}/living-room-sofa-study.webp`
 
 function logo(mark = false) {
   return `<span class="brand ${mark ? 'brand--hero' : ''}"><span>Sunset Club</span><small>Ranch</small></span>`
@@ -274,12 +275,12 @@ function stayPage() {
         ${editorialHeader('The homes', 'Together, without being on top of one another.', 'Three distinct homes share one relaxed design language: warm wood, clean white walls, collected art, shaded thresholds, and an easy connection to the grounds.')}
         <div class="home-cards">
           ${[
-            ['01', 'The social heart', 'Open living, a new fireplace, new floors, shared meals, and an easy connection to the outdoors.', '/media/estate/hardwood-fireplace.webp'],
+            ['01', 'The social heart', 'Open living, a new fireplace, new floors, shared meals, and an easy connection to the outdoors.', sofaStylingStudy, 'Sofa styling visualization'],
             ['02', 'Around the table', 'A bright dining and game room with new floors makes it easy to bring everyone together.', newDining],
             ['03', 'A place to retreat', 'Private rooms across three homes give the group space to settle in at the end of the day.', '/media/art/jaws-bedroom.webp'],
-          ].map(([n, title, copy, image]) => `<article class="home-card reveal"><figure>${picture(image, title)}</figure><div><span>${n}</span><h3>${title}</h3><p>${copy}</p></div></article>`).join('')}
+          ].map(([n, title, copy, image, label]) => `<article class="home-card reveal"><figure>${picture(image, label ? 'Living room with proposed sofa styling; current floors, rug, table, and artwork' : title)}${label ? `<figcaption>${label}</figcaption>` : ''}</figure><div><span>${n}</span><h3>${title}</h3><p>${copy}</p></div></article>`).join('')}
         </div>
-        <p class="home-cards__note reveal">The bedroom artwork scene is an owner-supplied visualization; the other rooms shown are current property images.</p>
+        <p class="home-cards__note reveal">The living-room sofa is an illustrative styling edit; its floors, rug, table, and art are from the current room. The bedroom artwork scene is also a visualization. The dining-room image is current photography.</p>
       </section>
       <section class="amenity-editorial">
         <figure class="amenity-editorial__image reveal">${picture(currentStucco, 'Current white-stucco pool and outdoor gathering space at Sunset Club Ranch')}</figure>
