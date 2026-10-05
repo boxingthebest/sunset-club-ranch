@@ -36,7 +36,7 @@ Published, optimized website media lives in `public/media/`:
 - `incoming-media/4k-masters/` contains preservation-focused restored masters used to export the active current-property photographs.
 - `art/` contains owner-supplied images of artwork in current interiors.
 - `current-upgrades/` contains owner-supplied visualizations of completed work awaiting fresh photography.
-- `event-concepts/` contains AI-assisted styling studies grounded in authentic property photographs and disclosed as concepts in the interface.
+- `event-concepts/` contains AI-assisted styling studies grounded in authentic property photographs and disclosed as concepts in the interface. The Wedding & Events hero (`wedding-hero-blue-hour.webp`) is an event-styling concept built from an authentic Sunset Club Ranch blue-hour pool photograph; it is never presented as a documentary record of a past event.
 - `vision-2027/` contains future concept renderings.
 - `video/lawn-current.mp4` is authentic current-property footage; `video/wellness-concept-2027.mp4` is a separately labeled future concept.
 - `video/` contains web-optimized future concept video.
@@ -44,6 +44,8 @@ Published, optimized website media lives in `public/media/`:
 Original high-resolution supplied files are intentionally kept outside version control in `incoming-media/`. Run `scripts/process-media.sh` on the persistent development computer to rebuild web derivatives from those sources. Historical property photographs are intentionally excluded; active pages use only newly supplied current-property media or clearly labeled concepts.
 
 Run `scripts/process-october-photos.sh` after adding the supplied originals to ignored `incoming-media/october-2026/`. Four patio, outdoor-kitchen, and pizza-oven views in the original delivery still show a superseded stone finish; the script deliberately **does not publish them**. The authentic `living-room-hardwood-original.png` remains private because its couch is outdated; the website instead shows a visibly labeled sofa-and-throws styling visualization that retains the real floor, rug, table, and art. Its two warm checked throws and third gray checked throw follow the owner's other fireplace-view styling reference, rather than an invented textile set. The six-person sauna is a current estate amenity; the illustrative sauna image remains a design study for the future cold-plunge, shower, and courtyard context and must not be shown as documentary photography of the installed sauna.
+
+Run `scripts/process-event-concepts-2026.sh` after adding or replacing a reviewed concept source in ignored `incoming-media/event-concepts-2026/`. Do not publish a concept unless the page preserves a clear event-styling disclosure and the asset remains grounded in an authentic Sunset Club Ranch setting.
 
 ## Content integrity
 
