@@ -457,6 +457,29 @@ function visionPage() {
     </main>`
 }
 
+function mascotLayer(pageName) {
+  const hostsByPage = {
+    home: [
+      ['lulu', 'Lulu', 'Golden-hour host', 'For pool days, dusty paws, and the first fire-pit glow.'],
+      ['scout', 'Scout', 'Starlight host', 'For movie nights, desert skies, and the stories that happen after dark.'],
+    ],
+    stay: [['lulu', 'Lulu', 'Golden-hour host', 'For slow mornings, pool afternoons, and every good turn of the day.']],
+    weddings: [['scout', 'Scout', 'Starlight host', 'For the toast, the glow, and the part of the night nobody wants to end.']],
+    corporate: [['scout', 'Scout', 'Starlight host', 'For clear skies, good ideas, and the evening reset.']],
+    'after-dark': [['scout', 'Scout', 'Starlight host', 'For the after-hours chapter of the ranch.']],
+    vision: [['lulu', 'Lulu', 'Golden-hour host', 'For the bright, playful next chapter of the ranch.']],
+  }
+  const hosts = hostsByPage[pageName] || hostsByPage.home
+  return `<aside class="mascot-layer" aria-label="Sunset Club Ranch hosts">
+    ${hosts.map(([key, name, role, copy]) => `
+      <button class="mascot-dock mascot-dock--${key}" type="button" data-mascot-dock aria-expanded="false" aria-controls="mascot-note-${key}-${pageName}" aria-label="Meet ${name}, your ${role}">
+        <span class="mascot-dock__glow" aria-hidden="true"></span>
+        <img class="mascot-dock__image" src="/media/mascots/${key}-3d.webp" alt="" aria-hidden="true" loading="eager" decoding="async" />
+        <span class="mascot-dock__note" id="mascot-note-${key}-${pageName}" role="tooltip"><small>Meet your host</small><strong>${name}</strong><em>${role}</em><span>${copy}</span></span>
+      </button>`).join('')}
+  </aside>`
+}
+
 const renderers = {
   home: homePage,
   stay: stayPage,
@@ -468,7 +491,7 @@ const renderers = {
 
 const page = document.body.dataset.page || 'home'
 const app = document.querySelector('#app')
-app.innerHTML = `${header()}${(renderers[page] || homePage)()}${footer()}<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Estate photograph" aria-hidden="true"><button type="button" aria-label="Close image">Close</button><img src="" alt="" /></div>`
+app.innerHTML = `${header()}${(renderers[page] || homePage)()}${footer()}${mascotLayer(page)}<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Estate photograph" aria-hidden="true"><button type="button" aria-label="Close image">Close</button><img src="" alt="" /></div>`
 
 if (window.location.hash) {
   requestAnimationFrame(() => document.querySelector(window.location.hash)?.scrollIntoView())
@@ -478,6 +501,24 @@ const siteHeader = document.querySelector('#site-header')
 const menuToggle = document.querySelector('#menu-toggle')
 const menuClose = document.querySelector('#menu-close')
 const mobileNav = document.querySelector('#mobile-nav')
+const mascotDocks = [...document.querySelectorAll('[data-mascot-dock]')]
+
+function closeMascotDocks(except = null) {
+  mascotDocks.forEach(dock => {
+    if (dock === except) return
+    dock.classList.remove('is-open')
+    dock.setAttribute('aria-expanded', 'false')
+  })
+}
+
+mascotDocks.forEach(dock => dock.addEventListener('click', event => {
+  const open = !dock.classList.contains('is-open')
+  closeMascotDocks(open ? dock : null)
+  dock.classList.toggle('is-open', open)
+  dock.setAttribute('aria-expanded', String(open))
+  event.stopPropagation()
+}))
+document.addEventListener('click', () => closeMascotDocks())
 
 function setMenu(open) {
   mobileNav.classList.toggle('is-open', open)
@@ -493,6 +534,7 @@ mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', (
 
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && mobileNav.classList.contains('is-open')) setMenu(false)
+  if (event.key === 'Escape') closeMascotDocks()
 })
 
 window.addEventListener('scroll', () => siteHeader.classList.toggle('is-scrolled', window.scrollY > 30), { passive: true })

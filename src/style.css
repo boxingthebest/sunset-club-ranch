@@ -367,6 +367,35 @@ button { color: inherit; }
 .footer-base { padding-top: 26px; display: flex; justify-content: space-between; color: rgba(255,255,255,.32); font-size: 10px; }
 .mobile-booking { display: none; }
 
+.mascot-layer { position: fixed; z-index: 60; inset: 0; pointer-events: none; }
+.mascot-dock { position: fixed; z-index: 1; width: clamp(118px, 13.5vw, 214px); padding: 0; border: 0; background: transparent; color: var(--white); cursor: pointer; isolation: isolate; pointer-events: auto; transition: transform .3s var(--ease), filter .3s ease; }
+.mascot-dock:hover, .mascot-dock:focus-visible, .mascot-dock.is-open { filter: drop-shadow(0 16px 22px rgba(11,11,8,.18)); }
+.mascot-dock--lulu { left: clamp(-25px, -.8vw, -9px); bottom: 8px; width: clamp(108px, 9.4vw, 150px); }
+.mascot-dock--scout { top: clamp(96px, 13vh, 172px); right: clamp(8px, 1.5vw, 28px); }
+.mascot-dock__glow { position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; filter: blur(2px); opacity: .68; }
+.mascot-dock--lulu .mascot-dock__glow { width: 78%; height: 32%; right: 2%; bottom: 6%; background: radial-gradient(ellipse, rgba(242,177,108,.5), rgba(242,177,108,0) 68%); }
+.mascot-dock--scout .mascot-dock__glow { width: 78%; height: 78%; top: 9%; right: 2%; background: radial-gradient(circle, rgba(228,184,93,.32), rgba(228,184,93,0) 70%); }
+.mascot-dock__image { display: block; width: 100%; height: auto; filter: drop-shadow(0 9px 9px rgba(20,17,11,.13)); transform-origin: 50% 75%; }
+.mascot-dock--lulu .mascot-dock__image { transform: rotate(-2deg); }
+.mascot-dock--scout .mascot-dock__image { transform: rotate(2deg); }
+.mascot-dock__note { position: absolute; z-index: 2; width: 205px; padding: 14px 16px 15px; display: grid; gap: 4px; border: 1px solid rgba(228,184,93,.64); background: rgba(16,43,42,.94); color: var(--white); box-shadow: 0 18px 38px rgba(13,13,10,.22); text-align: left; pointer-events: none; opacity: 0; visibility: hidden; transition: opacity .22s ease, visibility .22s ease, transform .22s var(--ease); }
+.mascot-dock__note small { color: #e4b85d; font: 600 8px/1.2 var(--accent); letter-spacing: .19em; text-transform: uppercase; }
+.mascot-dock__note strong { font: italic 400 28px/.9 var(--display); letter-spacing: -.025em; }
+.mascot-dock__note em { color: #f1c98a; font: 600 8px/1.3 var(--accent); letter-spacing: .13em; text-transform: uppercase; font-style: normal; }
+.mascot-dock__note > span { margin-top: 4px; color: rgba(255,255,255,.72); font-size: 11px; line-height: 1.45; }
+.mascot-dock--lulu .mascot-dock__note { left: 56%; bottom: 48%; transform: translate(-12px, 12px); }
+.mascot-dock--scout .mascot-dock__note { right: 54%; top: 57%; transform: translate(12px, -12px); }
+.mascot-dock.is-open .mascot-dock__note, .mascot-dock:focus-visible .mascot-dock__note { opacity: 1; visibility: visible; transform: translate(0, 0); }
+@media (hover: hover) {
+  .mascot-dock:hover .mascot-dock__note { opacity: 1; visibility: visible; transform: translate(0, 0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .mascot-dock--lulu .mascot-dock__image { animation: lulu-breeze 4.8s var(--ease) infinite; }
+  .mascot-dock--scout .mascot-dock__image { animation: scout-breeze 5.6s ease-in-out infinite; }
+  @keyframes lulu-breeze { 0%,100% { transform: rotate(-2deg) translateY(0); } 45% { transform: rotate(1deg) translateY(-5px); } 70% { transform: rotate(-3deg) translateY(-2px); } }
+  @keyframes scout-breeze { 0%,100% { transform: rotate(2deg) translateY(0); } 50% { transform: rotate(-1deg) translateY(-8px); } }
+}
+
 @media (max-width: 1100px) {
   :root { --page: min(100% - 40px, 920px); }
   .desktop-nav { display: none; }
@@ -475,6 +504,14 @@ button { color: inherit; }
   .mobile-booking { position: fixed; z-index: 70; right: 10px; bottom: 10px; left: 10px; min-height: 55px; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; background: var(--brass); color: var(--ink); box-shadow: 0 10px 35px rgba(0,0,0,.28); }
   .mobile-booking span { font-size: 10px; }
   .mobile-booking strong { font: 700 9px/1 var(--accent); letter-spacing: .12em; text-transform: uppercase; }
+  .mascot-dock { width: clamp(92px, 26vw, 134px); }
+  .mascot-dock--lulu { left: -28px; bottom: 8px; width: clamp(92px, 22vw, 124px); }
+  .mascot-dock--scout { top: 86px; right: 1px; }
+  .mascot-dock__note { width: 178px; padding: 12px 13px; }
+  .mascot-dock__note strong { font-size: 24px; }
+  .mascot-dock__note > span { font-size: 10px; }
+  .mascot-dock--lulu .mascot-dock__note { left: 54%; bottom: 40%; }
+  .mascot-dock--scout .mascot-dock__note { right: 48%; top: 48%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
