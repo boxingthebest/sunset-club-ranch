@@ -457,12 +457,26 @@ function visionPage() {
     </main>`
 }
 
+function homeMascotWelcome() {
+  return `<aside class="home-welcome" data-home-welcome aria-hidden="true">
+    <div class="home-welcome__mascot home-welcome__mascot--lulu">
+      <span class="home-welcome__glow home-welcome__glow--lulu"></span>
+      <img src="/media/mascots/lulu-3d.webp" alt="" decoding="async" />
+      <span class="home-welcome__hi home-welcome__hi--lulu">Hi</span>
+      <span class="home-welcome__intro home-welcome__intro--lulu"><small>Meet your host</small><strong>Hi, I’m Lulu.</strong><em>Your golden-hour host</em></span>
+    </div>
+    <div class="home-welcome__mascot home-welcome__mascot--scout">
+      <span class="home-welcome__glow home-welcome__glow--scout"></span>
+      <img src="/media/mascots/scout-3d.webp" alt="" decoding="async" />
+      <span class="home-welcome__hi home-welcome__hi--scout">Hi</span>
+      <span class="home-welcome__intro home-welcome__intro--scout"><small>Meet your host</small><strong>And I’m Scout.</strong><em>Your starlight host</em></span>
+    </div>
+  </aside>`
+}
+
 function mascotLayer(pageName) {
+  if (pageName === 'home') return homeMascotWelcome()
   const hostsByPage = {
-    home: [
-      ['lulu', 'Lulu', 'Golden-hour host', 'For pool days, dusty paws, and the first fire-pit glow.'],
-      ['scout', 'Scout', 'Starlight host', 'For movie nights, desert skies, and the stories that happen after dark.'],
-    ],
     stay: [['lulu', 'Lulu', 'Golden-hour host', 'For slow mornings, pool afternoons, and every good turn of the day.']],
     weddings: [['scout', 'Scout', 'Starlight host', 'For the toast, the glow, and the part of the night nobody wants to end.']],
     corporate: [['scout', 'Scout', 'Starlight host', 'For clear skies, good ideas, and the evening reset.']],
@@ -502,6 +516,22 @@ const menuToggle = document.querySelector('#menu-toggle')
 const menuClose = document.querySelector('#menu-close')
 const mobileNav = document.querySelector('#mobile-nav')
 const mascotDocks = [...document.querySelectorAll('[data-mascot-dock]')]
+const homeWelcome = document.querySelector('[data-home-welcome]')
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+if (homeWelcome) {
+  const images = [...homeWelcome.querySelectorAll('img')]
+  const imageReady = image => image.complete
+    ? Promise.resolve()
+    : new Promise(resolve => {
+      image.addEventListener('load', resolve, { once: true })
+      image.addEventListener('error', resolve, { once: true })
+    })
+  Promise.all(images.map(imageReady)).then(() => {
+    if (reduceMotion) homeWelcome.classList.add('is-ready')
+    else window.setTimeout(() => homeWelcome.classList.add('is-ready'), 350)
+  })
+}
 
 function closeMascotDocks(except = null) {
   mascotDocks.forEach(dock => {
@@ -539,7 +569,6 @@ document.addEventListener('keydown', event => {
 
 window.addEventListener('scroll', () => siteHeader.classList.toggle('is-scrolled', window.scrollY > 30), { passive: true })
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 if (reduceMotion) {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'))
 } else {
