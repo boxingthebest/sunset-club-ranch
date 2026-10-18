@@ -43,12 +43,10 @@ convert incoming-media/event-concepts/evening-pool-concept.png -strip -resize '1
 convert incoming-media/vision-2027/sunset_club_reoriented_overall_v2.png -strip -resize '1800x1800>' -quality 84 public/media/vision-2027/wellness-courtyard.webp
 convert incoming-media/vision-2027/sunset_club_sauna_exit_view.png -strip -resize '1600x1600>' -quality 84 public/media/vision-2027/wellness-exit-view.webp
 
-# Compress future-concept walkthrough without audio and with fast-start metadata.
-VIDEO_TMP="public/media/video/wellness-concept-2027.tmp.mp4"
-ffmpeg -y -i incoming-media/vision-2027/sunset_club_wellness_walkthrough_v2.mp4 \
-  -an -vf "scale='min(1280,iw)':-2" -c:v libx264 -preset slow -crf 28 -movflags +faststart \
-  "$VIDEO_TMP" >/tmp/sunset-ffmpeg.log 2>&1
-mv -f "$VIDEO_TMP" public/media/video/wellness-concept-2027.mp4
+# The active Wellness film is a reviewed eight-second bridge from the installed sauna
+# to the clearly labeled Med Spa courtyard direction. It is manually generated and
+# installed as public/media/video/wellness-sauna-to-courtyard-2027.mp4; do not recreate
+# or reintroduce the superseded concept-only walkthrough here.
 
 # Authentic current-property lawn footage, optimized for muted inline playback.
 LAWN_VIDEO_TMP="public/media/video/lawn-current.tmp.mp4"
@@ -60,4 +58,4 @@ mv -f "$LAWN_VIDEO_TMP" public/media/video/lawn-current.mp4
 printf 'MEDIA TOTALS\n'
 du -sh public/media/*
 printf '\nFINAL VIDEO\n'
-ls -lh public/media/video/wellness-concept-2027.mp4
+ls -lh public/media/video/wellness-sauna-to-courtyard-2027.mp4

@@ -503,7 +503,7 @@ button { color: inherit; }
 .field input[type='date'] { color-scheme: dark; }
 .field textarea::placeholder { color: rgba(255,255,255,.28); }
 .form-submit { margin-top: 10px; display: flex; align-items: center; gap: 20px; }
-.form-submit p { margin: 0; max-width: 340px; color: rgba(255,255,255,.42); font-size: 10px; line-height: 1.5; }
+.form-submit p { margin: 0; max-width: 340px; color: rgba(255,255,255,.6); font-size: 11px; line-height: 1.65; }
 .form-submit p a { color: #e0b66f; text-decoration: underline; text-underline-offset: 2px; }
 .form-submit button:disabled { opacity: .6; cursor: wait; }
 .form-status { min-height: 1.3em; margin: -12px 0 0; color: #e0b66f; font-size: 12px; line-height: 1.5; }
@@ -583,15 +583,16 @@ button { color: inherit; }
   100% { opacity: 0; visibility: hidden; transform: translateY(-6px) scale(.98); }
 }
 
-.mascot-layer { position: fixed; z-index: 60; inset: 0; pointer-events: none; }
-.mascot-dock { position: fixed; z-index: 1; width: clamp(118px, 13.5vw, 214px); padding: 0; border: 0; background: transparent; color: var(--white); cursor: pointer; isolation: isolate; pointer-events: auto; transition: transform .3s var(--ease), filter .3s ease; }
+.mascot-layer { position: absolute; z-index: 60; inset: 0 0 auto; height: 100svh; overflow: hidden; pointer-events: none; }
+.mascot-dock { position: absolute; z-index: 1; width: clamp(118px, 13.5vw, 214px); padding: 0; border: 0; background: transparent; color: var(--white); cursor: pointer; isolation: isolate; pointer-events: auto; transition: transform .3s var(--ease), filter .3s ease; }
 .mascot-dock:hover, .mascot-dock:focus-visible, .mascot-dock.is-open { filter: drop-shadow(0 16px 22px rgba(11,11,8,.18)); }
 .mascot-dock--lulu { left: clamp(-25px, -.8vw, -9px); bottom: 8px; width: clamp(108px, 9.4vw, 150px); }
 .mascot-dock--scout { top: clamp(96px, 13vh, 172px); right: clamp(8px, 1.5vw, 28px); }
-body[data-page="stay"] .mascot-dock--lulu { left: clamp(-42px, -1.1vw, -13px); bottom: 72px; width: clamp(188px, 16.6vw, 263px); }
-body[data-page="corporate"] .mascot-dock--lulu { left: clamp(-3px, .35vw, 10px); width: clamp(124px, 10.5vw, 164px); }
-body[data-page="vision"] .mascot-dock--lulu { left: clamp(-8px, .3vw, 10px); bottom: -2px; width: clamp(132px, 11.5vw, 182px); }
-body[data-page="vision"] .mascot-dock--scout { top: clamp(88px, 11vh, 142px); right: clamp(10px, 1.4vw, 26px); width: clamp(126px, 11vw, 178px); }
+body[data-page="stay"] .mascot-dock--lulu { right: clamp(-18px, -.4vw, -6px); bottom: 86px; left: auto; width: clamp(146px, 13.6vw, 212px); }
+body[data-page="weddings"] .mascot-dock--scout { top: 94px; right: clamp(-16px, -.45vw, -6px); width: clamp(108px, 8.8vw, 136px); }
+body[data-page="corporate"] .mascot-dock--lulu { top: 116px; bottom: auto; left: clamp(4px, .55vw, 14px); width: clamp(108px, 9.4vw, 150px); }
+body[data-page="vision"] .mascot-dock--lulu { bottom: 88px; left: clamp(-14px, -.3vw, -5px); width: clamp(112px, 9.4vw, 150px); }
+body[data-page="vision"] .mascot-dock--scout { top: 96px; right: auto; left: clamp(-6px, .7vw, 18px); width: clamp(104px, 8.9vw, 144px); }
 body[data-page="vision"] .mascot-dock--scout .mascot-dock__image { transform: rotate(1deg); }
 .mascot-dock__glow { position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; filter: blur(2px); opacity: .68; }
 .mascot-dock--lulu .mascot-dock__glow { width: 78%; height: 32%; right: 2%; bottom: 6%; background: radial-gradient(ellipse, rgba(242,177,108,.5), rgba(242,177,108,0) 68%); }
@@ -649,10 +650,10 @@ body[data-page="vision"] .mascot-dock--scout .mascot-dock__image { transform: ro
   .menu-toggle { grid-column: 3; }
   .brand > span { font-size: 20px; }
   .brand small { font-size: 7px; }
-  .home-hero__content, .page-hero__content { padding: 120px 0 128px; justify-content: flex-end; }
+  .home-hero__content, .page-hero__content { padding: 120px 0 194px; justify-content: flex-end; }
   .page-hero--interior .page-hero__image, .page-hero--future .page-hero__image { inset: 0; width: 100%; }
   .page-hero--interior .page-hero__veil, .page-hero--event .page-hero__veil, .page-hero--event-concept .page-hero__veil, .page-hero--retreat .page-hero__veil, .page-hero--night .page-hero__veil, .page-hero--festival .page-hero__veil, .page-hero--future .page-hero__veil { background: linear-gradient(0deg, rgba(8,8,6,.9) 0%, rgba(8,8,6,.42) 64%, rgba(8,8,6,.08) 100%); }
-  .page-hero--interior .page-hero__content, .page-hero--event .page-hero__content, .page-hero--event-concept .page-hero__content, .page-hero--retreat .page-hero__content, .page-hero--night .page-hero__content, .page-hero--festival .page-hero__content, .page-hero--future .page-hero__content { justify-content: flex-end; align-items: flex-start; text-align: left; padding-top: 120px; padding-bottom: 128px; }
+  .page-hero--interior .page-hero__content, .page-hero--event .page-hero__content, .page-hero--event-concept .page-hero__content, .page-hero--retreat .page-hero__content, .page-hero--night .page-hero__content, .page-hero--festival .page-hero__content, .page-hero--future .page-hero__content { justify-content: flex-end; align-items: flex-start; text-align: left; padding-top: 120px; padding-bottom: 194px; }
   .page-hero--interior h1, .page-hero--night h1, .page-hero--festival h1, .page-hero--future h1 { font-size: clamp(47px, 14.2vw, 70px); }
   .page-hero--event .hero-actions, .page-hero--event-concept .hero-actions, .page-hero--festival .hero-actions, .page-hero--future .hero-actions { justify-content: flex-start; }
   .home-hero h1, .page-hero h1 { font-size: clamp(47px, 14.2vw, 70px); }
@@ -663,7 +664,7 @@ body[data-page="vision"] .mascot-dock--scout .mascot-dock__image { transform: ro
   .home-hero .hero-actions { margin-left: 0; }
   .hero-actions .button { width: 100%; }
   .hero-actions .text-link { align-self: flex-start; }
-  .hero-facts { left: 18px; right: 18px; min-height: 58px; justify-content: space-between; gap: 10px; }
+  .hero-facts { bottom: 76px; left: 18px; right: 18px; min-height: 58px; justify-content: space-between; gap: 10px; }
   .hero-facts span { padding: 0; border: 0; font-size: 7px; letter-spacing: .1em; }
   .split { grid-template-columns: 1fr; gap: 45px; }
   .editorial-image { order: -1; }
@@ -750,11 +751,13 @@ body[data-page="vision"] .mascot-dock--scout .mascot-dock__image { transform: ro
   .concept-disclosure { gap: 35px; padding-left: 18px; padding-right: 18px; }
   .inquiry { padding-left: 18px; padding-right: 18px; gap: 55px; }
   .inquiry-form { grid-template-columns: 1fr; }
+  main { padding-bottom: 82px; }
+  .field input, .field textarea, .field select, .form-submit button { scroll-margin-bottom: 96px; }
   .field, .field--wide { grid-column: 1; }
   .form-submit { align-items: flex-start; flex-direction: column; }
   .form-submit .button { width: 100%; }
   .footer-grid { grid-template-columns: 1fr; gap: 35px; }
-  .footer-base { align-items: flex-start; flex-direction: column; gap: 10px; padding-bottom: 65px; }
+  .footer-base { align-items: flex-start; flex-direction: column; gap: 10px; padding-bottom: 92px; }
   .mobile-booking { position: fixed; z-index: 70; right: 10px; bottom: 10px; left: 10px; min-height: 55px; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; background: var(--brass); color: var(--ink); box-shadow: 0 10px 35px rgba(0,0,0,.28); }
   .mobile-booking span { font-size: 10px; }
   .mobile-booking strong { font: 700 9px/1 var(--accent); letter-spacing: .12em; text-transform: uppercase; }
@@ -770,10 +773,11 @@ body[data-page="vision"] .mascot-dock--scout .mascot-dock__image { transform: ro
   .home-welcome__intro--scout { right: 112%; top: 48%; }
   .mascot-dock { width: clamp(92px, 26vw, 134px); }
   .mascot-dock--lulu { left: -28px; bottom: 8px; width: clamp(92px, 22vw, 124px); }
-  body[data-page="stay"] .mascot-dock--lulu { left: -32px; bottom: 63px; width: 172px; }
-  body[data-page="corporate"] .mascot-dock--lulu { left: -2px; width: 112px; }
-  body[data-page="vision"] .mascot-dock--lulu { left: -2px; bottom: 2px; width: 123px; }
-  body[data-page="vision"] .mascot-dock--scout { top: 76px; right: 0; width: 116px; }
+  body[data-page="stay"] .mascot-dock--lulu { right: -4px; bottom: 74px; left: auto; width: 112px; }
+  body[data-page="weddings"] .mascot-dock--scout { top: 82px; right: -4px; width: 100px; }
+  body[data-page="corporate"] .mascot-dock--lulu { top: 83px; right: -4px; bottom: auto; left: auto; width: 98px; }
+  body[data-page="vision"] .mascot-dock--lulu { bottom: 77px; left: -4px; width: 106px; }
+  body[data-page="vision"] .mascot-dock--scout { top: 82px; right: -4px; left: auto; width: 98px; }
   .mascot-dock--scout { top: 86px; right: 1px; }
   .mascot-dock__note { width: 178px; padding: 12px 13px; }
   .mascot-dock__note strong { font-size: 24px; }

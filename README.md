@@ -38,8 +38,8 @@ Published, optimized website media lives in `public/media/`:
 - `current-upgrades/` contains owner-supplied visualizations of completed work awaiting fresh photography.
 - `event-concepts/` contains AI-assisted styling studies grounded in authentic property photographs and disclosed as concepts in the interface. The Wedding & Events hero (`wedding-hero-blue-hour.webp`) is an event-styling concept built from an authentic Sunset Club Ranch blue-hour pool photograph; it is never presented as a documentary record of a past event.
 - `vision-2027/` contains future concept renderings.
-- `video/lawn-current.mp4` is authentic current-property footage; `video/wellness-concept-2027.mp4` is a separately labeled future concept.
-- `video/` contains web-optimized future concept video.
+- `video/lawn-current.mp4` is authentic current-property footage. `video/wellness-sauna-to-courtyard-2027.mp4` begins with the installed sauna, then transitions to the separately labeled future Med Spa courtyard direction.
+- `video/` contains web-optimized current-property and clearly labeled future-direction video.
 
 Original high-resolution supplied files are intentionally kept outside version control in `incoming-media/`. Run `scripts/process-media.sh` on the persistent development computer to rebuild web derivatives from those sources. Historical property photographs are intentionally excluded; active pages use only newly supplied current-property media or clearly labeled concepts.
 
