@@ -206,6 +206,7 @@ function homePage() {
       <section class="home-hero">
         ${picture(airbnbPoolHero, 'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', 'home-hero__image', 'eager')}
         <div class="home-hero__veil"></div>
+        <canvas class="home-water-motion" data-home-water-motion aria-hidden="true"></canvas>
         <div class="home-hero__content reveal is-visible">
           ${logo(true)}
           <p class="home-hero__kicker">A private five-acre estate with a Tulum-meets-ranch spirit</p>
@@ -598,6 +599,141 @@ const mobileNav = document.querySelector('#mobile-nav')
 const mascotDocks = [...document.querySelectorAll('[data-mascot-dock]')]
 const homeWelcome = document.querySelector('[data-home-welcome]')
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+function initHomeWaterMotion() {
+  const canvas = document.querySelector('[data-home-water-motion]')
+  const hero = document.querySelector('.home-hero')
+  const image = hero?.querySelector('.home-hero__image')
+  if (!canvas || !hero || !image || reduceMotion) return
+
+  const ctx = canvas.getContext('2d', { alpha: true })
+  const waterRegions = [
+    [[1265, 744], [1510, 720], [1795, 724], [1985, 772], [2115, 828], [2000, 896], [1725, 903], [1450, 873], [1260, 808]],
+    [[1605, 847], [2020, 829], [2247, 883], [2195, 1045], [2060, 1145], [1850, 1116], [1630, 1005], [1538, 935]],
+    [[2035, 777], [2295, 802], [2325, 878], [2208, 930], [2070, 881], [1985, 824]],
+  ]
+  let viewport = { width: 0, height: 0, dpr: 0 }
+  let waterMask = null
+  let active = true
+  let raf = 0
+  let lastFrame = 0
+
+  const sourceReady = () => image.complete && image.naturalWidth > 0
+  const mapPath = (points, scale, xOffset, yOffset) => {
+    const path = new Path2D()
+    points.forEach(([x, y], index) => {
+      const px = xOffset + x * scale
+      const py = yOffset + y * scale
+      if (index === 0) path.moveTo(px, py)
+      else path.lineTo(px, py)
+    })
+    path.closePath()
+    return path
+  }
+
+  function resize() {
+    const { width, height } = hero.getBoundingClientRect()
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
+    if (width === viewport.width && height === viewport.height && dpr === viewport.dpr) return
+    viewport = { width, height, dpr }
+    canvas.width = Math.max(1, Math.round(width * dpr))
+    canvas.height = Math.max(1, Math.round(height * dpr))
+    canvas.style.width = `${width}px`
+    canvas.style.height = `${height}px`
+    waterMask = null
+  }
+
+  function buildWaterMask(scale, xOffset, yOffset) {
+    const mask = document.createElement('canvas')
+    mask.width = canvas.width
+    mask.height = canvas.height
+    const maskCtx = mask.getContext('2d', { willReadFrequently: true })
+    maskCtx.setTransform(viewport.dpr, 0, 0, viewport.dpr, 0, 0)
+    waterRegions.forEach(region => {
+      maskCtx.save()
+      maskCtx.clip(mapPath(region, scale, xOffset, yOffset))
+      maskCtx.drawImage(image, xOffset, yOffset, image.naturalWidth * scale, image.naturalHeight * scale)
+      maskCtx.restore()
+    })
+    try {
+      const pixels = maskCtx.getImageData(0, 0, mask.width, mask.height)
+      for (let index = 0; index < pixels.data.length; index += 4) {
+        const red = pixels.data[index]
+        const green = pixels.data[index + 1]
+        const blue = pixels.data[index + 2]
+        const alpha = pixels.data[index + 3]
+        const blueWater = alpha > 0 && blue > 104 && green > 92 && blue > red * 1.07 && green > red * 1.03
+        pixels.data[index + 3] = blueWater ? 255 : 0
+      }
+      maskCtx.putImageData(pixels, 0, 0)
+    } catch {
+      // If a browser blocks canvas pixel reads, retain the geometry-only mask rather than suppressing the real-water motion.
+    }
+    waterMask = mask
+  }
+
+  function draw(time) {
+    if (!active || !sourceReady()) return
+    resize()
+    const { width, height, dpr } = viewport
+    const sourceWidth = image.naturalWidth
+    const sourceHeight = image.naturalHeight
+    const scale = Math.max(width / sourceWidth, height / sourceHeight)
+    const drawWidth = sourceWidth * scale
+    const drawHeight = sourceHeight * scale
+    const xOffset = (width - drawWidth) / 2
+    const yOffset = (height - drawHeight) / 2
+    const waveTime = time * .001
+
+    if (!waterMask || waterMask.width !== canvas.width || waterMask.height !== canvas.height) buildWaterMask(scale, xOffset, yOffset)
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+    ctx.clearRect(0, 0, width, height)
+    waterRegions.forEach((region, regionIndex) => {
+      ctx.save()
+      ctx.clip(mapPath(region, scale, xOffset, yOffset))
+      ctx.globalAlpha = .78
+      const firstY = Math.max(0, Math.floor((Math.min(...region.map(point => point[1])) - 25) / 8) * 8)
+      const lastY = Math.min(sourceHeight, Math.ceil((Math.max(...region.map(point => point[1])) + 25) / 8) * 8)
+      for (let sourceY = firstY; sourceY < lastY; sourceY += 8) {
+        const primaryWave = Math.sin(sourceY * .045 + waveTime * 2.8 + regionIndex) * 3.85
+        const fineWave = Math.sin(sourceY * .105 - waveTime * 4.4 + regionIndex * 2) * 1.65
+        const offsetX = (primaryWave + fineWave) * scale
+        const offsetY = Math.sin(sourceY * .025 + waveTime * 3.2) * 1.15 * scale
+        ctx.drawImage(image, 0, sourceY, sourceWidth, 9, xOffset + offsetX, yOffset + sourceY * scale + offsetY, drawWidth, 9 * scale + 1)
+      }
+      ctx.restore()
+    })
+    ctx.save()
+    ctx.globalCompositeOperation = 'destination-in'
+    ctx.setTransform(1, 0, 0, 1, 0, 0)
+    ctx.drawImage(waterMask, 0, 0)
+    ctx.restore()
+  }
+
+  function tick(time) {
+    if (active && time - lastFrame > 32) {
+      lastFrame = time
+      draw(time)
+    }
+    raf = window.requestAnimationFrame(tick)
+  }
+
+  const visibility = new IntersectionObserver(entries => {
+    active = entries.some(entry => entry.isIntersecting)
+  }, { threshold: .02 })
+  visibility.observe(hero)
+  window.addEventListener('resize', resize, { passive: true })
+  image.addEventListener('load', resize, { once: true })
+  resize()
+  raf = window.requestAnimationFrame(tick)
+  window.addEventListener('pagehide', () => {
+    visibility.disconnect()
+    window.cancelAnimationFrame(raf)
+  }, { once: true })
+}
+
+initHomeWaterMotion()
 
 if (homeWelcome) {
   const images = [...homeWelcome.querySelectorAll('img')]
