@@ -105,11 +105,12 @@ function footer() {
 function picture(src, alt, className = '', loading = 'lazy') {
   return `<img class="${className}" src="${src}" alt="${alt}" loading="${loading}" decoding="async"${loading === 'eager' ? ' fetchpriority="high"' : ''} />`
 }
-function pageHero({ image, alt = '', eyebrow, title, copy, cta = 'Start planning', secondary = 'Explore', secondaryHref = '#story', badge = '', variant = 'classic' }) {
+function pageHero({ image, alt = '', eyebrow, title, copy, cta = 'Start planning', secondary = 'Explore', secondaryHref = '#story', badge = '', variant = 'classic', effect = '' }) {
   return `
     <section class="page-hero page-hero--${variant}">
       ${picture(image, alt, 'page-hero__image', 'eager')}
       <div class="page-hero__veil"></div>
+      ${effect}
       <div class="page-hero__content reveal is-visible">
         ${badge ? `<p class="concept-badge concept-badge--hero">${badge}</p>` : ''}
         <p class="eyebrow eyebrow--light">${eyebrow}</p>
@@ -452,7 +453,7 @@ function corporatePage() {
 function festivalPage() {
   return `
     <main id="main" class="festival-page">
-      ${pageHero({image: airbnbPoolHero, alt:'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', eyebrow:'Festival weekends · 2027', title:'The desert is calling.<br /><em>Keep the whole place.</em>', copy:'Build the weekend around a private five-acre estate—room for the group, poolside recovery, and a calmer place to come home to after the desert energy.', cta:'Ask about a weekend', secondary:'Choose your weekend', secondaryHref:'#weekends', badge:'Coachella Weekend One · Weekend Two · Stagecoach', variant:'festival'})}
+      ${pageHero({image: airbnbPoolHero, alt:'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', eyebrow:'Festival weekends · 2027', title:'The desert is calling.<br /><em>Keep the whole place.</em>', copy:'Build the weekend around a private five-acre estate—room for the group, poolside recovery, and a calmer place to come home to after the desert energy.', cta:'Ask about a weekend', secondary:'Choose your weekend', secondaryHref:'#weekends', badge:'Coachella Weekend One · Weekend Two · Stagecoach', variant:'festival', effect:'<div class="festival-sunburst" aria-hidden="true"><span></span><i></i></div>'})}
       <section class="festival-weekends section-pad" id="weekends">
         ${editorialHeader('Choose your weekend', 'Three weekends. One private basecamp.', 'Whether your people are headed to Coachella Weekend One, Coachella Weekend Two, or Stagecoach, begin with your dates and group priorities. We will reply with current availability and the right next step.')}
         <div class="festival-weekends__grid">
@@ -556,9 +557,9 @@ function mascotLayer(pageName) {
     stay: [['lulu', 'Lulu', 'Golden-hour host', 'For slow mornings, pool afternoons, and every good turn of the day.']],
     weddings: [['scout', 'Scout', 'Black-tie host', 'For the toast, the glow, and the part of the night nobody wants to end.', 'scout-tuxedo']],
     corporate: [['lulu', 'Lulu', 'Retreat host', 'For clear thinking, bright ideas, and the best kind of team reset.', 'lulu-business-suit']],
-    festival: [['lulu', 'Lulu', 'Golden-hour host', 'For the glow before the gates and every poolside reset.'], ['scout', 'Scout', 'Starlight host', 'For the after-hours chapter of festival weekend.']],
+    festival: [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and every poolside reset.', 'lulu-festival'], ['scout', 'Scout', 'Starlight host', 'For the after-hours chapter of festival weekend.']],
     'after-dark': [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and the best return after dark.', 'lulu-festival']],
-    vision: [['lulu', 'Lulu', 'Golden-hour host', 'For the bright, playful next chapter of the ranch.']],
+    vision: [['lulu', 'Lulu', 'Recovery host', 'For the slower exhale, the sauna glow, and a truly unhurried reset.', 'lulu-spa-recovery']],
   }
   const hosts = hostsByPage[pageName] || hostsByPage.home
   return `<aside class="mascot-layer" aria-label="Sunset Club Ranch hosts">
