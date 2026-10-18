@@ -6,6 +6,7 @@ const PHONE_HREF = '+12032331300'
 
 const navItems = [
   ['Stay', '/stay.html'],
+  ['Book Direct', '/book-direct.html'],
   ['Weddings & Events', '/weddings.html'],
   ['Corporate Retreats', '/corporate.html'],
   ['Festival Weekends', '/festival-weekends.html'],
@@ -37,6 +38,7 @@ function logo(mark = false) {
 
 function header() {
   const pageCta = {
+    direct: 'Request direct dates',
     weddings: 'Plan your event',
     corporate: 'Plan your retreat',
     festival: 'Ask about festivals',
@@ -72,6 +74,7 @@ function header() {
 
 function footer() {
   const pageCta = {
+    direct: 'Request direct dates',
     weddings: 'Plan your event',
     corporate: 'Plan your retreat',
     festival: 'Ask about festivals',
@@ -214,7 +217,7 @@ function homePage() {
           <p class="home-hero__kicker">A private five-acre estate with a Tulum-meets-ranch spirit</p>
           <h1>Come together.<br /><em>Keep the whole place.</em></h1>
           <p class="home-hero__copy">Three homes, nine bedrooms, a resort-style pool, and room for the group to settle into its own desert rhythm.</p>
-          <div class="hero-actions"><a class="button" href="/stay.html#inquire">Request stay dates</a><a class="button button--ghost" href="/weddings.html#inquire">Plan an event</a></div>
+          <div class="hero-actions"><a class="button" href="/book-direct.html#inquire">Request direct dates</a><a class="button button--ghost" href="/weddings.html#inquire">Plan an event</a></div>
         </div>
         <div class="hero-facts" aria-label="Estate highlights"><span>5 private acres</span><span>3 homes</span><span>9 bedrooms</span><span>Near Empire Polo Club</span></div>
       </section>
@@ -222,7 +225,7 @@ function homePage() {
       <section class="booking-chooser" id="choose">
         <div class="booking-chooser__intro reveal"><p class="eyebrow">Start here</p><h2>What brings you<br />to the ranch?</h2><p>Choose one path. We’ll ask only for the information needed to help.</p></div>
         <div class="booking-chooser__paths">
-          <a class="booking-choice reveal" href="/stay.html#inquire"><span>01</span><div><p>Overnight stay</p><h3>Request dates</h3><small>Dates · Guests · Stay priorities</small></div><b aria-hidden="true">→</b></a>
+          <a class="booking-choice reveal" href="/book-direct.html#inquire"><span>01</span><div><p>Overnight stay</p><h3>Request direct dates</h3><small>Dates · Guests · Stay priorities</small></div><b aria-hidden="true">→</b></a>
           <a class="booking-choice reveal" href="/weddings.html#inquire"><span>02</span><div><p>Wedding, birthday, or gathering</p><h3>Plan an event</h3><small>Date · Occasion · Group size</small></div><b aria-hidden="true">→</b></a>
           <a class="booking-choice reveal" href="/festival-weekends.html#inquire"><span>03</span><div><p>Coachella or Stagecoach</p><h3>Festival weekends</h3><small>Weekend · Group · Priorities</small></div><b aria-hidden="true">→</b></a>
         </div>
@@ -482,6 +485,33 @@ function festivalPage() {
     </main>`
 }
 
+function directBookingPage() {
+  return `
+    <main id="main">
+      ${pageHero({image: airbnbPoolHero, alt:'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', eyebrow:'Direct dates · private estate stay', title:'The whole estate.<br /><em>Your desert weekend.</em>', copy:'Start with your dates and your group. We’ll respond with current availability and a clear next step for a private stay at Sunset Club Ranch in Indio.', cta:'Request direct dates', secondary:'Explore the estate', secondaryHref:'#direct-stay', badge:'Five private acres · three homes · nine bedrooms', variant:'festival', motion:'<canvas class="page-natural-motion" data-natural-motion="pool-water" aria-hidden="true"></canvas>', effect:'<div class="festival-sunburst" aria-hidden="true"><span></span><i></i></div>'})}
+      <section class="booking-chooser" id="direct-stay">
+        <div class="booking-chooser__intro reveal"><p class="eyebrow">A direct stay</p><h2>Simple to begin.<br />Personal from there.</h2><p>Tell us what matters to your group. We’ll review the right availability and help you understand the next step before any reservation is confirmed.</p></div>
+        <div class="booking-chooser__paths">
+          <article class="booking-choice reveal"><span>01</span><div><p>Choose your dates</p><h3>Share the window</h3><small>Arrival · Departure · Group size</small></div></article>
+          <article class="booking-choice reveal"><span>02</span><div><p>Tell us the occasion</p><h3>Shape the stay</h3><small>Private getaway · Festival · Celebration</small></div></article>
+          <article class="booking-choice reveal"><span>03</span><div><p>Get a real answer</p><h3>Plan the next step</h3><small>Availability · Fit · Clear follow-up</small></div></article>
+        </div>
+      </section>
+      <section class="intro split" id="story">
+        <div class="intro__copy reveal"><p class="eyebrow">Why the Ranch</p><h2>Space for the group.<br />Room for the moment.</h2><p class="lead">Sunset Club Ranch brings three homes together across five private acres in Indio. Pool and spa time, the 158-inch outdoor media wall, pickleball and sand volleyball, open-air cooking, fire pits, and the installed six-person sauna create a complete private-estate stay without spreading your group across separate addresses.</p><a class="text-link" href="/stay.html">Explore the stay <span aria-hidden="true">→</span></a></div>
+        <figure class="editorial-image editorial-image--portrait reveal">${picture(airbnbArrivalAerial, 'Five-acre Sunset Club Ranch estate at dusk in Indio, California')}<figcaption>Private estate stay · Indio, California</figcaption></figure>
+      </section>
+      ${planningAnswers('Direct stay questions', 'Everything starts with an honest availability check.', [
+        ['How do I request dates directly?', 'Use the inquiry below with your arrival and departure dates, guest count, and what you are planning. We will reply with current availability and the clearest next step. An inquiry is not a confirmed reservation.'],
+        ['Is the entire property private?', 'Sunset Club Ranch is a private five-acre estate with three homes and nine bedrooms. Share your group details so we can discuss the right use of the property for your stay.'],
+        ['Can we stay for Coachella or Stagecoach?', 'Yes. Festival stays are handled by date-specific inquiry. Explore Festival Weekends or After Dark, then share your preferred weekend and group priorities. Tickets, transportation, and programming are not included unless individually confirmed.'],
+        ['What about a wedding, celebration, or retreat?', 'For an event or corporate retreat, begin on the dedicated page and share the date, group size, and vision. We will discuss fit, planning requirements, and availability individually.'],
+      ])}
+      <section class="split split--dark"><figure class="editorial-image reveal">${picture(airbnbOutdoorKitchen, 'Open-air outdoor kitchen and pizza oven at Sunset Club Ranch')}</figure><div class="intro__copy reveal"><p class="eyebrow eyebrow--light">Made for more than sleeping</p><h2>The stay is<br />the destination.</h2><p class="lead">Whether it’s a family escape, a friends’ weekend, a team reset, or a festival return, a private estate gives every part of the group room to settle in and come together.</p><div class="hero-actions"><a class="button" href="/festival-weekends.html">Explore festival stays</a><a class="text-link text-link--light" href="/weddings.html">Plan a celebration <span aria-hidden="true">→</span></a></div></div></section>
+      ${inquirySection('Private stay')}
+    </main>`
+}
+
 function afterDarkPage() {
   return `
     <main id="main" class="night-page">
@@ -566,6 +596,7 @@ function mascotLayer(pageName) {
     stay: [['lulu', 'Lulu', 'Stay host', 'For fireside movies on the 90-inch TV, long-table meals, and the comfortable final chapter of the day.', 'lulu-stay-lounge']],
     weddings: [['scout', 'Scout', 'Black-tie host', 'For the toast, the glow, and the part of the night nobody wants to end.', 'scout-tuxedo']],
     corporate: [['lulu', 'Lulu', 'Retreat host', 'For clear thinking, bright ideas, and the best kind of team reset.', 'lulu-business-suit']],
+    direct: [['lulu', 'Lulu', 'Golden-hour host', 'For a beautiful arrival, a poolside afternoon, and the private estate stay your group has been looking for.', 'lulu']],
     festival: [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and every poolside reset.', 'lulu-festival'], ['scout', 'Scout', 'Festival host', 'For the after-hours chapter of festival weekend.', 'scout-festival']],
     'after-dark': [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and the best return after dark.', 'lulu-festival']],
     vision: [['lulu', 'Lulu', 'Recovery host', 'For the slower exhale, the sauna glow, and a truly unhurried reset.', 'lulu-spa-recovery'], ['scout', 'Scout', 'Wellness host', 'For the calm-down ritual, the warm wrap, and the recovery chapter of the stay.', 'scout-spa-recovery']],
@@ -586,6 +617,7 @@ const renderers = {
   stay: stayPage,
   weddings: weddingsPage,
   corporate: corporatePage,
+  direct: directBookingPage,
   festival: festivalPage,
   'after-dark': afterDarkPage,
   vision: visionPage,

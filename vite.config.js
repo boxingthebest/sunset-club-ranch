@@ -15,6 +15,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         stay: resolve(__dirname, 'stay.html'),
+        'book-direct': resolve(__dirname, 'book-direct.html'),
         weddings: resolve(__dirname, 'weddings.html'),
         corporate: resolve(__dirname, 'corporate.html'),
         festival: resolve(__dirname, 'festival-weekends.html'),
