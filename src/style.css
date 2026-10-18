@@ -381,6 +381,15 @@ button { color: inherit; }
 .festival-weekend b { margin-top: auto; padding-top: 28px; color: #f0c982; font: 600 10px/1 var(--accent); letter-spacing: .15em; text-transform: uppercase; }
 .festival-weekend i { display: inline-block; margin-left: 9px; font-style: normal; transition: transform .25s var(--ease); }
 .festival-weekend:hover i, .festival-weekend:focus-visible i { transform: translateX(5px); }
+.festival-stay-choice { padding: clamp(78px, 9vw, 130px) 0; background: #d9b878; color: #17140f; overflow: hidden; }
+.festival-stay-choice__inner { width: var(--page); margin: 0 auto; display: grid; grid-template-columns: .88fr 1.12fr; gap: clamp(52px, 10vw, 156px); align-items: end; }
+.festival-stay-choice .eyebrow { color: rgba(23,20,15,.66); }
+.festival-stay-choice h2 { margin: 0; font: 400 clamp(46px, 6.5vw, 88px)/.92 var(--display); letter-spacing: -.045em; }
+.festival-stay-choice h2 em { color: #8f412e; font-weight: 400; }
+.festival-stay-choice__inner > div { max-width: 560px; }
+.festival-stay-choice p { margin: 0; color: rgba(23,20,15,.77); font-size: clamp(15px, 1.35vw, 18px); line-height: 1.7; }
+.festival-stay-choice p + p { margin-top: 21px; color: rgba(23,20,15,.66); }
+.festival-stay-choice a { color: #4c261d; font-weight: 700; text-decoration: underline; text-decoration-color: rgba(76,38,29,.45); text-underline-offset: 4px; }
 .festival-rhythm { margin: 0; padding-top: clamp(80px, 9vw, 130px); padding-bottom: clamp(80px, 9vw, 130px); }
 .festival-rhythm .editorial-image img { aspect-ratio: 4 / 3; }
 .festival-rhythm .intro__copy { max-width: 620px; }
@@ -657,6 +666,9 @@ body[data-page="vision"] .mascot-dock--lulu { left: clamp(-8px, .3vw, 10px); bot
   .festival-weekend:last-child { border-bottom: 0; }
   .festival-weekend h3 { margin: 17px 0 13px; font-size: 40px; }
   .festival-weekend b { margin-top: 22px; padding-top: 0; }
+  .festival-stay-choice { padding: 76px 0 80px; }
+  .festival-stay-choice__inner { grid-template-columns: 1fr; gap: 31px; }
+  .festival-stay-choice h2 { font-size: clamp(44px, 12.8vw, 61px); }
   .pillars { grid-template-columns: 1fr; }
   .pillar, .pillar:not(:first-child) { padding: 30px 0; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.16); }
   .disclosure { grid-template-columns: 1fr; gap: 15px; }
