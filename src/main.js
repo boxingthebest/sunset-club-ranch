@@ -206,6 +206,7 @@ function homePage() {
       <section class="home-hero">
         ${picture(airbnbPoolHero, 'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', 'home-hero__image', 'eager')}
         <div class="home-hero__veil"></div>
+        <div class="home-pool-shimmer page-impact" aria-hidden="true"><span></span><i></i></div>
         <div class="home-hero__content reveal is-visible">
           ${logo(true)}
           <p class="home-hero__kicker">A private five-acre estate with a Tulum-meets-ranch spirit</p>
@@ -302,7 +303,7 @@ function homePage() {
 function stayPage() {
   return `
     <main id="main">
-      ${pageHero({image: airbnbFireplaceWall, alt:'Sunset Club Ranch fireplace and 90-inch TV in the main living room', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'A fireplace-lit social room with a 90-inch TV, three private homes, and five acres that give the whole group room to settle into its own rhythm.', cta:'Request dates', secondary:'See the homes', variant:'interior'})}
+      ${pageHero({image: airbnbFireplaceWall, alt:'Sunset Club Ranch fireplace and 90-inch TV in the main living room', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'A fireplace-lit social room with a 90-inch TV, three private homes, and five acres that give the whole group room to settle into its own rhythm.', cta:'Request dates', secondary:'See the homes', variant:'interior', effect:'<div class="stay-hearth-glow page-impact" aria-hidden="true"><span></span><i></i></div>'})}
       <section class="section-pad" id="story">
         ${editorialHeader('The homes', 'Together, without being on top of one another.', 'Three distinct homes share one relaxed design language: warm wood, clean white walls, collected art, shaded thresholds, and an easy connection to the grounds.')}
         <div class="home-cards">
@@ -384,7 +385,7 @@ function stayPage() {
 function weddingsPage() {
   return `
     <main id="main">
-      ${pageHero({image: weddingHeroConcept, alt:'Event styling concept of an intimate wedding dinner beside the pool at Sunset Club Ranch at blue hour', eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'A private desert estate for wedding weekends, milestone birthdays, anniversaries, and the gatherings that deserve more than one night.', cta:'Inquire about your date', secondary:'Imagine the weekend', badge:'Event styling concept · shown for inspiration', variant:'event-concept'})}
+      ${pageHero({image: weddingHeroConcept, alt:'Event styling concept of an intimate wedding dinner beside the pool at Sunset Club Ranch at blue hour', eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'A private desert estate for wedding weekends, milestone birthdays, anniversaries, and the gatherings that deserve more than one night.', cta:'Inquire about your date', secondary:'Imagine the weekend', badge:'Event styling concept · shown for inspiration', variant:'event-concept', effect:'<div class="wedding-petal-lights page-impact" aria-hidden="true"><span></span><i></i><b></b></div>'})}
       <section class="intro split" id="story"><div class="intro__copy reveal"><p class="eyebrow">The occasion</p><h2>Not a ballroom.<br />A place that feels like yours.</h2><p class="lead">Celebrate under open sky, gather around the table, and let the weekend unfold without separating everyone at the end of the night.</p><p>From South Asian and Indian wedding weekends and bar or bat mitzvahs to birthdays, anniversaries, reunions, and family milestones, every thoughtful private celebration begins with a date-specific conversation with our team and your planner.</p><p class="fine-print">Under the current Indio STR ordinance, this parcel may host a gathering of up to 40 persons without a special-event permit. A gathering of 41 or more requires a special-event permit and City approval, alongside applicable insurance, parking, noise, availability, and property requirements.</p></div><figure class="editorial-image editorial-image--portrait reveal">${picture(airbnbArrivalAerial, 'Sunset Club Ranch arrival and five-acre grounds at dusk')}<figcaption>Five acres for a more personal kind of gathering</figcaption></figure></section>
       <section class="chapter-section section-pad"><div class="chapter-grid">
         ${[
@@ -424,7 +425,7 @@ function weddingsPage() {
 function corporatePage() {
   return `
     <main id="main">
-      ${pageHero({image: airbnbMediaWallNight, alt:'Outdoor media wall glowing at dusk at Sunset Club Ranch', eyebrow:'Corporate retreats', title:'Better ideas need<br /><em>better room.</em>', copy:'Trade the ballroom for five private acres, three homes, open-air conversations, and a setting built for teams to reconnect.', cta:'Plan a retreat', secondary:'See the format', variant:'retreat'})}
+      ${pageHero({image: airbnbMediaWallNight, alt:'Outdoor media wall glowing at dusk at Sunset Club Ranch', eyebrow:'Corporate retreats', title:'Better ideas need<br /><em>better room.</em>', copy:'Trade the ballroom for five private acres, three homes, open-air conversations, and a setting built for teams to reconnect.', cta:'Plan a retreat', secondary:'See the format', variant:'retreat', effect:'<div class="corporate-horizon-lines page-impact" aria-hidden="true"><span></span><i></i></div>'})}
       <section class="section-pad" id="story">${editorialHeader('A different off-site', 'Think clearly. Gather naturally.', 'Build a focused retreat around privacy, indoor-outdoor work sessions, shared meals, and time that does not feel scheduled down to the minute.')}
         <div class="feature-grid">
           ${[
@@ -516,7 +517,7 @@ function visionPage() {
   ]
   return `
     <main id="main">
-      ${pageHero({image:installedSauna, alt:'Installed six-person sauna at Sunset Club Ranch', eyebrow:'Wellness, now', title:'A reset has<br /><em>already arrived.</em>', copy:'The six-person sauna is installed and available today. The wider wellness courtyard evolves next—with every future element clearly labeled as it takes shape.', cta:'Ask about a stay', secondary:'See what is planned', badge:'Six-person sauna · available now', variant:'future'})}
+      ${pageHero({image:installedSauna, alt:'Installed six-person sauna at Sunset Club Ranch', eyebrow:'Wellness, now', title:'A reset has<br /><em>already arrived.</em>', copy:'The six-person sauna is installed and available today. The wider wellness courtyard evolves next—with every future element clearly labeled as it takes shape.', cta:'Ask about a stay', secondary:'See what is planned', badge:'Six-person sauna · available now', variant:'future', effect:'<div class="vision-sauna-steam page-impact" aria-hidden="true"><span></span><i></i><b></b></div>'})}
       <section class="vision-principles section-pad" id="story">
         ${editorialHeader('Vision 2027', 'Show the future. Label it honestly.', 'The current sauna is real and ready to use. The visualizations below express future design intent—not current amenities. Timelines, scope, finishes, and availability may change as planning and construction progress.')}
         <div class="vision-timeline"><article class="reveal"><span>Available now</span><h3>Six-person sauna</h3><p>The sauna is installed on the estate today, alongside the pool, spa, outdoor living, lawns, games, and a growing art collection.</p></article><article class="reveal"><span>Wellness plans</span><h3>Courtyard expansion</h3><p>A cold plunge, outdoor shower, hammocks, swings, planted courtyard, and related wellness infrastructure are still under development and are not yet guest amenities.</p></article><article class="reveal"><span>Planned 2027</span><h3>The Barn</h3><p>A reimagining of the existing approximately 2,500-square-foot structure, with an early plan that may include added bedrooms, bathrooms, flexible gathering space, fitness, and play.</p></article></div>

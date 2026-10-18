@@ -121,6 +121,49 @@ button { color: inherit; }
 .page-hero--festival .page-hero__veil { background: linear-gradient(90deg, rgba(22,17,9,.88) 0%, rgba(22,17,9,.52) 46%, rgba(22,17,9,.1) 82%), linear-gradient(0deg, rgba(22,17,9,.78), transparent 50%); }
 .page-hero--festival .page-hero__content { justify-content: center; }
 .page-hero--festival h1 { max-width: 880px; font-size: clamp(58px, 8vw, 120px); }
+.page-impact { position: absolute; z-index: 1; inset: 0; overflow: hidden; pointer-events: none; mix-blend-mode: screen; }
+.home-pool-shimmer { opacity: 0; animation: page-impact-fade 6.2s ease-out .35s both; }
+.home-pool-shimmer::before { content: ''; position: absolute; width: min(64vw, 930px); aspect-ratio: 1; top: -34%; right: -14%; border-radius: 50%; background: radial-gradient(circle, rgba(255,249,212,.8) 0%, rgba(255,210,132,.44) 9%, rgba(242,155,141,.18) 34%, transparent 69%); transform: scale(.28); animation: home-shimmer-bloom 5.2s cubic-bezier(.16,1,.3,1) .35s both; }
+.home-pool-shimmer span { position: absolute; right: -9%; bottom: 5%; width: 70%; height: 47%; background: repeating-linear-gradient(173deg, transparent 0 21px, rgba(210,248,255,.34) 22px 23px, transparent 25px 48px); opacity: 0; transform: skewX(-13deg) translateY(30px); filter: blur(.45px); animation: home-water-shimmer 4.2s ease-out .82s both; }
+.home-pool-shimmer i { position: absolute; inset: 0; display: block; background: radial-gradient(circle at 78% 23%, rgba(255,249,212,.7) 0 1px, transparent 2px), radial-gradient(circle at 67% 17%, rgba(255,217,143,.62) 0 1px, transparent 2px), radial-gradient(circle at 88% 37%, rgba(255,249,212,.54) 0 1px, transparent 2px); background-size: 180px 180px, 270px 270px, 220px 220px; opacity: 0; animation: sparkle-fade 3.3s ease-out 1.1s both; }
+.stay-hearth-glow { opacity: 0; animation: page-impact-fade 5.7s ease-out .5s both; }
+.stay-hearth-glow::before { content: ''; position: absolute; width: min(59vw, 810px); aspect-ratio: 1; right: -8%; bottom: -37%; border-radius: 50%; background: radial-gradient(circle, rgba(255,248,217,.76) 0%, rgba(249,168,93,.48) 12%, rgba(204,94,52,.24) 36%, transparent 69%); transform: scale(.24); animation: hearth-bloom 4.9s cubic-bezier(.16,1,.3,1) .48s both; }
+.stay-hearth-glow span { position: absolute; right: 0; bottom: 12%; width: 47%; height: 35%; background: radial-gradient(ellipse at 50% 100%, rgba(255,190,110,.46), rgba(218,84,47,.18) 38%, transparent 70%); filter: blur(9px); opacity: 0; animation: hearth-flare 3.9s ease-out .82s both; }
+.stay-hearth-glow i { position: absolute; right: 12%; bottom: 15%; display: block; width: 330px; height: 300px; background: radial-gradient(circle, rgba(255,231,169,.74) 0 1px, transparent 2px); background-size: 35px 43px; opacity: 0; animation: sparkle-fade 2.7s ease-out 1.05s both; }
+.wedding-petal-lights { opacity: 0; animation: page-impact-fade 6.4s ease-out .3s both; }
+.wedding-petal-lights::before, .wedding-petal-lights::after { content: ''; position: absolute; width: 150vw; height: 150%; top: -25%; background: radial-gradient(ellipse 7px 3px at center, rgba(255,222,208,.82) 0 56%, transparent 63%), radial-gradient(ellipse 5px 9px at center, rgba(245,178,153,.72) 0 56%, transparent 63%), radial-gradient(circle, rgba(255,225,157,.74) 0 2px, transparent 3px); background-size: 290px 252px, 390px 324px, 188px 210px; opacity: 0; }
+.wedding-petal-lights::before { left: -38%; transform: rotate(15deg) translateY(-28%); animation: wedding-petals-left 5.7s cubic-bezier(.16,1,.3,1) .5s both; }
+.wedding-petal-lights::after { right: -38%; transform: rotate(-13deg) translateY(-20%); animation: wedding-petals-right 5.9s cubic-bezier(.16,1,.3,1) .56s both; }
+.wedding-petal-lights span { position: absolute; width: min(60vw, 810px); aspect-ratio: 1; left: 18%; top: -30%; border-radius: 50%; background: radial-gradient(circle, rgba(255,248,222,.72) 0%, rgba(249,212,154,.27) 23%, transparent 70%); transform: scale(.26); animation: home-shimmer-bloom 4.8s cubic-bezier(.16,1,.3,1) .28s both; }
+.wedding-petal-lights i, .wedding-petal-lights b { position: absolute; display: block; border-radius: 50%; filter: blur(1px); opacity: 0; }
+.wedding-petal-lights i { width: 15px; height: 15px; top: 32%; left: 34%; background: #ffe9b8; box-shadow: 180px -90px 0 #fff3ca, 340px 85px 0 #f7c9b7, 500px -52px 0 #fff0bf, 640px 115px 0 #f6c0ac; animation: wedding-light-points 3.2s ease-out .75s both; }
+.wedding-petal-lights b { width: 10px; height: 10px; top: 56%; left: 25%; background: #ffdcae; box-shadow: 150px -135px 0 #ffedca, 380px -58px 0 #ffd3c5, 590px -190px 0 #fff3ce; animation: wedding-light-points 3.4s ease-out 1s both; }
+.corporate-horizon-lines { opacity: 0; animation: page-impact-fade 5.8s ease-out .35s both; }
+.corporate-horizon-lines::before { content: ''; position: absolute; width: 150%; height: 115%; right: -30%; bottom: -35%; background: repeating-linear-gradient(0deg, rgba(229,195,121,.38) 0 1px, transparent 1px 61px), repeating-linear-gradient(90deg, rgba(229,195,121,.27) 0 1px, transparent 1px 108px); transform: perspective(460px) rotateX(66deg); transform-origin: bottom; mask-image: linear-gradient(0deg, rgba(0,0,0,.9), transparent 85%); animation: horizon-grid-rise 5s cubic-bezier(.16,1,.3,1) .42s both; }
+.corporate-horizon-lines span { position: absolute; width: min(62vw, 900px); height: 4px; right: -5%; bottom: 39%; background: linear-gradient(90deg, transparent, rgba(255,241,192,.9), rgba(225,180,94,.58), transparent); filter: blur(.4px); opacity: 0; animation: corporate-line-draw 3.8s cubic-bezier(.16,1,.3,1) .55s both; }
+.corporate-horizon-lines i { position: absolute; width: min(58vw, 760px); aspect-ratio: 1; right: -16%; bottom: -51%; border-radius: 50%; background: radial-gradient(circle, rgba(255,240,190,.47), rgba(225,180,94,.16) 30%, transparent 68%); transform: scale(.32); opacity: 0; animation: corporate-orb-bloom 4.7s cubic-bezier(.16,1,.3,1) .6s both; }
+.vision-sauna-steam { opacity: 0; animation: page-impact-fade 6.2s ease-out .4s both; }
+.vision-sauna-steam::before, .vision-sauna-steam::after { content: ''; position: absolute; width: 28vw; min-width: 300px; height: 94vh; bottom: -36%; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,238,205,.35), rgba(246,184,117,.16) 38%, transparent 68%); filter: blur(16px); opacity: 0; }
+.vision-sauna-steam::before { left: 13%; transform: rotate(17deg) translateY(34%); animation: steam-rise-left 4.9s cubic-bezier(.16,1,.3,1) .55s both; }
+.vision-sauna-steam::after { left: 34%; transform: rotate(-20deg) translateY(38%); animation: steam-rise-right 5.2s cubic-bezier(.16,1,.3,1) .78s both; }
+.vision-sauna-steam span { position: absolute; width: min(58vw, 820px); aspect-ratio: 1; left: -19%; top: -31%; border-radius: 50%; background: radial-gradient(circle, rgba(255,251,222,.62), rgba(250,210,136,.25) 28%, transparent 70%); transform: scale(.25); animation: home-shimmer-bloom 5s cubic-bezier(.16,1,.3,1) .35s both; }
+.vision-sauna-steam i, .vision-sauna-steam b { position: absolute; display: block; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,246,210,.86); opacity: 0; }
+.vision-sauna-steam i { top: 29%; left: 40%; box-shadow: 91px -66px 0 rgba(255,227,169,.8), 200px 78px 0 rgba(255,241,199,.8), 325px -54px 0 rgba(255,223,154,.72); animation: sparkle-fade 2.7s ease-out 1.1s both; }
+.vision-sauna-steam b { top: 51%; left: 17%; box-shadow: 140px -118px 0 rgba(255,235,182,.75), 297px -24px 0 rgba(255,249,219,.66); animation: sparkle-fade 2.8s ease-out 1.3s both; }
+@keyframes page-impact-fade { 0%, 8% { opacity: 0; } 20%, 52% { opacity: 1; } 74% { opacity: .32; } 100% { opacity: 0; } }
+@keyframes home-shimmer-bloom { 0% { transform: scale(.2); } 42% { transform: scale(1); } 100% { transform: scale(1.36); } }
+@keyframes home-water-shimmer { 0% { opacity: 0; transform: skewX(-13deg) translateY(60px); } 28%,58% { opacity: .76; } 100% { opacity: 0; transform: skewX(-13deg) translateY(-22px); } }
+@keyframes sparkle-fade { 0%, 15% { opacity: 0; } 34%, 63% { opacity: .95; } 100% { opacity: 0; } }
+@keyframes hearth-bloom { 0% { transform: scale(.21); } 43% { transform: scale(1); } 100% { transform: scale(1.42); } }
+@keyframes hearth-flare { 0%, 18% { opacity: 0; transform: scale(.62); } 44% { opacity: .85; transform: scale(1.08); } 75% { opacity: .32; } 100% { opacity: 0; transform: scale(1.44); } }
+@keyframes wedding-petals-left { 0% { opacity: 0; transform: rotate(15deg) translateY(-34%); } 24%,60% { opacity: .42; } 100% { opacity: 0; transform: rotate(15deg) translateY(38%); } }
+@keyframes wedding-petals-right { 0% { opacity: 0; transform: rotate(-13deg) translateY(-28%); } 25%,61% { opacity: .4; } 100% { opacity: 0; transform: rotate(-13deg) translateY(35%); } }
+@keyframes wedding-light-points { 0%,16% { opacity: 0; transform: scale(.45); } 42% { opacity: .9; transform: scale(1.18); } 70% { opacity: .44; } 100% { opacity: 0; transform: scale(1.55); } }
+@keyframes horizon-grid-rise { 0% { opacity: 0; transform: perspective(460px) rotateX(66deg) translateY(55px); } 32% { opacity: .9; } 70% { opacity: .35; } 100% { opacity: 0; transform: perspective(460px) rotateX(66deg) translateY(-15px); } }
+@keyframes corporate-line-draw { 0% { opacity: 0; transform: scaleX(.15); transform-origin: right; } 33% { opacity: .92; transform: scaleX(1); } 72% { opacity: .42; } 100% { opacity: 0; transform: scaleX(1.08); transform-origin: right; } }
+@keyframes corporate-orb-bloom { 0% { opacity: 0; transform: scale(.2); } 40% { opacity: .78; transform: scale(1); } 100% { opacity: 0; transform: scale(1.43); } }
+@keyframes steam-rise-left { 0% { opacity: 0; transform: rotate(17deg) translateY(34%); } 35% { opacity: .7; } 100% { opacity: 0; transform: rotate(17deg) translateY(-36%); } }
+@keyframes steam-rise-right { 0% { opacity: 0; transform: rotate(-20deg) translateY(38%); } 38% { opacity: .66; } 100% { opacity: 0; transform: rotate(-20deg) translateY(-32%); } }
 .festival-sunburst { position: absolute; z-index: 1; inset: 0; overflow: hidden; pointer-events: none; opacity: 0; mix-blend-mode: screen; animation: festival-sunburst-fade 6.5s ease-out .28s both; }
 .festival-sunburst::before { content: ''; position: absolute; width: min(70vw, 980px); aspect-ratio: 1; top: -28%; right: -12%; border-radius: 50%; background: radial-gradient(circle, rgba(255,250,207,.93) 0%, rgba(255,214,128,.72) 7%, rgba(243,155,128,.38) 25%, rgba(242,155,141,.12) 47%, rgba(242,155,141,0) 70%); transform: scale(.32); animation: festival-sunburst-bloom 4.6s cubic-bezier(.16,1,.3,1) .28s both; }
 .festival-sunburst span { position: absolute; width: 130vw; height: 90px; top: 19%; right: -34vw; background: linear-gradient(90deg, transparent 0%, rgba(255,224,165,0) 26%, rgba(255,243,209,.86) 50%, rgba(248,177,138,0) 73%, transparent 100%); transform: rotate(-16deg) translateX(21vw); filter: blur(8px); animation: festival-sunburst-streak 3.8s cubic-bezier(.16,1,.3,1) .42s both; }
@@ -714,6 +757,7 @@ body[data-page="vision"] .mascot-dock--lulu { left: clamp(-8px, .3vw, 10px); bot
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .page-impact { display: none; }
   .reveal { opacity: 1; transform: none; }
   .home-welcome__mascot { opacity: 1; }
   .home-welcome__mascot--lulu { transform: translateX(0) rotate(-2deg); }
