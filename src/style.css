@@ -464,6 +464,8 @@ button { color: inherit; }
 .underway-section__media figure { margin: 0; }
 .underway-section__media img { height: 520px; object-fit: cover; }
 .underway-section__media figure:last-child img { height: 410px; margin-top: 110px; }
+.underway-section__media--single { grid-template-columns: minmax(0, 1fr); }
+.underway-section__media--single img, .underway-section__media--single figure:last-child img { width: 100%; height: 560px; margin-top: 0; object-fit: cover; }
 .underway-section__media figcaption { margin-top: 10px; color: rgba(255,255,255,.45); font: 500 8px/1.3 var(--accent); letter-spacing: .15em; text-transform: uppercase; }
 .future-medspa-direction { padding: clamp(82px, 10vw, 150px) max(4vw, calc((100vw - 1320px)/2)); display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(52px, 8vw, 120px); align-items: center; background: #151611; color: var(--white); }
 .future-medspa-direction__copy h2 { margin: 28px 0 26px; font: 400 clamp(43px, 5.7vw, 76px)/.98 var(--display); letter-spacing: -.04em; }
