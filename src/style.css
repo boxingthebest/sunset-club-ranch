@@ -273,7 +273,7 @@ button { color: inherit; }
 .celebration-stories h2 { max-width: 860px; margin: 0; font: 400 clamp(46px, 6vw, 82px)/.96 var(--display); letter-spacing: -.04em; }
 .celebration-stories h2 em { color: #e0b66f; font-weight: 400; }
 .celebration-stories__intro > p:last-child { max-width: 640px; margin: 28px 0 0; color: rgba(255,255,255,.63); font-size: 17px; line-height: 1.75; }
-.celebration-stories__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 62px; }
+.celebration-stories__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 42px 22px; margin-top: 62px; }
 .celebration-story { min-width: 0; }
 .celebration-story figure { position: relative; margin: 0; overflow: hidden; background: var(--ink); }
 .celebration-story figure img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform .8s var(--ease); }
@@ -284,6 +284,21 @@ button { color: inherit; }
 .celebration-story h3 { margin: 0; color: var(--white); font: 400 clamp(27px, 2.7vw, 39px)/1.04 var(--display); }
 .celebration-story h3 + p { margin: 17px 0 0; color: rgba(255,255,255,.61); font-size: 14px; line-height: 1.7; }
 .celebration-stories__note { max-width: 780px; margin: 65px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.44); font-size: 12px; line-height: 1.7; }
+.corporate-program { padding: clamp(85px, 10vw, 145px) max(4vw, calc((100vw - 1320px)/2)); background: #e5dccd; }
+.corporate-program__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(55px, 8vw, 120px); align-items: center; }
+.corporate-program__image { position: relative; margin: 0; overflow: hidden; }
+.corporate-program__image img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.corporate-program__image figcaption { position: absolute; right: 12px; bottom: 12px; padding: 8px 10px; background: rgba(17,17,14,.76); color: rgba(255,255,255,.86); font: 600 8px/1.3 var(--accent); letter-spacing: .13em; text-transform: uppercase; backdrop-filter: blur(7px); }
+.corporate-program__copy .concept-badge { margin-bottom: 26px; }
+.corporate-program__copy h2 { margin: 0 0 26px; font: 400 clamp(46px, 5.6vw, 78px)/.96 var(--display); letter-spacing: -.04em; }
+.corporate-program__copy h2 em { color: var(--terracotta); font-weight: 400; }
+.corporate-program__copy > p:not(.eyebrow):not(.fine-print) { max-width: 600px; color: rgba(23,23,19,.66); line-height: 1.75; }
+.corporate-program__types { margin-top: 38px; border-top: 1px solid rgba(23,23,19,.2); }
+.corporate-program__types article { padding: 18px 0 20px; display: grid; grid-template-columns: 34px 1fr; column-gap: 10px; border-bottom: 1px solid rgba(23,23,19,.18); }
+.corporate-program__types span { grid-row: 1 / span 2; color: var(--terracotta); font: 600 9px/1.4 var(--accent); letter-spacing: .16em; }
+.corporate-program__types h3 { margin: 0; font: 400 clamp(23px, 2.2vw, 31px)/1.1 var(--display); }
+.corporate-program__types p { margin: 9px 0 0; color: rgba(23,23,19,.61); font-size: 13px; line-height: 1.65; }
+.corporate-program__copy .fine-print { margin-top: 24px; }
 .full-bleed-statement { position: relative; min-height: 78vh; color: var(--white); display: grid; place-items: center; text-align: center; overflow: hidden; }
 .full-bleed-statement > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .full-bleed-statement::after { content: ''; position: absolute; inset: 0; background: rgba(13,13,10,.46); }
@@ -540,7 +555,7 @@ button { color: inherit; }
   .art-story { overflow: hidden; }
   .art-strip { overflow-x: auto; width: calc(100vw - 18px); padding-right: 18px; scroll-snap-type: x mandatory; }
   .art-strip figure { flex: 0 0 76vw; scroll-snap-align: start; }
-  .pathway-grid, .home-card, .amenity-editorial, .concept-disclosure, .underway-section, .current-upgrades-showcase, .booking-chooser { grid-template-columns: 1fr; }
+  .pathway-grid, .home-card, .amenity-editorial, .concept-disclosure, .underway-section, .current-upgrades-showcase, .booking-chooser, .corporate-program__grid { grid-template-columns: 1fr; }
   .pathway-card { min-height: 540px; }
   .booking-chooser { gap: 42px; padding-top: 75px; padding-bottom: 80px; }
   .booking-choice { min-height: 145px; grid-template-columns: 30px 1fr auto; gap: 10px; }
@@ -572,6 +587,8 @@ button { color: inherit; }
   .celebration-stories__grid { grid-template-columns: 1fr; gap: 45px; margin-top: 45px; }
   .celebration-story > div { padding-right: 0; }
   .celebration-stories__note { margin-top: 50px; }
+  .corporate-program { padding-right: 18px; padding-left: 18px; }
+  .corporate-program__grid { gap: 45px; }
   .festival-weekends { padding-right: 18px; padding-left: 18px; }
   .festival-weekends__grid { grid-template-columns: 1fr; }
   .festival-weekend, .festival-weekend:not(:first-child) { min-height: 0; padding: 31px 0; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.18); }
