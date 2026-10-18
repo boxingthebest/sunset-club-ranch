@@ -302,12 +302,12 @@ function homePage() {
 function stayPage() {
   return `
     <main id="main">
-      ${pageHero({image: airbnbFireplaceWall, alt:'Sunset Club Ranch fireplace and media wall in the main living room', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'A fireplace-lit social room, three private homes, and five acres that give the whole group room to settle into its own rhythm.', cta:'Request dates', secondary:'See the homes', variant:'interior'})}
+      ${pageHero({image: airbnbFireplaceWall, alt:'Sunset Club Ranch fireplace and 90-inch TV in the main living room', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'A fireplace-lit social room with a 90-inch TV, three private homes, and five acres that give the whole group room to settle into its own rhythm.', cta:'Request dates', secondary:'See the homes', variant:'interior'})}
       <section class="section-pad" id="story">
         ${editorialHeader('The homes', 'Together, without being on top of one another.', 'Three distinct homes share one relaxed design language: warm wood, clean white walls, collected art, shaded thresholds, and an easy connection to the grounds.')}
         <div class="home-cards">
           ${[
-            ['01', 'The social heart', 'A fireplace-lit room for movie nights, shared meals, and an easy connection to the outdoors.', airbnbFireplaceWall],
+            ['01', 'The social heart', 'A fireplace-lit room with a 90-inch TV for movie nights, shared meals, and an easy connection to the outdoors.', airbnbFireplaceWall],
             ['02', 'Around the table', 'A bright kitchen and dining space with new caramel leather chairs makes it easy to bring everyone together.', currentKitchen],
             ['03', 'A place to retreat', 'Private rooms across three homes give the group space to settle in at the end of the day.', airbnbBedroom],
           ].map(([n, title, copy, image, label]) => `<article class="home-card reveal"><figure>${picture(image, label ? 'Living room with proposed sofa styling; current floors, rug, table, and artwork' : title)}${label ? `<figcaption>${label}</figcaption>` : ''}</figure><div><span>${n}</span><h3>${title}</h3><p>${copy}</p></div></article>`).join('')}
@@ -331,7 +331,7 @@ function stayPage() {
           <div><span>01</span><strong>Pickleball court</strong></div>
           <div><span>02</span><strong>Sand volleyball</strong></div>
           <div><span>03</span><strong>Basketball hoop</strong></div>
-          <div><span>04</span><strong>158-inch state-of-the-art TV</strong></div>
+          <div><span>04</span><strong>158-inch outdoor media wall</strong></div>
           <div><span>05</span><strong>Pool waterfall features</strong></div>
           <div><span>06</span><strong>Fire pits</strong></div>
           <div><span>07</span><strong>One outdoor kitchen + pizza oven</strong></div>
@@ -374,7 +374,7 @@ function stayPage() {
       </section>
       ${planningAnswers('Plan your stay', 'A private estate stay in Indio, made simple.', [
         ['Can our group stay together?', 'The estate brings together three homes and nine bedrooms on five private acres. Tell us your group size and dates so we can confirm the best fit.'],
-        ['What can we enjoy on property now?', 'The pool and spa with waterfall features, a six-person sauna, a 158-inch outdoor TV, pickleball and volleyball courts, a basketball hoop, fire pits, one outdoor kitchen, two indoor kitchens, and refreshed interiors are part of the current estate. The planned barn, cold plunge, hammocks, swings, outdoor shower, and expanded wellness courtyard are not yet guest amenities.'],
+        ['What can we enjoy on property now?', 'The pool and spa with waterfall features, a six-person sauna, the 158-inch outdoor media wall, pickleball and volleyball courts, a basketball hoop, fire pits, one outdoor kitchen, two indoor kitchens, and refreshed interiors are part of the current estate. The planned barn, cold plunge, hammocks, swings, outdoor shower, and expanded wellness courtyard are not yet guest amenities.'],
         ['How do we request dates?', 'Send your dates and group size through the inquiry below. We’ll review availability and the details with you directly; the website does not provide an instant booking or a confirmed reservation.'],
       ])}
       ${inquirySection('Private stay')}
@@ -555,10 +555,10 @@ function homeMascotWelcome() {
 function mascotLayer(pageName) {
   if (pageName === 'home') return homeMascotWelcome()
   const hostsByPage = {
-    stay: [['lulu', 'Lulu', 'Golden-hour host', 'For slow mornings, pool afternoons, and every good turn of the day.']],
+    stay: [['lulu', 'Lulu', 'Stay host', 'For fireside movies on the 90-inch TV, long-table meals, and the comfortable final chapter of the day.', 'lulu-stay-lounge']],
     weddings: [['scout', 'Scout', 'Black-tie host', 'For the toast, the glow, and the part of the night nobody wants to end.', 'scout-tuxedo']],
     corporate: [['lulu', 'Lulu', 'Retreat host', 'For clear thinking, bright ideas, and the best kind of team reset.', 'lulu-business-suit']],
-    festival: [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and every poolside reset.', 'lulu-festival'], ['scout', 'Scout', 'Starlight host', 'For the after-hours chapter of festival weekend.']],
+    festival: [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and every poolside reset.', 'lulu-festival'], ['scout', 'Scout', 'Festival host', 'For the after-hours chapter of festival weekend.', 'scout-festival']],
     'after-dark': [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and the best return after dark.', 'lulu-festival']],
     vision: [['lulu', 'Lulu', 'Recovery host', 'For the slower exhale, the sauna glow, and a truly unhurried reset.', 'lulu-spa-recovery']],
   }

@@ -523,6 +523,7 @@ button { color: inherit; }
 .mascot-dock:hover, .mascot-dock:focus-visible, .mascot-dock.is-open { filter: drop-shadow(0 16px 22px rgba(11,11,8,.18)); }
 .mascot-dock--lulu { left: clamp(-25px, -.8vw, -9px); bottom: 8px; width: clamp(108px, 9.4vw, 150px); }
 .mascot-dock--scout { top: clamp(96px, 13vh, 172px); right: clamp(8px, 1.5vw, 28px); }
+body[data-page="stay"] .mascot-dock--lulu { left: clamp(-42px, -1.1vw, -13px); bottom: 72px; width: clamp(188px, 16.6vw, 263px); }
 body[data-page="corporate"] .mascot-dock--lulu { left: clamp(-3px, .35vw, 10px); width: clamp(124px, 10.5vw, 164px); }
 body[data-page="vision"] .mascot-dock--lulu { left: clamp(-8px, .3vw, 10px); bottom: -2px; width: clamp(132px, 11.5vw, 182px); }
 .mascot-dock__glow { position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; filter: blur(2px); opacity: .68; }
@@ -699,6 +700,7 @@ body[data-page="vision"] .mascot-dock--lulu { left: clamp(-8px, .3vw, 10px); bot
   .home-welcome__intro--scout { right: 112%; top: 48%; }
   .mascot-dock { width: clamp(92px, 26vw, 134px); }
   .mascot-dock--lulu { left: -28px; bottom: 8px; width: clamp(92px, 22vw, 124px); }
+  body[data-page="stay"] .mascot-dock--lulu { left: -32px; bottom: 63px; width: 172px; }
   body[data-page="corporate"] .mascot-dock--lulu { left: -2px; width: 112px; }
   body[data-page="vision"] .mascot-dock--lulu { left: -2px; bottom: 2px; width: 123px; }
   .mascot-dock--scout { top: 86px; right: 1px; }
