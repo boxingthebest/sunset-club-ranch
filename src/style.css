@@ -506,6 +506,7 @@ button { color: inherit; }
 .mascot-dock:hover, .mascot-dock:focus-visible, .mascot-dock.is-open { filter: drop-shadow(0 16px 22px rgba(11,11,8,.18)); }
 .mascot-dock--lulu { left: clamp(-25px, -.8vw, -9px); bottom: 8px; width: clamp(108px, 9.4vw, 150px); }
 .mascot-dock--scout { top: clamp(96px, 13vh, 172px); right: clamp(8px, 1.5vw, 28px); }
+body[data-page="corporate"] .mascot-dock--lulu { left: clamp(-3px, .35vw, 10px); width: clamp(124px, 10.5vw, 164px); }
 .mascot-dock__glow { position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; filter: blur(2px); opacity: .68; }
 .mascot-dock--lulu .mascot-dock__glow { width: 78%; height: 32%; right: 2%; bottom: 6%; background: radial-gradient(ellipse, rgba(242,177,108,.5), rgba(242,177,108,0) 68%); }
 .mascot-dock--scout .mascot-dock__glow { width: 78%; height: 78%; top: 9%; right: 2%; background: radial-gradient(circle, rgba(228,184,93,.32), rgba(228,184,93,0) 70%); }
@@ -677,6 +678,7 @@ button { color: inherit; }
   .home-welcome__intro--scout { right: 112%; top: 48%; }
   .mascot-dock { width: clamp(92px, 26vw, 134px); }
   .mascot-dock--lulu { left: -28px; bottom: 8px; width: clamp(92px, 22vw, 124px); }
+  body[data-page="corporate"] .mascot-dock--lulu { left: -2px; width: 112px; }
   .mascot-dock--scout { top: 86px; right: 1px; }
   .mascot-dock__note { width: 178px; padding: 12px 13px; }
   .mascot-dock__note strong { font-size: 24px; }

@@ -554,8 +554,8 @@ function mascotLayer(pageName) {
   if (pageName === 'home') return homeMascotWelcome()
   const hostsByPage = {
     stay: [['lulu', 'Lulu', 'Golden-hour host', 'For slow mornings, pool afternoons, and every good turn of the day.']],
-    weddings: [['scout', 'Scout', 'Starlight host', 'For the toast, the glow, and the part of the night nobody wants to end.']],
-    corporate: [['scout', 'Scout', 'Starlight host', 'For clear skies, good ideas, and the evening reset.']],
+    weddings: [['scout', 'Scout', 'Black-tie host', 'For the toast, the glow, and the part of the night nobody wants to end.', 'scout-tuxedo']],
+    corporate: [['lulu', 'Lulu', 'Retreat host', 'For clear thinking, bright ideas, and the best kind of team reset.', 'lulu-business-suit']],
     festival: [['lulu', 'Lulu', 'Golden-hour host', 'For the glow before the gates and every poolside reset.'], ['scout', 'Scout', 'Starlight host', 'For the after-hours chapter of festival weekend.']],
     'after-dark': [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and the best return after dark.', 'lulu-festival']],
     vision: [['lulu', 'Lulu', 'Golden-hour host', 'For the bright, playful next chapter of the ranch.']],
