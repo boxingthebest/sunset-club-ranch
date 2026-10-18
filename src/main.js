@@ -477,7 +477,18 @@ function afterDarkPage() {
   return `
     <main id="main" class="night-page">
       <div class="after-dark-fireworks" data-after-dark-fireworks aria-hidden="true"><video muted playsinline preload="auto" data-after-dark-fireworks-video><source src="/media/video/after-dark-fireworks-display.mp4" type="video/mp4" /></video></div>
-      ${pageHero({image: airbnbMediaWallNight, alt:'Outdoor media wall glowing at dusk at Sunset Club Ranch', eyebrow:'A custom festival-week experience', title:'After Dark<br /><em>made for your group.</em>', copy:'A private desert weekend shaped around your group: pool days, the 158-inch outdoor screen, recovery time, and the kind of return from the grounds that feels like part of the plan.', cta:'Build your weekend', secondary:'See the experience', badge:'Coachella · Stagecoach · tailored by inquiry', variant:'night'})}
+      ${pageHero({image: airbnbMediaWallNight, alt:'Outdoor media wall glowing at dusk at Sunset Club Ranch', eyebrow:'A custom festival-week experience', title:'After Dark<br /><em>made for your group.</em>', copy:'A private desert weekend shaped around your group: pool days, the 158-inch outdoor screen, recovery time, and the kind of return from the grounds that feels like part of the plan.', cta:'Build your weekend', secondary:'See the experience', badge:'Coachella weekends · Stagecoach · tailored by inquiry', variant:'night'})}
+      <section class="festival-calendar" aria-label="2027 Coachella and Stagecoach weekend dates" data-firework-scene="festival-calendar">
+        <div class="festival-calendar__inner">
+          <div class="festival-calendar__heading reveal"><p class="eyebrow eyebrow--light">The 2027 spring run</p><h2>Three weekends.<br /><em>One exceptional reset.</em></h2><p>Settle into the ranch before the gates, return to your own pool and outdoor screen after the music, and make the in-between hours part of the story.</p></div>
+          <div class="festival-calendar__grid">
+            <article class="festival-calendar__weekend reveal"><p>April 9–11, 2027</p><h3>Coachella<br />Weekend One</h3><span>Art-forward desert energy</span><small>For the first wave: poolside resets, room for every friend, and an easy return under the palms.</small></article>
+            <article class="festival-calendar__weekend reveal"><p>April 16–18, 2027</p><h3>Coachella<br />Weekend Two</h3><span>Sound, style, and starlight</span><small>For the second weekend: slow mornings, a private screen, and a full estate to make your own.</small></article>
+            <article class="festival-calendar__weekend reveal"><p>April 23–25, 2027</p><h3>Stagecoach</h3><span>Country afterglow</span><small>For boots-off sunset, open sky, long-table meals, and a resort-style ranch return between the music.</small></article>
+          </div>
+          <p class="festival-calendar__note reveal">Sunset Club Ranch is an independent private property. Festival tickets, transportation, venue access, programming, and any special services are not included or guaranteed; every stay is discussed and confirmed individually.</p>
+        </div>
+      </section>
       <section class="section-pad night-intro" id="story" data-firework-scene="arrival">${editorialHeader('The idea', 'When the festival comes home.', 'After Dark is a tailored way to do the desert: a private estate, an unhurried return after the grounds, and a team ready to discuss what would make the weekend exceptional for your group.')}
         <div class="pillars">
           ${[
@@ -546,15 +557,15 @@ function mascotLayer(pageName) {
     weddings: [['scout', 'Scout', 'Starlight host', 'For the toast, the glow, and the part of the night nobody wants to end.']],
     corporate: [['scout', 'Scout', 'Starlight host', 'For clear skies, good ideas, and the evening reset.']],
     festival: [['lulu', 'Lulu', 'Golden-hour host', 'For the glow before the gates and every poolside reset.'], ['scout', 'Scout', 'Starlight host', 'For the after-hours chapter of festival weekend.']],
-    'after-dark': [['scout', 'Scout', 'Starlight host', 'For the after-hours chapter of the ranch.']],
+    'after-dark': [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and the best return after dark.', 'lulu-festival']],
     vision: [['lulu', 'Lulu', 'Golden-hour host', 'For the bright, playful next chapter of the ranch.']],
   }
   const hosts = hostsByPage[pageName] || hostsByPage.home
   return `<aside class="mascot-layer" aria-label="Sunset Club Ranch hosts">
-    ${hosts.map(([key, name, role, copy]) => `
+    ${hosts.map(([key, name, role, copy, asset = key]) => `
       <button class="mascot-dock mascot-dock--${key}" type="button" data-mascot-dock aria-expanded="false" aria-controls="mascot-note-${key}-${pageName}" aria-label="Meet ${name}, your ${role}">
         <span class="mascot-dock__glow" aria-hidden="true"></span>
-        <img class="mascot-dock__image" src="/media/mascots/${key}-3d.webp" alt="" aria-hidden="true" loading="eager" decoding="async" />
+        <img class="mascot-dock__image" src="/media/mascots/${asset}-3d.webp" alt="" aria-hidden="true" loading="eager" decoding="async" />
         <span class="mascot-dock__note" id="mascot-note-${key}-${pageName}" role="tooltip"><small>Meet your host</small><strong>${name}</strong><em>${role}</em><span>${copy}</span></span>
       </button>`).join('')}
   </aside>`
