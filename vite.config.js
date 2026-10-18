@@ -17,6 +17,7 @@ export default defineConfig({
         stay: resolve(__dirname, 'stay.html'),
         weddings: resolve(__dirname, 'weddings.html'),
         corporate: resolve(__dirname, 'corporate.html'),
+        festival: resolve(__dirname, 'festival-weekends.html'),
         'after-dark': resolve(__dirname, 'after-dark.html'),
         vision: resolve(__dirname, 'vision-2027.html'),
         '404': resolve(__dirname, '404.html'),

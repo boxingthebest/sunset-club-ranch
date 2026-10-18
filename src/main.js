@@ -8,7 +8,8 @@ const navItems = [
   ['Stay', '/stay.html'],
   ['Weddings & Events', '/weddings.html'],
   ['Corporate Retreats', '/corporate.html'],
-  ['After Dark 2027', '/after-dark.html'],
+  ['Festival Weekends', '/festival-weekends.html'],
+  ['After Dark', '/after-dark.html'],
   ['Vision 2027', '/vision-2027.html'],
 ]
 
@@ -24,6 +25,10 @@ const newGarden = `${octoberMedia}/yard-bar-dusk.webp`
 const newLounge = `${octoberMedia}/fireplace-lounge-dusk.webp`
 const sofaStylingStudy = `${octoberMedia}/living-room-sofa-study.webp`
 const weddingHeroConcept = '/media/event-concepts/wedding-hero-blue-hour.webp'
+const currentUpgradesMedia = '/media/current-upgrades'
+const currentKitchen = `${currentUpgradesMedia}/kitchen-new-chairs.webp`
+const installedSauna = `${currentUpgradesMedia}/sauna-installed.webp`
+const saunaExitView = `${currentUpgradesMedia}/sauna-exit-view.webp`
 
 function logo(mark = false) {
   return `<span class="brand ${mark ? 'brand--hero' : ''}"><span>Sunset Club</span><small>Ranch</small></span>`
@@ -33,7 +38,8 @@ function header() {
   const pageCta = {
     weddings: 'Plan your event',
     corporate: 'Plan your retreat',
-    'after-dark': 'Ask about 2027',
+    festival: 'Ask about festivals',
+    'after-dark': 'Ask about After Dark',
     vision: 'Ask about the vision',
   }
   const ctaLabel = pageCta[document.body.dataset.page] || 'Request dates'
@@ -67,7 +73,8 @@ function footer() {
   const pageCta = {
     weddings: 'Plan your event',
     corporate: 'Plan your retreat',
-    'after-dark': 'Ask about 2027',
+    festival: 'Ask about festivals',
+    'after-dark': 'Ask about After Dark',
     vision: 'Ask about the vision',
   }
   const ctaLabel = pageCta[document.body.dataset.page] || 'Request dates'
@@ -136,11 +143,17 @@ function planningAnswers(kicker, title, answers) {
 
 function inquirySection(intent = 'Private stay') {
   const isEvent = ['Wedding or celebration', 'Birthday', 'Corporate retreat'].includes(intent)
-  const isFuture = ['After Dark 2027', 'Vision 2027 updates'].includes(intent)
-  const inquiryLabel = isFuture ? 'Future interest' : isEvent ? 'Event inquiry' : 'Stay inquiry'
-  const inquiryTitle = isFuture ? 'Stay close to<br />what comes next.' : isEvent ? 'Tell us about<br />your gathering.' : 'Tell us when<br />you want to stay.'
+  const isFestival = intent === 'Festival Weekends 2027'
+  const isAfterDark = intent === 'After Dark 2027'
+  const isFuture = intent === 'Vision 2027 updates'
+  const inquiryLabel = isFuture ? 'Future interest' : isAfterDark ? 'After Dark inquiry' : isFestival ? 'Festival-weekend inquiry' : isEvent ? 'Event inquiry' : 'Stay inquiry'
+  const inquiryTitle = isFuture ? 'Stay close to<br />what comes next.' : isAfterDark ? 'Tell us about<br />your weekend.' : isFestival ? 'Tell us your<br />festival weekend.' : isEvent ? 'Tell us about<br />your gathering.' : 'Tell us when<br />you want to stay.'
   const inquiryCopy = isFuture
     ? 'Tell us what interests you. We’ll respond with the most current plans; this is an inquiry, not a confirmed reservation or automatic mailing-list signup.'
+    : isAfterDark
+    ? 'Share your preferred festival weekend, group size, and the experience you are looking for. We’ll respond with current availability and the clearest next step.'
+    : isFestival
+    ? 'Share your weekend, group size, and the kind of stay you are planning. We’ll respond with current availability and the clearest next step.'
     : isEvent
     ? 'Share the date, guest count, occasion, and planner or vendor team if you have one. We’ll review the fit and reply with the clearest next step.'
     : 'Share your dates, group size, and priorities. We’ll help you plan the right kind of stay.'
@@ -149,12 +162,16 @@ function inquirySection(intent = 'Private stay') {
   const guestsLabel = isEvent ? 'Expected guests' : 'Guests'
   const messagePlaceholder = isFuture
     ? 'Which planned space or program would you like to hear about?'
+    : isAfterDark
+    ? 'Festival weekend, group priorities, and what would make After Dark feel exceptional for your group.'
+    : isFestival
+    ? 'Festival weekend, group priorities, and anything that would make the stay exceptional.'
     : isEvent
     ? 'Occasion, setup ideas, overnight needs, and anything else we should know.'
     : 'Dates, priorities, questions, or anything that would make the stay exceptional.'
   const occasionOptions = [
     intent,
-    ...['Private stay', 'Wedding or celebration', 'Birthday', 'Corporate retreat', 'After Dark 2027', 'Other'].filter(option => option !== intent),
+    ...['Private stay', 'Wedding or celebration', 'Birthday', 'Corporate retreat', 'Festival Weekends 2027', 'After Dark 2027', 'Other'].filter(option => option !== intent),
   ]
   return `
     <section class="inquiry" id="inquire">
@@ -204,6 +221,7 @@ function homePage() {
         <div class="booking-chooser__paths">
           <a class="booking-choice reveal" href="/stay.html#inquire"><span>01</span><div><p>Overnight stay</p><h3>Request dates</h3><small>Dates · Guests · Stay priorities</small></div><b aria-hidden="true">→</b></a>
           <a class="booking-choice reveal" href="/weddings.html#inquire"><span>02</span><div><p>Wedding, birthday, or gathering</p><h3>Plan an event</h3><small>Date · Occasion · Group size</small></div><b aria-hidden="true">→</b></a>
+          <a class="booking-choice reveal" href="/festival-weekends.html#inquire"><span>03</span><div><p>Coachella or Stagecoach</p><h3>Festival weekends</h3><small>Weekend · Group · Priorities</small></div><b aria-hidden="true">→</b></a>
         </div>
       </section>
 
@@ -228,7 +246,7 @@ function homePage() {
         ${editorialHeader('The rhythm of a stay', 'A place with more than one mood.', 'Swim. Cook. Play. Retreat. The estate lets everyone move together—or choose a corner of their own.')}
         <div class="mosaic mosaic--estate reveal">
           <figure class="mosaic__wide">${picture(currentStucco, 'White-stucco poolside patio at Sunset Club Ranch')}<figcaption>White-stucco poolside</figcaption></figure>
-          <figure>${picture(newDining, 'Dining and game room with new light-wood floors and framed art')}<figcaption>A place at the table</figcaption></figure>
+          <figure>${picture(currentKitchen, 'Sunset Club Ranch kitchen and gathering table with new caramel leather chairs')}<figcaption>A place at the table</figcaption></figure>
           <figure>${picture(newCourts, 'Sand volleyball and pickleball courts beside the Sunset Club Ranch lawns')}<figcaption>Room to play</figcaption></figure>
           <figure class="mosaic__tall">${picture(newGarden, 'Illuminated garden, ping-pong table, and outdoor bar at dusk')}<figcaption>After the sun goes down</figcaption></figure>
         </div>
@@ -253,8 +271,8 @@ function homePage() {
         <div class="pathway-grid">
           ${[
             ['Stay together', 'A private compound for group escapes, family time, and long weekends.', '/stay.html', newLounge],
-            ['Celebrate here', 'Weddings, birthdays, and milestone gatherings begin with a private conversation.', '/weddings.html', newAerial],
-            ['Step into 2027', 'Preview the planned barn, wellness courtyard, and the next chapter of the estate.', '/vision-2027.html', '/media/vision-2027/wellness-courtyard.webp'],
+            ['Celebrate here', 'Weddings, family milestones, and gatherings that last beyond one night.', '/weddings.html', newAerial],
+            ['Festival weekends', 'Coachella, Stagecoach, and a more considered way to do the desert.', '/festival-weekends.html', newGarden],
           ].map(([title, copy, href, image], i) => `<a class="pathway-card reveal" href="${href}" style="--delay:${i * 80}ms">${picture(image, '')}<span class="pathway-card__veil"></span><span class="pathway-card__content"><small>${String(i + 1).padStart(2, '0')}</small><strong>${title}</strong><em>${copy}</em><b>Explore →</b></span></a>`).join('')}
         </div>
       </section>
@@ -277,11 +295,11 @@ function stayPage() {
         <div class="home-cards">
           ${[
             ['01', 'The social heart', 'Open living, a new fireplace, new floors, shared meals, and an easy connection to the outdoors.', sofaStylingStudy, 'Sofa + throws visualization'],
-            ['02', 'Around the table', 'A bright dining and game room with new floors makes it easy to bring everyone together.', newDining],
+            ['02', 'Around the table', 'A bright kitchen and dining space with new caramel leather chairs makes it easy to bring everyone together.', currentKitchen],
             ['03', 'A place to retreat', 'Private rooms across three homes give the group space to settle in at the end of the day.', '/media/art/jaws-bedroom.webp'],
           ].map(([n, title, copy, image, label]) => `<article class="home-card reveal"><figure>${picture(image, label ? 'Living room with proposed sofa styling; current floors, rug, table, and artwork' : title)}${label ? `<figcaption>${label}</figcaption>` : ''}</figure><div><span>${n}</span><h3>${title}</h3><p>${copy}</p></div></article>`).join('')}
         </div>
-        <p class="home-cards__note reveal">The living-room sofa and throws are an illustrative styling edit; its floors, rug, table, and art are from the current room. The bedroom artwork scene is also a visualization. The dining-room image is current photography.</p>
+        <p class="home-cards__note reveal">The living-room sofa and throws are an illustrative styling edit; its floors, rug, table, and art are from the current room. The bedroom artwork scene is also a visualization. The kitchen and dining image is current photography.</p>
       </section>
       <section class="amenity-editorial">
         <figure class="amenity-editorial__image reveal">${picture(currentStucco, 'Current white-stucco pool and outdoor gathering space at Sunset Club Ranch')}</figure>
@@ -314,8 +332,10 @@ function stayPage() {
         <p class="new-estate__note reveal">All listed additions are complete and available today. Current photography is shown where available; every illustrative view is transparently labeled.</p>
       </section>
       <section class="current-upgrades-showcase" id="current-upgrades">
-        <div class="current-upgrades-showcase__copy reveal"><p class="status-badge">Completed · available today</p><p class="eyebrow eyebrow--light">The estate, newly finished</p><h2>More glow.<br />More ways to gather.</h2><p>The 158-inch outdoor media wall, pool waterfall features, fire pits, illuminated ficus arrival, white poolside stucco, and honey-gold travertine are already part of the property.</p><p class="fine-print fine-print--light">Current photography is shown where available. The remaining images are owner-supplied visualizations of completed work and will be replaced as the fresh photo library arrives.</p></div>
-        <div class="current-upgrades-showcase__media reveal">
+          <div class="current-upgrades-showcase__copy reveal"><p class="status-badge">Completed · available today</p><p class="eyebrow eyebrow--light">The estate, newly finished</p><h2>More glow.<br />More ways to gather.</h2><p>The six-person sauna, new kitchen seating, 158-inch outdoor media wall, pool waterfall features, fire pits, illuminated ficus arrival, white poolside stucco, and honey-gold travertine are already part of the property.</p><p class="fine-print fine-print--light">Current photography is shown where available. The remaining images are owner-supplied visualizations of completed work and will be replaced as the fresh photo library arrives.</p></div>
+          <div class="current-upgrades-showcase__media reveal">
+          <figure>${picture(installedSauna,'Installed six-person sauna at Sunset Club Ranch')}<figcaption>Six-person sauna · available now</figcaption></figure>
+          <figure>${picture(currentKitchen,'Sunset Club Ranch kitchen with new caramel leather dining chairs')}<figcaption>Kitchen gathering table · current photograph</figcaption></figure>
           <figure>${picture('/media/current-upgrades/outdoor-screen.webp','Owner-supplied visualization of the existing outdoor media wall at Sunset Club Ranch')}<figcaption>158-inch outdoor screen · current visualization</figcaption></figure>
           <figure>${picture(`${octoberMedia}/arrival-night-study.webp`,'Owner-supplied visualization of the illuminated ficus and palm-lined driveway')}<figcaption>Ficus arrival · owner-supplied visualization</figcaption></figure>
           <figure>${picture(currentStucco,'Current white-stucco poolside patio at Sunset Club Ranch')}<figcaption>White-stucco poolside patio · current photograph</figcaption></figure>
@@ -330,7 +350,9 @@ function stayPage() {
           ${[
             [newAerial, 'Aerial overview of the pool and grounds'],
             [newCourts, 'Pickleball and sand volleyball courts'],
-            [newDining, 'Dining and game room with new floors'],
+            [currentKitchen, 'Kitchen and dining space with new caramel leather chairs'],
+            [installedSauna, 'Installed six-person sauna'],
+            [saunaExitView, 'View across the Sunset Club Ranch grounds from the sauna exit'],
             [newEntry, 'Front entry at dusk'],
             [newLounge, 'Outdoor fireplace lounge at dusk'],
             [currentStucco, 'Current white-stucco poolside patio'],
@@ -341,7 +363,7 @@ function stayPage() {
       </section>
       ${planningAnswers('Plan your stay', 'A private estate stay in Indio, made simple.', [
         ['Can our group stay together?', 'The estate brings together three homes and nine bedrooms on five private acres. Tell us your group size and dates so we can confirm the best fit.'],
-        ['What can we enjoy on property now?', 'The pool and spa with waterfall features, a six-person sauna, a 158-inch outdoor TV, pickleball and volleyball courts, a basketball hoop, fire pits, one outdoor kitchen, two indoor kitchens, and refreshed interiors are part of the current estate. The planned barn, cold plunge, outdoor shower, and wellness courtyard are not yet guest amenities.'],
+        ['What can we enjoy on property now?', 'The pool and spa with waterfall features, a six-person sauna, a 158-inch outdoor TV, pickleball and volleyball courts, a basketball hoop, fire pits, one outdoor kitchen, two indoor kitchens, and refreshed interiors are part of the current estate. The planned barn, cold plunge, hammocks, swings, outdoor shower, and expanded wellness courtyard are not yet guest amenities.'],
         ['How do we request dates?', 'Send your dates and group size through the inquiry below. We’ll review availability and the details with you directly; the website does not provide an instant booking or a confirmed reservation.'],
       ])}
       ${inquirySection('Private stay')}
@@ -369,13 +391,13 @@ function weddingsPage() {
         </div>
       </section>
       <section class="celebration-stories" id="celebrations">
-        <div class="celebration-stories__intro reveal"><p class="concept-badge concept-badge--light">Celebration styling concepts</p><p class="eyebrow eyebrow--light">Beyond the wedding day</p><h2>Every reason to<br /><em>bring your people together.</em></h2><p>From a big birthday toast to an anniversary dinner to the kind of family weekend that becomes tradition, the estate gives every generation room to make the occasion its own.</p></div>
+        <div class="celebration-stories__intro reveal"><p class="concept-badge concept-badge--light">Celebration styling concepts</p><p class="eyebrow eyebrow--light">Beyond the wedding day</p><h2>Every reason to<br /><em>bring your people together.</em></h2><p>From a wedding weekend to a bar or bat mitzvah to the kind of family milestone that becomes tradition, the estate gives every generation room to make the occasion its own.</p></div>
         <div class="celebration-stories__grid">
-          <article class="celebration-story reveal"><figure>${picture('/media/event-concepts/birthday-garden-2026.webp','Celebration styling concept of an adult birthday toast at the Sunset Club Ranch outdoor bar')}<figcaption>Birthday weekend · styling concept</figcaption></figure><div><p class="eyebrow eyebrow--light">Birthday weekends</p><h3>The guest list, but easier.</h3><p>Begin with an easy toast at dusk, then let the gathering find its own pace across the pool, lawn, and outdoor lounge.</p></div></article>
-          <article class="celebration-story reveal"><figure>${picture('/media/event-concepts/anniversary-lounge-2026.webp','Celebration styling concept of an anniversary dinner at the Sunset Club Ranch fireplace lounge')}<figcaption>Anniversary dinner · styling concept</figcaption></figure><div><p class="eyebrow eyebrow--light">Anniversaries</p><h3>A table for the story so far.</h3><p>Trade a reservation for a sunset dinner by the fire—just the two of you or the people who have been there from the start.</p></div></article>
+          <article class="celebration-story reveal"><figure>${picture('/media/event-concepts/south-asian-wedding-weekend-concept.webp','South Asian wedding-weekend styling concept on the Sunset Club Ranch lawn at sunset')}<figcaption>South Asian wedding weekend · styling concept</figcaption></figure><div><p class="eyebrow eyebrow--light">South Asian weddings</p><h3>A whole weekend to celebrate.</h3><p>Welcome dinners, time by the pool, long-table gatherings, and room for the family to stay close across the celebration.</p></div></article>
+          <article class="celebration-story reveal"><figure>${picture('/media/event-concepts/bar-bat-mitzvah-weekend-concept.webp','Multigenerational family celebration styling concept on the Sunset Club Ranch lawn at sunset')}<figcaption>Family celebration weekend · styling concept</figcaption></figure><div><p class="eyebrow eyebrow--light">Bar & bat mitzvahs</p><h3>One home base for the whole family.</h3><p>Bring generations together for a meaningful weekend with space to gather, reset, and make the celebration your own.</p></div></article>
           <article class="celebration-story reveal"><figure>${picture('/media/event-concepts/family-reunion-courts-2026.webp','Celebration styling concept of a multigenerational family weekend at Sunset Club Ranch recreation courts')}<figcaption>Family milestone · styling concept</figcaption></figure><div><p class="eyebrow eyebrow--light">Family milestones</p><h3>Something for every generation.</h3><p>Pool time, pickleball, volleyball, long lunches, and enough room for everyone to be together without being on top of one another.</p></div></article>
         </div>
-        <p class="celebration-stories__note">These images are inspirational styling concepts, not records of past events or a promise of included decor, furniture, staffing, or services. Every celebration begins with a date-specific inquiry and individual review.</p>
+        <p class="celebration-stories__note">These images are inspirational styling concepts, not records of past events or a promise of included decor, furniture, staffing, cultural services, or other vendor services. Every celebration begins with a date-specific inquiry and individual review.</p>
       </section>
       <section class="full-bleed-statement">${picture(newLounge, 'Outdoor fireplace lounge glowing at dusk')}<div><p class="eyebrow eyebrow--light">By private inquiry</p><h2>Your date.<br />Your people.<br />Your version.</h2></div></section>
       ${planningAnswers('Planning a gathering', 'Weddings and celebrations in the Coachella Valley.', [
@@ -410,22 +432,46 @@ function corporatePage() {
     </main>`
 }
 
+function festivalPage() {
+  return `
+    <main id="main" class="festival-page">
+      ${pageHero({image: newGarden, alt:'Sunset Club Ranch garden and outdoor bar at dusk', eyebrow:'Festival weekends · 2027', title:'The desert is calling.<br /><em>Keep the whole place.</em>', copy:'Build the weekend around a private five-acre estate—room for the group, poolside recovery, and a calmer place to come home to after the desert energy.', cta:'Ask about a weekend', secondary:'Choose your weekend', secondaryHref:'#weekends', badge:'Coachella Weekend One · Weekend Two · Stagecoach', variant:'festival'})}
+      <section class="festival-weekends section-pad" id="weekends">
+        ${editorialHeader('Choose your weekend', 'Three weekends. One private basecamp.', 'Whether your people are headed to Coachella Weekend One, Coachella Weekend Two, or Stagecoach, begin with your dates and group priorities. We will reply with current availability and the right next step.')}
+        <div class="festival-weekends__grid">
+          ${[
+            ['01', 'Coachella<br />Weekend One', 'A private home base for the first weekend of the desert season.'],
+            ['02', 'Coachella<br />Weekend Two', 'The second-weekend reset: pool days, easy meals, and room for the full group.'],
+            ['03', 'Stagecoach', 'A private ranch-inspired stay with space to recharge between the music and the dust.'],
+          ].map(([number, title, copy]) => `<a class="festival-weekend reveal" href="#inquire"><span>${number}</span><h3>${title}</h3><p>${copy}</p><b>Ask about dates <i aria-hidden="true">→</i></b></a>`).join('')}
+        </div>
+      </section>
+      <section class="split split--dark festival-rhythm"><figure class="editorial-image reveal">${picture(installedSauna, 'Installed six-person sauna at Sunset Club Ranch')}</figure><div class="intro__copy reveal"><p class="status-badge">Available now</p><p class="eyebrow eyebrow--light">Recovery, your way</p><h2>Festival energy.<br />A real reset.</h2><p class="lead">Start slowly. Come home to water, a hot sauna, long tables, open sky, and space that belongs only to your group.</p><p class="fine-print fine-print--light">The sauna is available now. Cold plunge, hammocks, swings, and the expanded wellness courtyard are planned additions and are not yet guest amenities.</p></div></section>
+      ${planningAnswers('Festival-weekend planning', 'The details begin with your dates.', [
+        ['How do festival weekends work?', 'Share your preferred weekend, group size, and stay priorities. We will respond with current availability and the most relevant lodging information.'],
+        ['Are tickets or transportation included?', 'Festival tickets, transportation, access, partners, and special services are not included or guaranteed by this website. Any available arrangements are discussed individually and confirmed in writing.'],
+        ['Can we ask about After Dark?', 'Yes. After Dark is the Ranch’s inquiry-led festival-week hospitality concept. Tell us which weekend interests you and what would make the stay exceptional.'],
+      ])}
+      ${inquirySection('Festival Weekends 2027')}
+    </main>`
+}
+
 function afterDarkPage() {
   return `
     <main id="main" class="night-page">
-      ${pageHero({image: newEntry, alt:'Illuminated front entry at blue hour', eyebrow:'A private Coachella week concept', title:'After Dark<br /><em>Coachella 2027.</em>', copy:'Days at the compound. Nights under the Coachella stars. A limited, inquiry-only hospitality concept now in development.', cta:'Join the private inquiry list', secondary:'Discover the concept', badge:'2027 program concept · details in development', variant:'night'})}
-      <section class="section-pad night-intro" id="story">${editorialHeader('The idea', 'When the festival comes home.', 'After Dark is envisioned as a private, highly serviced way to experience Coachella week—anchored by the estate and shaped around the people in it.')}
+      ${pageHero({image: newEntry, alt:'Illuminated front entry at blue hour', eyebrow:'A private festival-week experience', title:'After Dark<br /><em>at the Ranch.</em>', copy:'Days at the compound. Nights under the desert stars. An inquiry-led hospitality experience shaped around your group and your festival weekend.', cta:'Ask about After Dark', secondary:'Discover the experience', badge:'Limited 2027 festival-week program · by inquiry', variant:'night'})}
+      <section class="section-pad night-intro" id="story">${editorialHeader('The idea', 'When the festival comes home.', 'After Dark is a more considered way to do the desert: a private estate, an unhurried return after the grounds, and a team ready to discuss the priorities that matter to your group.')}
         <div class="pillars">
           ${[
             ['01','The estate','A private five-acre compound with three distinct homes and room to reset between festival days.'],
-            ['02','The access','A location near the Empire Polo Club with transportation and access details to be confirmed.'],
-            ['03','The service','A hospitality program being developed around privacy, ease, and responsive on-property support.'],
+            ['02','The weekend','Coachella Weekend One, Weekend Two, and Stagecoach inquiries begin with your dates and group.'],
+            ['03','The planning','Share your priorities and we will discuss what is currently feasible, available, and appropriate for your stay.'],
             ['04','The recovery','Poolside mornings, shared meals, and enough quiet to do it all again.'],
           ].map(([n,t,c])=>`<article class="pillar reveal"><span>${n}</span><h3>${t}</h3><p>${c}</p></article>`).join('')}
         </div>
-        <div class="disclosure disclosure--dark reveal"><strong>In development for 2027.</strong><p>Program details, access, partners, inclusions, pricing, and availability are not yet final. Joining the inquiry list does not guarantee a reservation or any specific service.</p></div>
+        <div class="disclosure disclosure--dark reveal"><strong>Every weekend is date-specific.</strong><p>Program details, access, partners, inclusions, pricing, and availability are confirmed only through an individual inquiry. Joining the inquiry list does not guarantee a reservation or any specific service.</p></div>
       </section>
-      <section class="full-bleed-statement full-bleed-statement--night">${picture(newGarden, 'Garden and outdoor bar at dusk')}<div><p class="eyebrow eyebrow--light">Week one · 2027</p><h2>A very different<br />festival basecamp.</h2></div></section>
+      <section class="full-bleed-statement full-bleed-statement--night">${picture(newGarden, 'Garden and outdoor bar at dusk')}<div><p class="eyebrow eyebrow--light">Coachella · Stagecoach · 2027</p><h2>A very different<br />festival basecamp.</h2></div></section>
       ${inquirySection('After Dark 2027')}
     </main>`
 }
@@ -439,20 +485,21 @@ function visionPage() {
   ]
   return `
     <main id="main">
-      ${pageHero({image:`${octoberMedia}/sauna-design-study.webp`, alt:'Illustrative design study for a future wellness courtyard around the current six-person sauna', eyebrow:'The next chapter', title:'The estate,<br /><em>still becoming.</em>', copy:'A transparent preview of the spaces now being planned for 2027—from a reimagined barn to a desert wellness courtyard.', cta:'Follow the vision', secondary:'See what is planned', badge:'Wellness courtyard design study · current sauna shown illustratively', variant:'future'})}
+      ${pageHero({image:installedSauna, alt:'Installed six-person sauna at Sunset Club Ranch', eyebrow:'Wellness, now', title:'A reset has<br /><em>already arrived.</em>', copy:'The six-person sauna is installed and available today. The wider wellness courtyard evolves next—with every future element clearly labeled as it takes shape.', cta:'Ask about a stay', secondary:'See what is planned', badge:'Six-person sauna · available now', variant:'future'})}
       <section class="vision-principles section-pad" id="story">
-        ${editorialHeader('Vision 2027', 'Show the future. Label it honestly.', 'These early visualizations express design intent, not current amenities. Timelines, scope, finishes, and availability may change as planning and construction progress.')}
-        <div class="vision-timeline"><article class="reveal"><span>Now</span><h3>The estate today</h3><p>Five private acres, three homes, nine bedrooms, a resort-style pool and spa, a six-person sauna, outdoor living, lawns, games, and a growing art collection.</p></article><article class="reveal"><span>Planned 2027</span><h3>The Barn</h3><p>A reimagining of the existing approximately 2,500-square-foot structure, with an early plan that may include added bedrooms, bathrooms, flexible gathering space, fitness, and play.</p></article><article class="reveal"><span>Wellness plans</span><h3>Courtyard expansion</h3><p>The sauna is currently on the estate. The cold plunge, outdoor shower, planted courtyard, and related wellness infrastructure remain concepts under development.</p></article></div>
+        ${editorialHeader('Vision 2027', 'Show the future. Label it honestly.', 'The current sauna is real and ready to use. The visualizations below express future design intent—not current amenities. Timelines, scope, finishes, and availability may change as planning and construction progress.')}
+        <div class="vision-timeline"><article class="reveal"><span>Available now</span><h3>Six-person sauna</h3><p>The sauna is installed on the estate today, alongside the pool, spa, outdoor living, lawns, games, and a growing art collection.</p></article><article class="reveal"><span>Wellness plans</span><h3>Courtyard expansion</h3><p>A cold plunge, outdoor shower, hammocks, swings, planted courtyard, and related wellness infrastructure are still under development and are not yet guest amenities.</p></article><article class="reveal"><span>Planned 2027</span><h3>The Barn</h3><p>A reimagining of the existing approximately 2,500-square-foot structure, with an early plan that may include added bedrooms, bathrooms, flexible gathering space, fitness, and play.</p></article></div>
       </section>
+      <section class="underway-section" id="sauna-now"><div class="underway-section__copy reveal"><p class="concept-badge">Available now</p><p class="eyebrow eyebrow--light">The wellness reset</p><h2>Heat. Stillness.<br />Desert air.</h2><p>The real sauna brings a quieter counterpoint to pool days, outdoor games, and long evenings with the group. Step out, sit back, and look across the palms and grounds.</p><p class="fine-print fine-print--light">Current photography of the installed six-person sauna and its immediate outdoor view at Sunset Club Ranch.</p></div><div class="underway-section__media reveal"><figure>${picture(installedSauna, 'Installed six-person sauna at Sunset Club Ranch')}<figcaption>Six-person sauna · current photograph</figcaption></figure><figure>${picture(saunaExitView, 'View across the Sunset Club Ranch grounds from the sauna exit')}<figcaption>Sauna exit view · current photograph</figcaption></figure></div></section>
       <section class="concept-film">
-        <div class="concept-film__copy reveal"><p class="concept-badge">Concept rendering · target October 2027</p><p class="eyebrow eyebrow--light">The wellness courtyard</p><h2>Heat. Cold.<br />Stillness.</h2><p>A planted outdoor retreat is being explored as the estate’s new wellness counterpoint.</p></div>
-        <div class="concept-film__media reveal"><video controls playsinline preload="metadata" poster="/media/vision-2027/wellness-courtyard.webp"><source src="/media/video/wellness-concept-2027.mp4" type="video/mp4" /></video><p>Conceptual visualization only. The wellness amenities shown are planned for a target completion of October 2027 and are not currently available.</p></div>
+        <div class="concept-film__copy reveal"><p class="concept-badge">Future design study · target 2027</p><p class="eyebrow eyebrow--light">The wellness courtyard</p><h2>What comes<br />next.</h2><p>A planted outdoor retreat, including the proposed cold plunge and related outdoor wellness features, is being explored as the estate’s next counterpoint.</p></div>
+        <div class="concept-film__media reveal"><video controls playsinline preload="metadata" poster="/media/vision-2027/wellness-courtyard.webp"><source src="/media/video/wellness-concept-2027.mp4" type="video/mp4" /></video><p>Conceptual visualization only. The cold plunge, outdoor shower, hammocks, swings, courtyard, and related infrastructure shown are future plans—not current guest amenities.</p></div>
       </section>
       <section class="section-pad">
         ${editorialHeader('The Barn', 'A flagship gathering space in the making.', 'The existing barn is the starting point. The design is under development, with a planned expansion focused on flexible gathering, overnight comfort, fitness, and play.')}
         <div class="concept-grid">${concepts.map(([src,alt],i)=>`<figure class="concept-card reveal"><div class="concept-badge">Concept rendering</div>${picture(src,alt)}<figcaption>${['Exterior arrival study','Flexible gathering room','Fitness and games study','Additional bedroom study'][i]}</figcaption></figure>`).join('')}</div>
       </section>
-      <section class="concept-disclosure"><div><p class="eyebrow">Planning note</p><h2>Nothing here is pretending to be finished.</h2></div><p>The sauna design study and all other images and video on this page are visualizations, not photographs of the current amenity. The six-person sauna is on the estate today; the future cold plunge, outdoor shower, courtyard, barn scope, timelines, and availability may change.</p></section>
+      <section class="concept-disclosure"><div><p class="eyebrow">Planning note</p><h2>Nothing here is pretending to be finished.</h2></div><p>The six-person sauna is installed and available now. The cold plunge, hammocks, swings, outdoor shower, courtyard, barn scope, timelines, and availability remain future plans and may change. Visualizations on this page are not photographs of future completed amenities.</p></section>
       ${inquirySection('Vision 2027 updates')}
     </main>`
 }
@@ -480,6 +527,7 @@ function mascotLayer(pageName) {
     stay: [['lulu', 'Lulu', 'Golden-hour host', 'For slow mornings, pool afternoons, and every good turn of the day.']],
     weddings: [['scout', 'Scout', 'Starlight host', 'For the toast, the glow, and the part of the night nobody wants to end.']],
     corporate: [['scout', 'Scout', 'Starlight host', 'For clear skies, good ideas, and the evening reset.']],
+    festival: [['lulu', 'Lulu', 'Golden-hour host', 'For the glow before the gates and every poolside reset.'], ['scout', 'Scout', 'Starlight host', 'For the after-hours chapter of festival weekend.']],
     'after-dark': [['scout', 'Scout', 'Starlight host', 'For the after-hours chapter of the ranch.']],
     vision: [['lulu', 'Lulu', 'Golden-hour host', 'For the bright, playful next chapter of the ranch.']],
   }
@@ -499,6 +547,7 @@ const renderers = {
   stay: stayPage,
   weddings: weddingsPage,
   corporate: corporatePage,
+  festival: festivalPage,
   'after-dark': afterDarkPage,
   vision: visionPage,
 }
