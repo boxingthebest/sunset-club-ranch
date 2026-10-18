@@ -526,8 +526,13 @@ button { color: inherit; }
 @media (prefers-reduced-motion: no-preference) {
   .mascot-dock--lulu .mascot-dock__image { animation: lulu-breeze 4.8s var(--ease) infinite; }
   .mascot-dock--scout .mascot-dock__image { animation: scout-breeze 5.6s ease-in-out infinite; }
+  body[data-page="after-dark"] .mascot-dock--lulu { animation: lulu-festival-sprint 4.45s var(--ease) .48s both; }
+  body[data-page="after-dark"] .mascot-dock--lulu .mascot-dock__image { animation: lulu-breeze 4.8s 4.9s var(--ease) infinite; }
+  body[data-page="after-dark"] .mascot-dock--lulu::after { content: ''; position: absolute; z-index: -1; right: 8%; bottom: 8%; width: 86%; height: 20%; border-radius: 50%; background: radial-gradient(ellipse, rgba(239,198,130,.42) 0%, rgba(202,144,83,.17) 38%, rgba(202,144,83,0) 72%); filter: blur(7px); opacity: 0; pointer-events: none; animation: lulu-festival-dust 4.45s ease-out .48s both; }
   @keyframes lulu-breeze { 0%,100% { transform: rotate(-2deg) translateY(0); } 45% { transform: rotate(1deg) translateY(-5px); } 70% { transform: rotate(-3deg) translateY(-2px); } }
   @keyframes scout-breeze { 0%,100% { transform: rotate(2deg) translateY(0); } 50% { transform: rotate(-1deg) translateY(-8px); } }
+  @keyframes lulu-festival-sprint { 0% { transform: translateX(-170px) rotate(-7deg); } 36% { transform: translateX(calc(100vw - 96px)) rotate(4deg); } 44% { transform: translateX(calc(100vw - 96px)) scaleX(-1) rotate(-4deg); } 74% { transform: translateX(24px) scaleX(-1) rotate(2deg); } 83% { transform: translateX(0) scaleX(1) rotate(-2deg); } 100% { transform: translateX(0) scaleX(1) rotate(-2deg); } }
+  @keyframes lulu-festival-dust { 0%, 8% { opacity: 0; transform: scale(.55); } 21% { opacity: .82; transform: scale(1.2); } 38% { opacity: .52; transform: scale(1.48); } 48% { opacity: .74; transform: scale(1.05); } 74% { opacity: .42; transform: scale(1.5); } 87%, 100% { opacity: 0; transform: scale(.65); } }
 }
 
 @media (max-width: 1100px) {
