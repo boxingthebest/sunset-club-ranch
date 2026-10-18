@@ -105,10 +105,11 @@ function footer() {
 function picture(src, alt, className = '', loading = 'lazy') {
   return `<img class="${className}" src="${src}" alt="${alt}" loading="${loading}" decoding="async"${loading === 'eager' ? ' fetchpriority="high"' : ''} />`
 }
-function pageHero({ image, alt = '', eyebrow, title, copy, cta = 'Start planning', secondary = 'Explore', secondaryHref = '#story', badge = '', variant = 'classic', effect = '' }) {
+function pageHero({ image, alt = '', eyebrow, title, copy, cta = 'Start planning', secondary = 'Explore', secondaryHref = '#story', badge = '', variant = 'classic', effect = '', motion = '' }) {
   return `
     <section class="page-hero page-hero--${variant}">
       ${picture(image, alt, 'page-hero__image', 'eager')}
+      ${motion}
       <div class="page-hero__veil"></div>
       ${effect}
       <div class="page-hero__content reveal is-visible">
@@ -303,7 +304,7 @@ function homePage() {
 function stayPage() {
   return `
     <main id="main">
-      ${pageHero({image: airbnbFireplaceWall, alt:'Sunset Club Ranch fireplace and 90-inch TV in the main living room', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'A fireplace-lit social room with a 90-inch TV, three private homes, and five acres that give the whole group room to settle into its own rhythm.', cta:'Request dates', secondary:'See the homes', variant:'interior', effect:'<div class="stay-hearth-glow page-impact" aria-hidden="true"><span></span><i></i></div>'})}
+      ${pageHero({image: airbnbFireplaceWall, alt:'Sunset Club Ranch fireplace and 90-inch TV in the main living room', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'A fireplace-lit social room with a 90-inch TV, three private homes, and five acres that give the whole group room to settle into its own rhythm.', cta:'Request dates', secondary:'See the homes', variant:'interior', motion:'<canvas class="page-natural-motion" data-natural-motion="fire" aria-hidden="true"></canvas>', effect:'<div class="stay-hearth-glow page-impact" aria-hidden="true"><span></span><i></i></div>'})}
       <section class="section-pad" id="story">
         ${editorialHeader('The homes', 'Together, without being on top of one another.', 'Three distinct homes share one relaxed design language: warm wood, clean white walls, collected art, shaded thresholds, and an easy connection to the grounds.')}
         <div class="home-cards">
@@ -385,7 +386,7 @@ function stayPage() {
 function weddingsPage() {
   return `
     <main id="main">
-      ${pageHero({image: weddingHeroConcept, alt:'Event styling concept of an intimate wedding dinner beside the pool at Sunset Club Ranch at blue hour', eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'A private desert estate for wedding weekends, milestone birthdays, anniversaries, and the gatherings that deserve more than one night.', cta:'Inquire about your date', secondary:'Imagine the weekend', badge:'Event styling concept · shown for inspiration', variant:'event-concept', effect:'<div class="wedding-petal-lights page-impact" aria-hidden="true"><span></span><i></i><b></b></div>'})}
+      ${pageHero({image: weddingHeroConcept, alt:'Event styling concept of an intimate wedding dinner beside the pool at Sunset Club Ranch at blue hour', eyebrow:'Weddings & celebrations', title:'Gather beautifully.<br /><em>Stay completely.</em>', copy:'A private desert estate for wedding weekends, milestone birthdays, anniversaries, and the gatherings that deserve more than one night.', cta:'Inquire about your date', secondary:'Imagine the weekend', badge:'Event styling concept · shown for inspiration', variant:'event-concept', motion:'<canvas class="page-natural-motion" data-natural-motion="wedding-water" aria-hidden="true"></canvas>', effect:'<div class="wedding-petal-lights page-impact" aria-hidden="true"><span></span><i></i><b></b></div>'})}
       <section class="intro split" id="story"><div class="intro__copy reveal"><p class="eyebrow">The occasion</p><h2>Not a ballroom.<br />A place that feels like yours.</h2><p class="lead">Celebrate under open sky, gather around the table, and let the weekend unfold without separating everyone at the end of the night.</p><p>From South Asian and Indian wedding weekends and bar or bat mitzvahs to birthdays, anniversaries, reunions, and family milestones, every thoughtful private celebration begins with a date-specific conversation with our team and your planner.</p><p class="fine-print">Under the current Indio STR ordinance, this parcel may host a gathering of up to 40 persons without a special-event permit. A gathering of 41 or more requires a special-event permit and City approval, alongside applicable insurance, parking, noise, availability, and property requirements.</p></div><figure class="editorial-image editorial-image--portrait reveal">${picture(airbnbArrivalAerial, 'Sunset Club Ranch arrival and five-acre grounds at dusk')}<figcaption>Five acres for a more personal kind of gathering</figcaption></figure></section>
       <section class="chapter-section section-pad"><div class="chapter-grid">
         ${[
@@ -425,7 +426,7 @@ function weddingsPage() {
 function corporatePage() {
   return `
     <main id="main">
-      ${pageHero({image: airbnbMediaWallNight, alt:'Outdoor media wall glowing at dusk at Sunset Club Ranch', eyebrow:'Corporate retreats', title:'Better ideas need<br /><em>better room.</em>', copy:'Trade the ballroom for five private acres, three homes, open-air conversations, and a setting built for teams to reconnect.', cta:'Plan a retreat', secondary:'See the format', variant:'retreat', effect:'<div class="corporate-horizon-lines page-impact" aria-hidden="true"><span></span><i></i></div>'})}
+      ${pageHero({image: airbnbMediaWallNight, alt:'Outdoor media wall glowing at dusk at Sunset Club Ranch', eyebrow:'Corporate retreats', title:'Better ideas need<br /><em>better room.</em>', copy:'Trade the ballroom for five private acres, three homes, open-air conversations, and a setting built for teams to reconnect.', cta:'Plan a retreat', secondary:'See the format', variant:'retreat', effect:'<div class="corporate-horizon-lines page-impact" aria-hidden="true"><span></span><i></i></div><div class="corporate-shooting-stars page-impact" aria-hidden="true"><i></i><b></b><span></span></div>'})}
       <section class="section-pad" id="story">${editorialHeader('A different off-site', 'Think clearly. Gather naturally.', 'Build a focused retreat around privacy, indoor-outdoor work sessions, shared meals, and time that does not feel scheduled down to the minute.')}
         <div class="feature-grid">
           ${[
@@ -454,7 +455,7 @@ function corporatePage() {
 function festivalPage() {
   return `
     <main id="main" class="festival-page">
-      ${pageHero({image: airbnbPoolHero, alt:'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', eyebrow:'Festival weekends · 2027', title:'The desert is calling.<br /><em>Keep the whole place.</em>', copy:'Reserve the private five-acre estate as your festival-weekend stay—room for the group, poolside recovery, and a calmer place to come home to after the desert energy.', cta:'Ask about a weekend', secondary:'Choose your weekend', secondaryHref:'#weekends', badge:'Coachella Weekend One · Weekend Two · Stagecoach', variant:'festival', effect:'<div class="festival-sunburst" aria-hidden="true"><span></span><i></i></div>'})}
+      ${pageHero({image: airbnbPoolHero, alt:'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', eyebrow:'Festival weekends · 2027', title:'The desert is calling.<br /><em>Keep the whole place.</em>', copy:'Reserve the private five-acre estate as your festival-weekend stay—room for the group, poolside recovery, and a calmer place to come home to after the desert energy.', cta:'Ask about a weekend', secondary:'Choose your weekend', secondaryHref:'#weekends', badge:'Coachella Weekend One · Weekend Two · Stagecoach', variant:'festival', motion:'<canvas class="page-natural-motion" data-natural-motion="pool-water" aria-hidden="true"></canvas>', effect:'<div class="festival-sunburst" aria-hidden="true"><span></span><i></i></div>'})}
       <section class="festival-weekends section-pad" id="weekends">
         ${editorialHeader('Choose your weekend', 'Three weekends. One private basecamp.', 'Whether your people are headed to Coachella Weekend One, Coachella Weekend Two, or Stagecoach, begin with your dates and group priorities. We will reply with current availability and the right next step.')}
         <div class="festival-weekends__grid">
@@ -523,6 +524,7 @@ function visionPage() {
         <div class="vision-timeline"><article class="reveal"><span>Available now</span><h3>Six-person sauna</h3><p>The sauna is installed on the estate today, alongside the pool, spa, outdoor living, lawns, games, and a growing art collection.</p></article><article class="reveal"><span>Wellness plans</span><h3>Courtyard expansion</h3><p>A cold plunge, outdoor shower, hammocks, swings, planted courtyard, and related wellness infrastructure are still under development and are not yet guest amenities.</p></article><article class="reveal"><span>Planned 2027</span><h3>The Barn</h3><p>A reimagining of the existing approximately 2,500-square-foot structure, with an early plan that may include added bedrooms, bathrooms, flexible gathering space, fitness, and play.</p></article></div>
       </section>
       <section class="underway-section" id="sauna-now"><div class="underway-section__copy reveal"><p class="concept-badge">Available now</p><p class="eyebrow eyebrow--light">The wellness reset</p><h2>Heat. Stillness.<br />Desert air.</h2><p>The real sauna brings a quieter counterpoint to pool days, outdoor games, and long evenings with the group. Step out, sit back, and look across the palms and grounds.</p><p class="fine-print fine-print--light">Current photography of the installed six-person sauna and its immediate outdoor view at Sunset Club Ranch.</p></div><div class="underway-section__media reveal"><figure>${picture(installedSauna, 'Installed six-person sauna at Sunset Club Ranch')}<figcaption>Six-person sauna · current photograph</figcaption></figure><figure>${picture(saunaExitView, 'View across the Sunset Club Ranch grounds from the sauna exit')}<figcaption>Sauna exit view · current photograph</figcaption></figure></div></section>
+      <section class="future-medspa-direction"><div class="future-medspa-direction__copy reveal"><p class="concept-badge concept-badge--light">Design direction · target 2027</p><p class="eyebrow eyebrow--light">The Med Spa courtyard</p><h2>The sauna, with<br /><em>its future setting.</em></h2><p>The six-person sauna is already installed. This is the future courtyard direction around it: a cold plunge, outdoor shower, hammocks, shaded recovery space, planted desert garden, and room to linger after the heat.</p><p class="fine-print fine-print--light">Concept visualization for future planning only. The cold plunge, hammocks, outdoor shower, shade structure, landscaping, and recovery furnishings shown are not current guest amenities and may change before completion.</p></div><figure class="future-medspa-direction__image reveal">${picture('/media/vision-2027/med-spa-courtyard-direction.webp', 'Concept visualization of a future Sunset Club Ranch Med Spa courtyard with the installed sauna, cold plunge, hammocks, shower, and shaded recovery space')}<figcaption>Med Spa courtyard · future design direction</figcaption></figure></section>
       <section class="concept-film">
         <div class="concept-film__copy reveal"><p class="concept-badge">Future design study · target 2027</p><p class="eyebrow eyebrow--light">The wellness courtyard</p><h2>What comes<br />next.</h2><p>A planted outdoor retreat, including the proposed cold plunge and related outdoor wellness features, is being explored as the estate’s next counterpoint.</p></div>
         <div class="concept-film__media reveal"><video controls playsinline preload="metadata" poster="/media/vision-2027/wellness-courtyard.webp"><source src="/media/video/wellness-concept-2027.mp4" type="video/mp4" /></video><p>Conceptual visualization only. The cold plunge, outdoor shower, hammocks, swings, courtyard, and related infrastructure shown are future plans—not current guest amenities.</p></div>
@@ -561,7 +563,7 @@ function mascotLayer(pageName) {
     corporate: [['lulu', 'Lulu', 'Retreat host', 'For clear thinking, bright ideas, and the best kind of team reset.', 'lulu-business-suit']],
     festival: [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and every poolside reset.', 'lulu-festival'], ['scout', 'Scout', 'Festival host', 'For the after-hours chapter of festival weekend.', 'scout-festival']],
     'after-dark': [['lulu', 'Lulu', 'Festival host', 'For the glow before the gates and the best return after dark.', 'lulu-festival']],
-    vision: [['lulu', 'Lulu', 'Recovery host', 'For the slower exhale, the sauna glow, and a truly unhurried reset.', 'lulu-spa-recovery']],
+    vision: [['lulu', 'Lulu', 'Recovery host', 'For the slower exhale, the sauna glow, and a truly unhurried reset.', 'lulu-spa-recovery'], ['scout', 'Scout', 'Wellness host', 'For the calm-down ritual, the warm wrap, and the recovery chapter of the stay.', 'scout-spa-recovery']],
   }
   const hosts = hostsByPage[pageName] || hostsByPage.home
   return `<aside class="mascot-layer" aria-label="Sunset Club Ranch hosts">
@@ -734,6 +736,169 @@ function initHomeWaterMotion() {
 }
 
 initHomeWaterMotion()
+
+function initPageNaturalMotion() {
+  const canvas = document.querySelector('[data-natural-motion]')
+  const hero = canvas?.closest('.page-hero')
+  const image = hero?.querySelector('.page-hero__image')
+  const mode = canvas?.dataset.naturalMotion
+  if (!canvas || !hero || !image || reduceMotion) return
+
+  const configurations = {
+    'pool-water': {
+      regions: [
+        [[1275, 720], [1560, 684], [1850, 700], [2100, 755], [2315, 820], [2295, 1010], [2100, 1126], [1810, 1096], [1580, 1000], [1390, 892], [1270, 798]],
+        [[2040, 776], [2315, 802], [2340, 884], [2220, 940], [2075, 884], [1988, 820]],
+      ],
+      colorTest: (red, green, blue) => blue > 105 && green > 92 && blue > red * 1.07 && green > red * 1.03,
+      opacity: .78,
+      xOffset: (y, time, index) => Math.sin(y * .045 + time * 2.8 + index) * 3.85 + Math.sin(y * .105 - time * 4.4 + index * 2) * 1.65,
+      yOffset: (y, time) => Math.sin(y * .025 + time * 3.2) * 1.15,
+    },
+    'wedding-water': {
+      regions: [
+        [[1010, 472], [1620, 462], [2110, 484], [2399, 530], [2399, 758], [2210, 826], [1780, 842], [1350, 762], [1110, 672]],
+      ],
+      colorTest: (red, green, blue) => blue > 92 && green > 75 && blue > red * 1.13 && green > red * 1.03,
+      opacity: .7,
+      xOffset: (y, time) => Math.sin(y * .055 + time * 2.45) * 2.65 + Math.sin(y * .13 - time * 4) * 1.1,
+      yOffset: (y, time) => Math.sin(y * .03 + time * 3) * .72,
+    },
+    fire: {
+      regions: [
+        [[1385, 614], [2205, 614], [2205, 782], [1385, 782]],
+      ],
+      colorTest: (red, green, blue) => red > 150 && green > 60 && green < 225 && blue < 140 && red > green * 1.08,
+      opacity: .9,
+      xOffset: (y, time) => Math.sin(y * .19 + time * 8.8) * 2.1 + Math.sin(y * .067 - time * 5.2) * 1.15,
+      yOffset: (y, time) => -Math.abs(Math.sin(y * .13 + time * 7.4)) * 2.15,
+    },
+  }
+  const config = configurations[mode]
+  if (!config) return
+
+  const ctx = canvas.getContext('2d', { alpha: true })
+  let viewport = { width: 0, height: 0, dpr: 0 }
+  let motionMask = null
+  let active = true
+  let raf = 0
+  let lastFrame = 0
+
+  const sourceReady = () => image.complete && image.naturalWidth > 0
+  const mapPath = (points, scale, xOffset, yOffset) => {
+    const path = new Path2D()
+    points.forEach(([x, y], index) => {
+      const px = xOffset + x * scale
+      const py = yOffset + y * scale
+      if (index === 0) path.moveTo(px, py)
+      else path.lineTo(px, py)
+    })
+    path.closePath()
+    return path
+  }
+
+  function resize() {
+    const { width, height } = hero.getBoundingClientRect()
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
+    if (width === viewport.width && height === viewport.height && dpr === viewport.dpr) return
+    viewport = { width, height, dpr }
+    canvas.width = Math.max(1, Math.round(width * dpr))
+    canvas.height = Math.max(1, Math.round(height * dpr))
+    canvas.style.width = `${width}px`
+    canvas.style.height = `${height}px`
+    motionMask = null
+  }
+
+  function buildMask(scale, xOffset, yOffset) {
+    const mask = document.createElement('canvas')
+    mask.width = canvas.width
+    mask.height = canvas.height
+    const maskCtx = mask.getContext('2d', { willReadFrequently: true })
+    maskCtx.setTransform(viewport.dpr, 0, 0, viewport.dpr, 0, 0)
+    config.regions.forEach(region => {
+      maskCtx.save()
+      maskCtx.clip(mapPath(region, scale, xOffset, yOffset))
+      maskCtx.drawImage(image, xOffset, yOffset, image.naturalWidth * scale, image.naturalHeight * scale)
+      maskCtx.restore()
+    })
+    try {
+      const pixels = maskCtx.getImageData(0, 0, mask.width, mask.height)
+      for (let index = 0; index < pixels.data.length; index += 4) {
+        const red = pixels.data[index]
+        const green = pixels.data[index + 1]
+        const blue = pixels.data[index + 2]
+        pixels.data[index + 3] = pixels.data[index + 3] > 0 && config.colorTest(red, green, blue) ? 255 : 0
+      }
+      maskCtx.putImageData(pixels, 0, 0)
+    } catch {
+      // Retain the geographically limited mask if browser canvas reads are unavailable.
+    }
+    motionMask = mask
+  }
+
+  function draw(timeMs) {
+    if (!active || !sourceReady()) return
+    resize()
+    const { width, height, dpr } = viewport
+    const heroRect = hero.getBoundingClientRect()
+    const imageRect = image.getBoundingClientRect()
+    const sourceWidth = image.naturalWidth
+    const sourceHeight = image.naturalHeight
+    const scale = Math.max(imageRect.width / sourceWidth, imageRect.height / sourceHeight)
+    const drawWidth = sourceWidth * scale
+    const drawHeight = sourceHeight * scale
+    const xOffset = imageRect.left - heroRect.left + (imageRect.width - drawWidth) / 2
+    const yOffset = imageRect.top - heroRect.top + (imageRect.height - drawHeight) / 2
+    const time = timeMs * .001
+    if (!motionMask || motionMask.width !== canvas.width || motionMask.height !== canvas.height) buildMask(scale, xOffset, yOffset)
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+    ctx.clearRect(0, 0, width, height)
+    config.regions.forEach((region, regionIndex) => {
+      ctx.save()
+      ctx.clip(mapPath(region, scale, xOffset, yOffset))
+      ctx.globalAlpha = config.opacity
+      const firstX = Math.max(0, Math.floor((Math.min(...region.map(point => point[0])) - 18) / 7) * 7)
+      const lastX = Math.min(sourceWidth, Math.ceil((Math.max(...region.map(point => point[0])) + 18) / 7) * 7)
+      const firstY = Math.max(0, Math.floor((Math.min(...region.map(point => point[1])) - 24) / 7) * 7)
+      const lastY = Math.min(sourceHeight, Math.ceil((Math.max(...region.map(point => point[1])) + 24) / 7) * 7)
+      for (let sourceY = firstY; sourceY < lastY; sourceY += 7) {
+        const xMotion = config.xOffset(sourceY, time, regionIndex) * scale
+        const yMotion = config.yOffset(sourceY, time, regionIndex) * scale
+        ctx.drawImage(image, firstX, sourceY, lastX - firstX, 8, xOffset + firstX * scale + xMotion, yOffset + sourceY * scale + yMotion, (lastX - firstX) * scale, 8 * scale + 1)
+      }
+      ctx.restore()
+    })
+    ctx.save()
+    ctx.globalCompositeOperation = 'destination-in'
+    ctx.setTransform(1, 0, 0, 1, 0, 0)
+    ctx.drawImage(motionMask, 0, 0)
+    ctx.restore()
+  }
+
+  function tick(time) {
+    if (active && time - lastFrame > 32) {
+      lastFrame = time
+      draw(time)
+    }
+    raf = window.requestAnimationFrame(tick)
+  }
+
+  const visibility = new IntersectionObserver(entries => {
+    active = entries.some(entry => entry.isIntersecting)
+  }, { threshold: .02 })
+  visibility.observe(hero)
+  window.addEventListener('resize', resize, { passive: true })
+  image.addEventListener('load', resize, { once: true })
+  resize()
+  raf = window.requestAnimationFrame(tick)
+  window.addEventListener('pagehide', () => {
+    visibility.disconnect()
+    window.cancelAnimationFrame(raf)
+  }, { once: true })
+}
+
+initPageNaturalMotion()
 
 if (homeWelcome) {
   const images = [...homeWelcome.querySelectorAll('img')]
