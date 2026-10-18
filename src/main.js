@@ -206,8 +206,6 @@ function homePage() {
       <section class="home-hero">
         ${picture(airbnbPoolHero, 'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', 'home-hero__image', 'eager')}
         <div class="home-hero__veil"></div>
-        <div class="home-water-cinemagraph" aria-hidden="true"><span class="home-water-cinemagraph__surface home-water-cinemagraph__surface--pool"></span><span class="home-water-cinemagraph__surface home-water-cinemagraph__surface--spa"></span></div>
-        <div class="home-pool-shimmer page-impact" aria-hidden="true"><span></span><i></i></div>
         <div class="home-hero__content reveal is-visible">
           ${logo(true)}
           <p class="home-hero__kicker">A private five-acre estate with a Tulum-meets-ranch spirit</p>
