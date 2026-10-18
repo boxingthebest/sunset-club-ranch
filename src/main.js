@@ -21,8 +21,7 @@ const airbnbArrivalAerial = `${airbnbGallery}/arrival-aerial-night.jpg`
 const airbnbMiniGolfDusk = `${airbnbGallery}/mini-golf-at-dusk.jpg`
 const airbnbCourts = `${airbnbGallery}/recreation-courts.jpg`
 const airbnbCourtsNight = `${airbnbGallery}/recreation-courts-night.png`
-const airbnbLivingRoom = `${airbnbGallery}/living-room.jpeg`
-const airbnbLivingRoomFireplace = `${airbnbGallery}/living-room-fireplace.jpg`
+const airbnbFireplaceWall = `${airbnbGallery}/fireplace-wall.jpg`
 const airbnbDiningRoom = `${airbnbGallery}/dining-room.jpeg`
 const airbnbBedroom = `${airbnbGallery}/bedroom-queen.jpeg`
 const weddingHeroConcept = '/media/event-concepts/wedding-hero-blue-hour.webp'
@@ -283,7 +282,7 @@ function homePage() {
         ${editorialHeader('Choose your reason to gather', 'One estate. Several ways in.')}
         <div class="pathway-grid">
           ${[
-            ['Stay together', 'A private compound for group escapes, family time, and long weekends.', '/stay.html', airbnbLivingRoomFireplace],
+            ['Stay together', 'A private compound for group escapes, family time, and long weekends.', '/stay.html', airbnbFireplaceWall],
             ['Celebrate here', 'Weddings, family milestones, and gatherings that last beyond one night.', '/weddings.html', airbnbArrivalAerial],
             ['Festival weekends', 'Coachella, Stagecoach, and a more considered way to do the desert.', '/festival-weekends.html', airbnbMediaWallNight],
           ].map(([title, copy, href, image], i) => `<a class="pathway-card reveal" href="${href}" style="--delay:${i * 80}ms">${picture(image, '')}<span class="pathway-card__veil"></span><span class="pathway-card__content"><small>${String(i + 1).padStart(2, '0')}</small><strong>${title}</strong><em>${copy}</em><b>Explore →</b></span></a>`).join('')}
@@ -302,12 +301,12 @@ function homePage() {
 function stayPage() {
   return `
     <main id="main">
-      ${pageHero({image: airbnbLivingRoomFireplace, alt:'Sunset Club Ranch living room with fireplace', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'Three private homes, newly finished interiors, and five acres that give the whole group room to settle into its own rhythm.', cta:'Request dates', secondary:'See the homes', variant:'interior'})}
+      ${pageHero({image: airbnbFireplaceWall, alt:'Sunset Club Ranch fireplace and media wall in the main living room', eyebrow:'The private estate', title:'Come inside.<br /><em>Stay a while.</em>', copy:'A fireplace-lit social room, three private homes, and five acres that give the whole group room to settle into its own rhythm.', cta:'Request dates', secondary:'See the homes', variant:'interior'})}
       <section class="section-pad" id="story">
         ${editorialHeader('The homes', 'Together, without being on top of one another.', 'Three distinct homes share one relaxed design language: warm wood, clean white walls, collected art, shaded thresholds, and an easy connection to the grounds.')}
         <div class="home-cards">
           ${[
-            ['01', 'The social heart', 'Open living, a fireplace, shared meals, and an easy connection to the outdoors.', airbnbLivingRoomFireplace],
+            ['01', 'The social heart', 'A fireplace-lit room for movie nights, shared meals, and an easy connection to the outdoors.', airbnbFireplaceWall],
             ['02', 'Around the table', 'A bright kitchen and dining space with new caramel leather chairs makes it easy to bring everyone together.', currentKitchen],
             ['03', 'A place to retreat', 'Private rooms across three homes give the group space to settle in at the end of the day.', airbnbBedroom],
           ].map(([n, title, copy, image, label]) => `<article class="home-card reveal"><figure>${picture(image, label ? 'Living room with proposed sofa styling; current floors, rug, table, and artwork' : title)}${label ? `<figcaption>${label}</figcaption>` : ''}</figure><div><span>${n}</span><h3>${title}</h3><p>${copy}</p></div></article>`).join('')}
@@ -367,7 +366,7 @@ function stayPage() {
             [saunaExitView, 'View across the Sunset Club Ranch grounds from the sauna exit'],
             [airbnbArrivalAerial, 'Front entry and grounds at dusk'],
             [airbnbMediaWallNight, 'Outdoor media wall at dusk'],
-            [airbnbLivingRoomFireplace, 'Living room and fireplace'],
+            [airbnbFireplaceWall, 'Fireplace and media wall'],
             [airbnbBedroom, 'Bedroom'],
           ].map(([src, alt]) => `<button class="gallery-item reveal" type="button" data-lightbox="${src}" data-alt="${alt}" aria-label="Open ${alt.toLowerCase()}">${picture(src, alt)}</button>`).join('')}
         </div>
@@ -477,7 +476,7 @@ function festivalPage() {
 function afterDarkPage() {
   return `
     <main id="main" class="night-page">
-      <canvas class="after-dark-fireworks" data-after-dark-fireworks aria-hidden="true"></canvas>
+      <div class="after-dark-fireworks" data-after-dark-fireworks aria-hidden="true"><video muted playsinline preload="auto" data-after-dark-fireworks-video><source src="/media/video/after-dark-fireworks-display.mp4" type="video/mp4" /></video></div>
       ${pageHero({image: airbnbMediaWallNight, alt:'Outdoor media wall glowing at dusk at Sunset Club Ranch', eyebrow:'A custom festival-week experience', title:'After Dark<br /><em>made for your group.</em>', copy:'A private desert weekend shaped around your group: pool days, the 158-inch outdoor screen, recovery time, and the kind of return from the grounds that feels like part of the plan.', cta:'Build your weekend', secondary:'See the experience', badge:'Coachella · Stagecoach · tailored by inquiry', variant:'night'})}
       <section class="section-pad night-intro" id="story" data-firework-scene="arrival">${editorialHeader('The idea', 'When the festival comes home.', 'After Dark is a tailored way to do the desert: a private estate, an unhurried return after the grounds, and a team ready to discuss what would make the weekend exceptional for your group.')}
         <div class="pillars">
@@ -652,168 +651,45 @@ if (reduceMotion) {
 }
 
 function initAfterDarkFireworks() {
-  const canvas = document.querySelector('[data-after-dark-fireworks]')
-  if (!canvas || reduceMotion) return
+  const layer = document.querySelector('[data-after-dark-fireworks]')
+  const video = document.querySelector('[data-after-dark-fireworks-video]')
+  if (!layer || !video || reduceMotion) return
 
-  const context = canvas.getContext('2d')
-  if (!context) return
-  const colorSets = [
-    ['#f7dca1', '#e6b657', '#f1a38e', '#fff7df'],
-    ['#fff1bf', '#e6b657', '#d87062', '#fffdf3'],
-    ['#f6dfad', '#f19b8d', '#d7bd7f', '#ffffff'],
-  ]
-  const particles = []
-  let pixelRatio = Math.min(window.devicePixelRatio || 1, 2)
-  let width = 0
-  let height = 0
-  let animationFrame
-
-  function resize() {
-    pixelRatio = Math.min(window.devicePixelRatio || 1, 2)
-    width = window.innerWidth
-    height = window.innerHeight
-    canvas.width = Math.round(width * pixelRatio)
-    canvas.height = Math.round(height * pixelRatio)
-    canvas.style.width = `${width}px`
-    canvas.style.height = `${height}px`
-    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0)
-  }
-
-  function burst(x, y, colorSet, count = 54, scale = 1) {
-    const palette = colorSet || colorSets[Math.floor(Math.random() * colorSets.length)]
-    const burstRadius = Math.min(width, height) * (.16 + Math.random() * .1) * scale
-    particles.push({ x, y, alpha: .78, life: 0, ttl: .36, flash: true, color: palette[0] })
-    for (let index = 0; index < count; index += 1) {
-      const angle = (Math.PI * 2 * index / count) + (Math.random() - .5) * .12
-      const speed = burstRadius * (.84 + Math.random() * .42)
-      particles.push({
-        x, y,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed,
-        gravity: 115 + Math.random() * 70,
-        drag: .91 + Math.random() * .035,
-        size: 1.4 + Math.random() * 2.8,
-        color: palette[Math.floor(Math.random() * palette.length)],
-        alpha: .94,
-        fade: .42 + Math.random() * .34,
-        life: 0,
-        ttl: 1.3 + Math.random() * .85,
-        sparkle: Math.random() > .58,
-      })
-    }
-  }
-
-  function launch(x, y, targetX, targetY, colorSet) {
-    const duration = .78 + Math.random() * .22
-    particles.push({
-      x, y,
-      vx: (targetX - x) / duration,
-      vy: (targetY - y) / duration - 210,
-      gravity: 330,
-      drag: 1,
-      size: 2.2,
-      color: '#fff3ca',
-      alpha: 1,
-      fade: 0,
-      life: 0,
-      ttl: duration,
-      rocket: true,
-      targetX,
-      targetY,
-      colorSet,
+  let isPlaying = false
+  function playDisplay() {
+    if (isPlaying) return
+    isPlaying = true
+    layer.classList.add('is-playing')
+    video.currentTime = 0
+    const playback = video.play()
+    if (playback) playback.catch(() => {
+      isPlaying = false
+      layer.classList.remove('is-playing')
     })
   }
 
-  function playScene(name) {
-    if (name === 'hero') {
-      launch(width * .66, height * 1.06, width * .71, height * .17, colorSets[0])
-      window.setTimeout(() => launch(width * .87, height * 1.06, width * .84, height * .29, colorSets[1]), 360)
-      return
-    }
-    if (name === 'arrival') {
-      launch(width * .17, height * 1.06, width * .19, height * .22, colorSets[2])
-      window.setTimeout(() => launch(width * .47, height * 1.06, width * .55, height * .15, colorSets[0]), 440)
-      return
-    }
-    launch(width * .84, height * 1.06, width * .78, height * .19, colorSets[1])
-    window.setTimeout(() => launch(width * .57, height * 1.06, width * .63, height * .31, colorSets[2]), 390)
+  video.addEventListener('ended', () => {
+    isPlaying = false
+    layer.classList.remove('is-playing')
+  })
+  video.addEventListener('error', () => {
+    isPlaying = false
+    layer.classList.remove('is-playing')
+  })
+  if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+    window.setTimeout(playDisplay, 380)
+  } else {
+    video.addEventListener('canplay', () => window.setTimeout(playDisplay, 380), { once: true })
   }
-
-  let previousTime = performance.now()
-  function draw(now) {
-    const delta = Math.min((now - previousTime) / 1000, .034)
-    previousTime = now
-    context.clearRect(0, 0, width, height)
-    context.globalCompositeOperation = 'lighter'
-    for (let index = particles.length - 1; index >= 0; index -= 1) {
-      const particle = particles[index]
-      particle.life += delta
-      if (particle.flash) {
-        const progress = particle.life / particle.ttl
-        const radius = Math.min(width, height) * (.02 + progress * .12)
-        const glow = context.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, radius)
-        glow.addColorStop(0, `rgba(255, 250, 223, ${Math.max(0, .7 - progress * .9)})`)
-        glow.addColorStop(.22, `rgba(244, 192, 105, ${Math.max(0, .34 - progress * .42)})`)
-        glow.addColorStop(1, 'rgba(244, 192, 105, 0)')
-        context.fillStyle = glow
-        context.globalAlpha = 1
-        context.beginPath()
-        context.arc(particle.x, particle.y, radius, 0, Math.PI * 2)
-        context.fill()
-        if (particle.life >= particle.ttl) particles.splice(index, 1)
-        continue
-      }
-      if (particle.rocket) {
-        const progress = Math.min(particle.life / particle.ttl, 1)
-        particle.x += particle.vx * delta
-        particle.y += particle.vy * delta
-        particle.vy += particle.gravity * delta
-        context.beginPath()
-        context.strokeStyle = `rgba(255, 232, 173, ${Math.max(.2, 1 - progress)})`
-        context.lineWidth = 1.6
-        context.moveTo(particle.x, particle.y + 20)
-        context.lineTo(particle.x, particle.y)
-        context.stroke()
-        if (particle.life >= particle.ttl) {
-          burst(particle.targetX, particle.targetY, particle.colorSet, 82, 1.08)
-          particles.splice(index, 1)
-        }
-        continue
-      }
-      particle.vx *= particle.drag
-      particle.vy = particle.vy * particle.drag + particle.gravity * delta
-      particle.x += particle.vx * delta
-      particle.y += particle.vy * delta
-      particle.alpha -= particle.fade * delta
-      const alpha = Math.max(0, particle.alpha)
-      context.fillStyle = particle.color
-      context.globalAlpha = alpha
-      context.beginPath()
-      context.arc(particle.x, particle.y, particle.sparkle ? particle.size * (1.2 + Math.sin(now / 70 + index) * .45) : particle.size, 0, Math.PI * 2)
-      context.fill()
-      if (particle.life > particle.ttl || particle.alpha <= 0) particles.splice(index, 1)
-    }
-    context.globalAlpha = 1
-    context.globalCompositeOperation = 'source-over'
-    animationFrame = window.requestAnimationFrame(draw)
-  }
-
-  resize()
-  animationFrame = window.requestAnimationFrame(draw)
-  window.addEventListener('resize', resize, { passive: true })
-  window.setTimeout(() => playScene('hero'), 750)
-  window.setTimeout(() => playScene('hero'), 2800)
 
   const sceneObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting || entry.target.dataset.fireworkPlayed) return
       entry.target.dataset.fireworkPlayed = 'true'
-      window.setTimeout(() => playScene(entry.target.dataset.fireworkScene), 180)
+      playDisplay()
     })
   }, { threshold: .38 })
   document.querySelectorAll('[data-firework-scene]').forEach(scene => sceneObserver.observe(scene))
-
-  window.addEventListener('pagehide', () => window.cancelAnimationFrame(animationFrame), { once: true })
 }
 
 initAfterDarkFireworks()
