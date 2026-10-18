@@ -15,7 +15,6 @@ fi
 convert incoming-media/4k-masters/hardwood-kitchen.png -strip -quality 88 public/media/estate/hardwood-kitchen.webp
 convert incoming-media/4k-masters/hardwood-fireplace-definitive.png -strip -quality 88 public/media/estate/hardwood-fireplace.webp
 convert incoming-media/4k-masters/lawn-current.png -strip -quality 88 public/media/estate/lawn-current.webp
-convert incoming-media/4k-masters/poolside-white-stucco.png -strip -quality 88 public/media/estate/poolside-white-stucco.webp
 convert incoming-media/4k-masters/resort-pool-overview-v2.png -strip -quality 88 public/media/estate/resort-pool-overview.webp
 convert incoming-media/4k-masters/evening-pool-spa.png -strip -quality 88 public/media/estate/evening-pool-spa.webp
 convert incoming-media/4k-masters/evening-pool-close.png -strip -quality 88 public/media/estate/evening-pool-close.webp
@@ -38,7 +37,6 @@ convert incoming-media/4k-masters/sofa-gallery-floor-safe.png -strip -quality 87
 
 # AI-assisted event styling concepts grounded in authentic property photographs.
 convert incoming-media/event-concepts/lawn-wedding-concept.png -strip -resize '1800x1800>' -quality 85 public/media/event-concepts/lawn-wedding.webp
-convert incoming-media/event-concepts/stucco-cocktails-concept.png -strip -resize '1800x1800>' -quality 85 public/media/event-concepts/stucco-cocktails.webp
 convert incoming-media/event-concepts/evening-pool-concept.png -strip -resize '1800x1800>' -quality 85 public/media/event-concepts/evening-pool.webp
 
 # Future vision: these assets are always paired with visible concept disclosures in the UI.
