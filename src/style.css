@@ -122,6 +122,12 @@ button { color: inherit; }
 .page-hero--festival .page-hero__veil { background: linear-gradient(90deg, rgba(22,17,9,.88) 0%, rgba(22,17,9,.52) 46%, rgba(22,17,9,.1) 82%), linear-gradient(0deg, rgba(22,17,9,.78), transparent 50%); }
 .page-hero--festival .page-hero__content { justify-content: center; }
 .page-hero--festival h1 { max-width: 880px; font-size: clamp(58px, 8vw, 120px); }
+.home-water-cinemagraph { position: absolute; z-index: 1; inset: 0; overflow: hidden; pointer-events: none; mix-blend-mode: screen; }
+.home-water-cinemagraph__surface { position: absolute; display: block; overflow: hidden; opacity: .24; filter: blur(.35px); transform: translateZ(0); will-change: background-position, transform; }
+.home-water-cinemagraph__surface::before, .home-water-cinemagraph__surface::after { content: ''; position: absolute; inset: -18%; display: block; background: repeating-radial-gradient(ellipse at 50% 105%, transparent 0 14px, rgba(221,249,255,.2) 15px 16px, transparent 17px 32px); transform: skewX(-13deg); animation: pool-water-ripples 5.8s linear infinite; }
+.home-water-cinemagraph__surface::after { opacity: .58; background: repeating-linear-gradient(171deg, transparent 0 23px, rgba(255,255,226,.16) 24px 25px, transparent 26px 48px); animation: pool-water-glints 4.6s linear infinite; }
+.home-water-cinemagraph__surface--pool { top: 45%; right: 0; width: 48%; height: 26%; clip-path: polygon(22% 18%, 100% 25%, 100% 58%, 78% 80%, 58% 70%, 45% 58%, 28% 48%, 8% 32%); }
+.home-water-cinemagraph__surface--spa { top: 49%; right: 1%; width: 21%; height: 11%; clip-path: polygon(6% 22%, 100% 3%, 100% 76%, 77% 96%, 32% 79%, 0 46%); opacity: .3; }
 .page-impact { position: absolute; z-index: 1; inset: 0; overflow: hidden; pointer-events: none; mix-blend-mode: screen; }
 .home-pool-shimmer { opacity: 0; animation: page-impact-fade 6.2s ease-out .35s both; }
 .home-pool-shimmer::before { content: ''; position: absolute; width: min(64vw, 930px); aspect-ratio: 1; top: -34%; right: -14%; border-radius: 50%; background: radial-gradient(circle, rgba(255,249,212,.8) 0%, rgba(255,210,132,.44) 9%, rgba(242,155,141,.18) 34%, transparent 69%); transform: scale(.28); animation: home-shimmer-bloom 5.2s cubic-bezier(.16,1,.3,1) .35s both; }
@@ -156,6 +162,8 @@ button { color: inherit; }
 @keyframes page-impact-fade { 0%, 8% { opacity: 0; } 20%, 52% { opacity: 1; } 74% { opacity: .32; } 100% { opacity: 0; } }
 @keyframes home-shimmer-bloom { 0% { transform: scale(.2); } 42% { transform: scale(1); } 100% { transform: scale(1.36); } }
 @keyframes home-water-shimmer { 0% { opacity: 0; transform: skewX(-13deg) translateY(60px); } 28%,58% { opacity: .76; } 100% { opacity: 0; transform: skewX(-13deg) translateY(-22px); } }
+@keyframes pool-water-ripples { from { background-position: 0 0; transform: skewX(-13deg) translate3d(0,0,0); } to { background-position: 0 -152px; transform: skewX(-13deg) translate3d(22px,-14px,0); } }
+@keyframes pool-water-glints { from { background-position: 0 0; transform: skewX(-13deg) translate3d(-12px,18px,0); } to { background-position: 220px -92px; transform: skewX(-13deg) translate3d(18px,-12px,0); } }
 @keyframes ranch-gold-trail { 0% { opacity: 0; transform: rotate(-7deg) scale(.42); } 25% { opacity: .88; } 58% { opacity: .42; transform: rotate(-7deg) scale(1.02); } 100% { opacity: 0; transform: rotate(-7deg) scale(1.38); } }
 @keyframes sparkle-fade { 0%, 15% { opacity: 0; } 34%, 63% { opacity: .95; } 100% { opacity: 0; } }
 @keyframes hearth-bloom { 0% { transform: scale(.21); } 43% { transform: scale(1); } 100% { transform: scale(1.42); } }
@@ -764,7 +772,7 @@ body[data-page="vision"] .mascot-dock--lulu { left: clamp(-8px, .3vw, 10px); bot
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .page-impact { display: none; }
+  .page-impact, .home-water-cinemagraph { display: none; }
   .reveal { opacity: 1; transform: none; }
   .home-welcome__mascot { opacity: 1; }
   .home-welcome__mascot--lulu { transform: translateX(0) rotate(-2deg); }
