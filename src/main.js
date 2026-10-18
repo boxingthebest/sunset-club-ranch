@@ -24,6 +24,8 @@ const airbnbCourtsNight = `${airbnbGallery}/recreation-courts-night.png`
 const airbnbFireplaceWall = `${airbnbGallery}/fireplace-wall.jpg`
 const airbnbDiningRoom = `${airbnbGallery}/dining-room.jpeg`
 const airbnbBedroom = `${airbnbGallery}/bedroom-queen.jpeg`
+const airbnbOutdoorKitchen = `${airbnbGallery}/outdoor-kitchen-pizza-oven.jpeg`
+const airbnbPingPong = `${airbnbGallery}/ping-pong-poolside.jpeg`
 const weddingHeroConcept = '/media/event-concepts/wedding-hero-blue-hour.webp'
 const currentUpgradesMedia = '/media/current-upgrades'
 const currentKitchen = `${currentUpgradesMedia}/kitchen-new-chairs.webp`
@@ -257,12 +259,13 @@ function homePage() {
       </section>
 
       <section class="story-grid section-pad">
-        ${editorialHeader('The rhythm of a stay', 'A place with more than one mood.', 'Swim. Cook. Play. Retreat. The estate lets everyone move together—or choose a corner of their own.')}
+        ${editorialHeader('The rhythm of a stay', 'A place with more than one mood.', 'Swim. Cook. Play. Retreat. From open-air pizza nights to the courts and pool, the estate lets everyone move together—or choose a corner of their own.')}
         <div class="mosaic mosaic--estate reveal">
           <figure class="mosaic__wide">${picture(airbnbPoolDay, 'Resort pool with coral parasols at Sunset Club Ranch')}<figcaption>Pool days, done properly</figcaption></figure>
           <figure>${picture(currentKitchen, 'Sunset Club Ranch kitchen and gathering table with new caramel leather chairs')}<figcaption>A place at the table</figcaption></figure>
           <figure>${picture(airbnbCourts, 'Sand volleyball and pickleball courts at Sunset Club Ranch')}<figcaption>Room to play</figcaption></figure>
-          <figure class="mosaic__tall">${picture(airbnbMiniGolfDusk, 'Palm-lined mini-golf lawn at sunset at Sunset Club Ranch')}<figcaption>After the sun goes down</figcaption></figure>
+          <figure>${picture(airbnbMiniGolfDusk, 'Palm-lined mini-golf lawn at sunset at Sunset Club Ranch')}<figcaption>After the sun goes down</figcaption></figure>
+          <figure>${picture(airbnbOutdoorKitchen, 'Open-air outdoor kitchen with pizza oven and grills at Sunset Club Ranch')}<figcaption>Outdoor kitchen · grills + pizza oven</figcaption></figure>
         </div>
       </section>
 
@@ -351,6 +354,8 @@ function stayPage() {
           <figure>${picture(airbnbPoolHero,'Sunset Club Ranch pool deck with cabanas, coral parasols, and 158-inch outdoor media wall')}<figcaption>158-inch outdoor media wall · current Airbnb-gallery photograph</figcaption></figure>
           <figure>${picture(installedSauna,'Installed six-person sauna at Sunset Club Ranch')}<figcaption>Six-person sauna · available now</figcaption></figure>
           <figure>${picture(currentKitchen,'Sunset Club Ranch kitchen with new caramel leather dining chairs')}<figcaption>Kitchen gathering table · current photograph</figcaption></figure>
+          <figure>${picture(airbnbOutdoorKitchen,'Open-air outdoor kitchen with grills and pizza oven at Sunset Club Ranch')}<figcaption>Outdoor kitchen · grills + pizza oven</figcaption></figure>
+          <figure>${picture(airbnbPingPong,'Poolside ping-pong table at Sunset Club Ranch')}<figcaption>Poolside ping pong · current Airbnb-gallery photograph</figcaption></figure>
           <figure>${picture(airbnbArrivalAerial,'Sunset Club Ranch entry and five-acre grounds at dusk')}<figcaption>Arrival and grounds · current Airbnb-gallery photograph</figcaption></figure>
           <figure>${picture(airbnbPoolDay,'Sunset Club Ranch pool with coral parasols')}<figcaption>Pool day · current Airbnb-gallery photograph</figcaption></figure>
           <figure>${picture(airbnbCourtsNight,'Illuminated recreation courts at Sunset Club Ranch')}<figcaption>Recreation after dark · current Airbnb-gallery photograph</figcaption></figure>
@@ -364,6 +369,8 @@ function stayPage() {
             [airbnbPoolDay, 'Resort pool with coral parasols'],
             [airbnbCourts, 'Pickleball and sand volleyball courts'],
             [currentKitchen, 'Kitchen and dining space with new caramel leather chairs'],
+            [airbnbOutdoorKitchen, 'Outdoor kitchen with grills and pizza oven'],
+            [airbnbPingPong, 'Poolside ping-pong table'],
             [installedSauna, 'Installed six-person sauna'],
             [airbnbArrivalAerial, 'Front entry and grounds at dusk'],
             [airbnbMediaWallNight, 'Outdoor media wall at dusk'],
