@@ -223,3 +223,48 @@ html { scroll-behavior:smooth; background:var(--rk-night); }
 .rk-safety__small { max-width:660px; margin:19px 0 0; color:rgba(255,255,255,.56); font-size:10px; line-height:1.5; }
 @media (max-width:720px) { .rk-header-actions{gap:8px}.rk-safety-link{padding:6px 7px;font-size:8px}.rk-now{padding:54px 18px 58px;grid-template-columns:1fr;gap:28px}.rk-now__grid{grid-template-columns:1fr}.rk-now__grid a{min-height:106px;padding:15px 17px}.rk-now__grid strong{margin-top:9px;font-size:25px}.rk-now__grid small{max-width:250px;margin-top:5px}.rk-private-key{padding:23px 0;align-items:flex-start;flex-direction:column}.rk-plan-chips{margin:-12px 0 39px}.rk-collection{margin-top:58px}.rk-local-grid{grid-template-columns:1fr}.rk-local-card{min-height:0;grid-template-columns:35% 65%}.rk-local-card>img{min-height:270px}.rk-local-card__body{padding:18px 16px 15px}.rk-local-card h3{font-size:27px}.rk-local-card__actions{gap:8px}.rk-seasonal{margin-top:58px;padding:25px 19px;grid-template-columns:1fr;gap:22px}.rk-safety{padding:68px 18px}.rk-safety h2{font-size:57px}.rk-call-911{width:100%}.rk-safety__support{width:100%} }
 @media (max-width:390px) { .rk-local-card{grid-template-columns:1fr}.rk-local-card>img{height:155px;min-height:155px}.rk-local-card__body{min-height:0}.rk-local-card__actions{margin-top:16px}.rk-now__title h2{font-size:48px} }
+/* No sauna image is shown until it appears in the current Airbnb photo set. */
+.rk-sauna-card::before { display:none; }
+.rk-sauna-card__wash { position:absolute; inset:0; background:radial-gradient(circle at 86% 16%,rgba(228,184,93,.25),transparent 31%),linear-gradient(125deg,#173d39,#0a1c1b 72%); }
+
+/* Arrival-first landing screen: essential stay information precedes all visual storytelling. */
+.rk-arrival-hero { min-height:720px; position:relative; overflow:hidden; color:white; background:var(--rk-ink); }
+.rk-arrival-hero__image,.rk-arrival-hero__veil { position:absolute; inset:0; width:100%; height:100%; }
+.rk-arrival-hero__image { object-fit:cover; object-position:center; }
+.rk-arrival-hero__veil { background:linear-gradient(90deg,rgba(5,24,23,.95) 0%,rgba(8,30,29,.78) 56%,rgba(9,29,28,.25) 100%),linear-gradient(0deg,rgba(6,23,22,.72),transparent 60%); }
+.rk-arrival-hero__content { position:relative; z-index:2; max-width:1000px; padding:clamp(36px,6vw,74px) clamp(18px,7vw,106px) clamp(48px,7vw,76px); display:flex; flex-direction:column; align-items:flex-start; }
+.rk-arrival-hero__content>.rk-eyebrow { order:1; margin-top:30px; }
+.rk-arrival-hero h1 { order:2; margin:0; font:600 clamp(53px,8vw,90px)/.83 var(--rk-display); letter-spacing:-.045em; }
+.rk-arrival-hero h1 em { color:var(--rk-gold); font-weight:500; }
+.rk-arrival-hero__lede { order:3; max-width:500px; margin:19px 0 0; color:rgba(255,255,255,.8); font-size:15px; line-height:1.55; }
+.rk-arrival-essential { order:0; width:min(100%,870px); display:grid; grid-template-columns:1.22fr .78fr; grid-template-rows:1fr 1fr; overflow:hidden; background:rgba(7,24,23,.86); border:1px solid rgba(255,255,255,.23); box-shadow:0 22px 38px rgba(0,0,0,.17); backdrop-filter:blur(12px); }
+.rk-arrival-essential>article { grid-row:span 2; min-height:194px; padding:20px; display:grid; grid-template-columns:1fr 1fr 76px; gap:10px 14px; border-right:1px solid rgba(255,255,255,.18); }
+.rk-arrival-essential__label { grid-column:1 / -1; color:var(--rk-gold); font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+.rk-arrival-essential article>div { display:flex; flex-direction:column; align-items:flex-start; }
+.rk-arrival-essential article small { color:rgba(255,255,255,.58); font-size:8px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+.rk-arrival-essential article strong { margin-top:7px; font-size:16px; letter-spacing:-.02em; }
+.rk-arrival-essential .rk-copy { margin-top:12px; }
+.rk-arrival-essential>article>img { grid-row:2; grid-column:3; width:76px; height:76px; padding:3px; align-self:center; background:var(--rk-paper); }
+.rk-arrival-contact { display:grid; }
+.rk-arrival-contact a { min-height:0; padding:14px 17px; display:flex; flex-direction:column; justify-content:center; color:white; background:rgba(255,255,255,.05); transition:background .2s var(--rk-ease); }
+.rk-arrival-contact a+a { border-top:1px solid rgba(255,255,255,.18); }
+.rk-arrival-contact a:hover { background:rgba(255,255,255,.14); }
+.rk-arrival-contact small,.rk-arrival-emergency span { color:rgba(255,255,255,.64); font-size:8px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.rk-arrival-contact strong { margin-top:5px; font-size:12px; letter-spacing:-.01em; }
+.rk-arrival-emergency { padding:13px 17px; display:grid; grid-template-columns:1fr auto; gap:3px 13px; background:var(--rk-coral); color:#522f2e; transition:background .2s var(--rk-ease); }
+.rk-arrival-emergency:hover { background:#ffc2b5; }
+.rk-arrival-emergency span { color:#6f3c36; }
+.rk-arrival-emergency strong { font:600 27px/.9 var(--rk-display); letter-spacing:-.02em; }
+.rk-arrival-emergency b { grid-row:span 2; align-self:center; font-size:21px; font-weight:400; }
+.rk-arrival-access { order:4; max-width:600px; margin:16px 0 0; color:rgba(255,255,255,.73); font-size:11px; line-height:1.45; }
+.rk-arrival-explore { order:5; width:max-content; margin-top:23px; padding:11px 14px; display:flex; align-items:center; gap:9px; border-bottom:1px solid rgba(255,255,255,.38); color:white; font-size:9px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
+.rk-arrival-explore span { color:var(--rk-gold); }
+.rk-arrival-explore b { color:var(--rk-gold); font-size:15px; }
+.rk-arrival-hero__lulu { width:clamp(110px,17vw,210px); position:absolute; z-index:3; right:clamp(5px,4vw,60px); bottom:-8px; filter:drop-shadow(0 12px 18px rgba(0,0,0,.25)); }
+@media (max-width:720px) { .rk-arrival-hero { min-height:0; }.rk-arrival-hero__image { object-position:58% center; }.rk-arrival-hero__veil { background:linear-gradient(0deg,rgba(5,24,23,.95),rgba(8,30,29,.45) 85%),linear-gradient(90deg,rgba(5,24,23,.5),rgba(8,30,29,.1)); }.rk-arrival-hero__content { padding:19px 18px 44px; }.rk-arrival-essential { width:100%; grid-template-columns:1fr; grid-template-rows:auto; }.rk-arrival-essential>article { min-height:126px; padding:15px; grid-row:auto; grid-template-columns:1fr 1fr 62px; gap:6px 10px; border-right:0; border-bottom:1px solid rgba(255,255,255,.18); }.rk-arrival-essential>article>img { width:62px; height:62px; }.rk-arrival-essential article strong { margin-top:4px; font-size:14px; }.rk-arrival-essential .rk-copy { margin-top:7px; }.rk-arrival-contact { grid-template-columns:1fr 1fr; }.rk-arrival-contact a { min-height:62px; padding:12px; }.rk-arrival-contact a+a { border-top:0; border-left:1px solid rgba(255,255,255,.18); }.rk-arrival-contact strong { font-size:10px; }.rk-arrival-contact small { font-size:7px; letter-spacing:.075em; }.rk-arrival-emergency { min-height:60px; padding:10px 13px; }.rk-arrival-emergency strong { font-size:24px; }.rk-arrival-hero__content>.rk-eyebrow { margin-top:25px; }.rk-arrival-hero h1 { font-size:57px; }.rk-arrival-hero__lede { max-width:300px; margin-top:15px; font-size:13px; }.rk-arrival-access { max-width:310px; margin-top:14px; font-size:10px; }.rk-arrival-explore { margin-top:19px; }.rk-arrival-hero__lulu { width:100px; right:4px; bottom:-6px; } }
+@media (max-width:365px) { .rk-arrival-contact { grid-template-columns:1fr; }.rk-arrival-contact a+a { border-top:1px solid rgba(255,255,255,.18); border-left:0; }.rk-arrival-hero__lulu { display:none; } }
+
+/* Tight iPhone correction: copyable credentials are more useful than a squeezed join QR. */
+.rk-arrival-emergency strong { grid-column:1; grid-row:2; }
+.rk-arrival-emergency b { grid-column:2; grid-row:1 / span 2; }
+@media (max-width:720px) { .rk-arrival-essential>article { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }.rk-arrival-essential>article>img { display:none; }.rk-arrival-emergency strong { white-space:nowrap; } }
