@@ -21,6 +21,7 @@ export default defineConfig({
         festival: resolve(__dirname, 'festival-weekends.html'),
         'after-dark': resolve(__dirname, 'after-dark.html'),
         vision: resolve(__dirname, 'vision-2027.html'),
+        'guest-guide': resolve(__dirname, 'guest-guide.html'),
         '404': resolve(__dirname, '404.html'),
       },
     },
