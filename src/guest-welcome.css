@@ -28,6 +28,8 @@
   grid-column: 2;
   grid-row: 1;
   min-width: 0;
+  position: relative;
+  z-index: 3;
   display: grid;
   gap: 7px;
   text-align: center;
@@ -77,6 +79,7 @@
   width: 112px;
   grid-row: 1 / span 2;
   align-self: center;
+  z-index: 2;
   pointer-events: none;
 }
 
@@ -101,6 +104,7 @@
   grid-row: 2;
   justify-self: center;
   position: relative;
+  z-index: 3;
   min-height: 44px;
   max-width: 100%;
   padding: 10px 14px;
@@ -117,7 +121,7 @@
 .rk-guest-welcome__replay:focus-visible { outline: 2px solid var(--rk-gold, #e4b85d); outline-offset: 3px; }
 .rk-guest-welcome__replay:disabled { color: #c8c7b8; border-color: #778274; cursor: default; }
 
-/* Each burst is clipped inside its mascot cell, away from all copy and controls. */
+/* Firework-style confetti stays within the banner; all text and buttons sit above it. */
 .rk-guest-welcome__confetti {
   position: absolute;
   inset: 0;
@@ -129,23 +133,36 @@
 
 .rk-guest-welcome__particle {
   position: absolute;
-  left: var(--gw-start);
-  bottom: 20%;
+  left: var(--gw-origin-x);
+  top: var(--gw-origin-y);
   display: block;
-  width: 3px;
-  height: 6px;
+  width: var(--gw-size);
+  height: calc(var(--gw-size) * .65);
   border-radius: 1px;
   background: var(--gw-color);
+  box-shadow: 0 0 5px rgba(228,184,93,.25);
   opacity: 0;
   pointer-events: none;
-  animation: rk-guest-welcome-confetti 2780ms cubic-bezier(.2, .65, .35, 1) var(--gw-delay) 1 both;
+  animation: rk-guest-welcome-confetti 3600ms cubic-bezier(.15,.7,.3,1) var(--gw-delay) 1 both;
 }
 
 @keyframes rk-guest-welcome-confetti {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0deg); }
-  12% { opacity: .85; }
-  38% { opacity: .8; transform: translate3d(var(--gw-drift), var(--gw-apex), 0) rotate(var(--gw-turn)); }
-  100% { opacity: 0; transform: translate3d(var(--gw-drift), var(--gw-fall), 0) rotate(var(--gw-turn)); }
+  0% { opacity: 0; transform:translate3d(0,0,0) rotate(0deg) scale(.4); }
+  3% { opacity: 1; }
+  24% { opacity: .95; transform:translate3d(var(--gw-dx),var(--gw-dy),0) rotate(var(--gw-turn)) scale(1); }
+  65% { opacity: .8; }
+  100% { opacity: 0; transform:translate3d(calc(var(--gw-dx) * 1.2),var(--gw-fall),0) rotate(calc(var(--gw-turn) * 1.5)) scale(.7); }
+}
+
+.rk-guest-welcome__burst-ring {
+  position:absolute; left:var(--gw-origin-x); top:var(--gw-origin-y);
+  width:22px; height:22px; margin:-11px; border:2px solid var(--rk-gold,#e4b85d);
+  border-radius:50%; pointer-events:none; opacity:0;
+  animation:rk-guest-welcome-poof 750ms cubic-bezier(.15,.7,.3,1) 1 both;
+}
+@keyframes rk-guest-welcome-poof {
+  0% { opacity:.6; transform:scale(.2); }
+  100% { opacity:0; transform:scale(5); }
 }
 
 .rk-guest-welcome__sr-only {
@@ -186,4 +203,30 @@
 @media (prefers-reduced-motion: reduce) {
   .rk-guest-welcome__confetti { display: none; }
   .rk-guest-welcome__particle { animation: none; }
+}
+
+/* A short welcome performance: the mascots move, never the guest's information. */
+.rk-guest-welcome__image { transform-origin:50% 90%; }
+.rk-guest-welcome.is-celebrating .rk-guest-welcome__mascot--left .rk-guest-welcome__image {
+  animation: rk-lulu-birthday-jump 880ms cubic-bezier(.22,1,.36,1) 6 both;
+}
+.rk-guest-welcome.is-celebrating .rk-guest-welcome__mascot--right .rk-guest-welcome__image {
+  animation: rk-scout-birthday-jump 880ms cubic-bezier(.22,1,.36,1) 120ms 6 both;
+}
+@keyframes rk-lulu-birthday-jump {
+  0%,100% { transform:translate3d(0,0,0) rotate(0deg) scale(1); }
+  15% { transform:translate3d(0,2px,0) rotate(-3deg) scale(1.025,.975); }
+  42% { transform:translate3d(0,-15px,0) rotate(4deg) scale(.98,1.02); }
+  65% { transform:translate3d(0,-5px,0) rotate(-2deg) scale(1); }
+  80% { transform:translate3d(0,1px,0) rotate(0deg) scale(1.025,.975); }
+}
+@keyframes rk-scout-birthday-jump {
+  0%,100% { transform:translate3d(0,0,0) rotate(0deg) scale(1); }
+  15% { transform:translate3d(0,2px,0) rotate(3deg) scale(1.025,.975); }
+  42% { transform:translate3d(0,-16px,0) rotate(-4deg) scale(.98,1.02); }
+  65% { transform:translate3d(0,-5px,0) rotate(2deg) scale(1); }
+  80% { transform:translate3d(0,1px,0) rotate(0deg) scale(1.025,.975); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .rk-guest-welcome.is-celebrating .rk-guest-welcome__image { animation:none; transform:none; }
 }

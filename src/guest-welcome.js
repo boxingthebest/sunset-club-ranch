@@ -2,8 +2,8 @@ import './guest-welcome.css'
 
 const CONFIG_URL = '/guest-welcome.json'
 const CONFIG_TIMEOUT_MS = 2500
-const BURST_MS = 3000
-const PARTICLES_PER_SIDE = 22
+const BURST_MS = 4200
+const PARTICLES_PER_SIDE = 40
 const pendingMounts = new WeakMap()
 
 const DEFAULTS = Object.freeze({
@@ -125,37 +125,53 @@ function createBanner(config) {
     : null
   let autoplayConsumed = Boolean(motion?.matches)
   let cleanupTimer
+  let movementTimer
   let stopObserving = () => {}
   const lanes = []
   const images = []
 
   function clearBurst() {
     clearTimeout(cleanupTimer)
+    clearTimeout(movementTimer)
     cleanupTimer = undefined
+    region.classList.remove('is-celebrating')
     lanes.forEach(lane => lane.replaceChildren())
   }
 
   function celebrate() {
     if (motion?.matches || !region.isConnected) return false
     clearBurst()
+    // Restart the same short mascot performance when the guest taps replay.
+    void region.offsetWidth
+    region.classList.add('is-celebrating')
     for (const [side, lane] of lanes.entries()) {
       const fragment = document.createDocumentFragment()
+      const bannerBox = region.getBoundingClientRect()
+      const mascotBox = images[side].image.getBoundingClientRect()
+      lane.style.setProperty('--gw-origin-x', `${mascotBox.left - bannerBox.left + mascotBox.width * (side === 0 ? .75 : .25)}px`)
+      lane.style.setProperty('--gw-origin-y', `${mascotBox.top - bannerBox.top + mascotBox.height * .34}px`)
+      const ring = element('span', 'rk-guest-welcome__burst-ring')
+      fragment.append(ring)
       for (let index = 0; index < PARTICLES_PER_SIDE; index += 1) {
         const particle = element('i', 'rk-guest-welcome__particle')
-        const drift = (Math.random() - 0.5) * 58
-        particle.style.setProperty('--gw-start', side === 0 ? '32%' : '68%')
-        particle.style.setProperty('--gw-drift', `${drift.toFixed(1)}px`)
-        particle.style.setProperty('--gw-apex', `${(-35 - Math.random() * 52).toFixed(1)}px`)
-        particle.style.setProperty('--gw-fall', `${(25 + Math.random() * 30).toFixed(1)}px`)
-        particle.style.setProperty('--gw-turn', `${(Math.random() * 300 - 150).toFixed(1)}deg`)
-        particle.style.setProperty('--gw-delay', `${Math.floor(Math.random() * 180)}ms`)
+        const angle = Math.PI * 2 * index / PARTICLES_PER_SIDE + Math.random() * .25
+        const radius = 65 + Math.random() * 120
+        const dx = Math.cos(angle) * radius + (side === 0 ? 35 : -35)
+        const dy = Math.sin(angle) * radius - 55
+        particle.style.setProperty('--gw-dx', `${dx.toFixed(1)}px`)
+        particle.style.setProperty('--gw-dy', `${dy.toFixed(1)}px`)
+        particle.style.setProperty('--gw-fall', `${(dy + 110 + Math.random() * 70).toFixed(1)}px`)
+        particle.style.setProperty('--gw-turn', `${(Math.random() * 1080 - 540).toFixed(1)}deg`)
+        particle.style.setProperty('--gw-size', `${(4 + Math.random() * 6).toFixed(1)}px`)
+        particle.style.setProperty('--gw-delay', `${(index % 2 ? 160 : 0) + Math.floor(Math.random() * 65)}ms`)
         particle.style.setProperty('--gw-color', ['#e4b85d', '#f29b8d', '#fffaf2'][index % 3])
         fragment.append(particle)
       }
       lane.append(fragment)
     }
-    // 2780ms + <180ms delay is always below this three-second cleanup bound.
-    cleanupTimer = setTimeout(clearBurst, BURST_MS)
+    // Two close launch waves bloom immediately, then fall away before cleanup.
+    cleanupTimer = setTimeout(() => lanes.forEach(lane => lane.replaceChildren()), BURST_MS)
+    movementTimer = setTimeout(() => region.classList.remove('is-celebrating'), 5600)
     return true
   }
 
@@ -185,7 +201,8 @@ function createBanner(config) {
         image.hidden = true // Keep the reserved layout; never leave a broken image icon.
       }
     })
-    wrapper.append(image, lane)
+    wrapper.append(image)
+    region.append(lane)
     lanes.push(lane)
     images.push({ image, preferred })
     return wrapper
