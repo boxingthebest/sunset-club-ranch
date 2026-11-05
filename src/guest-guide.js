@@ -1,4 +1,5 @@
 import './guest-guide.css'
+import { mountGuestWelcome } from './guest-welcome.js'
 
 const WIFI_NETWORK = 'Los Palos Ranch'
 const WIFI_PASSWORD = 'Funinsun1!'
@@ -132,7 +133,9 @@ document.querySelectorAll('[data-share-url]').forEach(button => {
   })
 })
 
-const deepLinkTarget = window.location.hash && document.querySelector(window.location.hash)
+mountGuestWelcome().catch(() => { /* Keep essential guest help usable if the welcome cannot load. */ })
+
+const deepLinkTarget = /^#[a-z][a-z0-9-]*$/i.test(window.location.hash) && document.getElementById(window.location.hash.slice(1))
 if (deepLinkTarget) {
   window.requestAnimationFrame(() => deepLinkTarget.scrollIntoView({ block: 'start' }))
 }

@@ -268,3 +268,6 @@ html { scroll-behavior:smooth; background:var(--rk-night); }
 .rk-arrival-emergency strong { grid-column:1; grid-row:2; }
 .rk-arrival-emergency b { grid-column:2; grid-row:1 / span 2; }
 @media (max-width:720px) { .rk-arrival-essential>article { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }.rk-arrival-essential>article>img { display:none; }.rk-arrival-emergency strong { white-space:nowrap; } }
+
+/* Keep the Wi-Fi actions small even when shared button rules inherit the body font. */
+.ranch-key-body .rk-copy { font:700 9px/1.3 var(--rk-body); letter-spacing:.1em; }
