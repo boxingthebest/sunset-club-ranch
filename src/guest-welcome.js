@@ -11,7 +11,7 @@ const DEFAULTS = Object.freeze({
   wedding: { headline: 'To your happily ever after!', message: 'Love looks lovely in the desert.' },
   anniversary: { headline: 'Happy anniversary!', message: 'Here’s to your next beautiful chapter.' },
   retreat: { headline: 'Room to reconnect.', message: 'Slow down. Settle in. Find your desert rhythm.' },
-  stay: { headline: 'Your desert welcome.', message: 'Make yourself at home at Sunset Club Ranch.' },
+  stay: { headline: 'Welcome to Sunset Club Ranch', message: 'We’re excited to host you. Settle in—your desert escape starts here.' },
   festival: { headline: 'Your festival weekend starts here.', message: 'Welcome to your desert home base.' },
   corporate: { headline: 'Welcome to your ranch retreat.', message: 'Great people. A fresh perspective. Room to connect.' },
 })
@@ -23,7 +23,7 @@ const MASCOTS = Object.freeze({
   retreat: ['mascots/lulu-spa-recovery-3d.webp', 'mascots/scout-spa-recovery-3d.webp'],
   festival: ['mascots/lulu-festival-3d.webp', 'mascots/scout-festival-3d.webp'],
   corporate: ['mascots/lulu-business-suit-3d.webp', 'mascots/scout-3d.webp'],
-  stay: ['mascots/lulu-stay-lounge-3d.webp', 'mascots/scout-3d.webp'],
+  stay: ['mascots/lulu-3d.webp', 'mascots/scout-3d.webp'],
 })
 
 function compactText(value, limit) {
@@ -115,7 +115,7 @@ function createBanner(config) {
     element('p', 'rk-guest-welcome__signoff', config.signoff),
   )
 
-  const replay = element('button', 'rk-guest-welcome__replay', 'Celebrate again')
+  const replay = element('button', 'rk-guest-welcome__replay', config.occasion === 'stay' ? 'Replay welcome' : 'Celebrate again')
   replay.type = 'button'
   const motionNote = element('span', 'rk-guest-welcome__sr-only', 'Celebration animation is off while reduced motion is enabled.')
   motionNote.id = 'rk-guest-welcome-motion-note'

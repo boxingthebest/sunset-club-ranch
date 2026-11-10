@@ -230,3 +230,14 @@
 @media (prefers-reduced-motion:reduce) {
   .rk-guest-welcome.is-celebrating .rk-guest-welcome__image { animation:none; transform:none; }
 }
+
+/* General arrival copy stays fully visible instead of using celebration text clamps. */
+.rk-guest-welcome[data-occasion="stay"] .rk-guest-welcome__heading {
+  display: block;
+  overflow: visible;
+  line-height: 1.12;
+}
+.rk-guest-welcome[data-occasion="stay"] .rk-guest-welcome__message {
+  display: block;
+  overflow: visible;
+}
