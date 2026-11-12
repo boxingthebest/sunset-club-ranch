@@ -1,7 +1,7 @@
 import './estate-overview.css';
 
-const PREVIEW_IMAGE = '/media/estate-overview/sunset-club-ranch-aerial-overview.webp';
-const FULL_IMAGE = '/media/estate-overview/sunset-club-ranch-aerial-overview-full.jpg';
+const PREVIEW_IMAGE = '/media/estate-overview/sunset-club-ranch-aerial-overview-right-side-bunk.webp';
+const FULL_IMAGE = '/media/estate-overview/sunset-club-ranch-aerial-overview-right-side-bunk-full.jpg';
 const CAPTION = 'Illustrative estate overview—includes planned wellness and soccer upgrades.';
 const DISCLOSURE = 'Photo-based visualization, not a current drone photograph or a surveyed map. Confirm current amenity availability with the host.';
 const initialized = new WeakSet();
@@ -53,7 +53,7 @@ export function estateOverview({ guest = false } = {}) {
               </article>
               <article class="eo-house">
                 <span class="eo-house-number" aria-hidden="true">02</span>
-                <div><h3 class="eo-house-title">Bunk House</h3><p class="eo-house-count">2 bedrooms · 2 bathrooms</p><p class="eo-house-kind">Guest sleeping quarters · Beside the Main House</p></div>
+                <div><h3 class="eo-house-title">Bunk House</h3><p class="eo-house-count">2 bedrooms · 2 bathrooms</p><p class="eo-house-kind">Right of the Main House, along the walkway toward pickleball &amp; basketball</p></div>
               </article>
               <article class="eo-house">
                 <span class="eo-house-number" aria-hidden="true">03</span>
