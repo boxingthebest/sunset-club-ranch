@@ -1,4 +1,5 @@
 import './style.css'
+import { estateOverview, initEstateOverview } from './estate-overview.js'
 
 const CONTACT_EMAIL = 'dapenza444@gmail.com'
 const PHONE_DISPLAY = '203-233-1300'
@@ -260,6 +261,8 @@ function homePage() {
       <section class="fact-band" aria-label="Property details">
         <div><strong>05</strong><span>Private acres</span></div><div><strong>03</strong><span>Distinct homes</span></div><div><strong>09</strong><span>Bedrooms</span></div><div><strong>01</strong><span>Estate, entirely yours</span></div>
       </section>
+
+      ${estateOverview()}
 
       <section class="story-grid section-pad">
         ${editorialHeader('The rhythm of a stay', 'A place with more than one mood.', 'Swim. Cook. Play. Retreat. From open-air pizza nights to the courts and pool, the estate lets everyone move together—or choose a corner of their own.')}
@@ -626,6 +629,7 @@ const renderers = {
 const page = document.body.dataset.page || 'home'
 const app = document.querySelector('#app')
 app.innerHTML = `${header()}${(renderers[page] || homePage)()}${footer()}${mascotLayer(page)}<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Estate photograph" aria-hidden="true"><button type="button" aria-label="Close image">Close</button><img src="" alt="" /></div>`
+initEstateOverview()
 
 if (window.location.hash) {
   requestAnimationFrame(() => document.querySelector(window.location.hash)?.scrollIntoView())

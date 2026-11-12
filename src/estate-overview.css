@@ -1,0 +1,167 @@
+.eo-section {
+  --eo-green: #182e28;
+  --eo-night: #10211d;
+  --eo-cream: #f6f0e5;
+  --eo-muted: #c4cbbb;
+  --eo-gold: #e0bc7e;
+  --eo-line: rgba(246, 240, 229, .19);
+  --eo-display: var(--display, var(--rk-display, Georgia));
+  position: relative;
+  isolation: isolate;
+  padding: clamp(52px, 6.5vw, 92px) 0;
+  background: var(--eo-green);
+  color: var(--eo-cream);
+  font-family: 'DM Sans', Arial, sans-serif;
+  scroll-margin-top: 92px;
+}
+
+.eo-section *, .eo-section *::before, .eo-section *::after { box-sizing: border-box; }
+.eo-inner { width: min(1240px, calc(100% - 64px)); margin-inline: auto; }
+.eo-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 32px; }
+.eo-heading { max-width: 800px; }
+.eo-eyebrow { margin: 0 0 14px; color: var(--eo-gold); font-size: 10px; font-weight: 700; line-height: 1.5; letter-spacing: .2em; text-transform: uppercase; }
+.eo-title { margin: 0; color: var(--eo-cream); font: 400 clamp(38px, 4.4vw, 64px)/1.08 var(--eo-display); letter-spacing: -.035em; text-wrap: balance; }
+.eo-intro { max-width: 630px; margin: 18px 0 0; color: var(--eo-muted); font-size: 15px; line-height: 1.75; }
+.eo-section .eo-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; color: var(--eo-gold); font-size: 12px; font-weight: 600; line-height: 1.5; text-decoration: none; border-bottom: 1px solid rgba(224, 188, 126, .55); }
+.eo-link span { font-size: 19px; }
+.eo-context-link { flex-shrink: 0; margin-bottom: 2px; }
+.eo-layout { display: grid; grid-template-columns: minmax(0, 2.7fr) minmax(260px, 1fr); align-items: start; gap: clamp(24px, 3vw, 44px); }
+.eo-map { min-width: 0; margin: 0; }
+.eo-section .eo-map-trigger { display: block; position: relative; width: 100%; padding: 0; border: 1px solid rgba(224, 188, 126, .4); border-radius: 3px; background: var(--eo-night); color: var(--eo-cream); cursor: zoom-in; overflow: hidden; }
+.eo-picture { display: block; }
+.eo-section .eo-preview { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; }
+.eo-enlarge { display: flex; align-items: center; gap: 9px; position: absolute; right: 14px; bottom: 14px; min-height: 44px; padding: 10px 15px; border: 1px solid rgba(246, 240, 229, .5); border-radius: 2px; background: rgba(16, 33, 29, .95); color: var(--eo-cream); font-size: 11px; font-weight: 600; letter-spacing: .025em; pointer-events: none; }
+.eo-enlarge svg { display: block; width: 18px; height: 18px; flex: none; }
+.eo-map-caption { padding-top: 15px; }
+.eo-tip { margin: 0 0 10px; color: var(--eo-gold); font-size: 12px; line-height: 1.6; font-weight: 600; }
+.eo-caption { margin: 0; color: var(--eo-cream); font-size: 12px; font-weight: 500; line-height: 1.7; }
+.eo-disclosure { margin: 5px 0 0; max-width: 760px; color: var(--eo-muted); font-size: 11px; line-height: 1.75; }
+.eo-original-link { margin-top: 7px; }
+.eo-houses { padding-top: 1px; }
+.eo-houses-label { padding-bottom: 16px; margin-bottom: 0; border-bottom: 1px solid var(--eo-line); }
+.eo-house-list { display: grid; }
+.eo-house { display: flex; align-items: flex-start; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--eo-line); }
+.eo-house-number { flex-shrink: 0; padding-top: 5px; color: var(--eo-gold); font-size: 10px; line-height: 1.5; letter-spacing: .06em; }
+.eo-house-title { margin: 0 0 8px; color: var(--eo-cream); font: 400 clamp(25px, 2.5vw, 32px)/1.12 var(--eo-display); letter-spacing: -.025em; }
+.eo-house-count { margin: 0; color: var(--eo-cream); font-size: 12px; line-height: 1.6; }
+.eo-house-kind { margin: 5px 0 0; color: var(--eo-muted); font-size: 10px; line-height: 1.6; }
+.eo-house-note { margin: 16px 0 0; color: var(--eo-muted); font-size: 11px; line-height: 1.75; }
+.eo-availability { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px; padding: 23px 0 0; border-top: 1px solid var(--eo-line); }
+.eo-status { margin: 0; color: var(--eo-muted); font-size: 12px; line-height: 1.8; }
+.eo-status strong { color: var(--eo-cream); font-weight: 600; }
+.eo-status--planned { padding-left: 28px; border-left: 1px solid var(--eo-line); }
+.eo-status--planned strong { color: var(--eo-gold); }
+
+/* The native modal is in the top layer, above even high-z-index mascots. */
+.eo-section .eo-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(1480px, calc(100vw - 24px));
+  height: min(1080px, calc(100vh - 24px));
+  height: min(1080px, calc(100dvh - 24px));
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 20px;
+  padding-top: max(20px, env(safe-area-inset-top, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-bottom: max(20px, env(safe-area-inset-bottom, 0px));
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  border: 1px solid rgba(224, 188, 126, .45);
+  border-radius: 6px;
+  background: var(--eo-night);
+  color: var(--eo-cream);
+  font-family: 'DM Sans', Arial, sans-serif;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  box-shadow: 0 24px 90px rgba(0, 0, 0, .4);
+}
+.eo-dialog:not([open]) { display: none; }
+.eo-dialog[open] { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; gap: 14px; }
+.eo-dialog::backdrop { background: rgba(4, 12, 10, .88); }
+.eo-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.eo-dialog-header .eo-eyebrow { margin-bottom: 5px; font-size: 9px; }
+.eo-dialog-title { margin: 0; color: var(--eo-cream); font: 400 clamp(25px, 3vw, 36px)/1.1 var(--eo-display); letter-spacing: -.025em; }
+.eo-section .eo-close { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 92px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--eo-cream); border-radius: 3px; background: var(--eo-cream); color: var(--eo-night); font: 700 12px/1.3 'DM Sans', Arial, sans-serif; cursor: pointer; }
+.eo-close span { font-size: 25px; line-height: 1; font-weight: 400; }
+.eo-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.eo-section .eo-control { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 8px 12px; border: 1px solid rgba(246, 240, 229, .45); border-radius: 3px; background: #213a31; color: var(--eo-cream); font: 500 22px/1 'DM Sans', Arial, sans-serif; cursor: pointer; }
+.eo-section .eo-fit { font-size: 12px; font-weight: 600; }
+.eo-control:disabled { color: #bac6bf; background: #172b24; border-color: #65766d; cursor: not-allowed; }
+.eo-zoom-level { min-width: 48px; color: var(--eo-gold); text-align: center; font-size: 12px; line-height: 1.5; }
+.eo-viewer-tip { margin: 0 0 0 8px; color: var(--eo-muted); font-size: 11px; line-height: 1.5; }
+.eo-viewport { min-width: 0; min-height: 0; width: 100%; height: 100%; overflow: auto; overscroll-behavior: contain; background: #080f0c; scrollbar-color: var(--eo-gold) #1b2d26; -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y pinch-zoom; }
+.eo-image-stage { display: grid; place-items: center; min-width: 100%; min-height: 100%; }
+.eo-section .eo-full-image { display: block; width: 100%; max-width: none; height: auto; object-fit: contain; }
+.eo-dialog-footer { display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+.eo-dialog-footer > div { min-width: 0; }
+.eo-full-link { flex-shrink: 0; }
+.eo-section :is(a, button, [tabindex]):focus-visible { outline: 3px solid #ffe0a7; outline-offset: 4px; }
+.eo-section .eo-viewport:focus-visible { outline-offset: -3px; }
+.eo-section .eo-close:focus-visible { outline: 3px solid #ffe0a7; outline-offset: 4px; }
+
+@media (hover: hover) {
+  .eo-section .eo-link:hover { color: #ffdfac; border-bottom-color: #ffdfac; }
+  .eo-map-trigger:hover .eo-enlarge { background: var(--eo-cream); color: var(--eo-night); }
+  .eo-section .eo-control:not(:disabled):hover { background: #385144; }
+  .eo-section .eo-close:hover { background: #ffe0a7; border-color: #ffe0a7; }
+}
+
+@media (max-width: 1000px) {
+  .eo-layout { grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr); gap: 24px; }
+  .eo-header { align-items: flex-start; }
+  .eo-context-link { margin-top: 27px; }
+  .eo-house { gap: 12px; padding-block: 18px; }
+  .eo-dialog-footer { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .eo-dialog-footer .eo-disclosure { max-width: none; }
+}
+
+@media (max-width: 760px) {
+  .eo-inner { width: calc(100% - 36px); }
+  .eo-header { display: block; margin-bottom: 24px; }
+  .eo-context-link { margin-top: 16px; }
+  .eo-title { max-width: 550px; }
+  .eo-intro { font-size: 14px; }
+  .eo-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .eo-house-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .eo-house { display: block; padding: 20px 14px; }
+  .eo-house:first-child { padding-left: 0; }
+  .eo-house:last-child { padding-right: 0; }
+  .eo-house + .eo-house { border-left: 1px solid var(--eo-line); }
+  .eo-house-number { display: block; padding-top: 0; margin-bottom: 10px; }
+  .eo-house-title { font-size: 25px; }
+  .eo-availability { grid-template-columns: 1fr; gap: 15px; margin-top: 24px; padding-top: 20px; }
+  .eo-status--planned { padding: 15px 0 0; border-left: 0; border-top: 1px solid var(--eo-line); }
+  .eo-section .eo-dialog { padding: 14px; padding-top: max(14px, env(safe-area-inset-top, 0px)); padding-right: max(14px, env(safe-area-inset-right, 0px)); padding-bottom: max(14px, env(safe-area-inset-bottom, 0px)); padding-left: max(14px, env(safe-area-inset-left, 0px)); }
+  .eo-dialog[open] { gap: 10px; }
+  .eo-viewer-tip { width: 100%; margin: 0; }
+  .eo-dialog-footer .eo-caption { font-size: 11px; line-height: 1.5; }
+  .eo-dialog-footer .eo-disclosure { font-size: 10px; line-height: 1.5; }
+  .eo-dialog-footer .eo-link { font-size: 11px; }
+}
+
+@media (max-width: 480px) {
+  .eo-enlarge { right: 9px; bottom: 9px; padding: 8px 11px; font-size: 10px; }
+  .eo-house-list { grid-template-columns: 1fr; }
+  .eo-house { display: flex; padding: 18px 0; gap: 18px; }
+  .eo-house + .eo-house { border-left: 0; }
+  .eo-house-number { padding-top: 5px; margin: 0; }
+  .eo-house-title { font-size: 28px; }
+  .eo-dialog-header { gap: 10px; }
+  .eo-dialog-title { font-size: 25px; }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .eo-dialog-header .eo-eyebrow, .eo-viewer-tip, .eo-dialog-footer .eo-disclosure { display: none; }
+  .eo-dialog-header .eo-dialog-title { font-size: 23px; }
+  .eo-dialog[open] { grid-template-columns: 1fr auto; grid-template-rows: auto minmax(0, 1fr) auto; gap: 8px 16px; }
+  .eo-dialog-header { grid-column: 1; }
+  .eo-toolbar { grid-column: 2; grid-row: 1; }
+  .eo-viewport { grid-column: 1 / -1; }
+  .eo-dialog-footer { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 12px; }
+  .eo-dialog-footer .eo-caption { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eo-section, .eo-section * { scroll-behavior: auto; animation: none; transition: none; }
+}

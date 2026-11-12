@@ -1,5 +1,6 @@
 import './guest-guide.css'
 import { mountGuestWelcome } from './guest-welcome.js'
+import { estateOverview, initEstateOverview } from './estate-overview.js'
 
 const WIFI_NETWORK = 'Los Palos Ranch'
 const WIFI_PASSWORD = 'Funinsun1!'
@@ -57,6 +58,8 @@ app.innerHTML = `
       <div class="rk-private-key"><div><p class="rk-card-kicker">Get the right answer</p><h3>Ask before you force a gate or control.</h3><p>If an access point does not behave as expected, do not troubleshoot it. Call the host team and we’ll help you get moving.</p></div><a href="#help">Contact host help <span aria-hidden="true">→</span></a></div>
     </section>
 
+    ${estateOverview({ guest: true })}
+
     <section class="rk-section rk-section--sand" id="plan">
       <div class="rk-section-heading"><p class="rk-eyebrow">01 · Plan today</p><h2>Pick your <em>perfect plan.</em></h2><p class="rk-lede">Choose by mood, then use the map, official booking link, or share button to get the group moving.</p></div>
       <div class="rk-plan-chips" aria-label="Plan collections"><a href="#desert-days">Desert days</a><a href="#reset-culture">Reset &amp; culture</a><a href="#tonight">Tonight</a><a href="#seasonal">Seasonal water fun</a></div>
@@ -103,6 +106,8 @@ app.innerHTML = `
   <footer class="rk-footer"><img src="/media/brand/sunset-club-ranch-script-logo.png" alt="Sunset Club Ranch" /><p>Pool days · long-table nights · open desert sky</p><a href="#top">Back to top ↑</a></footer>
   <div class="rk-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 `
+
+initEstateOverview()
 
 const toast = document.querySelector('.rk-toast')
 let toastTimer
