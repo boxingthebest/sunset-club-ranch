@@ -241,3 +241,14 @@
   display: block;
   overflow: visible;
 }
+
+/* Personalized birthday greetings must remain fully visible on narrow phones. */
+.rk-guest-welcome[data-occasion="birthday"] .rk-guest-welcome__heading {
+  display: block;
+  overflow: visible;
+  line-height: 1.12;
+}
+.rk-guest-welcome[data-occasion="birthday"] .rk-guest-welcome__message {
+  display: block;
+  overflow: visible;
+}
