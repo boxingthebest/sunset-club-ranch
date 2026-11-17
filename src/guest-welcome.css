@@ -416,3 +416,95 @@
     transform: none;
   }
 }
+
+/* The cabana movie includes all three characters; the old art remains its fallback. */
+.rk-guest-welcome[data-theme="cabana"].has-cabana-scene {
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 14px;
+}
+
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__scene {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: center;
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(177, 140, 72, .32);
+  border-radius: 8px;
+  background: #faf5e9;
+  box-shadow: 0 3px 12px rgba(34, 54, 75, .07);
+  pointer-events: none;
+}
+
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__scene[hidden],
+.rk-guest-welcome[data-theme="cabana"].has-cabana-scene .rk-guest-welcome__artwork,
+.rk-guest-welcome[data-theme="cabana"].has-cabana-scene .rk-guest-welcome__mascot {
+  display: none;
+}
+
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__scene-poster,
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  /* The horse and mascots move inside the video, not via a shaking image. */
+  animation: none;
+  transform: none;
+}
+
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__scene-poster[hidden] { display: none; }
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__video { visibility: hidden; }
+.rk-guest-welcome[data-theme="cabana"] .has-video-frame .rk-guest-welcome__video { visibility: visible; }
+
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__controls {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  justify-self: center;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__pause {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #b18c48;
+  border-radius: 999px;
+  background: #faf5e9;
+  color: #22364b;
+  font: 600 11px/1.3 var(--rk-body, 'DM Sans', Arial, sans-serif);
+  letter-spacing: .025em;
+  cursor: pointer;
+}
+
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__pause[hidden] { display: none; }
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__pause:hover { background: #eee6d7; }
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__pause:focus-visible { outline: 2px solid #234b3d; outline-offset: 3px; }
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__controls button { transition: transform 160ms cubic-bezier(.23, 1, .32, 1); }
+.rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__controls button:active:not(:disabled) { transform: scale(.97); }
+
+@media (max-width: 720px) {
+  .rk-guest-welcome[data-theme="cabana"].has-cabana-scene {
+    padding-inline: 12px;
+    row-gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__video { visibility: hidden !important; }
+  .rk-guest-welcome[data-theme="cabana"] .rk-guest-welcome__controls button { transition: none; transform: none; }
+}
