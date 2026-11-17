@@ -1,5 +1,6 @@
 import './style.css'
 import { estateOverview, initEstateOverview } from './estate-overview.js'
+import { stirrupWelcome, initStirrupWelcome } from './stirrup-welcome.js'
 
 const CONTACT_EMAIL = 'dapenza444@gmail.com'
 const PHONE_DISPLAY = '203-233-1300'
@@ -222,6 +223,8 @@ function homePage() {
         </div>
         <div class="hero-facts" aria-label="Estate highlights"><span>5 private acres</span><span>3 homes</span><span>9 bedrooms</span><span>Near Empire Polo Club</span></div>
       </section>
+
+      ${stirrupWelcome()}
 
       <section class="booking-chooser" id="choose">
         <div class="booking-chooser__intro reveal"><p class="eyebrow">Start here</p><h2>What brings you<br />to the ranch?</h2><p>Choose one path. We’ll ask only for the information needed to help.</p></div>
@@ -630,6 +633,7 @@ const page = document.body.dataset.page || 'home'
 const app = document.querySelector('#app')
 app.innerHTML = `${header()}${(renderers[page] || homePage)()}${footer()}${mascotLayer(page)}<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Estate photograph" aria-hidden="true"><button type="button" aria-label="Close image">Close</button><img src="" alt="" /></div>`
 initEstateOverview()
+if (page === 'home') initStirrupWelcome()
 
 if (window.location.hash) {
   requestAnimationFrame(() => document.querySelector(window.location.hash)?.scrollIntoView())

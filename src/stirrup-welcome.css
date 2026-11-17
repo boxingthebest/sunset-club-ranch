@@ -1,0 +1,212 @@
+.stw-welcome {
+  --stw-forest: #102b2a;
+  --stw-brass: var(--brass, #c79754);
+  --stw-paper: var(--paper, #fbf8f1);
+  position: relative;
+  padding: clamp(44px, 5.5vw, 76px) 0;
+  background: var(--stw-paper);
+  color: var(--stw-forest);
+  font-family: var(--body, 'DM Sans', Arial, sans-serif);
+  scroll-margin-top: 96px;
+  border-bottom: 1px solid rgba(16, 43, 42, .1);
+}
+
+.stw-layout {
+  width: var(--page, min(1320px, calc(100% - 36px)));
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(0, 1fr);
+  gap: clamp(26px, 3.5vw, 52px);
+  align-items: center;
+}
+
+.stw-artwork { min-width: 0; margin: 0; }
+
+.stw-scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  isolation: isolate;
+  background: #e4d8c6;
+  border: 1px solid rgba(199, 151, 84, .25);
+  border-radius: 3px;
+}
+
+.stw-art-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #f5f0e7, #e4d8c6);
+  color: var(--stw-forest);
+  text-align: center;
+  font: italic 400 clamp(22px, 3vw, 36px)/1.3 var(--display, 'Playfair Display', Georgia, serif);
+}
+
+.stw-poster,
+.stw-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.stw-poster { z-index: 1; }
+.stw-poster[hidden] { display: none; }
+.stw-video { z-index: 2; opacity: 0; }
+.stw-welcome.stw-is-playing .stw-video { opacity: 1; }
+
+.stw-caption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 13px;
+  color: #54635a;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.stw-caption-rule { width: 24px; height: 1px; background: var(--stw-brass); }
+
+.stw-speech-card {
+  position: relative;
+  min-width: 0;
+  padding: clamp(22px, 2.7vw, 34px) 0 clamp(22px, 2.7vw, 34px) clamp(24px, 3vw, 40px);
+  border-left: 1px solid rgba(199, 151, 84, .6);
+}
+
+.stw-speech-card::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: -6px;
+  width: 11px;
+  height: 11px;
+  border-bottom: 1px solid rgba(199, 151, 84, .6);
+  border-left: 1px solid rgba(199, 151, 84, .6);
+  background: var(--stw-paper);
+  transform: rotate(45deg);
+}
+
+.stw-eyebrow {
+  margin: 0 0 14px;
+  color: #785627;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.stw-heading {
+  margin: 0;
+  padding-block: 2px;
+  color: var(--stw-forest);
+  font: 400 clamp(34px, 3.9vw, 52px)/1.2 var(--display, 'Playfair Display', Georgia, serif);
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.stw-tagline {
+  margin: 14px 0 0;
+  color: #416051;
+  font: italic 400 clamp(19px, 1.9vw, 23px)/1.45 var(--display, 'Playfair Display', Georgia, serif);
+}
+
+.stw-message {
+  max-width: 39ch;
+  margin: 16px 0 0;
+  color: #40524b;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.stw-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 23px; }
+
+.stw-replay,
+.stw-pause {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 2px;
+  font-family: var(--body, 'DM Sans', Arial, sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: background-color 160ms, color 160ms, transform 160ms;
+}
+
+.stw-replay { padding: 12px 19px; border: 1px solid var(--stw-forest); background: var(--stw-forest); color: var(--stw-paper); }
+.stw-replay span { color: #e3bc81; font-size: 20px; line-height: .8; }
+.stw-pause { padding: 10px 0; border: 0; border-bottom: 1px solid rgba(16, 43, 42, .35); background: transparent; color: var(--stw-forest); }
+.stw-pause[hidden] { display: none; }
+.stw-replay:not(:disabled):hover { background: #244a3d; }
+.stw-pause:not(:disabled):hover { color: #785627; }
+.stw-replay:focus-visible,
+.stw-pause:focus-visible { outline: 2px solid #8c632e; outline-offset: 5px; }
+.stw-replay:disabled,
+.stw-pause:disabled { cursor: not-allowed; opacity: .6; }
+
+.stw-status { min-height: 2.9em; margin: 11px 0 0; color: #55625b; font-size: 11px; line-height: 1.5; }
+.stw-disclosure { max-width: 46ch; margin: 14px 0 0; color: #65716a; font-size: 11px; line-height: 1.65; }
+
+.stw-welcome:not([data-stw-state="failed"]):not([data-stw-state="poster-only"]):not([data-stw-state="play-required"]) .stw-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.stw-confetti { position: absolute; z-index: 3; inset: 0; overflow: hidden; pointer-events: none; }
+.stw-confetti-piece { position: absolute; display: block; width: 4px; height: 7px; border-radius: 1px; opacity: 0; background: var(--stw-color); pointer-events: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .stw-replay:not(:disabled):active,
+  .stw-pause:not(:disabled):active { transform: scale(.97); }
+  .stw-confetti-piece { animation: stw-confetti-flight var(--stw-duration) cubic-bezier(.22, 1, .36, 1) var(--stw-delay) both; }
+}
+
+@keyframes stw-confetti-flight {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0deg); }
+  14% { opacity: .85; }
+  36% { opacity: .85; transform: translate3d(var(--stw-dx), var(--stw-rise), 0) rotate(var(--stw-turn)); }
+  100% { opacity: 0; transform: translate3d(var(--stw-dx), var(--stw-fall), 0) rotate(var(--stw-turn)); }
+}
+
+@media (max-width: 760px) {
+  .stw-layout { grid-template-columns: minmax(0, 1fr); max-width: 580px; gap: 23px; }
+  .stw-speech-card { padding: 0 0 0 23px; }
+  .stw-speech-card::before { top: 15px; }
+  .stw-heading { font-size: clamp(34px, 7.8vw, 46px); }
+  .stw-message { max-width: 43ch; }
+  .stw-disclosure { max-width: 49ch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stw-replay,
+  .stw-pause { transition: none; }
+  .stw-welcome.stw-is-playing .stw-video { opacity: 0; }
+  .stw-confetti { display: none; }
+}
+
+/* Preserve the legacy hero greeting, without layering it over the new welcome. */
+body.stw-welcome-in-view [data-home-welcome],
+body.stw-welcome-in-view [data-home-welcome] * { visibility: hidden !important; pointer-events: none; }
