@@ -26,6 +26,10 @@ const MASCOTS = Object.freeze({
   stay: ['mascots/lulu-3d.webp', 'mascots/scout-3d.webp'],
 })
 
+const THEME_MASCOTS = Object.freeze({
+  cabana: ['guest-guide/celebrations/lulu-cabana.webp', 'guest-guide/celebrations/scout-cabana.webp'],
+})
+
 function compactText(value, limit) {
   return typeof value === 'string'
     ? Array.from(value.replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim()).slice(0, limit).join('')
@@ -40,13 +44,15 @@ export function firstNameOnly(value) {
     : ''
 }
 
-/** Disabled / invalid config intentionally produces no banner. Free-form copy should stay first-name-only and date-free. */
+/** Disabled / invalid config produces no banner. Names stay first-name-only; display copy is plain text. */
 export function normalizeGuestWelcome(config) {
   if (!config || typeof config !== 'object' || Array.isArray(config) || config.enabled !== true) return null
   const requestedOccasion = compactText(config.occasion, 24).toLowerCase()
   const aliases = { birthdays: 'birthday', weddings: 'wedding', anniversaries: 'anniversary', retreats: 'retreat' }
   const occasion = aliases[requestedOccasion] || requestedOccasion
   const kind = Object.hasOwn(DEFAULTS, occasion) ? occasion : 'stay'
+  const requestedTheme = compactText(config.theme, 24).toLowerCase()
+  const theme = Object.hasOwn(THEME_MASCOTS, requestedTheme) ? requestedTheme : 'default'
   const names = Array.isArray(config.names) ? config.names.slice(0, 4).map(firstNameOnly).filter(Boolean) : []
   const name = names.length ? names.join(' & ') : firstNameOnly(config.name)
   const rawMilestone = compactText(config.milestone, 12).toLowerCase()
@@ -61,6 +67,7 @@ export function normalizeGuestWelcome(config) {
   return {
     name,
     occasion: kind,
+    theme,
     milestone,
     headline: compactText(config.headline, 80) || headline,
     message: compactText(config.message, 140) || welcome,
@@ -103,8 +110,22 @@ function createBanner(config) {
   const region = element('section', 'rk-guest-welcome')
   region.dataset.guestWelcome = ''
   region.dataset.occasion = config.occasion
+  region.dataset.theme = config.theme
   region.setAttribute('role', 'region')
   region.setAttribute('aria-labelledby', 'rk-guest-welcome-heading')
+
+  if (config.theme === 'cabana') {
+    const artwork = element('img', 'rk-guest-welcome__artwork')
+    artwork.alt = ''
+    artwork.setAttribute('aria-hidden', 'true')
+    artwork.width = 210
+    artwork.height = 140
+    artwork.decoding = 'async'
+    artwork.draggable = false
+    artwork.addEventListener('error', () => { artwork.hidden = true }, { once: true })
+    artwork.src = '/media/guest-guide/celebrations/cabana-watercolor-scene.webp'
+    region.append(artwork)
+  }
 
   const copy = element('div', 'rk-guest-welcome__copy')
   const heading = element('h2', 'rk-guest-welcome__heading', config.headline)
@@ -129,6 +150,9 @@ function createBanner(config) {
   let stopObserving = () => {}
   const lanes = []
   const images = []
+  const particleColors = config.theme === 'cabana'
+    ? ['#b18c48', '#2f5946', '#fff5db']
+    : ['#e4b85d', '#f29b8d', '#fffaf2']
 
   function clearBurst() {
     clearTimeout(cleanupTimer)
@@ -164,14 +188,14 @@ function createBanner(config) {
         particle.style.setProperty('--gw-turn', `${(Math.random() * 1080 - 540).toFixed(1)}deg`)
         particle.style.setProperty('--gw-size', `${(4 + Math.random() * 6).toFixed(1)}px`)
         particle.style.setProperty('--gw-delay', `${(index % 2 ? 160 : 0) + Math.floor(Math.random() * 65)}ms`)
-        particle.style.setProperty('--gw-color', ['#e4b85d', '#f29b8d', '#fffaf2'][index % 3])
+        particle.style.setProperty('--gw-color', particleColors[index % particleColors.length])
         fragment.append(particle)
       }
       lane.append(fragment)
     }
     // Two close launch waves bloom immediately, then fall away before cleanup.
     cleanupTimer = setTimeout(() => lanes.forEach(lane => lane.replaceChildren()), BURST_MS)
-    movementTimer = setTimeout(() => region.classList.remove('is-celebrating'), 5600)
+    movementTimer = setTimeout(() => region.classList.remove('is-celebrating'), config.theme === 'cabana' ? BURST_MS : 5600)
     return true
   }
 
@@ -208,7 +232,7 @@ function createBanner(config) {
     return wrapper
   }
 
-  const [luluAsset, scoutAsset] = MASCOTS[config.occasion]
+  const [luluAsset, scoutAsset] = THEME_MASCOTS[config.theme] || MASCOTS[config.occasion]
   region.append(
     mascot('left', 'Lulu the Roadrunner', `/media/${luluAsset}`, '/media/mascots/lulu-3d.webp'),
     copy,

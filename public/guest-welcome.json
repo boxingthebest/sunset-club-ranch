@@ -1,11 +1,11 @@
 {
   "enabled": true,
-  "name": "David",
-  "names": [],
+  "names": ["Cindy", "Steve"],
   "group": "family",
-  "occasion": "birthday",
+  "occasion": "stay",
+  "theme": "cabana",
   "milestone": "",
-  "headline": "Welcome, David Reed & Family!",
-  "message": "Your birthday weekend at Sunset Club Ranch starts here. Let’s celebrate!",
-  "signoff": "Your hosts, Lulu & Scout"
+  "headline": "Welcome, Cindy & Steve Dondero and family",
+  "message": "Your family weekend at Sunset Club Ranch",
+  "signoff": "A warm welcome from Lulu & Scout"
 }
