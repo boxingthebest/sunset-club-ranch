@@ -833,3 +833,12 @@ body[data-page="vision"] .mascot-dock--scout .mascot-dock__image { transform: ro
 @media (max-width: 760px) {
   .home-welcome__intro--lulu { bottom: 10%; }
 }
+
+/* The Hostaway two-month layout needs room for its navigation arrows. */
+.direct-calendar { grid-template-columns: minmax(0, .6fr) minmax(0, 1.4fr); }
+.direct-calendar__intro { min-width: 0; }
+#hostaway-calendar-widget { overflow-x: auto; }
+@media (max-width: 1200px) {
+  .direct-calendar { grid-template-columns: minmax(0, 1fr); }
+  .direct-calendar__panel { order: -1; }
+}

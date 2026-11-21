@@ -59,7 +59,7 @@ export function initBookingCalendar() {
       window.hostawayCalendarWidget({
         baseUrl: 'https://booking.annetagroup.com/',
         listingId: 603473,
-        numberOfMonths: window.matchMedia('(max-width: 760px)').matches ? 1 : 2,
+        numberOfMonths: container.clientWidth >= 720 ? 2 : 1,
         openInNewTab: false,
         font: 'DM Sans',
         rounded: true,
