@@ -8,6 +8,7 @@ A custom multi-page Vite site for Sunset Club Ranch, a private five-acre estate 
 |---|---|
 | `/` | Editorial homepage and primary inquiry path |
 | `/stay.html` | Homes, current amenities, gallery, and recent additions |
+| `/book-direct.html#availability` | Hostaway lodging calendar and Anneta Group checkout |
 | `/weddings.html` | Weddings, birthdays, and celebration inquiries |
 | `/corporate.html` | Corporate retreat inquiries |
 | `/after-dark.html` | Clearly disclosed After Dark 2027 program concept |
@@ -60,3 +61,13 @@ The owner-confirmed inquiry recipient is `dapenza444@gmail.com`. The production 
 The form carries a first-touch source (UTM source / medium / campaign, referring domain, or direct) across same-tab page visits using session storage. Its message includes the source and landing-page path so campaigns can be compared without a tracking pixel. For example, share `/weddings.html?utm_source=instagram&utm_medium=social&utm_campaign=fall-weddings` or `/stay.html?utm_source=anetta&utm_medium=referral&utm_campaign=direct-stays`. Do not record guest details in campaign parameters.
 
 `public/sitemap.xml` lists the canonical pages and `public/robots.txt` advertises it. Submit the sitemap to Google Search Console once the property owner has verified ownership. A plain HTTP client may encounter a Vercel Security Checkpoint; check the verified Googlebot experience in Search Console before changing firewall rules or claiming Google cannot crawl the site.
+
+## Hostaway direct-booking availability
+
+The primary **Check availability** action in the header, mobile navigation, mobile sticky control, and stay/event/festival opening content routes to `/book-direct.html#availability`. Weddings, birthdays, anniversaries, and retreats retain a separate planning inquiry. The calendar shows **lodging availability only**; an open lodging date does not approve an event, its attendance, or its pricing. On phones the calendar appears first in the availability section, and the floating availability control hides while the calendar is visible so it cannot cover date or checkout controls.
+
+`src/booking.js` loads the official Hostaway widget script from `https://d2q3n06xhbi0am.cloudfront.net/calendar.js`, using `baseUrl: https://booking.annetagroup.com/` and Sunset Club Ranch `listingId: 603473`. The widget uses two months on desktop and one on mobile, and transfers selected dates to Anneta Group's checkout in the same tab. No dates are maintained separately in this repository. The direct-listing fallback `https://booking.annetagroup.com/listings/603473` remains visible if the widget or its network requests fail. Script errors/timeouts show a helpful fallback message; Hostaway controls its own calendar-data error UI.
+
+Booking questions and guest services use Anneta Group's phone **+1 (442) 307-4264** and email **annetagroup@gmail.com**. Event/custom inquiry forms still submit to the owner's already-activated `dapenza444@gmail.com` FormSubmit endpoint, preserving existing delivery and campaign attribution. Do not switch that endpoint without confirmation and activation.
+
+The manager must verify Hostaway's channel synchronization, blocked dates, rates, minimum stays, checkout/payment settings, and cancellation rules. Website integration cannot independently validate Airbnb/Booking.com channel synchronization. During the November 21, 2026 read-only preview test, Hostaway returned listing/calendar data successfully; a blocked date was ignored, available dates selected and cleared, and the checkout received the correct listing and dates. No reservation, inquiry, guest information, or payment was submitted.

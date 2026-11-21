@@ -1,6 +1,7 @@
 import './style.css'
 import { estateOverview, initEstateOverview } from './estate-overview.js'
 import { stirrupWelcome, initStirrupWelcome } from './stirrup-welcome.js'
+import { bookingSection, initBookingCalendar, GUEST_CONTACT } from './booking.js'
 
 const CONTACT_EMAIL = 'dapenza444@gmail.com'
 const PHONE_DISPLAY = '203-233-1300'
@@ -39,15 +40,8 @@ function logo(mark = false) {
 }
 
 function header() {
-  const pageCta = {
-    direct: 'Request direct dates',
-    weddings: 'Plan your event',
-    corporate: 'Plan your retreat',
-    festival: 'Ask about festivals',
-    'after-dark': 'Ask about After Dark',
-    vision: 'Ask about the vision',
-  }
-  const ctaLabel = pageCta[document.body.dataset.page] || 'Request dates'
+  const ctaLabel = 'Check availability'
+  const ctaHref = '/book-direct.html#availability'
   return `
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" id="site-header">
@@ -55,7 +49,7 @@ function header() {
       <nav class="desktop-nav" aria-label="Primary navigation">
         ${navItems.map(([label, href]) => `<a href="${href}">${label}</a>`).join('')}
       </nav>
-      <a class="button button--small desktop-cta" href="#inquire">${ctaLabel}</a>
+      <a class="button button--small desktop-cta" href="${ctaHref}">${ctaLabel}</a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
         <span></span><span></span>
       </button>
@@ -65,25 +59,19 @@ function header() {
       <nav aria-label="Mobile navigation">
         <a href="/">Home</a>
         ${navItems.map(([label, href]) => `<a href="${href}">${label}</a>`).join('')}
-        <a href="#inquire">${ctaLabel}</a>
+        <a href="${ctaHref}">${ctaLabel}</a>
       </nav>
       <div class="mobile-nav__contact">
-        <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>
-        <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
+        <span>Guest services · Anneta Group</span>
+        <a href="tel:${GUEST_CONTACT.phoneHref}">${GUEST_CONTACT.phoneDisplay}</a>
+        <a href="mailto:${GUEST_CONTACT.email}">${GUEST_CONTACT.email}</a>
       </div>
     </div>`
 }
 
 function footer() {
-  const pageCta = {
-    direct: 'Request direct dates',
-    weddings: 'Plan your event',
-    corporate: 'Plan your retreat',
-    festival: 'Ask about festivals',
-    'after-dark': 'Ask about After Dark',
-    vision: 'Ask about the vision',
-  }
-  const ctaLabel = pageCta[document.body.dataset.page] || 'Request dates'
+  const ctaLabel = 'Check availability'
+  const ctaHref = '/book-direct.html#availability'
   return `
     <footer class="site-footer">
       <div class="footer-brand">${logo()}</div>
@@ -97,21 +85,39 @@ function footer() {
           ${navItems.map(([label, href]) => `<a href="${href}">${label}</a>`).join('')}
         </div>
         <div>
-          <p class="footer-title">Contact</p>
-          <a href="tel:${PHONE_HREF}">${PHONE_DISPLAY}</a>
+          <p class="footer-title">Guest services · Anneta Group</p>
+          <a href="tel:${GUEST_CONTACT.phoneHref}">${GUEST_CONTACT.phoneDisplay}</a>
+          <a href="mailto:${GUEST_CONTACT.email}">${GUEST_CONTACT.email}</a>
+          <p class="footer-title">Events & custom inquiries</p>
           <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
           <a href="https://instagram.com/sunsetclubranch" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </div>
       <div class="footer-base"><span>© 2026 Sunset Club Ranch</span><span>Indio · Coachella Valley · California</span></div>
     </footer>
-    <a class="mobile-booking" href="#inquire"><span>Private estate in Indio</span><strong>${ctaLabel}</strong></a>`
+    <a class="mobile-booking" href="${ctaHref}"><span>Private estate in Indio</span><strong>${ctaLabel}</strong></a>`
 }
 
 function picture(src, alt, className = '', loading = 'lazy') {
   return `<img class="${className}" src="${src}" alt="${alt}" loading="${loading}" decoding="async"${loading === 'eager' ? ' fetchpriority="high"' : ''} />`
 }
-function pageHero({ image, alt = '', eyebrow, title, copy, cta = 'Start planning', secondary = 'Explore', secondaryHref = '#story', badge = '', variant = 'classic', effect = '', motion = '' }) {
+function pageHero({ image, alt = '', eyebrow, title, copy, cta = 'Start planning', ctaHref = '#inquire', secondary = 'Explore', secondaryHref = '#story', badge = '', variant = 'classic', effect = '', motion = '' }) {
+  const page = document.body.dataset.page
+  const planningLabels = {
+    stay: 'Ask a question',
+    weddings: 'Plan your event',
+    corporate: 'Plan your retreat',
+    festival: 'Customize your stay',
+    'after-dark': 'Build your weekend',
+  }
+  const calendarFirst = Object.hasOwn(planningLabels, page)
+  const eventPage = ['weddings', 'corporate'].includes(page)
+  if (calendarFirst) {
+    cta = 'Check availability'
+    ctaHref = '/book-direct.html#availability'
+    secondary = planningLabels[page]
+    secondaryHref = '#inquire'
+  }
   return `
     <section class="page-hero page-hero--${variant}">
       ${picture(image, alt, 'page-hero__image', 'eager')}
@@ -124,9 +130,10 @@ function pageHero({ image, alt = '', eyebrow, title, copy, cta = 'Start planning
         <h1>${title}</h1>
         <p class="page-hero__copy">${copy}</p>
         <div class="hero-actions">
-          <a class="button" href="#inquire">${cta}</a>
-          <a class="text-link text-link--light" href="${secondaryHref}">${secondary}<span aria-hidden="true">↘</span></a>
+          <a class="button" href="${ctaHref}">${cta}</a>
+          <a class="${calendarFirst ? 'button button--ghost' : 'text-link text-link--light'}" href="${secondaryHref}">${secondary}${calendarFirst ? '' : '<span aria-hidden="true">↘</span>'}</a>
         </div>
+        ${eventPage ? '<p class="hero-booking-note">The calendar shows lodging availability. Event approval and pricing are confirmed separately.</p>' : ''}
       </div>
       <div class="hero-facts" aria-label="Estate highlights">
         <span>5 private acres</span><span>3 homes</span><span>9 bedrooms</span><span>Indio, California</span>
@@ -218,8 +225,8 @@ function homePage() {
           ${logo(true)}
           <p class="home-hero__kicker">A private five-acre estate with a Tulum-meets-ranch spirit</p>
           <h1>Come together.<br /><em>Keep the whole place.</em></h1>
-          <p class="home-hero__copy">Three homes, nine bedrooms, a resort-style pool, and room for the group to settle into its own desert rhythm.</p>
-          <div class="hero-actions"><a class="button" href="/book-direct.html#inquire">Request direct dates</a><a class="button button--ghost" href="/weddings.html#inquire">Plan an event</a></div>
+          <p class="home-hero__copy">Family escapes, wedding weekends, birthdays, anniversaries, and retreats—three homes, nine bedrooms, a resort-style pool, and room to come together.</p>
+          <div class="hero-actions"><a class="button" href="/book-direct.html#availability">Check availability</a><a class="button button--ghost" href="/weddings.html#inquire">Plan an event</a></div>
         </div>
         <div class="hero-facts" aria-label="Estate highlights"><span>5 private acres</span><span>3 homes</span><span>9 bedrooms</span><span>Near Empire Polo Club</span></div>
       </section>
@@ -227,10 +234,10 @@ function homePage() {
       ${stirrupWelcome()}
 
       <section class="booking-chooser" id="choose">
-        <div class="booking-chooser__intro reveal"><p class="eyebrow">Start here</p><h2>What brings you<br />to the ranch?</h2><p>Choose one path. We’ll ask only for the information needed to help.</p></div>
+        <div class="booking-chooser__intro reveal"><p class="eyebrow">Start here</p><h2>What brings you<br />to the ranch?</h2><p>Check lodging dates for a getaway or celebration weekend, then share your plans if you’re hosting an event. Event approval and pricing are confirmed separately.</p></div>
         <div class="booking-chooser__paths">
-          <a class="booking-choice reveal" href="/book-direct.html#inquire"><span>01</span><div><p>Overnight stay</p><h3>Request direct dates</h3><small>Dates · Guests · Stay priorities</small></div><b aria-hidden="true">→</b></a>
-          <a class="booking-choice reveal" href="/weddings.html#inquire"><span>02</span><div><p>Wedding, birthday, or gathering</p><h3>Plan an event</h3><small>Date · Occasion · Group size</small></div><b aria-hidden="true">→</b></a>
+          <a class="booking-choice reveal" href="/book-direct.html#availability"><span>01</span><div><p>Getaways & celebration stays</p><h3>Check availability</h3><small>Choose dates · Review price · Book direct</small></div><b aria-hidden="true">→</b></a>
+          <a class="booking-choice reveal" href="/weddings.html#inquire"><span>02</span><div><p>Wedding, birthday, anniversary, or gathering</p><h3>Plan an event</h3><small>Date · Occasion · Group size</small></div><b aria-hidden="true">→</b></a>
           <a class="booking-choice reveal" href="/festival-weekends.html#inquire"><span>03</span><div><p>Coachella or Stagecoach</p><h3>Festival weekends</h3><small>Weekend · Group · Priorities</small></div><b aria-hidden="true">→</b></a>
         </div>
       </section>
@@ -391,7 +398,7 @@ function stayPage() {
       ${planningAnswers('Plan your stay', 'A private estate stay in Indio, made simple.', [
         ['Can our group stay together?', 'The estate brings together three homes and nine bedrooms on five private acres. Tell us your group size and dates so we can confirm the best fit.'],
         ['What can we enjoy on property now?', 'The pool and spa with waterfall features, a six-person sauna, the 158-inch outdoor media wall, pickleball and volleyball courts, a basketball hoop, fire pits, one outdoor kitchen, two indoor kitchens, and refreshed interiors are part of the current estate. The planned barn, cold plunge, hammocks, swings, outdoor shower, and expanded wellness courtyard are not yet guest amenities.'],
-        ['How do we request dates?', 'Send your dates and group size through the inquiry below. We’ll review availability and the details with you directly; the website does not provide an instant booking or a confirmed reservation.'],
+        ['How do we check dates and book?', 'Select Check availability to see the estate’s Hostaway lodging calendar. Choose your dates and continue to Anneta Group’s checkout to review the guest count, final price, and policies. For events or custom arrangements, share your plans in the inquiry below; event approval is separate from lodging availability.'],
       ])}
       ${inquirySection('Private stay')}
     </main>`
@@ -429,7 +436,7 @@ function weddingsPage() {
       </section>
       <section class="full-bleed-statement">${picture(airbnbMediaWallNight, 'Outdoor media wall glowing at dusk at Sunset Club Ranch')}<div><p class="eyebrow eyebrow--light">By private inquiry</p><h2>Your date.<br />Your people.<br />Your version.</h2></div></section>
       ${planningAnswers('Planning a gathering', 'Weddings and celebrations in the Coachella Valley.', [
-        ['Can guests stay at the estate?', 'The three-home, nine-bedroom estate can be part of a gathering weekend. Share your proposed group size and dates so we can discuss the lodging arrangement.'],
+        ['Can guests stay at the estate?', 'Check availability to view lodging dates for the three-home, nine-bedroom estate. Before booking a wedding, birthday, anniversary, or other event weekend, use Plan your event to share your date and guest count. Open lodging dates do not confirm event approval, attendance, or event pricing.'],
         ['How is event attendance determined?', 'This five-acre parcel may host a gathering of up to 40 persons under the current STR ordinance without a special-event permit. For a gathering of 41 or more, share your date, expected attendance, and planner or vendor team so we can discuss the special-event permit process and City-approved capacity for your specific event.'],
         ['Are packages and pricing listed?', 'We do not advertise a one-size-fits-all event package or promise a date online. Send an inquiry and we’ll discuss what is feasible, available, and appropriate for your plans.'],
       ])}
@@ -483,7 +490,7 @@ function festivalPage() {
       <section class="festival-stay-choice"><div class="festival-stay-choice__inner reveal"><p class="eyebrow eyebrow--light">Your stay, your call</p><h2>A festival stay<br /><em>without a program.</em></h2><div><p>Festival Weekends are regular private stays at Sunset Club Ranch during Coachella and Stagecoach. Reserve the estate, enjoy the pool, sauna, media wall, and five private acres, then make the weekend entirely your own.</p><p>If you want more, <a href="/after-dark.html">After Dark</a> is an optional, custom-designed festival experience. It is never required for a festival-weekend stay.</p></div></div></section>
       <section class="split split--dark festival-rhythm"><figure class="editorial-image reveal">${picture(installedSauna, 'Installed six-person sauna at Sunset Club Ranch')}</figure><div class="intro__copy reveal"><p class="status-badge">Available now</p><p class="eyebrow eyebrow--light">Recovery, your way</p><h2>Festival energy.<br />A real reset.</h2><p class="lead">Start slowly. Come home to water, a hot sauna, long tables, open sky, and space that belongs only to your group.</p><p class="fine-print fine-print--light">The sauna is available now. Cold plunge, hammocks, swings, and the expanded wellness courtyard are planned additions and are not yet guest amenities.</p></div></section>
       ${planningAnswers('Festival-weekend planning', 'The details begin with your dates.', [
-        ['How do festival weekends work?', 'Festival Weekends are private stays at the Ranch during Coachella and Stagecoach. Share your preferred weekend and group size, and we will respond with current availability and the right lodging information.'],
+        ['How do festival weekends work?', 'Festival Weekends are private stays at the Ranch during Coachella and Stagecoach. Select Check availability to see lodging dates, then continue to Anneta Group’s checkout to review the guest count, price, and stay rules. Use Customize your stay for questions or optional arrangements.'],
         ['Are tickets, transportation, or a package included?', 'No. Festival tickets, transportation, venue access, partners, special services, and After Dark programming are not included with a regular festival-weekend stay. Any optional arrangements are discussed individually and confirmed in writing.'],
         ['Can we add After Dark?', 'Yes. After Dark is an optional, custom-designed festival experience for guests who want us to build a more end-to-end program around their weekend. Tell us which weekend interests you and what would make the stay exceptional.'],
       ])}
@@ -494,13 +501,14 @@ function festivalPage() {
 function directBookingPage() {
   return `
     <main id="main">
-      ${pageHero({image: airbnbPoolHero, alt:'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', eyebrow:'Direct dates · private estate stay', title:'The whole estate.<br /><em>Your desert weekend.</em>', copy:'Start with your dates and your group. We’ll respond with current availability and a clear next step for a private stay at Sunset Club Ranch in Indio.', cta:'Request direct dates', secondary:'Explore the estate', secondaryHref:'#direct-stay', badge:'Five private acres · three homes · nine bedrooms', variant:'festival', motion:'<canvas class="page-natural-motion" data-natural-motion="pool-water" aria-hidden="true"></canvas>', effect:'<div class="festival-sunburst" aria-hidden="true"><span></span><i></i></div>'})}
+      ${pageHero({image: airbnbPoolHero, alt:'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', eyebrow:'Direct booking · private estate stay', title:'The whole estate.<br /><em>Your desert weekend.</em>', copy:'Choose your dates and continue to Anneta Group’s booking checkout for a private stay at Sunset Club Ranch in Indio.', cta:'Check availability', ctaHref:'#availability', secondary:'Explore the estate', secondaryHref:'#direct-stay', badge:'Five private acres · three homes · nine bedrooms', variant:'festival', motion:'<canvas class="page-natural-motion" data-natural-motion="pool-water" aria-hidden="true"></canvas>', effect:'<div class="festival-sunburst" aria-hidden="true"><span></span><i></i></div>'})}
+      ${bookingSection()}
       <section class="booking-chooser" id="direct-stay">
-        <div class="booking-chooser__intro reveal"><p class="eyebrow">A direct stay</p><h2>Simple to begin.<br />Personal from there.</h2><p>Tell us what matters to your group. We’ll review the right availability and help you understand the next step before any reservation is confirmed.</p></div>
+        <div class="booking-chooser__intro reveal"><p class="eyebrow">A direct stay</p><h2>Simple to begin.<br />Personal from there.</h2><p>Check your dates in the calendar, review the booking details with Anneta Group, and contact the team if your stay needs something extra.</p></div>
         <div class="booking-chooser__paths">
-          <article class="booking-choice reveal"><span>01</span><div><p>Choose your dates</p><h3>Share the window</h3><small>Arrival · Departure · Group size</small></div></article>
-          <article class="booking-choice reveal"><span>02</span><div><p>Tell us the occasion</p><h3>Shape the stay</h3><small>Private getaway · Festival · Celebration</small></div></article>
-          <article class="booking-choice reveal"><span>03</span><div><p>Get a real answer</p><h3>Plan the next step</h3><small>Availability · Fit · Clear follow-up</small></div></article>
+          <article class="booking-choice reveal"><span>01</span><div><p>Choose your dates</p><h3>Find your window</h3><small>Arrival · Departure · Calendar availability</small></div></article>
+          <article class="booking-choice reveal"><span>02</span><div><p>Review your stay</p><h3>See the details</h3><small>Guest count · Price · Booking policies</small></div></article>
+          <article class="booking-choice reveal"><span>03</span><div><p>Complete checkout</p><h3>Book with Anneta</h3><small>Booking confirmation · Guest support</small></div></article>
         </div>
       </section>
       <section class="intro split" id="story">
@@ -508,10 +516,10 @@ function directBookingPage() {
         <figure class="editorial-image editorial-image--portrait reveal">${picture(airbnbArrivalAerial, 'Five-acre Sunset Club Ranch estate at dusk in Indio, California')}<figcaption>Private estate stay · Indio, California</figcaption></figure>
       </section>
       ${planningAnswers('Direct stay questions', 'Everything starts with an honest availability check.', [
-        ['How do I request dates directly?', 'Use the inquiry below with your arrival and departure dates, guest count, and what you are planning. We will reply with current availability and the clearest next step. An inquiry is not a confirmed reservation.'],
+        ['How do I book dates directly?', 'Choose your check-in and check-out dates in the calendar above, then select Book now to continue to Anneta Group’s booking checkout. Review the guest count, final price, and policies there. Selecting dates alone is not a confirmed reservation.'],
         ['Is the entire property private?', 'Sunset Club Ranch is a private five-acre estate with three homes and nine bedrooms. Share your group details so we can discuss the right use of the property for your stay.'],
-        ['Can we stay for Coachella or Stagecoach?', 'Yes. Festival stays are handled by date-specific inquiry. Explore Festival Weekends or After Dark, then share your preferred weekend and group priorities. Tickets, transportation, and programming are not included unless individually confirmed.'],
-        ['What about a wedding, celebration, or retreat?', 'For an event or corporate retreat, begin on the dedicated page and share the date, group size, and vision. We will discuss fit, planning requirements, and availability individually.'],
+        ['Can we stay for Coachella or Stagecoach?', 'Check your preferred festival dates in the booking calendar, or contact the team if you need help with a custom stay. Explore Festival Weekends or After Dark for planning ideas. Tickets, transportation, and programming are not included unless individually confirmed.'],
+        ['What about a wedding, celebration, or retreat?', 'You can check lodging dates here for wedding weekends, birthdays, anniversaries, and retreats. Before booking for an event, share the date, expected attendance, and plans on the dedicated event or retreat page. Open lodging dates do not confirm event approval, event pricing, or planning requirements.'],
       ])}
       <section class="split split--dark"><figure class="editorial-image reveal">${picture(airbnbOutdoorKitchen, 'Open-air outdoor kitchen and pizza oven at Sunset Club Ranch')}</figure><div class="intro__copy reveal"><p class="eyebrow eyebrow--light">Made for more than sleeping</p><h2>The stay is<br />the destination.</h2><p class="lead">Whether it’s a family escape, a friends’ weekend, a team reset, or a festival return, a private estate gives every part of the group room to settle in and come together.</p><div class="hero-actions"><a class="button" href="/festival-weekends.html">Explore festival stays</a><a class="text-link text-link--light" href="/weddings.html">Plan a celebration <span aria-hidden="true">→</span></a></div></div></section>
       ${inquirySection('Private stay')}
@@ -633,6 +641,7 @@ const page = document.body.dataset.page || 'home'
 const app = document.querySelector('#app')
 app.innerHTML = `${header()}${(renderers[page] || homePage)()}${footer()}${mascotLayer(page)}<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Estate photograph" aria-hidden="true"><button type="button" aria-label="Close image">Close</button><img src="" alt="" /></div>`
 initEstateOverview()
+initBookingCalendar()
 if (page === 'home') initStirrupWelcome()
 
 if (window.location.hash) {
