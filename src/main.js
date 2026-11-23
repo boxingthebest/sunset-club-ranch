@@ -2,6 +2,9 @@ import './style.css'
 import { estateOverview, initEstateOverview } from './estate-overview.js'
 import { stirrupWelcome, initStirrupWelcome } from './stirrup-welcome.js'
 import { bookingSection, initBookingCalendar, GUEST_CONTACT } from './booking.js'
+import { creatorHome } from './home-refresh.js'
+import { initBrandRefresh } from './brand-refresh.js'
+import './brand-refresh.css'
 
 const CONTACT_EMAIL = 'dapenza444@gmail.com'
 const PHONE_DISPLAY = '203-233-1300'
@@ -47,9 +50,12 @@ function header() {
     <header class="site-header" id="site-header">
       <a class="site-logo" href="/" aria-label="Sunset Club Ranch home">${logo()}</a>
       <nav class="desktop-nav" aria-label="Primary navigation">
-        ${navItems.map(([label, href]) => `<a href="${href}">${label}</a>`).join('')}
+        <a href="/stay.html">Stay</a>
+        <a href="/weddings.html">Weddings & Events</a>
+        <details class="nav-group"><summary>Experiences <span aria-hidden="true">+</span></summary><div class="nav-group__links"><a href="/#experiences">Pick your pace</a><a href="/corporate.html">Corporate retreats</a><a href="/festival-weekends.html">Festival weekends</a><a href="/after-dark.html">After Dark</a><a href="/vision-2027.html">Spa Sanctuary & what’s next</a><a href="/#ranch-crew">Meet the ranch crew</a></div></details>
+        <a href="/book-direct.html">Book Direct</a>
       </nav>
-      <a class="button button--small desktop-cta" href="${ctaHref}">${ctaLabel}</a>
+      <a class="button button--small button--sunset desktop-cta" href="${ctaHref}">${ctaLabel}</a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
         <span></span><span></span>
       </button>
@@ -113,10 +119,10 @@ function pageHero({ image, alt = '', eyebrow, title, copy, cta = 'Start planning
   const calendarFirst = Object.hasOwn(planningLabels, page)
   const eventPage = ['weddings', 'corporate'].includes(page)
   if (calendarFirst) {
-    cta = 'Check availability'
-    ctaHref = '/book-direct.html#availability'
-    secondary = planningLabels[page]
-    secondaryHref = '#inquire'
+    cta = eventPage ? planningLabels[page] : 'Check availability'
+    ctaHref = eventPage ? '#inquire' : '/book-direct.html#availability'
+    secondary = eventPage ? 'Check stay dates' : planningLabels[page]
+    secondaryHref = eventPage ? '/book-direct.html#availability' : '#inquire'
   }
   return `
     <section class="page-hero page-hero--${variant}">
@@ -215,108 +221,7 @@ function inquirySection(intent = 'Private stay') {
 }
 
 function homePage() {
-  return `
-    <main id="main">
-      <section class="home-hero">
-        ${picture(airbnbPoolHero, 'Sunset Club Ranch resort pool deck with cabanas, coral parasols, and 158-inch outdoor media wall', 'home-hero__image', 'eager')}
-        <div class="home-hero__veil"></div>
-        <canvas class="home-water-motion" data-home-water-motion aria-hidden="true"></canvas>
-        <div class="home-hero__content reveal is-visible">
-          ${logo(true)}
-          <p class="home-hero__kicker">A private five-acre estate with a Tulum-meets-ranch spirit</p>
-          <h1>Come together.<br /><em>Keep the whole place.</em></h1>
-          <p class="home-hero__copy">Family escapes, wedding weekends, birthdays, anniversaries, and retreats—three homes, nine bedrooms, a resort-style pool, and room to come together.</p>
-          <div class="hero-actions"><a class="button" href="/book-direct.html#availability">Check availability</a><a class="button button--ghost" href="/weddings.html#inquire">Plan an event</a></div>
-        </div>
-        <div class="hero-facts" aria-label="Estate highlights"><span>5 private acres</span><span>3 homes</span><span>9 bedrooms</span><span>Near Empire Polo Club</span></div>
-      </section>
-
-      ${stirrupWelcome()}
-
-      <section class="booking-chooser" id="choose">
-        <div class="booking-chooser__intro reveal"><p class="eyebrow">Start here</p><h2>What brings you<br />to the ranch?</h2><p>Check lodging dates for a getaway or celebration weekend, then share your plans if you’re hosting an event. Event approval and pricing are confirmed separately.</p></div>
-        <div class="booking-chooser__paths">
-          <a class="booking-choice reveal" href="/book-direct.html#availability"><span>01</span><div><p>Getaways & celebration stays</p><h3>Check availability</h3><small>Choose dates · Review price · Book direct</small></div><b aria-hidden="true">→</b></a>
-          <a class="booking-choice reveal" href="/weddings.html#inquire"><span>02</span><div><p>Wedding, birthday, anniversary, or gathering</p><h3>Plan an event</h3><small>Date · Occasion · Group size</small></div><b aria-hidden="true">→</b></a>
-          <a class="booking-choice reveal" href="/festival-weekends.html#inquire"><span>03</span><div><p>Coachella or Stagecoach</p><h3>Festival weekends</h3><small>Weekend · Group · Priorities</small></div><b aria-hidden="true">→</b></a>
-        </div>
-      </section>
-
-      <section class="after-dark-teaser" aria-label="After Dark festival-week program">
-        ${picture(airbnbMediaWallNight, 'Outdoor media wall and pool deck at dusk at Sunset Club Ranch', 'after-dark-teaser__image')}
-        <div class="after-dark-teaser__veil"></div>
-        <div class="after-dark-teaser__content reveal">
-          <p class="after-dark-teaser__status">Now accepting 2027 festival-week inquiries</p>
-          <p class="eyebrow eyebrow--light">Coachella · Stagecoach · After Dark</p>
-          <h2>Your private<br /><em>desert weekend.</em></h2>
-          <p>Bring the whole group home to five private acres, pool days, a 158-inch outdoor screen, sauna time, and a weekend shaped around your dates—not a one-size-fits-all package.</p>
-          <div class="hero-actions"><a class="button" href="/after-dark.html#inquire">Build your weekend</a><a class="button button--ghost" href="/festival-weekends.html">Explore festival stays</a></div>
-          <small>Availability, programming, and any services are tailored and confirmed individually.</small>
-        </div>
-      </section>
-
-      <section class="intro split" id="story">
-        <div class="intro__copy reveal">
-          <p class="eyebrow">The estate</p>
-          <h2>Space to disappear.<br />Designed to reconnect.</h2>
-          <p class="lead">Tulum ease meets ranch scale: palms, water, warm wood, honeyed stone, and open desert sky. Days move between the pool, lawns, shaded patios, and three distinct homes; nights gather around long tables and low light.</p>
-          <a class="text-link" href="/stay.html">Explore the stay <span aria-hidden="true">→</span></a>
-        </div>
-        <figure class="editorial-image editorial-image--portrait reveal">
-          ${picture(airbnbArrivalAerial, 'Sunset Club Ranch arrival and five-acre grounds at dusk')}
-          <figcaption>Five private acres · Indio, California</figcaption>
-        </figure>
-      </section>
-
-      <section class="fact-band" aria-label="Property details">
-        <div><strong>05</strong><span>Private acres</span></div><div><strong>03</strong><span>Distinct homes</span></div><div><strong>09</strong><span>Bedrooms</span></div><div><strong>01</strong><span>Estate, entirely yours</span></div>
-      </section>
-
-      ${estateOverview()}
-
-      <section class="story-grid section-pad">
-        ${editorialHeader('The rhythm of a stay', 'A place with more than one mood.', 'Swim. Cook. Play. Retreat. From open-air pizza nights to the courts and pool, the estate lets everyone move together—or choose a corner of their own.')}
-        <div class="mosaic mosaic--estate reveal">
-          <figure class="mosaic__wide">${picture(airbnbPoolDay, 'Resort pool with coral parasols at Sunset Club Ranch')}<figcaption>Pool days, done properly</figcaption></figure>
-          <figure>${picture(currentKitchen, 'Sunset Club Ranch kitchen and gathering table with new caramel leather chairs')}<figcaption>A place at the table</figcaption></figure>
-          <figure>${picture(airbnbCourts, 'Sand volleyball and pickleball courts at Sunset Club Ranch')}<figcaption>Room to play</figcaption></figure>
-          <figure>${picture(airbnbMiniGolfDusk, 'Palm-lined mini-golf lawn at sunset at Sunset Club Ranch')}<figcaption>After the sun goes down</figcaption></figure>
-          <figure>${picture(airbnbOutdoorKitchen, 'Open-air outdoor kitchen with pizza oven and grills at Sunset Club Ranch')}<figcaption>Outdoor kitchen · grills + pizza oven</figcaption></figure>
-        </div>
-      </section>
-
-      <section class="art-story">
-        <div class="art-story__copy reveal">
-          <p class="eyebrow eyebrow--light">Art lives here</p>
-          <h2>Unexpected work.<br />Unforgettable rooms.</h2>
-          <p>The collection brings a playful, gallery-minded edge to the estate—surreal gestures, cinematic portraits, and pieces that reward a second look.</p>
-          <p class="fine-print fine-print--light">Owner-supplied visualizations of installed artwork in current Sunset Club Ranch interiors.</p>
-        </div>
-        <div class="art-strip reveal">
-          <figure>${picture('/media/art/glowing-beauty.webp', 'Statement portrait artwork installed in a Sunset Club Ranch hallway')}<figcaption>Hallway portrait</figcaption></figure>
-          <figure>${picture('/media/art/stairwell-trio.webp', 'Three framed artworks installed beside a stair at Sunset Club Ranch')}<figcaption>A trio in conversation</figcaption></figure>
-          <figure>${picture('/media/art/jaws-bedroom.webp', 'Statement artwork installed in a Sunset Club Ranch bedroom')}<figcaption>A little cinematic tension</figcaption></figure>
-        </div>
-      </section>
-
-      <section class="pathways section-pad">
-        ${editorialHeader('Choose your reason to gather', 'One estate. Several ways in.')}
-        <div class="pathway-grid">
-          ${[
-            ['Stay together', 'A private compound for group escapes, family time, and long weekends.', '/stay.html', airbnbFireplaceWall],
-            ['Celebrate here', 'Weddings, family milestones, and gatherings that last beyond one night.', '/weddings.html', airbnbArrivalAerial],
-            ['Festival weekends', 'Coachella, Stagecoach, and a more considered way to do the desert.', '/festival-weekends.html', airbnbMediaWallNight],
-          ].map(([title, copy, href, image], i) => `<a class="pathway-card reveal" href="${href}" style="--delay:${i * 80}ms">${picture(image, '')}<span class="pathway-card__veil"></span><span class="pathway-card__content"><small>${String(i + 1).padStart(2, '0')}</small><strong>${title}</strong><em>${copy}</em><b>Explore →</b></span></a>`).join('')}
-        </div>
-      </section>
-
-      <section class="quote-section">
-        <p class="eyebrow">Guest perspective</p>
-        <blockquote>“The property is something out of the movies.”</blockquote>
-        <p>Grant · Group stay</p>
-      </section>
-      ${inquirySection('Private stay')}
-    </main>`
+  return creatorHome({ picture, estateOverview, stirrupWelcome, inquirySection })
 }
 
 function stayPage() {
@@ -605,7 +510,9 @@ function homeMascotWelcome() {
 }
 
 function mascotLayer(pageName) {
-  if (pageName === 'home') return homeMascotWelcome()
+  // The refreshed homepage gives the crew its own interactive section.
+  // A fixed legacy greeting would cover the headline and experience controls.
+  if (pageName === 'home') return ''
   const hostsByPage = {
     stay: [['lulu', 'Lulu', 'Stay host', 'For fireside movies on the 90-inch TV, long-table meals, and the comfortable final chapter of the day.', 'lulu-stay-lounge']],
     weddings: [['scout', 'Scout', 'Black-tie host', 'For the toast, the glow, and the part of the night nobody wants to end.', 'scout-tuxedo']],
@@ -638,14 +545,18 @@ const renderers = {
 }
 
 const page = document.body.dataset.page || 'home'
+document.body.classList.add('brand-refresh')
 const app = document.querySelector('#app')
 app.innerHTML = `${header()}${(renderers[page] || homePage)()}${footer()}${mascotLayer(page)}<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Estate photograph" aria-hidden="true"><button type="button" aria-label="Close image">Close</button><img src="" alt="" /></div>`
 initEstateOverview()
 initBookingCalendar()
 if (page === 'home') initStirrupWelcome()
+initBrandRefresh()
 
 if (window.location.hash) {
-  requestAnimationFrame(() => document.querySelector(window.location.hash)?.scrollIntoView())
+  requestAnimationFrame(() => {
+    try { document.getElementById(decodeURIComponent(window.location.hash.slice(1)))?.scrollIntoView() } catch { /* Ignore invalid hash fragments. */ }
+  })
 }
 
 const siteHeader = document.querySelector('#site-header')
@@ -992,6 +903,7 @@ function setMenu(open) {
   menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation')
   document.body.classList.toggle('menu-open', open)
   if (open) menuClose.focus()
+  else menuToggle.focus()
 }
 menuToggle.addEventListener('click', () => setMenu(true))
 menuClose.addEventListener('click', () => setMenu(false))
