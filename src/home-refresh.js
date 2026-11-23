@@ -58,8 +58,19 @@ export function creatorHome({ picture, estateOverview, stirrupWelcome, inquirySe
     </section>
 
     <section class="club-film club-container">
-      <div class="club-section-heading reveal"><p class="eyebrow">Space you can feel</p><h2>Go on.<br /><em>Take up space.</em></h2><p>Five acres changes the way a weekend feels. Step onto the lawn and see for yourself.</p><a class="club-inline-link" href="/stay.html">Get to know the estate ${arrow}</a></div>
-      <figure class="club-film__frame reveal"><video data-club-film muted loop playsinline controls preload="none" poster="/media/estate/lawn-current.webp" aria-label="Authentic footage of Sunset Club Ranch’s lawn and mountain views"><source src="/media/video/lawn-current.mp4" type="video/mp4" /></video><figcaption><span>Sunset Club Ranch, in motion</span><span>Actual property footage</span></figcaption></figure>
+      <div class="club-section-heading reveal"><p class="eyebrow">Little moments. Real ranch.</p><h2>Room to roam.<br /><em>Space to reset.</em></h2><p>A few quiet moments from the actual grounds and inside the sauna. Palms overhead. Warm wood. Your own kind of pause.</p><a class="club-inline-link" href="/stay.html">Get to know the estate ${arrow}</a></div>
+      <div class="club-film__frame club-film__moments reveal">
+        <figure class="club-snippet" data-property-snippet>
+          <div class="club-snippet__scene"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/106775517/YraATjVDujGlgSyc.webp" alt="The real ranch lawn, palms, blue sky and mountain backdrop" width="540" height="960" loading="lazy" decoding="async" /><video id="grounds-snippet" data-src="https://files.manuscdn.com/user_upload_by_module/session_file/106775517/zVaduTFbiZAadCau.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div>
+          <figcaption><strong>A little room to roam.</strong><small>Actual grounds · silent 5-second edit</small></figcaption>
+          <button type="button" data-snippet-control aria-controls="grounds-snippet" aria-label="Play or pause the ranch grounds clip" aria-pressed="false">Play clip</button><p data-snippet-status role="status" hidden></p>
+        </figure>
+        <figure class="club-snippet" data-property-snippet>
+          <div class="club-snippet__scene"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/106775517/hYamglTZvkieaiaE.webp" alt="Wood walls and temperature gauges inside the ranch’s installed sauna" width="540" height="960" loading="lazy" decoding="async" /><video id="sauna-snippet" data-src="https://files.manuscdn.com/user_upload_by_module/session_file/106775517/lCVGDSYgPRvmsYPN.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div>
+          <figcaption><strong>A slower kind of good.</strong><small>Inside the sauna · available now</small></figcaption>
+          <button type="button" data-snippet-control aria-controls="sauna-snippet" aria-label="Play or pause the sauna detail clip" aria-pressed="false">Play clip</button><p data-snippet-status role="status" hidden></p>
+        </figure>
+      </div>
     </section>
 
     <section class="club-homes club-container" id="story">

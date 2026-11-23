@@ -1,3 +1,5 @@
+import { initPropertySnippets } from './property-snippets.js'
+
 const experiences = {
   pool: {
     number: '01', label: 'Pool days', image: '/media/airbnb-gallery/pool-coral-parasols.jpeg',
@@ -31,6 +33,7 @@ const experiences = {
 
 export function initBrandRefresh() {
   initHeroFilm()
+  initPropertySnippets()
   const tabs = [...document.querySelectorAll('[data-mood]')]
   const panel = document.querySelector('#mood-panel')
   let transitionTimer

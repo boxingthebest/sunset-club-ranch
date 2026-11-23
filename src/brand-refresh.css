@@ -342,3 +342,25 @@
 }
 @keyframes club-crew-enter { from { opacity: 0; transform: translateY(12px) rotate(2deg); } to { opacity: 1; transform: rotate(2deg); } }
 @media (max-width:760px) and (prefers-reduced-motion:no-preference) { .brand-refresh .club-hero__crew { animation-name: club-enter; } }
+
+/* Owner-filmed portrait moments. Full framing, no audio, no forced hero crop. */
+.brand-refresh .club-film__moments { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; max-width: 620px; }
+.brand-refresh .club-snippet { min-width: 0; margin: 0; }
+.brand-refresh .club-snippet:nth-child(2) { margin-top: 45px; }
+.brand-refresh .club-snippet__scene { position: relative; aspect-ratio: 9/16; isolation: isolate; overflow: hidden; border-radius: 120px 120px 10px 10px; background: var(--ink); }
+.brand-refresh .club-snippet__scene img { width: 100%; height: 100%; object-fit: contain; }
+.brand-refresh .club-film .club-snippet video { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: contain; border-radius: 0; opacity: 0; transition: opacity .2s var(--club-ease); }
+.brand-refresh .club-snippet.is-snippet-ready video { opacity: 1; }
+.brand-refresh .club-snippet figcaption { display: block; margin-top: 15px; color: var(--ink); }
+.brand-refresh .club-snippet figcaption strong { display: block; font: 600 14px/1.4 var(--body); }
+.brand-refresh .club-snippet figcaption small { display: block; margin-top: 5px; font: 400 10px/1.5 var(--body); color: #625d54; }
+.brand-refresh .club-snippet button { margin-top: 12px; padding: 9px 17px; min-height: 44px; border: 1px solid var(--sunset); border-radius: 100px; background: transparent; color: var(--sunset); font: 600 10px/1.4 var(--body); cursor: pointer; }
+.brand-refresh .club-snippet button:hover { background: var(--sunset); color: var(--white); }
+.brand-refresh .club-snippet [hidden] { display: none; }
+.brand-refresh .club-snippet [data-snippet-status] { font-size: 11px; line-height: 1.5; color: #625d54; }
+@media (max-width:760px) {
+  .brand-refresh .club-film__moments { gap: 15px; }
+  .brand-refresh .club-snippet:nth-child(2) { margin-top: 30px; }
+  .brand-refresh .club-snippet__scene { border-radius: 80px 80px 8px 8px; }
+  .brand-refresh .club-snippet figcaption strong { font-size: 12px; }
+}
