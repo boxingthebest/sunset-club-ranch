@@ -5,19 +5,24 @@ export function creatorHome({ picture, estateOverview, stirrupWelcome, inquirySe
   return `
   <main id="main" class="creator-home">
     <section class="club-hero" aria-labelledby="club-title">
-      <div class="club-hero__copy">
-        <p class="club-location"><span aria-hidden="true">✳</span> Indio, California · Your private five acres</p>
-        <h1 id="club-title">Come<br />together.<em>Keep the<br />whole place.</em></h1>
-        <p class="club-hero__intro">Ranch soul. Resort energy. Three homes, nine bedrooms, and five private acres for the people you want around.</p>
-        <div class="club-hero__actions"><a class="button button--sunset" href="/book-direct.html#availability">Check availability ${arrow}</a><a class="club-inline-link" href="/weddings.html#inquire">Plan a celebration ${arrow}</a></div>
-        <a class="club-scroll" href="#experiences"><span aria-hidden="true">↓</span> Find your kind of weekend</a>
-      </div>
       <div class="club-hero__visual">
         ${picture(`${gallery}/pool-media-wall.jpg`, 'The real Sunset Club Ranch pool, coral parasols, cabanas, and outdoor media wall', 'club-hero__photo', 'eager')}
+        <video class="club-hero__film" data-club-hero-film data-src="https://files.manuscdn.com/user_upload_by_module/session_file/106775517/RsBtbTlFCAWjcavE.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
         <div class="club-hero__photo-shade"></div>
-        <div class="club-stamp" aria-label="One estate, entirely yours"><span>Not a hotel.</span><strong>Your<br />whole ranch.</strong><small>Sunset Club Ranch</small></div>
-        <button class="club-snapshot" type="button" data-lightbox="${gallery}/recreation-courts.jpg" aria-label="Take a closer look at the ranch courts">${picture(`${gallery}/recreation-courts.jpg`, 'Pickleball and sand volleyball courts at Sunset Club Ranch')}<span>A little friendly competition. ${arrow}</span></button>
-        <span class="club-photo-credit">The real ranch. No stock-photo escape.</span>
+      </div>
+      <div class="club-hero__opening club-container">
+        <div class="club-hero__copy">
+          <p class="club-location"><span aria-hidden="true">✳</span> Indio, California · Your private five acres</p>
+          <h1 id="club-title">Your people.<em>Your private<br /> resort.</em></h1>
+          <p class="club-hero__intro">Ranch soul. Resort energy. Three homes, nine bedrooms, and five private acres. Pool days, court time, and ranch nights—entirely yours.</p>
+          <div class="club-hero__actions"><a class="button button--sunset" href="/book-direct.html#availability">Check availability ${arrow}</a><a class="club-inline-link" href="/weddings.html#inquire">Plan a celebration ${arrow}</a></div>
+          <a class="club-scroll" href="#experiences"><span aria-hidden="true">↓</span> Find your kind of weekend</a>
+        </div>
+        <div class="club-hero__crew" id="ranch-crew">${stirrupWelcome().replace('Howdy, I’m Stirrup.', 'Stirrup, Lulu &amp; Scout.').replace('Meet the ranch crew', 'Your welcome committee')}</div>
+      </div>
+      <div class="club-hero__foot club-container">
+        <button class="club-film-control" data-hero-film-control type="button" aria-pressed="false">Play ranch film</button>
+        <span class="club-photo-credit">Day-to-night edit · actual ranch photographs</span>
       </div>
     </section>
 
@@ -79,8 +84,6 @@ export function creatorHome({ picture, estateOverview, stirrupWelcome, inquirySe
     </section>
 
     <div class="club-overview">${estateOverview()}</div>
-
-    <div class="club-crew" id="ranch-crew">${stirrupWelcome()}</div>
 
     <section class="club-social club-container">
       <div class="club-social__intro reveal"><p class="eyebrow">The ranch never stands still</p><h2>Follow the<br /><em>next chapter.</em></h2><p>New corners. Fresh moments. A little ranch personality. Find us at @sunsetclubranch.</p><a class="button button--sunset" href="https://www.instagram.com/sunsetclubranch/" target="_blank" rel="noopener noreferrer">Meet us on Instagram ${arrow}</a></div>

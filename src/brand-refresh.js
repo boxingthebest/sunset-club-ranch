@@ -30,6 +30,7 @@ const experiences = {
 }
 
 export function initBrandRefresh() {
+  initHeroFilm()
   const tabs = [...document.querySelectorAll('[data-mood]')]
   const panel = document.querySelector('#mood-panel')
   let transitionTimer
@@ -116,4 +117,70 @@ export function initBrandRefresh() {
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus() }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus() }
   })
+}
+
+function initHeroFilm() {
+  const video = document.querySelector('[data-club-hero-film]')
+  const control = document.querySelector('[data-hero-film-control]')
+  const scene = video?.closest('.club-hero__visual')
+  if (!video || !control || !scene) return
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
+  const connection = navigator.connection
+  let inView = false
+  let wantsPlayback = !motion.matches && !connection?.saveData
+  let explicitPlayback = false
+  let failed = false
+  let request = 0
+  video.muted = true
+  video.defaultMuted = true
+
+  function pause() {
+    request += 1
+    video.pause()
+    control.textContent = 'Play ranch film'
+    control.setAttribute('aria-pressed', 'false')
+  }
+  async function play() {
+    if (!inView || document.hidden || !wantsPlayback || failed) return
+    if (!explicitPlayback && (motion.matches || connection?.saveData)) return
+    if (!video.getAttribute('src')) video.src = video.dataset.src
+    const current = ++request
+    try {
+      await video.play()
+      if (current !== request || !inView || document.hidden || !wantsPlayback) return
+      scene.classList.add('is-film-ready')
+      control.textContent = 'Pause ranch film'
+      control.setAttribute('aria-pressed', 'true')
+    } catch {
+      if (current !== request) return
+      wantsPlayback = false
+      control.textContent = 'Play ranch film'
+      control.setAttribute('aria-pressed', 'false')
+    }
+  }
+  function reconcile() {
+    if (inView && !document.hidden && wantsPlayback) play()
+    else pause()
+  }
+  control.addEventListener('click', () => {
+    if (!video.paused) { wantsPlayback = false; pause() }
+    else { explicitPlayback = true; wantsPlayback = true; play() }
+  })
+  video.addEventListener('error', () => {
+    failed = true
+    wantsPlayback = false
+    pause()
+    scene.classList.remove('is-film-ready')
+    control.hidden = true
+  })
+  const observer = new IntersectionObserver(([entry]) => {
+    inView = entry.isIntersecting && entry.intersectionRatio >= .2
+    reconcile()
+  }, { threshold: [0,.2] })
+  observer.observe(scene)
+  document.addEventListener('visibilitychange', reconcile)
+  motion.addEventListener('change', () => {
+    if (motion.matches && !explicitPlayback) { wantsPlayback = false; pause(); scene.classList.remove('is-film-ready') }
+  })
+  window.addEventListener('pagehide', () => { pause(); observer.disconnect(); document.removeEventListener('visibilitychange', reconcile) }, { once: true })
 }
