@@ -6,7 +6,7 @@ A custom multi-page Vite site for Sunset Club Ranch, a private five-acre estate 
 
 | Route | Purpose |
 |---|---|
-| `/` | Editorial homepage and primary inquiry path |
+| `/` | Focused estate/photo homepage and direct-booking entry |
 | `/stay.html` | Homes, current amenities, gallery, and recent additions |
 | `/book-direct.html#availability` | Hostaway lodging calendar and Anneta Group checkout |
 | `/weddings.html` | Weddings, birthdays, and celebration inquiries |
@@ -95,3 +95,17 @@ The “Check availability” and celebration inquiry remain separate first-scree
 The homepage’s “Room to roam. Space to reset.” section now presents two full-frame portrait edits from owner-supplied phone footage, with gentle joins: grounds/lawn/palms (approximately 5.2 seconds) and sauna interior/controls (approximately 6.8 seconds). Encoded as 540×960 square-pixel H.264 at 24fps, with faststart and **no audio stream**, not merely a muted soundtrack. The combined video payload is approximately 1.74MB, loaded only when clips enter view. Each has play/pause, keyboard support, offscreen/background pause, reduced-motion/data-saving autoplay suppression and an actual-frame still fallback. `src/property-snippets.js` controls these cards separately from the unchanged hero/crew.
 
 Grounds: `https://files.manuscdn.com/user_upload_by_module/session_file/106775517/zVaduTFbiZAadCau.mp4`; poster `https://files.manuscdn.com/user_upload_by_module/session_file/106775517/YraATjVDujGlgSyc.webp`. Sauna: `https://files.manuscdn.com/user_upload_by_module/session_file/106775517/lCVGDSYgPRvmsYPN.mp4`; poster `https://files.manuscdn.com/user_upload_by_module/session_file/106775517/hYamglTZvkieaiaE.webp`. Sources: `20261121_091651.mp4` at 0–2.2s and 7–10.2s; `20261121_095826.mp4` at 84–87s and 93–97s. The supplied originals were not altered. Shaky/instructional/unfinished footage and the branded teaser’s future-amenity concepts were intentionally not used as documentary clips. Current/planned amenity labels, the top-of-page trio, QR welcome, all routes and booking/inquiry integrations are unchanged.
+
+## Focused homepage after resort audit — November 23, 2026
+
+The homepage now follows opening → homes/photos → experiences → compact estate overview → stay/celebration/festival paths → availability and questions. The cinematic hero and first-screen Stirrup/Lulu/Scout welcome are retained. The hero’s secondary action now jumps directly to the early homes section; `View photos` and explicit Photos navigation lead to `/stay.html#photos`, an anchored, working photo gallery. Early estate facts show three homes, nine bedrooms, six bathrooms, and five private acres. The Main House, Guest House 1, and Guest House 2 labels show the confirmed bedroom/bathroom split.
+
+The two silent portrait clips are integrated into the experience section without a separate large introductory section. The standalone After Dark and Spa Sanctuary panels are consolidated into the corresponding experience tabs and their existing detail-page links. Current/planned disclosures remain visible. `src/home-focused.css` scopes the new layout to the focused homepage except the photo anchor’s scroll offset; existing page-brand and motion styles remain intact.
+
+`estateOverview({ compact: true })` is used on the homepage, retaining an uncropped expandable map, illustrative/planned disclosures, and current-versus-in-development labels while removing repeated house descriptions. The default full overview, three-house details, and interactive viewer are available on `/stay.html#explore-estate`. Default guest-guide mode, QR personalization, viewer zoom/keyboard controls, and lazy full-resolution loading are unchanged. Main House is used consistently in the component instead of The Ranch House.
+
+The full homepage inquiry form is replaced with explicit links to `/stay.html#inquire` and `/weddings.html#inquire`; the homepage `#inquire` anchor still lands at this questions area. FormSubmit, recipient ownership, attribution, and all detail-page inquiry forms remain unchanged. Instagram remains accessible in the footer. Fixed desktop and mobile availability controls, Hostaway listing 603473, Anneta checkout, date handling, and event approval boundaries are preserved. No new media or stock-property imagery was introduced.
+
+Same-viewport hydrated preview measurements: 6,612px at 1440×900 and 7,429px at 390×844, approximately 36% shorter than the live audit baseline of 10,367px and 11,643px. The homes now begin at roughly 964px desktop and 857px mobile instead of 3,605px and 3,991px. Responsive checks also covered 890px and 320px, persistent availability hit targets, photo lightboxes and gallery anchors, full Stay/event inquiry destinations, media controls/fallbacks, and native estate-viewer keyboard/zoom behavior. No booking, payment, or inquiry was submitted.
+
+The unchanged original full-resolution estate illustration is hosted at `https://files.manuscdn.com/user_upload_by_module/session_file/106775517/XGSKPHRbsbYiloVy.jpg` for reliable deferred viewer delivery. It was verified to decode and zoom on desktop and mobile; its illustrative/planned disclosures remain visible. The small original map preview is unchanged.

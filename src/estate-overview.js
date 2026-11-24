@@ -1,7 +1,7 @@
 import './estate-overview.css';
 
 const PREVIEW_IMAGE = '/media/estate-overview/sunset-club-ranch-aerial-overview-guest-houses.webp';
-const FULL_IMAGE = '/media/estate-overview/sunset-club-ranch-aerial-overview-guest-houses-full.jpg';
+const FULL_IMAGE = 'https://files.manuscdn.com/user_upload_by_module/session_file/106775517/XGSKPHRbsbYiloVy.jpg';
 const CAPTION = 'Illustrative estate overview—includes planned wellness and soccer upgrades.';
 const DISCLOSURE = 'Photo-based visualization, not a current drone photograph or a surveyed map. Confirm current amenity availability with the host.';
 const initialized = new WeakSet();
@@ -9,15 +9,17 @@ const scrollLocks = new WeakMap();
 let instance = 0;
 
 /** Render once per page; call initEstateOverview after inserting the markup. */
-export function estateOverview({ guest = false } = {}) {
+export function estateOverview({ guest = false, compact = false } = {}) {
   const id = `eo-${++instance}`;
   const title = guest ? 'Find your ranch moment' : 'Five acres. One private world.';
   const copy = guest
     ? 'A little orientation for your stay. Find room to play, unwind and gather.'
-    : 'A main residence, two guest houses and open-air gathering spaces. Get a feel for the ranch before you arrive.';
+    : compact
+      ? 'Main House, two guest houses and room to gather. Explore the illustrated ranch overview.'
+      : 'A main residence, two guest houses and open-air gathering spaces. Get a feel for the ranch before you arrive.';
 
   return `
-    <section id="explore-estate" class="eo-section${guest ? ' eo-section--guest' : ''}" aria-labelledby="${id}-title" data-eo-section>
+    <section id="explore-estate" class="eo-section${guest ? ' eo-section--guest' : ''}${compact ? ' eo-section--compact' : ''}" aria-labelledby="${id}-title" data-eo-section>
       <div class="eo-inner">
         <header class="eo-header">
           <div class="eo-heading">
@@ -25,7 +27,7 @@ export function estateOverview({ guest = false } = {}) {
             <h2 class="eo-title" id="${id}-title">${title}</h2>
             <p class="eo-intro">${copy}</p>
           </div>
-          <a class="eo-link eo-context-link" href="${guest ? '#help' : '/stay.html'}">${guest ? 'Ask your host' : 'Discover your stay'}<span aria-hidden="true">↗</span></a>
+          ${!compact || guest ? `<a class="eo-link eo-context-link" href="${guest ? '#help' : '/stay.html'}">${guest ? 'Ask your host' : 'Discover your stay'}<span aria-hidden="true">↗</span></a>` : ''}
         </header>
 
         <div class="eo-layout">
@@ -44,24 +46,24 @@ export function estateOverview({ guest = false } = {}) {
             </figcaption>
           </figure>
 
-          <aside class="eo-houses" aria-labelledby="${id}-houses">
+          ${compact ? `<p class="eo-layout-details"><a class="eo-link" href="/stay.html#explore-estate">Full estate layout &amp; house details<span aria-hidden="true">↗</span></a></p>` : `<aside class="eo-houses" aria-labelledby="${id}-houses">
             <p class="eo-eyebrow eo-houses-label" id="${id}-houses">Your places to stay</p>
             <div class="eo-house-list">
               <article class="eo-house">
                 <span class="eo-house-number" aria-hidden="true">MAIN</span>
-                <div><h3 class="eo-house-title">The Ranch House</h3><p class="eo-house-count">4 bedrooms · 3 bathrooms</p><p class="eo-house-kind">Main residence</p></div>
+                <div><h3 class="eo-house-title">Main House</h3><p class="eo-house-count">4 bedrooms · 3 bathrooms</p><p class="eo-house-kind">Main residence</p></div>
               </article>
               <article class="eo-house">
                 <span class="eo-house-number" aria-hidden="true">01</span>
-                <div><h3 class="eo-house-title">Guest House #1</h3><p class="eo-house-count">2 bedrooms · 2 bathrooms</p><p class="eo-house-kind">Right of The Ranch House, along the walkway toward pickleball &amp; basketball</p></div>
+                <div><h3 class="eo-house-title">Guest House #1</h3><p class="eo-house-count">2 bedrooms · 2 bathrooms</p><p class="eo-house-kind">Right of Main House, along the walkway toward pickleball &amp; basketball</p></div>
               </article>
               <article class="eo-house">
                 <span class="eo-house-number" aria-hidden="true">02</span>
-                <div><h3 class="eo-house-title">Guest House #2</h3><p class="eo-house-count">3 bedrooms · 1 bathroom</p><p class="eo-house-kind">Farther from The Ranch House, beside the Open Barn</p></div>
+                <div><h3 class="eo-house-title">Guest House #2</h3><p class="eo-house-count">3 bedrooms · 1 bathroom</p><p class="eo-house-kind">Farther from Main House, beside the Open Barn</p></div>
               </article>
             </div>
             <p class="eo-house-note">The Open Barn is separate from Guest House #2 and is not lodging.</p>
-          </aside>
+          </aside>`}
         </div>
 
         <div class="eo-availability" aria-label="Current and planned amenities">

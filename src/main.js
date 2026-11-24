@@ -5,6 +5,7 @@ import { bookingSection, initBookingCalendar, GUEST_CONTACT } from './booking.js
 import { creatorHome } from './home-refresh.js'
 import { initBrandRefresh } from './brand-refresh.js'
 import './brand-refresh.css'
+import './home-focused.css'
 
 const CONTACT_EMAIL = 'dapenza444@gmail.com'
 const PHONE_DISPLAY = '203-233-1300'
@@ -12,6 +13,7 @@ const PHONE_HREF = '+12032331300'
 
 const navItems = [
   ['Stay', '/stay.html'],
+  ['Photos', '/stay.html#photos'],
   ['Book Direct', '/book-direct.html'],
   ['Weddings & Events', '/weddings.html'],
   ['Corporate Retreats', '/corporate.html'],
@@ -53,7 +55,7 @@ function header() {
         <a href="/stay.html">Stay</a>
         <a href="/weddings.html">Weddings & Events</a>
         <details class="nav-group"><summary>Experiences <span aria-hidden="true">+</span></summary><div class="nav-group__links"><a href="/#experiences">Pick your pace</a><a href="/corporate.html">Corporate retreats</a><a href="/festival-weekends.html">Festival weekends</a><a href="/after-dark.html">After Dark</a><a href="/vision-2027.html">Spa Sanctuary & what’s next</a><a href="/#ranch-crew">Meet the ranch crew</a></div></details>
-        <a href="/book-direct.html">Book Direct</a>
+        <a href="/stay.html#photos">Photos</a>
       </nav>
       <a class="button button--small button--sunset desktop-cta" href="${ctaHref}">${ctaLabel}</a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
@@ -221,7 +223,7 @@ function inquirySection(intent = 'Private stay') {
 }
 
 function homePage() {
-  return creatorHome({ picture, estateOverview, stirrupWelcome, inquirySection })
+  return creatorHome({ picture, estateOverview, stirrupWelcome })
 }
 
 function stayPage() {
@@ -282,7 +284,7 @@ function stayPage() {
           <figure>${picture(airbnbCourtsNight,'Illuminated recreation courts at Sunset Club Ranch')}<figcaption>Recreation after dark · current Airbnb-gallery photograph</figcaption></figure>
         </div>
       </section>
-      <section class="section-pad">
+      <section class="section-pad" id="photos">
         ${editorialHeader('A closer look', 'Details make the stay.')}
         <div class="gallery-grid">
           ${[
@@ -300,6 +302,7 @@ function stayPage() {
           ].map(([src, alt]) => `<button class="gallery-item reveal" type="button" data-lightbox="${src}" data-alt="${alt}" aria-label="Open ${alt.toLowerCase()}">${picture(src, alt)}</button>`).join('')}
         </div>
       </section>
+      ${estateOverview()}
       ${planningAnswers('Plan your stay', 'A private estate stay in Indio, made simple.', [
         ['Can our group stay together?', 'The estate brings together three homes and nine bedrooms on five private acres. Tell us your group size and dates so we can confirm the best fit.'],
         ['What can we enjoy on property now?', 'The pool and spa with waterfall features, a six-person sauna, the 158-inch outdoor media wall, pickleball and volleyball courts, a basketball hoop, fire pits, one outdoor kitchen, two indoor kitchens, and refreshed interiors are part of the current estate. The planned barn, cold plunge, hammocks, swings, outdoor shower, and expanded wellness courtyard are not yet guest amenities.'],

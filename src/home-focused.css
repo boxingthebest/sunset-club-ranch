@@ -1,0 +1,72 @@
+/* Focused homepage: see the estate early, explore once, book from anywhere. */
+.creator-home--focused .club-homes { padding-block: 78px 85px; }
+.creator-home--focused .club-homes__heading { display: flex; align-items: end; justify-content: space-between; gap: 35px; }
+.creator-home--focused .club-homes__heading > .button { flex-shrink: 0; margin-bottom: 5px; }
+.creator-home--focused .club-estate-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin: 34px 0 0; padding-block: 24px; border-top: 1px solid #17171325; border-bottom: 1px solid #17171325; }
+.creator-home--focused .club-estate-facts > div { display: flex; align-items: baseline; gap: 15px; }
+.creator-home--focused .club-estate-facts dt { order: 1; font: 600 11px/1.5 var(--body); color: #625d54; }
+.creator-home--focused .club-estate-facts dd { margin: 0; color: var(--sunset); font: italic 400 38px/1 var(--display); }
+.creator-home--focused .club-homes__collage { grid-template-columns: 1.2fr .55fr .65fr; margin-top: 34px; gap: 25px; }
+.creator-home--focused .club-homes__collage figure button { width: 100%; display: block; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.creator-home--focused .club-homes__rooms { padding-left: 12px; }
+.creator-home--focused .club-homes__rooms > div { padding-block: 17px; border-bottom: 1px solid #17171325; }
+.creator-home--focused .club-homes__rooms > div:first-child { padding-top: 0; }
+.creator-home--focused .club-homes__rooms h3 { font: 600 18px/1.35 var(--body); letter-spacing: -.03em; margin: 0 0 5px; }
+.creator-home--focused .club-homes__rooms p { margin: 0; font: 400 12px/1.6 var(--body); color: #625d54; }
+.creator-home--focused .club-homes__rooms > a { margin-top: 15px; font-size: 11px; gap: 10px; }
+.creator-home--focused .club-homes__summary { max-width: 640px; margin: 24px 0 0; font-size: 14px; line-height: 1.7; color: #625d54; }
+.creator-home--focused .club-moments { grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); gap: 65px; margin-top: 44px; padding-block: 50px 0; border-top: 1px solid #17171325; }
+.creator-home--focused .club-moments__intro h3 { margin: 0; font: 500 clamp(35px,3.8vw,54px)/1.02 var(--body); letter-spacing: -.045em; }
+.creator-home--focused .club-moments__intro h3 em { color: var(--sunset); font: italic 400 1.05em/1.1 var(--display); }
+.creator-home--focused .club-moments__intro > p:not(.eyebrow) { max-width: 390px; color: #625d54; font-size: 14px; line-height: 1.7; margin-block: 22px; }
+.creator-home--focused .club-moments__intro > .club-moments__note { font-size: 11px; margin-bottom: 0; }
+.creator-home--focused .club-film__moments { width: 100%; max-width: 520px; justify-self: end; }
+.creator-home--focused .club-arrival--compact { padding-block: 70px; }
+.creator-home--focused .club-arrival--compact > .club-section-heading { margin-bottom: 28px; }
+.creator-home--focused .club-arrival--compact h2 { font-size: clamp(42px,4.3vw,60px); }
+.creator-home--focused .club-arrival-card { padding-block: 25px; }
+.creator-home--focused .club-arrival-card h3 { margin-block: 18px 14px; font-size: clamp(26px,2.5vw,34px); }
+.creator-home--focused .club-arrival-card p { min-height: 47px; margin-bottom: 20px; }
+.creator-home--focused .club-questions { margin: 30px auto 0; max-width: 560px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; }
+.creator-home--focused .club-questions > p { flex-basis: 100%; font-size: 13px; margin: 0 0 3px; }
+.creator-home--focused .club-questions .club-inline-link { font-size: 11px; gap: 10px; }
+.creator-home--focused #inquire { scroll-margin-top: 110px; }
+.brand-refresh #photos { scroll-margin-top: 100px; }
+@media (min-width:761px) and (max-width:1100px) {
+  .creator-home--focused .club-homes__collage { gap: 18px; grid-template-columns: 1.05fr .6fr .75fr; }
+  .creator-home--focused .club-homes__rooms { padding-left: 0; }
+  .creator-home--focused .club-homes__rooms h3 { font-size: 16px; }
+  .creator-home--focused .club-homes__rooms p { font-size: 11px; }
+  .creator-home--focused .club-estate-facts > div { gap: 9px; }
+  .creator-home--focused .club-moments { gap: 35px; }
+}
+@media (max-width:760px) {
+  .creator-home--focused .club-homes { padding-block: 55px 65px; }
+  .creator-home--focused .club-homes__heading { display: block; }
+  .creator-home--focused .club-homes__heading > .button { margin-top: 23px; font-size: 10px; }
+  .creator-home--focused .club-estate-facts { margin-top: 26px; padding-block: 18px; gap: 12px; }
+  .creator-home--focused .club-estate-facts > div { flex-direction: column; gap: 7px; }
+  .creator-home--focused .club-estate-facts dd { order: -1; font-size: 32px; }
+  .creator-home--focused .club-estate-facts dt { font-size: 9px; }
+  .creator-home--focused .club-homes__collage { grid-template-columns: .8fr 1.2fr; gap: 20px; margin-top: 28px; align-items: start; }
+  .creator-home--focused .club-homes__main { grid-column: 1/-1; }
+  .creator-home--focused .club-homes__bedroom { margin-top: 15px; }
+  .creator-home--focused .club-homes__bedroom img { aspect-ratio: 3/4; }
+  .creator-home--focused .club-homes__rooms { padding-left: 0; }
+  .creator-home--focused .club-homes__rooms > div { padding-block: 12px; }
+  .creator-home--focused .club-homes__rooms h3 { font-size: 16px; }
+  .creator-home--focused .club-homes__rooms p { font-size: 10px; }
+  .creator-home--focused .club-homes__rooms > a { font-size: 10px; gap: 7px; margin-top: 10px; }
+  .creator-home--focused .club-homes__summary { font-size: 13px; margin-top: 22px; }
+  .creator-home--focused .club-moments { grid-template-columns: 1fr; gap: 30px; padding-top: 35px; margin-top: 30px; }
+  .creator-home--focused .club-moments__intro h3 { font-size: 35px; }
+  .creator-home--focused .club-moments__intro > p:not(.eyebrow) { margin-block: 17px; font-size: 13px; }
+  .creator-home--focused .club-moments__intro > .club-moments__note { font-size: 11px; margin-bottom: 0; }
+  .creator-home--focused .club-film__moments { justify-self: start; }
+  .creator-home--focused .club-arrival--compact { padding-block: 55px; }
+  .creator-home--focused .club-arrival-card, .creator-home--focused .club-arrival-card:not(:first-child) { padding-block: 22px; }
+  .creator-home--focused .club-arrival-card h3 { font-size: 27px; margin-block: 12px 9px; }
+  .creator-home--focused .club-arrival-card p { min-height: 0; margin-bottom: 13px; font-size: 13px; }
+  .creator-home--focused .club-last-call { padding-block: 60px; }
+  .creator-home--focused .club-last-call h2 { margin-bottom: 28px; }
+}
